@@ -58,14 +58,14 @@ export GOFLAGS="-mod=mod"
 export GIT_TERMINAL_PROMPT=0   # never block on a credential prompt for a bad URL
 
 mkdir -p "$RESULTS" "$WORK" "$GOMODCACHE" "$GOCACHE"
-[ -f "$MANIFEST" ] || echo "name,url,clone,go_list,syft,trivy,cdxgen,gt_lines" > "$MANIFEST"
+[ -f "$MANIFEST" ] || echo "name,url,clone,go_list,syft,trivy,cdxgen,cyclonedx_gomod,gt_lines" > "$MANIFEST"
 
 log() { echo "[$(date '+%F %T')] $*"; }
 
 # git commit + push results/, with network retry/backoff. No-op if nothing changed.
 push_results() {
   [ "$PUSH" = "1" ] || return 0
-  git -C "$BASE" add results 2>/dev/null
+  git -C "$BASE" add "$RESULTS" 2>/dev/null
   if git -C "$BASE" diff --cached --quiet; then return 0; fi
   git -C "$BASE" -c user.email="$AUTHOR_EMAIL" -c user.name="$AUTHOR_NAME" \
       commit -q -m "batch: SBOM results ($processed processed)" || return 0
@@ -117,7 +117,7 @@ while IFS= read -r url || [ -n "$url" ]; do
   done
   if [ "$clone_status" != ok ]; then
     echo "ERROR: clone failed for $clone_url" >> "$errlog"
-    printf '%s,%s,%s,,,,,0\n' "$name" "$url" "$clone_status" >> "$MANIFEST"
+    printf '%s,%s,%s,,,,,,0\n' "$name" "$url" "$clone_status" >> "$MANIFEST"
     log "[$idx] clone FAILED (will retry on next run)"
     continue
   fi
@@ -146,12 +146,18 @@ while IFS= read -r url || [ -n "$url" ]; do
     cx_status=fail; echo "ERROR: cdxgen failed" >> "$errlog"
   fi
 
+  # 5b. cyclonedx-gomod (Go-native CycloneDX tool)
+  cg_status=ok
+  if ! timeout "$TOOL_TIMEOUT" cyclonedx-gomod mod -json -output "$outdir/cyclonedx-gomod_output.json" "$folder" 2>>"$errlog"; then
+    cg_status=fail; echo "ERROR: cyclonedx-gomod failed" >> "$errlog"
+  fi
+
   # 6. cleanup + bookkeeping
   rm -rf "$folder"
   gt_lines=0
   [ -s "$outdir/gt_go_list.txt" ] && gt_lines="$(wc -l < "$outdir/gt_go_list.txt" | tr -d ' ')"
-  printf '%s,%s,%s,%s,%s,%s,%s,%s\n' \
-    "$name" "$url" "$clone_status" "$gl_status" "$sy_status" "$tr_status" "$cx_status" "$gt_lines" >> "$MANIFEST"
+  printf '%s,%s,%s,%s,%s,%s,%s,%s,%s\n' \
+    "$name" "$url" "$clone_status" "$gl_status" "$sy_status" "$tr_status" "$cx_status" "$cg_status" "$gt_lines" >> "$MANIFEST"
   date '+%F %T' > "$outdir/.done"
   in_batch=$((in_batch + 1))
 
