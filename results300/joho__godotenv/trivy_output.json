@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:21ce3ded-ecab-4c8a-9017-07ea0d84b35f",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T07:46:33+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "53108ff9-fe9a-4577-a815-c0d3a11c7171",
+      "type": "application",
+      "name": "/home/user/SBOM/work/joho__godotenv",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "37e260f6-c651-49a9-8734-981aeff9dcd7",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/joho/godotenv",
+      "type": "library",
+      "name": "github.com/joho/godotenv",
+      "purl": "pkg:golang/github.com/joho/godotenv",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/joho/godotenv"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "37e260f6-c651-49a9-8734-981aeff9dcd7",
+      "dependsOn": [
+        "pkg:golang/github.com/joho/godotenv"
+      ]
+    },
+    {
+      "ref": "53108ff9-fe9a-4577-a815-c0d3a11c7171",
+      "dependsOn": [
+        "37e260f6-c651-49a9-8734-981aeff9dcd7"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/joho/godotenv",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

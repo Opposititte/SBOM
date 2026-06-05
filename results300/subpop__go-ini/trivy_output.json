@@ -1,0 +1,116 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:335fc88c-16f7-4e2a-b9ae-0e65c598eb3d",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T07:46:01+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "4bc15687-0206-4233-9755-0e91315ade13",
+      "type": "application",
+      "name": "/home/user/SBOM/work/subpop__go-ini",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "de72848f-6589-4791-9a4c-1c209d2d3121",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/google/go-cmp@v0.7.0",
+      "type": "library",
+      "name": "github.com/google/go-cmp",
+      "version": "v0.7.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/google/go-cmp@v0.7.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/google/go-cmp@v0.7.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/subpop/go-ini",
+      "type": "library",
+      "name": "github.com/subpop/go-ini",
+      "purl": "pkg:golang/github.com/subpop/go-ini",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/subpop/go-ini"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "4bc15687-0206-4233-9755-0e91315ade13",
+      "dependsOn": [
+        "de72848f-6589-4791-9a4c-1c209d2d3121"
+      ]
+    },
+    {
+      "ref": "de72848f-6589-4791-9a4c-1c209d2d3121",
+      "dependsOn": [
+        "pkg:golang/github.com/subpop/go-ini"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/google/go-cmp@v0.7.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/subpop/go-ini",
+      "dependsOn": [
+        "pkg:golang/github.com/google/go-cmp@v0.7.0"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}

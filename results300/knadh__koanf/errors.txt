@@ -1,0 +1,68 @@
+Cloning into '/home/user/SBOM/work/knadh__koanf'...
+go: -mod may only be set to readonly or vendor when in workspace mode, but it is set to "mod"
+	Remove the -mod flag to use the default readonly value, 
+	or set GOWORK=off to disable workspace mode.
+ERROR: 'go list -m all' failed
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-05T07:48:37Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-05T07:48:38Z	INFO	Number of language-specific files	num=33
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/tests
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/maps
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/examples
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/providers/vault
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/providers/structs
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/providers/s3
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/providers/rawbytes
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/providers/posflag
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/providers/parameterstore
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/providers/nats
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/providers/kiln
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/providers/k8smount
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/providers/fs
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/providers/file
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/providers/etcd
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/providers/env
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/providers/consul
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/providers/confmap
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/providers/cliflagv3
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/providers/cliflagv2
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/providers/basicflag
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/providers/azkeyvault
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/providers/appconfig
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/parsers/yaml
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/parsers/toml
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/parsers/nestedtext
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/parsers/kdl
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/parsers/json
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/parsers/huml
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/parsers/hjson
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/parsers/hcl
+go list -deps command has failed for /home/user/SBOM/work/knadh__koanf/parsers/dotenv
+Manually parsing go.mod files. The resultant BOM would be incomplete.
+[ 'Invalid purl pkg:golang/../' ]
+ERROR: cdxgen failed

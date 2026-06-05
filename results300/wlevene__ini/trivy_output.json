@@ -1,0 +1,131 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:d4869ed5-1de5-4818-8f5b-799b3f5a0d7b",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T07:48:10+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "1b2ac24a-95e6-43aa-a223-60cf6683bea4",
+      "type": "application",
+      "name": "/home/user/SBOM/work/wlevene__ini",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "8f67ea1c-b746-4232-8cc7-4638280e4527",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/fsnotify/fsnotify@v1.4.9",
+      "type": "library",
+      "name": "github.com/fsnotify/fsnotify",
+      "version": "v1.4.9",
+      "purl": "pkg:golang/github.com/fsnotify/fsnotify@v1.4.9",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/fsnotify/fsnotify@v1.4.9"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/wlevene/ini",
+      "type": "library",
+      "name": "github.com/wlevene/ini",
+      "purl": "pkg:golang/github.com/wlevene/ini",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/wlevene/ini"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.0.0-20191005200804-aed5e4c7ecf9",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.0.0-20191005200804-aed5e4c7ecf9",
+      "purl": "pkg:golang/golang.org/x/sys@v0.0.0-20191005200804-aed5e4c7ecf9",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sys@v0.0.0-20191005200804-aed5e4c7ecf9"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "1b2ac24a-95e6-43aa-a223-60cf6683bea4",
+      "dependsOn": [
+        "8f67ea1c-b746-4232-8cc7-4638280e4527"
+      ]
+    },
+    {
+      "ref": "8f67ea1c-b746-4232-8cc7-4638280e4527",
+      "dependsOn": [
+        "pkg:golang/github.com/wlevene/ini"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/fsnotify/fsnotify@v1.4.9",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/wlevene/ini",
+      "dependsOn": [
+        "pkg:golang/github.com/fsnotify/fsnotify@v1.4.9",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20191005200804-aed5e4c7ecf9"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.0.0-20191005200804-aed5e4c7ecf9",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
