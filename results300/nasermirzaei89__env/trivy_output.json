@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:32c44526-7db4-461d-853a-60dbf625a206",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T07:49:45+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "127c8514-5fb9-4c83-90ce-e0013c8aab87",
+      "type": "application",
+      "name": "/home/user/SBOM/work/nasermirzaei89__env",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "9448604c-8144-4a98-92a0-b2b7c560d508",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/nasermirzaei89/env",
+      "type": "library",
+      "name": "github.com/nasermirzaei89/env",
+      "purl": "pkg:golang/github.com/nasermirzaei89/env",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/nasermirzaei89/env"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "127c8514-5fb9-4c83-90ce-e0013c8aab87",
+      "dependsOn": [
+        "9448604c-8144-4a98-92a0-b2b7c560d508"
+      ]
+    },
+    {
+      "ref": "9448604c-8144-4a98-92a0-b2b7c560d508",
+      "dependsOn": [
+        "pkg:golang/github.com/nasermirzaei89/env"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/nasermirzaei89/env",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
