@@ -44,3 +44,19 @@ awesome-go には約2,000〜2,500件のリポジトリがあります。1件あ�
 JSON 全体で約1.5〜2GB（ディスクにも GitHub にも問題ありません）。主なコストは**時間**で、
 1件あたり数十秒 ⇒ 合計で数時間になります。複数のセッションに分けて実行し、再開機能で
 継続するのがよいでしょう。
+
+## 追加候補の SBOM ツール（awesome-go = Go 専用スキャン向け）
+現在は syft / trivy / cdxgen（いずれも多言語対応の汎用スキャナ）。Go 精度の研究として
+**1〜2個**足すなら、以下が有力です。
+
+1. **cyclonedx-gomod**（CycloneDX 公式の Go 専用ツール）— **最優先で推奨**。
+   Go ツールチェイン（`go list`/`go mod`）を直接使うため、`go list -m all` にほぼ一致する高精度が
+   期待できる。汎用スキャナ（syft/trivy/cdxgen）の「上限の基準（best case）」として比較でき、
+   「Go ネイティブ vs 汎用」という論文の主張を強くできる。
+   例: `cyclonedx-gomod mod -json -output cdxgomod_output.json <folder>`
+2. **Microsoft sbom-tool**（SPDX 形式）または **kubernetes-sigs/bom**（SPDX）— 任意の第2候補。
+   出力形式（SPDX）と実装の多様性を加えられる。purl ではなく SPDX の外部参照で Go モジュールを表すため、
+   比較スクリプト側に SPDX パーサを足す必要がある点に注意。
+
+注意: cyclonedx-gomod は**ビルド可能な Go モジュール**（`go.mod` 必須）を前提とする。
+非 Go / 非モジュールのリポジトリでは失敗するので、`run_batch.sh` と同様に「失敗は記録して継続」する。
