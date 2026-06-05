@@ -140,11 +140,14 @@ while IFS= read -r url || [ -n "$url" ]; do
     tr_status=fail; echo "ERROR: trivy failed" >> "$errlog"
   fi
 
-  # 5. cdxgen
+  # 5. cdxgen — restricted to Go (`-t go`) to avoid multi-language deep analysis,
+  #    which otherwise builds multi-GB Python venvs in /tmp and fills the disk.
+  #    Our metric only counts pkg:golang components, so Go output is unchanged.
   cx_status=ok
-  if ! timeout "$TOOL_TIMEOUT" cdxgen "$folder" -o "$outdir/cdxgen_output.json" >>"$errlog" 2>&1; then
+  if ! timeout "$TOOL_TIMEOUT" cdxgen -t go "$folder" -o "$outdir/cdxgen_output.json" >>"$errlog" 2>&1; then
     cx_status=fail; echo "ERROR: cdxgen failed" >> "$errlog"
   fi
+  rm -rf /tmp/cdxgen-* /tmp/pip-* 2>/dev/null   # bound cdxgen/pip scratch
 
   # 5b. cyclonedx-gomod (Go-native CycloneDX tool)
   cg_status=ok
