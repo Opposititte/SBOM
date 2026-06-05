@@ -98,11 +98,13 @@ const evalRepos = Object.keys(results);
 const pct = x => (x * 100).toFixed(1);
 
 // per-repo CSV (always written)
-const csv = ['repo,gt,tool,predicted,tp,fp,fn,precision,recall,f1,precision_ver,recall_ver,f1_ver'];
+const csv = ['repo,gt,tool,predicted,tp,fp,fn,precision,recall,f1,tp_ver,fp_ver,fn_ver,precision_ver,recall_ver,f1_ver'];
 for (const repo of evalRepos) for (const tool of TOOLS) {
   const t = results[repo].tools[tool], n = t.name, v = t.version;
+  const fpv = t.predicted - v.tp, fnv = results[repo].gt_count - v.tp;
   csv.push([repo, results[repo].gt_count, tool, t.predicted, t.tp, t.fp, t.fn,
     n.p.toFixed(4), n.r.toFixed(4), n.f1.toFixed(4),
+    v.tp, fpv, fnv,
     v.p.toFixed(4), v.r.toFixed(4), v.f1.toFixed(4)].join(','));
 }
 fs.writeFileSync(path.join(RESULTS, 'metrics.csv'), csv.join('\n') + '\n');
@@ -132,9 +134,28 @@ for (const tool of TOOLS) {
   }
   const k = evalRepos.length || 1;
   const micro = prf(TP, FP, FN);
-  averages[tool] = { macro: { p: mp / k, r: mr / k, f1: mf / k }, micro, totals: { TP, FP, FN } };
-  console.log(`  ${tool.padEnd(7)} ${pct(mp / k).padStart(7)} ${pct(mr / k).padStart(7)} ${pct(mf / k).padStart(8)} | ` +
+  // version-level (strict: path AND version) aggregates
+  let vmp = 0, vmr = 0, vmf = 0, vTP = 0, vFP = 0, vFN = 0;
+  for (const repo of evalRepos) {
+    const t = results[repo].tools[tool], v = t.version, gt = results[repo].gt_count;
+    vmp += v.p; vmr += v.r; vmf += v.f1;
+    vTP += v.tp; vFP += t.predicted - v.tp; vFN += gt - v.tp;
+  }
+  const vmicro = prf(vTP, vFP, vFN);
+  averages[tool] = {
+    macro: { p: mp / k, r: mr / k, f1: mf / k }, micro, totals: { TP, FP, FN },
+    version_macro: { p: vmp / k, r: vmr / k, f1: vmf / k }, version_micro: vmicro,
+    version_totals: { TP: vTP, FP: vFP, FN: vFN },
+  };
+  console.log(`  ${tool.padEnd(15)} ${pct(mp / k).padStart(7)} ${pct(mr / k).padStart(7)} ${pct(mf / k).padStart(8)} | ` +
     `${pct(micro.p).padStart(7)} ${pct(micro.r).padStart(7)} ${pct(micro.f1).padStart(8)}`);
+}
+console.log(`\n=== version-level (strict) — aggregate TP/FP/FN over ${evalRepos.length} repos ===`);
+console.log('  tool               TP     FP     FN | macro-F1 | micro-P micro-R micro-F1');
+for (const tool of TOOLS) {
+  const a = averages[tool], vt = a.version_totals, vm = a.version_micro;
+  console.log(`  ${tool.padEnd(15)} ${String(vt.TP).padStart(6)} ${String(vt.FP).padStart(6)} ${String(vt.FN).padStart(6)} | ` +
+    `${pct(a.version_macro.f1).padStart(7)}  | ${pct(vm.p).padStart(7)} ${pct(vm.r).padStart(7)} ${pct(vm.f1).padStart(8)}`);
 }
 
 fs.writeFileSync(path.join(RESULTS, 'metrics.json'),
