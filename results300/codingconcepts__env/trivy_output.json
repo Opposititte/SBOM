@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:3c20adfa-b179-499d-bcf7-57183c6be84e",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T07:36:03+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "cff46f2e-620f-4d33-8b23-af13827b29d8",
+      "type": "application",
+      "name": "/home/user/SBOM/work/codingconcepts__env",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "d1aac498-dd12-4a51-9e89-b0bf02ac2a4d",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/codingconcepts/env",
+      "type": "library",
+      "name": "github.com/codingconcepts/env",
+      "purl": "pkg:golang/github.com/codingconcepts/env",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/codingconcepts/env"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "cff46f2e-620f-4d33-8b23-af13827b29d8",
+      "dependsOn": [
+        "d1aac498-dd12-4a51-9e89-b0bf02ac2a4d"
+      ]
+    },
+    {
+      "ref": "d1aac498-dd12-4a51-9e89-b0bf02ac2a4d",
+      "dependsOn": [
+        "pkg:golang/github.com/codingconcepts/env"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/codingconcepts/env",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:2261d857-bd0f-42d8-bcdb-6d8dffc56388",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T07:36:08+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "4ecbe5a3-ccff-4d12-ac70-78a6ab4f67e5",
+      "type": "application",
+      "name": "/home/user/SBOM/work/integrii__flaggy",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "4fd1dc8a-81c2-4d24-9b55-a12f49836e70",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/integrii/flaggy",
+      "type": "library",
+      "name": "github.com/integrii/flaggy",
+      "purl": "pkg:golang/github.com/integrii/flaggy",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/integrii/flaggy"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "4ecbe5a3-ccff-4d12-ac70-78a6ab4f67e5",
+      "dependsOn": [
+        "4fd1dc8a-81c2-4d24-9b55-a12f49836e70"
+      ]
+    },
+    {
+      "ref": "4fd1dc8a-81c2-4d24-9b55-a12f49836e70",
+      "dependsOn": [
+        "pkg:golang/github.com/integrii/flaggy"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/integrii/flaggy",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

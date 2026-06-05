@@ -1,0 +1,116 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:f5d27446-91cd-47d7-a11b-c1216d2c7acf",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T07:36:14+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "09a87123-c315-4812-9278-f6d6e0160a7a",
+      "type": "application",
+      "name": "/home/user/SBOM/work/sgreben__flagvar",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "2c9f4ed5-768d-4561-af15-0c83943eac4c",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gobwas/glob@v0.2.3",
+      "type": "library",
+      "name": "github.com/gobwas/glob",
+      "version": "v0.2.3",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/gobwas/glob@v0.2.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gobwas/glob@v0.2.3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/sgreben/flagvar",
+      "type": "library",
+      "name": "github.com/sgreben/flagvar",
+      "purl": "pkg:golang/github.com/sgreben/flagvar",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/sgreben/flagvar"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "09a87123-c315-4812-9278-f6d6e0160a7a",
+      "dependsOn": [
+        "2c9f4ed5-768d-4561-af15-0c83943eac4c"
+      ]
+    },
+    {
+      "ref": "2c9f4ed5-768d-4561-af15-0c83943eac4c",
+      "dependsOn": [
+        "pkg:golang/github.com/sgreben/flagvar"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/gobwas/glob@v0.2.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/sgreben/flagvar",
+      "dependsOn": [
+        "pkg:golang/github.com/gobwas/glob@v0.2.3"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}

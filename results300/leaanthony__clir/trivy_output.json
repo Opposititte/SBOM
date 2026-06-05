@@ -1,0 +1,143 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:8c7f20cd-693d-4ebc-87f5-169b32df77c5",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T07:34:40+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "b3188bf6-d0f3-486c-a0bb-bfb2b1feba6f",
+      "type": "application",
+      "name": "/home/user/SBOM/work/leaanthony__clir",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "11c8ae9d-c954-48ef-ad4f-0b1e63584b89",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "28c2ec52-85f7-4173-8ad2-900b9ee9bbb9",
+      "type": "application",
+      "name": "website/requirements.txt",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/leaanthony/clir",
+      "type": "library",
+      "name": "github.com/leaanthony/clir",
+      "purl": "pkg:golang/github.com/leaanthony/clir",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/leaanthony/clir"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/mkdocs-material-extensions@1.1.1",
+      "type": "library",
+      "name": "mkdocs-material-extensions",
+      "version": "1.1.1",
+      "purl": "pkg:pypi/mkdocs-material-extensions@1.1.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/mkdocs-material@9.0.6",
+      "type": "library",
+      "name": "mkdocs-material",
+      "version": "9.0.6",
+      "purl": "pkg:pypi/mkdocs-material@9.0.6",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "11c8ae9d-c954-48ef-ad4f-0b1e63584b89",
+      "dependsOn": [
+        "pkg:golang/github.com/leaanthony/clir"
+      ]
+    },
+    {
+      "ref": "28c2ec52-85f7-4173-8ad2-900b9ee9bbb9",
+      "dependsOn": [
+        "pkg:pypi/mkdocs-material-extensions@1.1.1",
+        "pkg:pypi/mkdocs-material@9.0.6"
+      ]
+    },
+    {
+      "ref": "b3188bf6-d0f3-486c-a0bb-bfb2b1feba6f",
+      "dependsOn": [
+        "11c8ae9d-c954-48ef-ad4f-0b1e63584b89",
+        "28c2ec52-85f7-4173-8ad2-900b9ee9bbb9"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/leaanthony/clir",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/mkdocs-material-extensions@1.1.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/mkdocs-material@9.0.6",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

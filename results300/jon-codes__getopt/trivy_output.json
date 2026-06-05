@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:9014260e-1797-4805-8bea-bc9014a8c0f3",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T07:36:32+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "7edf7c29-c74b-4eda-b739-08dc844bfd88",
+      "type": "application",
+      "name": "/home/user/SBOM/work/jon-codes__getopt",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "fb4d0a4d-b61e-4764-b9b4-45a375acf76a",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jonathonwebb/getopt",
+      "type": "library",
+      "name": "github.com/jonathonwebb/getopt",
+      "purl": "pkg:golang/github.com/jonathonwebb/getopt",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/jonathonwebb/getopt"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/pgregory.net/rapid@v1.1.0",
+      "type": "library",
+      "name": "pgregory.net/rapid",
+      "version": "v1.1.0",
+      "purl": "pkg:golang/pgregory.net/rapid@v1.1.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "pgregory.net/rapid@v1.1.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "7edf7c29-c74b-4eda-b739-08dc844bfd88",
+      "dependsOn": [
+        "fb4d0a4d-b61e-4764-b9b4-45a375acf76a"
+      ]
+    },
+    {
+      "ref": "fb4d0a4d-b61e-4764-b9b4-45a375acf76a",
+      "dependsOn": [
+        "pkg:golang/github.com/jonathonwebb/getopt"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/jonathonwebb/getopt",
+      "dependsOn": [
+        "pkg:golang/pgregory.net/rapid@v1.1.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/pgregory.net/rapid@v1.1.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
