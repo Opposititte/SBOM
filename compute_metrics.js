@@ -19,7 +19,7 @@ const fs = require('fs');
 const path = require('path');
 
 const RESULTS = process.env.RESULTS || 'results';
-const TOOLS = ['syft', 'trivy', 'cdxgen'];
+const TOOLS = ['syft', 'trivy', 'cdxgen', 'cyclonedx-gomod'];
 const VERBOSE = process.env.VERBOSE === '1';
 
 function norm(p) { try { p = decodeURIComponent(p); } catch (e) {} return p.toLowerCase(); }

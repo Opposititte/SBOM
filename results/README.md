@@ -10,24 +10,26 @@
 - syft 1.45.0: `syft <folder> -o cyclonedx-json` → `syft_output.json`
 - trivy 0.71.0: `trivy fs <folder> --format cyclonedx` → `trivy_output.json`
 - cdxgen 12.5.0: `cdxgen <folder> -o cdxgen_output.json`
+- cyclonedx-gomod 1.10.0: `cyclonedx-gomod mod -json -output cyclonedx-gomod_output.json <folder>`（Go 専用ツール）
 
 環境: go 1.24.7（各リポジトリの go.mod に従い 1.25.0 へ自動更新）, node 22.22.2。
 各リポジトリの診断出力は `errors.txt` に保存（多くは情報メッセージであり、失敗ではありません）。
 
-## 検出コンポーネント数 (CycloneDX `components[]`)
+## 検出した Go モジュール数（`pkg:golang/` のみ）
 
-| リポジトリ | go list（モジュール数） | syft | trivy | cdxgen |
-|--------|------------------:|-----:|------:|-------:|
-| gin    | 57                |  60  |  37   |  28    |
-| cobra  | 7                 |  16  |   8   |  10    |
-| hugo   | 437               | 232  | 191   | 120 *  |
-| frp    | 146               | 171  | 137   | 597    |
-| gorm   | 9                 |  59  |  37   |  11    |
-| ollama | 178               | 495  | 437   | 966    |
+| リポジトリ | go list（正解の依存数） | syft | trivy | cdxgen | cyclonedx-gomod |
+|--------|------------------:|-----:|------:|-------:|----------------:|
+| gin    | 56                |  40  |  35   |  18    |  28  |
+| cobra  |  6                |   6  |   6   |   4    |   5  |
+| hugo   | 436               | 202  | 187   | 106 *  | 183  |
+| frp    | 145               |  83  |  72   |  73    |  69  |
+| gorm   |  8                |  29  |  29   |   3    |   3  |
+| ollama | 177               | 113  |  95   |  71    |  89  |
 
-`go list -m all` は推移的なモジュールのビルドリスト全体（メインモジュール含む）を数えます。
-一方ツールは CycloneDX コンポーネント数で、Go 以外の成果物（ollama の C/C++、hugo の npm 等）を
-含みうるため、生の数値は直接は比較できません。
+上表は `pkg:golang/` コンポーネントのみ（メインモジュール除外）。syft/trivy/cdxgen は Go 以外
+（npm, GitHub-Actions 等）も検出しますが、ここでは Go モジュールだけを数えています。
+cyclonedx-gomod は「実際に import される本番モジュール」のみを報告するため、テスト依存を含む
+`go list` より少なくなります。
 
 → Precision・Recall・F1 の分析は `metrics.md` と `metrics.csv` を参照。
 → 計算方法の詳しい説明は `METHOD.md` を参照。
