@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:a23dbf61-42f5-44ad-b2b0-2af818a43b98",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T07:05:44+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "e25337cd-fce5-4b17-93ad-40fd6c278249",
+      "type": "application",
+      "name": "/home/user/SBOM/work/vkuznet__x509proxy",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "c44be50d-753f-4298-b770-079375fd6a44",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/vkuznet/x509proxy",
+      "type": "library",
+      "name": "github.com/vkuznet/x509proxy",
+      "purl": "pkg:golang/github.com/vkuznet/x509proxy",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/vkuznet/x509proxy"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "c44be50d-753f-4298-b770-079375fd6a44",
+      "dependsOn": [
+        "pkg:golang/github.com/vkuznet/x509proxy"
+      ]
+    },
+    {
+      "ref": "e25337cd-fce5-4b17-93ad-40fd6c278249",
+      "dependsOn": [
+        "c44be50d-753f-4298-b770-079375fd6a44"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/vkuznet/x509proxy",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

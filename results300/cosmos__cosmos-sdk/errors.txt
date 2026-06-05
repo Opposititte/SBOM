@@ -1,0 +1,48 @@
+Cloning into '/home/user/SBOM/work/cosmos__cosmos-sdk'...
+Updating files:  58% (2536/4311)Updating files:  59% (2544/4311)Updating files:  60% (2587/4311)Updating files:  61% (2630/4311)Updating files:  62% (2673/4311)Updating files:  63% (2716/4311)Updating files:  64% (2760/4311)Updating files:  65% (2803/4311)Updating files:  66% (2846/4311)Updating files:  67% (2889/4311)Updating files:  68% (2932/4311)Updating files:  69% (2975/4311)Updating files:  70% (3018/4311)Updating files:  71% (3061/4311)Updating files:  72% (3104/4311)Updating files:  73% (3148/4311)Updating files:  74% (3191/4311)Updating files:  75% (3234/4311)Updating files:  76% (3277/4311)Updating files:  77% (3320/4311)Updating files:  78% (3363/4311)Updating files:  79% (3406/4311)Updating files:  80% (3449/4311)Updating files:  81% (3492/4311)Updating files:  82% (3536/4311)Updating files:  83% (3579/4311)Updating files:  84% (3622/4311)Updating files:  85% (3665/4311)Updating files:  86% (3708/4311)Updating files:  87% (3751/4311)Updating files:  88% (3794/4311)Updating files:  89% (3837/4311)Updating files:  90% (3880/4311)Updating files:  91% (3924/4311)Updating files:  92% (3967/4311)Updating files:  93% (4010/4311)Updating files:  94% (4053/4311)Updating files:  95% (4096/4311)Updating files:  96% (4139/4311)Updating files:  97% (4182/4311)Updating files:  98% (4225/4311)Updating files:  99% (4268/4311)Updating files: 100% (4311/4311)Updating files: 100% (4311/4311), done.
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-05T07:19:16Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-05T07:19:16Z	INFO	[npm] Run "npm install" to collect the license information of packages	dir="docs/node_modules"
+2026-06-05T07:19:18Z	INFO	Suppressing dependencies for development and testing. To display them, try the '--include-dev-deps' flag.
+2026-06-05T07:19:18Z	INFO	Number of language-specific files	num=24
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
+/opt/node22/lib/node_modules/@cyclonedx/cdxgen/node_modules/packageurl-js/src/package-url.js:43
+        throw new Error('Invalid purl: "' + key + '" is a required field.');
+              ^
+
+Error: Invalid purl: "name" is a required field.
+    at /opt/node22/lib/node_modules/@cyclonedx/cdxgen/node_modules/packageurl-js/src/package-url.js:43:15
+    at Array.forEach (<anonymous>)
+    at new PackageURL (/opt/node22/lib/node_modules/@cyclonedx/cdxgen/node_modules/packageurl-js/src/package-url.js:41:27)
+    at getGoPkgComponent (file:///opt/node22/lib/node_modules/@cyclonedx/cdxgen/lib/helpers/utils.js:10571:22)
+    at parseGoModData (file:///opt/node22/lib/node_modules/@cyclonedx/cdxgen/lib/helpers/utils.js:10721:31)
+    at async parseGoModGraph (file:///opt/node22/lib/node_modules/@cyclonedx/cdxgen/lib/helpers/utils.js:10938:19)
+    at async createGoBom (file:///opt/node22/lib/node_modules/@cyclonedx/cdxgen/lib/cli/index.js:5299:28)
+    at async createBom (file:///opt/node22/lib/node_modules/@cyclonedx/cdxgen/lib/cli/index.js:10325:12)
+    at async file:///opt/node22/lib/node_modules/@cyclonedx/cdxgen/bin/cdxgen.js:1491:18
+
+Node.js v20.20.2
+ERROR: cdxgen failed

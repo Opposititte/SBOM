@@ -1,0 +1,131 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:7863c3b0-ba93-48eb-96ca-c1ff9fd5b2ff",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T07:04:53+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "e73161ef-c79d-41f6-a2e3-472e5a8e9b97",
+      "type": "application",
+      "name": "/home/user/SBOM/work/adam-hanna__sessions",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "a8a4aa69-8d52-46dc-a6ab-fdad34949957",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/adam-hanna/sessions",
+      "type": "library",
+      "name": "github.com/adam-hanna/sessions",
+      "purl": "pkg:golang/github.com/adam-hanna/sessions",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/adam-hanna/sessions"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/garyburd/redigo@v0.0.0-20170216214944-0d253a66e6e1",
+      "type": "library",
+      "name": "github.com/garyburd/redigo",
+      "version": "v0.0.0-20170216214944-0d253a66e6e1",
+      "purl": "pkg:golang/github.com/garyburd/redigo@v0.0.0-20170216214944-0d253a66e6e1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/garyburd/redigo@v0.0.0-20170216214944-0d253a66e6e1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/google/uuid@v1.1.1",
+      "type": "library",
+      "name": "github.com/google/uuid",
+      "version": "v1.1.1",
+      "purl": "pkg:golang/github.com/google/uuid@v1.1.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/google/uuid@v1.1.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "a8a4aa69-8d52-46dc-a6ab-fdad34949957",
+      "dependsOn": [
+        "pkg:golang/github.com/adam-hanna/sessions"
+      ]
+    },
+    {
+      "ref": "e73161ef-c79d-41f6-a2e3-472e5a8e9b97",
+      "dependsOn": [
+        "a8a4aa69-8d52-46dc-a6ab-fdad34949957"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/adam-hanna/sessions",
+      "dependsOn": [
+        "pkg:golang/github.com/garyburd/redigo@v0.0.0-20170216214944-0d253a66e6e1",
+        "pkg:golang/github.com/google/uuid@v1.1.1"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/garyburd/redigo@v0.0.0-20170216214944-0d253a66e6e1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/google/uuid@v1.1.1",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:1fafd436-203a-4dc8-a624-fac4cca685df",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T07:22:32+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "861b13fd-4237-4fd9-9abe-02903b8f01cf",
+      "type": "application",
+      "name": "/home/user/SBOM/work/gempir__go-twitch-irc",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "1d245c64-c9b6-4149-aede-91027c0da404",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gempir/go-twitch-irc/v4",
+      "type": "library",
+      "name": "github.com/gempir/go-twitch-irc/v4",
+      "purl": "pkg:golang/github.com/gempir/go-twitch-irc/v4",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gempir/go-twitch-irc/v4"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "1d245c64-c9b6-4149-aede-91027c0da404",
+      "dependsOn": [
+        "pkg:golang/github.com/gempir/go-twitch-irc/v4"
+      ]
+    },
+    {
+      "ref": "861b13fd-4237-4fd9-9abe-02903b8f01cf",
+      "dependsOn": [
+        "1d245c64-c9b6-4149-aede-91027c0da404"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/gempir/go-twitch-irc/v4",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

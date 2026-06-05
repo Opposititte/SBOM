@@ -1,0 +1,131 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:d15bebaa-9fa7-4bbb-870b-db032a39b45d",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T07:24:42+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "c5a47e20-149e-4960-8b7c-01baa42db024",
+      "type": "application",
+      "name": "/home/user/SBOM/work/rekurt__ymsdk",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "95b4956f-ad8c-4eb2-8a7f-b3da3a0b860d",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/rekurt/ymsdk",
+      "type": "library",
+      "name": "github.com/rekurt/ymsdk",
+      "purl": "pkg:golang/github.com/rekurt/ymsdk",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/rekurt/ymsdk"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/go.uber.org/multierr@v1.11.0",
+      "type": "library",
+      "name": "go.uber.org/multierr",
+      "version": "v1.11.0",
+      "purl": "pkg:golang/go.uber.org/multierr@v1.11.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "go.uber.org/multierr@v1.11.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/go.uber.org/zap@v1.27.1",
+      "type": "library",
+      "name": "go.uber.org/zap",
+      "version": "v1.27.1",
+      "purl": "pkg:golang/go.uber.org/zap@v1.27.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "go.uber.org/zap@v1.27.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "95b4956f-ad8c-4eb2-8a7f-b3da3a0b860d",
+      "dependsOn": [
+        "pkg:golang/github.com/rekurt/ymsdk"
+      ]
+    },
+    {
+      "ref": "c5a47e20-149e-4960-8b7c-01baa42db024",
+      "dependsOn": [
+        "95b4956f-ad8c-4eb2-8a7f-b3da3a0b860d"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/rekurt/ymsdk",
+      "dependsOn": [
+        "pkg:golang/go.uber.org/multierr@v1.11.0",
+        "pkg:golang/go.uber.org/zap@v1.27.1"
+      ]
+    },
+    {
+      "ref": "pkg:golang/go.uber.org/multierr@v1.11.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/go.uber.org/zap@v1.27.1",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
