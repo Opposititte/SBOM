@@ -1,0 +1,153 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:801c42df-3fa6-4fee-ab96-b935e3ad1169",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T06:56:54+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "b4a9b668-2fc2-4e11-b8d2-66dd8b16cd9a",
+      "type": "application",
+      "name": "/home/user/SBOM/work/mewkiz__flac",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "696eeacd-7c40-44bb-9b43-fd1981b57031",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/icza/bitio@v1.1.0",
+      "type": "library",
+      "name": "github.com/icza/bitio",
+      "version": "v1.1.0",
+      "purl": "pkg:golang/github.com/icza/bitio@v1.1.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/icza/bitio@v1.1.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mewkiz/flac",
+      "type": "library",
+      "name": "github.com/mewkiz/flac",
+      "purl": "pkg:golang/github.com/mewkiz/flac",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mewkiz/flac"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mewkiz/pkg@v0.0.0-20250417130911-3f050ff8c56d",
+      "type": "library",
+      "name": "github.com/mewkiz/pkg",
+      "version": "v0.0.0-20250417130911-3f050ff8c56d",
+      "purl": "pkg:golang/github.com/mewkiz/pkg@v0.0.0-20250417130911-3f050ff8c56d",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mewkiz/pkg@v0.0.0-20250417130911-3f050ff8c56d"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mewpkg/term@v0.0.0-20241026122259-37a80af23985",
+      "type": "library",
+      "name": "github.com/mewpkg/term",
+      "version": "v0.0.0-20241026122259-37a80af23985",
+      "purl": "pkg:golang/github.com/mewpkg/term@v0.0.0-20241026122259-37a80af23985",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mewpkg/term@v0.0.0-20241026122259-37a80af23985"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "696eeacd-7c40-44bb-9b43-fd1981b57031",
+      "dependsOn": [
+        "pkg:golang/github.com/mewkiz/flac"
+      ]
+    },
+    {
+      "ref": "b4a9b668-2fc2-4e11-b8d2-66dd8b16cd9a",
+      "dependsOn": [
+        "696eeacd-7c40-44bb-9b43-fd1981b57031"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/icza/bitio@v1.1.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/mewkiz/flac",
+      "dependsOn": [
+        "pkg:golang/github.com/icza/bitio@v1.1.0",
+        "pkg:golang/github.com/mewkiz/pkg@v0.0.0-20250417130911-3f050ff8c56d",
+        "pkg:golang/github.com/mewpkg/term@v0.0.0-20241026122259-37a80af23985"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/mewkiz/pkg@v0.0.0-20250417130911-3f050ff8c56d",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/mewpkg/term@v0.0.0-20241026122259-37a80af23985",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

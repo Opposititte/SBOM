@@ -1,0 +1,160 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:22f3d08c-b02a-42d0-8fca-a6a180884fae",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T06:58:54+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "cc88b55f-299d-4d8f-8c29-07d941351016",
+      "type": "application",
+      "name": "/home/user/SBOM/work/hsluoyz__casbin",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "d910d820-f7ec-4a9a-bd8b-927467c84296",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/bmatcuk/doublestar/v4@v4.6.1",
+      "type": "library",
+      "name": "github.com/bmatcuk/doublestar/v4",
+      "version": "v4.6.1",
+      "purl": "pkg:golang/github.com/bmatcuk/doublestar/v4@v4.6.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/bmatcuk/doublestar/v4@v4.6.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/casbin/casbin/v3",
+      "type": "library",
+      "name": "github.com/casbin/casbin/v3",
+      "purl": "pkg:golang/github.com/casbin/casbin/v3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/casbin/casbin/v3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/casbin/govaluate@v1.3.0",
+      "type": "library",
+      "name": "github.com/casbin/govaluate",
+      "version": "v1.3.0",
+      "purl": "pkg:golang/github.com/casbin/govaluate@v1.3.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/casbin/govaluate@v1.3.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/google/uuid@v1.6.0",
+      "type": "library",
+      "name": "github.com/google/uuid",
+      "version": "v1.6.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/google/uuid@v1.6.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/google/uuid@v1.6.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "cc88b55f-299d-4d8f-8c29-07d941351016",
+      "dependsOn": [
+        "d910d820-f7ec-4a9a-bd8b-927467c84296"
+      ]
+    },
+    {
+      "ref": "d910d820-f7ec-4a9a-bd8b-927467c84296",
+      "dependsOn": [
+        "pkg:golang/github.com/casbin/casbin/v3"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/bmatcuk/doublestar/v4@v4.6.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/casbin/casbin/v3",
+      "dependsOn": [
+        "pkg:golang/github.com/bmatcuk/doublestar/v4@v4.6.1",
+        "pkg:golang/github.com/casbin/govaluate@v1.3.0",
+        "pkg:golang/github.com/google/uuid@v1.6.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/casbin/govaluate@v1.3.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/google/uuid@v1.6.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

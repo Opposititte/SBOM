@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:ff655249-b096-4e63-b48a-003f10b308f1",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T06:57:25+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "b17ba58b-3e0a-4f67-870a-ad8409ab6eee",
+      "type": "application",
+      "name": "/home/user/SBOM/work/gen2brain__malgo",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "acfa192b-a261-4588-8135-0efc472f2b21",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gen2brain/malgo",
+      "type": "library",
+      "name": "github.com/gen2brain/malgo",
+      "purl": "pkg:golang/github.com/gen2brain/malgo",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gen2brain/malgo"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "acfa192b-a261-4588-8135-0efc472f2b21",
+      "dependsOn": [
+        "pkg:golang/github.com/gen2brain/malgo"
+      ]
+    },
+    {
+      "ref": "b17ba58b-3e0a-4f67-870a-ad8409ab6eee",
+      "dependsOn": [
+        "acfa192b-a261-4588-8135-0efc472f2b21"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/gen2brain/malgo",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

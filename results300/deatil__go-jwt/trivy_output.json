@@ -1,0 +1,131 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:e48a13b4-17fc-42d0-8254-582443bc68b8",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T06:59:33+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "485eec3d-986e-404c-a95c-33de533264ac",
+      "type": "application",
+      "name": "/home/user/SBOM/work/deatil__go-jwt",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "1e64fae3-4d42-4428-8257-07b0da332ad9",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/deatil/go-jwt",
+      "type": "library",
+      "name": "github.com/deatil/go-jwt",
+      "purl": "pkg:golang/github.com/deatil/go-jwt",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/deatil/go-jwt"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/crypto@v0.24.0",
+      "type": "library",
+      "name": "golang.org/x/crypto",
+      "version": "v0.24.0",
+      "purl": "pkg:golang/golang.org/x/crypto@v0.24.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/crypto@v0.24.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.21.0",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.21.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.21.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sys@v0.21.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "1e64fae3-4d42-4428-8257-07b0da332ad9",
+      "dependsOn": [
+        "pkg:golang/github.com/deatil/go-jwt"
+      ]
+    },
+    {
+      "ref": "485eec3d-986e-404c-a95c-33de533264ac",
+      "dependsOn": [
+        "1e64fae3-4d42-4428-8257-07b0da332ad9"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/deatil/go-jwt",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/crypto@v0.24.0",
+        "pkg:golang/golang.org/x/sys@v0.21.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/crypto@v0.24.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.21.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:af3a6785-96e5-4374-8b37-f86f783785f4",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T06:57:48+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "e5bf4314-5098-469d-bf7b-b4afe9bf9011",
+      "type": "application",
+      "name": "/home/user/SBOM/work/gordonklaus__portaudio",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "918f8e8e-d2cd-4927-9744-456652129fca",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/bobertlo/go-mpg123@v0.0.0-20211210004329-c83f21a0fd39",
+      "type": "library",
+      "name": "github.com/bobertlo/go-mpg123",
+      "version": "v0.0.0-20211210004329-c83f21a0fd39",
+      "purl": "pkg:golang/github.com/bobertlo/go-mpg123@v0.0.0-20211210004329-c83f21a0fd39",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/bobertlo/go-mpg123@v0.0.0-20211210004329-c83f21a0fd39"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gordonklaus/portaudio",
+      "type": "library",
+      "name": "github.com/gordonklaus/portaudio",
+      "purl": "pkg:golang/github.com/gordonklaus/portaudio",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gordonklaus/portaudio"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "918f8e8e-d2cd-4927-9744-456652129fca",
+      "dependsOn": [
+        "pkg:golang/github.com/gordonklaus/portaudio"
+      ]
+    },
+    {
+      "ref": "e5bf4314-5098-469d-bf7b-b4afe9bf9011",
+      "dependsOn": [
+        "918f8e8e-d2cd-4927-9744-456652129fca"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/bobertlo/go-mpg123@v0.0.0-20211210004329-c83f21a0fd39",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/gordonklaus/portaudio",
+      "dependsOn": [
+        "pkg:golang/github.com/bobertlo/go-mpg123@v0.0.0-20211210004329-c83f21a0fd39"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}
