@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:ef97fe01-6940-47f3-9c00-aac1164dcb76",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T07:43:52+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "6ae9b64a-d726-42e8-8da2-0e04aa7ccca8",
+      "type": "application",
+      "name": "/home/user/SBOM/work/syntaqx__env",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "8884068f-1c6b-4c9b-bf36-a307862e5ec4",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/syntaqx/env",
+      "type": "library",
+      "name": "github.com/syntaqx/env",
+      "purl": "pkg:golang/github.com/syntaqx/env",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/syntaqx/env"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "6ae9b64a-d726-42e8-8da2-0e04aa7ccca8",
+      "dependsOn": [
+        "8884068f-1c6b-4c9b-bf36-a307862e5ec4"
+      ]
+    },
+    {
+      "ref": "8884068f-1c6b-4c9b-bf36-a307862e5ec4",
+      "dependsOn": [
+        "pkg:golang/github.com/syntaqx/env"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/syntaqx/env",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

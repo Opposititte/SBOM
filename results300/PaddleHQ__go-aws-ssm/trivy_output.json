@@ -1,0 +1,182 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:ebb57044-e923-4124-a876-fa1356cf14af",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T07:44:42+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "89617c8a-d9ae-49c5-b79f-7f8dba807789",
+      "type": "application",
+      "name": "/home/user/SBOM/work/PaddleHQ__go-aws-ssm",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "5d570e5e-6098-438e-991b-7e9518a9642b",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go@v1.48.15",
+      "type": "library",
+      "name": "github.com/aws/aws-sdk-go",
+      "version": "v1.48.15",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go@v1.48.15",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/aws/aws-sdk-go@v1.48.15"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+      "type": "library",
+      "name": "github.com/davecgh/go-spew",
+      "version": "v1.1.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/davecgh/go-spew@v1.1.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jmespath/go-jmespath@v0.4.0",
+      "type": "library",
+      "name": "github.com/jmespath/go-jmespath",
+      "version": "v0.4.0",
+      "purl": "pkg:golang/github.com/jmespath/go-jmespath@v0.4.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/jmespath/go-jmespath@v0.4.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mitchellh/mapstructure@v1.5.0",
+      "type": "library",
+      "name": "github.com/mitchellh/mapstructure",
+      "version": "v1.5.0",
+      "purl": "pkg:golang/github.com/mitchellh/mapstructure@v1.5.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mitchellh/mapstructure@v1.5.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/paddlehq/go-aws-ssm",
+      "type": "library",
+      "name": "github.com/PaddleHQ/go-aws-ssm",
+      "purl": "pkg:golang/github.com/paddlehq/go-aws-ssm",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/PaddleHQ/go-aws-ssm"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "5d570e5e-6098-438e-991b-7e9518a9642b",
+      "dependsOn": [
+        "pkg:golang/github.com/paddlehq/go-aws-ssm"
+      ]
+    },
+    {
+      "ref": "89617c8a-d9ae-49c5-b79f-7f8dba807789",
+      "dependsOn": [
+        "5d570e5e-6098-438e-991b-7e9518a9642b"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/aws/aws-sdk-go@v1.48.15",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/jmespath/go-jmespath@v0.4.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/mitchellh/mapstructure@v1.5.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/paddlehq/go-aws-ssm",
+      "dependsOn": [
+        "pkg:golang/github.com/aws/aws-sdk-go@v1.48.15",
+        "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+        "pkg:golang/github.com/jmespath/go-jmespath@v0.4.0",
+        "pkg:golang/github.com/mitchellh/mapstructure@v1.5.0"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:c8837abd-3c9d-48d2-82bd-38ec9fdb727a",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T07:43:47+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "69cfddb8-c1e2-4a7d-bf04-cba8b8f1a572",
+      "type": "application",
+      "name": "/home/user/SBOM/work/junk1tm__env",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "63eaa886-d89a-4024-bdaf-3e5d12b944a4",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/go-simpler.org/env",
+      "type": "library",
+      "name": "go-simpler.org/env",
+      "purl": "pkg:golang/go-simpler.org/env",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "go-simpler.org/env"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "63eaa886-d89a-4024-bdaf-3e5d12b944a4",
+      "dependsOn": [
+        "pkg:golang/go-simpler.org/env"
+      ]
+    },
+    {
+      "ref": "69cfddb8-c1e2-4a7d-bf04-cba8b8f1a572",
+      "dependsOn": [
+        "63eaa886-d89a-4024-bdaf-3e5d12b944a4"
+      ]
+    },
+    {
+      "ref": "pkg:golang/go-simpler.org/env",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

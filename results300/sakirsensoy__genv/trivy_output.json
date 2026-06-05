@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:318ecad0-57a8-418f-8f23-a49969d0ec8e",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T07:44:26+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "2ce23489-8e35-412c-a481-96f18f30c6f3",
+      "type": "application",
+      "name": "/home/user/SBOM/work/sakirsensoy__genv",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "1e3a9b44-3921-4405-8766-3be361ae8248",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/sakirsensoy/genv",
+      "type": "library",
+      "name": "github.com/sakirsensoy/genv",
+      "purl": "pkg:golang/github.com/sakirsensoy/genv",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/sakirsensoy/genv"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "1e3a9b44-3921-4405-8766-3be361ae8248",
+      "dependsOn": [
+        "pkg:golang/github.com/sakirsensoy/genv"
+      ]
+    },
+    {
+      "ref": "2ce23489-8e35-412c-a481-96f18f30c6f3",
+      "dependsOn": [
+        "1e3a9b44-3921-4405-8766-3be361ae8248"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/sakirsensoy/genv",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
