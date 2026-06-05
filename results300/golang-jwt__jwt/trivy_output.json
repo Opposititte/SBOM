@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:2bef16b8-6c31-497d-b145-587c697f0166",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T07:01:37+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "c2273c86-cb90-45aa-a411-bbec0b0ec9d2",
+      "type": "application",
+      "name": "/home/user/SBOM/work/golang-jwt__jwt",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "e9193f4e-d078-47be-ab58-9d4b23e3005b",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/golang-jwt/jwt/v5",
+      "type": "library",
+      "name": "github.com/golang-jwt/jwt/v5",
+      "purl": "pkg:golang/github.com/golang-jwt/jwt/v5",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/golang-jwt/jwt/v5"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "c2273c86-cb90-45aa-a411-bbec0b0ec9d2",
+      "dependsOn": [
+        "e9193f4e-d078-47be-ab58-9d4b23e3005b"
+      ]
+    },
+    {
+      "ref": "e9193f4e-d078-47be-ab58-9d4b23e3005b",
+      "dependsOn": [
+        "pkg:golang/github.com/golang-jwt/jwt/v5"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/golang-jwt/jwt/v5",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

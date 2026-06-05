@@ -1,0 +1,131 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:fd21db59-1c6d-4277-b5ae-ae2667bb6bf3",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T07:01:32+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "afae2658-5e50-4c15-a7ed-33143d0ffeac",
+      "type": "application",
+      "name": "/home/user/SBOM/work/adam-hanna__jwt-auth",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "1313a238-11af-4c0c-8496-3cf536a0da65",
+      "type": "application",
+      "name": "jwt/go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/adam-hanna/jwt-auth/jwt",
+      "type": "library",
+      "name": "github.com/adam-hanna/jwt-auth/jwt",
+      "purl": "pkg:golang/github.com/adam-hanna/jwt-auth/jwt",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/adam-hanna/jwt-auth/jwt"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/adam-hanna/randomstrings@v0.0.0-20160715001758-88fd7c52a2c7",
+      "type": "library",
+      "name": "github.com/adam-hanna/randomstrings",
+      "version": "v0.0.0-20160715001758-88fd7c52a2c7",
+      "purl": "pkg:golang/github.com/adam-hanna/randomstrings@v0.0.0-20160715001758-88fd7c52a2c7",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/adam-hanna/randomstrings@v0.0.0-20160715001758-88fd7c52a2c7"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/dgrijalva/jwt-go@v3.0.1-0.20160617170158-f0777076321a%2Bincompatible",
+      "type": "library",
+      "name": "github.com/dgrijalva/jwt-go",
+      "version": "v3.0.1-0.20160617170158-f0777076321a+incompatible",
+      "purl": "pkg:golang/github.com/dgrijalva/jwt-go@v3.0.1-0.20160617170158-f0777076321a%2Bincompatible",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/dgrijalva/jwt-go@v3.0.1-0.20160617170158-f0777076321a+incompatible"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "1313a238-11af-4c0c-8496-3cf536a0da65",
+      "dependsOn": [
+        "pkg:golang/github.com/adam-hanna/jwt-auth/jwt"
+      ]
+    },
+    {
+      "ref": "afae2658-5e50-4c15-a7ed-33143d0ffeac",
+      "dependsOn": [
+        "1313a238-11af-4c0c-8496-3cf536a0da65"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/adam-hanna/jwt-auth/jwt",
+      "dependsOn": [
+        "pkg:golang/github.com/adam-hanna/randomstrings@v0.0.0-20160715001758-88fd7c52a2c7",
+        "pkg:golang/github.com/dgrijalva/jwt-go@v3.0.1-0.20160617170158-f0777076321a%2Bincompatible"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/adam-hanna/randomstrings@v0.0.0-20160715001758-88fd7c52a2c7",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/dgrijalva/jwt-go@v3.0.1-0.20160617170158-f0777076321a%2Bincompatible",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:8ca6d48b-10bd-451d-af2f-0cb19f5d72ae",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T07:01:22+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "71965bdb-3ee0-48b6-8ee5-d567ddc904b4",
+      "type": "application",
+      "name": "/home/user/SBOM/work/pascaldekloe__jwt",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "d2b9ce48-5829-454b-b3c4-e5dab72a5352",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/pascaldekloe/jwt",
+      "type": "library",
+      "name": "github.com/pascaldekloe/jwt",
+      "purl": "pkg:golang/github.com/pascaldekloe/jwt",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/pascaldekloe/jwt"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "71965bdb-3ee0-48b6-8ee5-d567ddc904b4",
+      "dependsOn": [
+        "d2b9ce48-5829-454b-b3c4-e5dab72a5352"
+      ]
+    },
+    {
+      "ref": "d2b9ce48-5829-454b-b3c4-e5dab72a5352",
+      "dependsOn": [
+        "pkg:golang/github.com/pascaldekloe/jwt"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/pascaldekloe/jwt",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
