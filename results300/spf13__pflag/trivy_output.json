@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:3e877d58-ee4b-4078-b7b2-681469ef33d9",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T07:40:20+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "47a63c15-f8bb-4bfd-b0ed-1b969f300e6b",
+      "type": "application",
+      "name": "/home/user/SBOM/work/spf13__pflag",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "938c069a-5d98-4cac-89d4-0f6f850c55ac",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/spf13/pflag",
+      "type": "library",
+      "name": "github.com/spf13/pflag",
+      "purl": "pkg:golang/github.com/spf13/pflag",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/spf13/pflag"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "47a63c15-f8bb-4bfd-b0ed-1b969f300e6b",
+      "dependsOn": [
+        "938c069a-5d98-4cac-89d4-0f6f850c55ac"
+      ]
+    },
+    {
+      "ref": "938c069a-5d98-4cac-89d4-0f6f850c55ac",
+      "dependsOn": [
+        "pkg:golang/github.com/spf13/pflag"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/spf13/pflag",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
