@@ -29,7 +29,7 @@
 一方ツールは CycloneDX コンポーネント数で、Go 以外の成果物（ollama の C/C++、hugo の npm 等）を
 含みうるため、生の数値は直接は比較できません。
 
-→ 適合率・再現率・F1 の分析は `metrics.md` と `metrics.csv` を参照。
+→ Precision・Recall・F1 の分析は `metrics.md` と `metrics.csv` を参照。
 → 計算方法の詳しい説明は `METHOD.md` を参照。
 
 ## 特記事項
