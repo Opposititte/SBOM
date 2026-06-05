@@ -140,4 +140,4 @@ for (const tool of TOOLS) {
 fs.writeFileSync(path.join(RESULTS, 'metrics.json'),
   JSON.stringify({ repos_evaluated: evalRepos.length, repos_skipped: skipped, per_repo: results, averages }, null, 2));
 console.log(`\nrepos evaluated: ${evalRepos.length}  |  skipped (empty/failed go list): ${skipped.length}`);
-console.log('wrote results/metrics.json and results/metrics.csv');
+console.log(`wrote ${path.join(RESULTS, 'metrics.json')} and ${path.join(RESULTS, 'metrics.csv')}`);
