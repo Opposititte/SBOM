@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:50ed28b4-59f6-43fe-87be-6cd40e56b6c6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T07:29:41+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "07faef18-7942-4f26-829b-f2aa00095f00",
+      "type": "application",
+      "name": "/home/user/SBOM/work/mattn__go-isatty",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "98c7a7d8-8b16-40e5-bca9-08922ee5e335",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mattn/go-isatty",
+      "type": "library",
+      "name": "github.com/mattn/go-isatty",
+      "purl": "pkg:golang/github.com/mattn/go-isatty",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mattn/go-isatty"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.28.0",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.28.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.28.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sys@v0.28.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "07faef18-7942-4f26-829b-f2aa00095f00",
+      "dependsOn": [
+        "98c7a7d8-8b16-40e5-bca9-08922ee5e335"
+      ]
+    },
+    {
+      "ref": "98c7a7d8-8b16-40e5-bca9-08922ee5e335",
+      "dependsOn": [
+        "pkg:golang/github.com/mattn/go-isatty"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/mattn/go-isatty",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/sys@v0.28.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.28.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

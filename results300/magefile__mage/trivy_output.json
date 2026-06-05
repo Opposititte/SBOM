@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:fa371a52-e06d-4cbb-9eff-7f26b170ad65",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T07:26:27+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "d3ecc50e-e9c0-42bb-84fc-08a4d2321dd9",
+      "type": "application",
+      "name": "/home/user/SBOM/work/magefile__mage",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "e89994f1-7e99-4ece-bc66-907b5d9bf373",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/magefile/mage",
+      "type": "library",
+      "name": "github.com/magefile/mage",
+      "purl": "pkg:golang/github.com/magefile/mage",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/magefile/mage"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "d3ecc50e-e9c0-42bb-84fc-08a4d2321dd9",
+      "dependsOn": [
+        "e89994f1-7e99-4ece-bc66-907b5d9bf373"
+      ]
+    },
+    {
+      "ref": "e89994f1-7e99-4ece-bc66-907b5d9bf373",
+      "dependsOn": [
+        "pkg:golang/github.com/magefile/mage"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/magefile/mage",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

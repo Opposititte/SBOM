@@ -1,0 +1,153 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:e5f0ac8e-753f-47f4-823f-72b6577c7df8",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T07:29:36+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "232c1c26-1bc4-406a-b8d8-9900a4843a24",
+      "type": "application",
+      "name": "/home/user/SBOM/work/daviddengcn__go-colortext",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "739198b0-742b-4c59-8478-305e864d6380",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/daviddengcn/go-colortext",
+      "type": "library",
+      "name": "github.com/daviddengcn/go-colortext",
+      "purl": "pkg:golang/github.com/daviddengcn/go-colortext",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/daviddengcn/go-colortext"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/golangplus/bytes@v1.0.0",
+      "type": "library",
+      "name": "github.com/golangplus/bytes",
+      "version": "v1.0.0",
+      "purl": "pkg:golang/github.com/golangplus/bytes@v1.0.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/golangplus/bytes@v1.0.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/golangplus/fmt@v1.0.0",
+      "type": "library",
+      "name": "github.com/golangplus/fmt",
+      "version": "v1.0.0",
+      "purl": "pkg:golang/github.com/golangplus/fmt@v1.0.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/golangplus/fmt@v1.0.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/golangplus/testing@v1.0.0",
+      "type": "library",
+      "name": "github.com/golangplus/testing",
+      "version": "v1.0.0",
+      "purl": "pkg:golang/github.com/golangplus/testing@v1.0.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/golangplus/testing@v1.0.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "232c1c26-1bc4-406a-b8d8-9900a4843a24",
+      "dependsOn": [
+        "739198b0-742b-4c59-8478-305e864d6380"
+      ]
+    },
+    {
+      "ref": "739198b0-742b-4c59-8478-305e864d6380",
+      "dependsOn": [
+        "pkg:golang/github.com/daviddengcn/go-colortext"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/daviddengcn/go-colortext",
+      "dependsOn": [
+        "pkg:golang/github.com/golangplus/bytes@v1.0.0",
+        "pkg:golang/github.com/golangplus/fmt@v1.0.0",
+        "pkg:golang/github.com/golangplus/testing@v1.0.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/golangplus/bytes@v1.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/golangplus/fmt@v1.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/golangplus/testing@v1.0.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
