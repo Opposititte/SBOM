@@ -1,0 +1,161 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:1049a536-b484-49dc-8eab-7d589af586c1",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T07:32:27+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "b8a422bf-48de-427c-95da-ba176088a33c",
+      "type": "application",
+      "name": "/home/user/SBOM/work/nsf__termbox-go",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "3f6f516c-2621-404c-a66d-a03434395ab6",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/clipperhouse/uax29/v2@v2.2.0",
+      "type": "library",
+      "name": "github.com/clipperhouse/uax29/v2",
+      "version": "v2.2.0",
+      "purl": "pkg:golang/github.com/clipperhouse/uax29/v2@v2.2.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/clipperhouse/uax29/v2@v2.2.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mattn/go-runewidth@v0.0.19",
+      "type": "library",
+      "name": "github.com/mattn/go-runewidth",
+      "version": "v0.0.19",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/mattn/go-runewidth@v0.0.19",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mattn/go-runewidth@v0.0.19"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/nsf/termbox-go",
+      "type": "library",
+      "name": "github.com/nsf/termbox-go",
+      "purl": "pkg:golang/github.com/nsf/termbox-go",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/nsf/termbox-go"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.31.0",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.31.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.31.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sys@v0.31.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "3f6f516c-2621-404c-a66d-a03434395ab6",
+      "dependsOn": [
+        "pkg:golang/github.com/nsf/termbox-go"
+      ]
+    },
+    {
+      "ref": "b8a422bf-48de-427c-95da-ba176088a33c",
+      "dependsOn": [
+        "3f6f516c-2621-404c-a66d-a03434395ab6"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/clipperhouse/uax29/v2@v2.2.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/mattn/go-runewidth@v0.0.19",
+      "dependsOn": [
+        "pkg:golang/github.com/clipperhouse/uax29/v2@v2.2.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/nsf/termbox-go",
+      "dependsOn": [
+        "pkg:golang/github.com/mattn/go-runewidth@v0.0.19",
+        "pkg:golang/golang.org/x/sys@v0.31.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.31.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

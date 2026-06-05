@@ -1,0 +1,131 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:31b1dd66-f136-48a9-873d-a6e2ae814fb1",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-05T07:32:06+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "4a16334f-0b27-4541-97e8-12a892e2c58e",
+      "type": "application",
+      "name": "/home/user/SBOM/work/alexeyco__simpletable",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "56182491-d788-4653-ac45-05f671868f57",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/alexeyco/simpletable",
+      "type": "library",
+      "name": "github.com/alexeyco/simpletable",
+      "purl": "pkg:golang/github.com/alexeyco/simpletable",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/alexeyco/simpletable"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mattn/go-runewidth@v0.0.12",
+      "type": "library",
+      "name": "github.com/mattn/go-runewidth",
+      "version": "v0.0.12",
+      "purl": "pkg:golang/github.com/mattn/go-runewidth@v0.0.12",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mattn/go-runewidth@v0.0.12"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/rivo/uniseg@v0.1.0",
+      "type": "library",
+      "name": "github.com/rivo/uniseg",
+      "version": "v0.1.0",
+      "purl": "pkg:golang/github.com/rivo/uniseg@v0.1.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/rivo/uniseg@v0.1.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "4a16334f-0b27-4541-97e8-12a892e2c58e",
+      "dependsOn": [
+        "56182491-d788-4653-ac45-05f671868f57"
+      ]
+    },
+    {
+      "ref": "56182491-d788-4653-ac45-05f671868f57",
+      "dependsOn": [
+        "pkg:golang/github.com/alexeyco/simpletable"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/alexeyco/simpletable",
+      "dependsOn": [
+        "pkg:golang/github.com/mattn/go-runewidth@v0.0.12",
+        "pkg:golang/github.com/rivo/uniseg@v0.1.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/mattn/go-runewidth@v0.0.12",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/rivo/uniseg@v0.1.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
