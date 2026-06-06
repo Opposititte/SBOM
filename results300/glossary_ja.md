@@ -79,3 +79,26 @@ go mod edit -json    # .Require のうち Indirect でないもの         # dir
 - Go は import が静的＋`go list -deps` 内蔵なので imported が容易。
 - **本研究の新規性**: `go list -deps` の発明ではなく、**all/imported/direct の3定義で SBOM ツール精度を
   系統的に比較し「最良ツールは正解定義で変わる」と Go で定量化した点**。（過大主張を避けた正確な表現。）
+
+## 10. 静的(static) と 動的(dynamic) 解析
+- **静的解析** = プログラムを**実行せず**、ソースや go.mod を**読んで**調べる。
+- **動的解析** = プログラムを**実際に動かして**、実行中に何が読み込まれ/使われるか観察する。
+- 本研究の GT はどちらも**静的**:
+  - `go list -m all`（all）… go.mod を読むだけ（実行しない）。
+  - `go list -deps`（imported）… ソースの `import` 文を読んでたどる（実行しない）。
+- **Go が静的で正確に imported を出せる理由**: Go の `import` は静的（先頭に明示、実行中に変わらない）。
+  Python 等は import が動的（関数内で条件分岐 import、`__import__("名前")`）になり得るため、実行(動的解析)
+  しないと正確に分からない → 難しい。これが「Go は簡単・他言語は難しい」の正体。
+
+## 11. コードの import を手で変えても go.mod は自動同期しない
+- `.go` の `import` を手で書き換えただけでは **go.mod は変わらない**。
+- 同期するには **`go mod tidy`**（または `go build`/`go test`/`go get`）を打つ。新しい Go は go.mod に無い
+  import のままビルドすると「`go mod tidy` してね」とエラーを出す（既定 `-mod=readonly`）。
+- `go mod tidy` = 実コードの import を見て go.mod を過不足なく同期（不要を削除・不足を追加）。
+- 論文メモ: `direct`(go.mod) と `imported`(実コード) は理論上ズレ得るが、ビルド可能なリポジトリは tidy 済みで
+  ほぼ一致。
+
+## 12. findstr / grep の注意（Windows）
+- `go list -deps ./... | findstr cobra` の **後ろに注釈やコメントを付けて打たない**こと。
+  `（Windows）` 等が findstr の引数になり「ファイル名」と誤解され、何も出ない。
+- 正しくは `go list -deps ./... | findstr cobra` だけ。→ `cobra` と `cobra/doc` の2行が出る。
