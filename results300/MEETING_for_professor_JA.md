@@ -105,5 +105,5 @@ cdxgen / cyclonedx-gomod は 15 個 → **vs imported=100%**。
 
 ## 図表・データの場所（GitHub: `results300/`）
 - 図: `charts/f1_heatmap.png`（メイン）, `charts/rootcause_stacked.png`, `charts/recall_vs_size.png`
-- 表: `multi_gt.md`（3正解比較）, `root_cause.md`（原因分解）, `ten_repos_detail.md`（10件詳細）, `metrics.csv`（全数値）
+- 表: `multi_gt.md`（3正解比較）, `root_cause.md`（原因分解）, `full_table.csv`（全リポジトリ×4ツール×3正解）, `metrics.csv`（全数値）
 - 用語集: `glossary_ja.md` / 手法解説: `def_use_explanation.md`

@@ -93,7 +93,6 @@ purl（例: `pkg:golang/github.com/davecgh/go-spew@v1.1.1`）は「パス（識�
   もっとも正確なので、本研究の**正解 (GT)** に採用しました。
 
 ## 関連ファイル
-- `../run_benchmark.sh` — 固定6リポジトリのステップ1〜4
-- `../run_batch.sh`     — awesome-go 規模のステップ1〜4（再開可能）
+- `../run_batch.sh`     — クローン → go list / syft / trivy / cdxgen / cyclonedx-gomod のステップ1〜4（再開可能）
 - `../compute_metrics.js` — ステップ5（比較）
 - `metrics.md` / `metrics.csv` / `metrics.json` — 結果

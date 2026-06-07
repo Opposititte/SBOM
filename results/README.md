@@ -41,5 +41,5 @@ cyclonedx-gomod は「実際に import される本番モジュール」のみ�
   構成の Go リポジトリにおける cdxgen の実際の限界であり、研究上の重要なデータ点でもあります。
 * それ以外のツール実行はすべてエラーなく完了しました。
 
-`../run_benchmark.sh` でこの6リポジトリの実行を再現できます。大規模（awesome-go 全体）の
+`../run_batch.sh`（`REPO_LIST` に6件のURLを渡す）でこの実行を再現できます。大規模（awesome-go 全体）の
 パイプラインは `../PIPELINE.md` を参照してください。

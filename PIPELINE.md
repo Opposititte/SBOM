@@ -7,7 +7,6 @@ awesome-go の全 Go リポジトリを走査し、syft / trivy / cdxgen が各�
 - `gen_repo_list.js` — awesome-go の README を取得し、重複のないリポジトリ URL を抽出 → `repos.txt`。
 - `run_batch.sh` — 再開可能なハーネス: クローン → go list / syft / trivy / cdxgen → クリーンアップ。
 - `compute_metrics.js` — すべての `results/<name>/` を自動検出し P/R/F1 を計算 → `metrics.json` + `metrics.csv`。
-- `run_benchmark.sh` — 最初の固定6リポジトリ用スクリプト（参考）。
 
 ## 実行方法（準備ができたら）
 
