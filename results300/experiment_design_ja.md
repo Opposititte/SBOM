@@ -14,7 +14,7 @@
 | 正解 | 意味 | コマンド |
 |---|---|---|
 | **all** | モジュールグラフ全体（テスト用・未使用の依存も含む） | `go list -m all` |
-| **imported** | 実際にコードで使う（コンパイルに取り込まれる）モジュール | `go list -deps -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./... \| sort -u` |
+| **imported** | 実際にコードで使う（コンパイルに取り込まれる）モジュール | `GOOS=linux go list -deps -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./... \| sort -u` |
 | **direct** | go.mod に直接宣言した依存だけ | `go mod edit -json`（`Require` の非 `Indirect`） |
 
 関係：**direct ⊆ imported ⊆ all**

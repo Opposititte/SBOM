@@ -45,7 +45,7 @@ go list -m all
 
 公式コマンド:
 ```bash
-go list -deps -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./... | sort -u
+GOOS=linux go list -deps -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./... | sort -u
 ```
 
 | repo | gt | tool | predicted | tp | fp | fn | precision | recall | f1 |
@@ -162,7 +162,7 @@ go list -m all
 
 公式コマンド:
 ```bash
-go list -deps -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./... | sort -u
+GOOS=linux go list -deps -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./... | sort -u
 ```
 
 | repo | gt | tool | predicted | tp | fp | fn | precision | recall | f1 |

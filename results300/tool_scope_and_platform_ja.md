@@ -10,6 +10,11 @@ cobra 1リポジトリで、4ツールの「どこまでを依存に含めるか
   - GOOS=linux の imported = 4 個（mousetrap 無し）
   - GOOS=windows の imported = 5 個（**差は mousetrap のみ**）
 - → **`imported` は GOOS 依存**。本研究は **linux に統一**している。
+- **検証:** 既存の `gt_imported.txt` を `GOOS=linux go list -deps ...`（明示）と diff した結果、
+  gin/cobra/frp/gorm/ollama は **完全一致**、hugo のみ4行差（bitset/wazero のパッチ版違い＝
+  hugo 本体が当時より進んだだけで GOOS とは無関係）。→ **既存データは元々 GOOS=linux の結果**だった
+  （このコンテナが linux で、未指定でも GOOS=linux で動いていたため）。
+- 生成コマンドは再現性のため **`GOOS=linux` を明示**するよう統一した（データは不変）。
 
 ## 2. cobra で見える「3段階構造」（2軸で分類）
 - 軸1：**mousetrap = OS依存**（Windows 専用コードが使う）

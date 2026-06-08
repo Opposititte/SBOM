@@ -33,7 +33,7 @@ direct（go.mod に直接宣言）⊆ imported（実際にコンパイルされ�
 ```
 ```bash
 go list -m all                                                  # all
-go list -deps -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./... | sort -u   # imported
+GOOS=linux go list -deps -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./... | sort -u   # imported
 go mod edit -json    # .Require のうち Indirect でないもの         # direct
 ```
 - `sort -u` … 並べ替え＋重複削除。`go list -deps` は「1パッケージ=1行」で出すため、同じモジュールが

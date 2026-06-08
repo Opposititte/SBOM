@@ -30,7 +30,7 @@ for d in "$RESULTS"/*/; do
   if ! timeout 180 git clone --depth=1 "$url" "$f" 2>/dev/null; then log "clone fail: $name"; rm -rf "$f"; continue; fi
   ( cd "$f"
     main=$(go list -m 2>/dev/null | head -1)
-    go list -deps -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./... 2>/dev/null \
+    GOOS=linux go list -deps -e -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./... 2>/dev/null \
       | grep -v '^$' | grep -v "^${main} \?$" | sort -u > "${d}gt_imported.txt"
     go mod edit -json 2>/dev/null \
       | node -e 'const d=JSON.parse(require("fs").readFileSync(0));(d.Require||[]).filter(r=>!r.Indirect).forEach(r=>console.log(r.Path+" "+r.Version))' 2>/dev/null \

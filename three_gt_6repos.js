@@ -36,7 +36,7 @@ function metrics(pred, gt, level) {
 function section(level, title, note) {
   const CMD = {
     all: 'go list -m all',
-    imported: "go list -deps -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./... | sort -u",
+    imported: "GOOS=linux go list -deps -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./... | sort -u",
     direct: 'go mod edit -json    # 出力 JSON の .Require のうち "Indirect": true でないもの',
   };
   const out = [`\n# ${title}\n`, note, ''];
