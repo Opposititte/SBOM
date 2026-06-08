@@ -34,10 +34,19 @@ function metrics(pred, gt, level) {
 }
 
 function section(level, title, note) {
+  const CMD = {
+    all: 'go list -m all',
+    imported: "go list -deps -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./... | sort -u",
+    direct: 'go mod edit -json    # 出力 JSON の .Require のうち "Indirect": true でないもの',
+  };
   const out = [`\n# ${title}\n`, note, ''];
   const avg = {}; for (const t of TOOLS) for (const [g] of GTS) avg[t + '|' + g] = { p: 0, r: 0, f1: 0, n: 0 };
   for (const [gname, gfile] of GTS) {
     out.push(`\n## 正解 = ${gname}\n`);
+    out.push('公式コマンド:');
+    out.push('```bash');
+    out.push(CMD[gname]);
+    out.push('```\n');
     out.push('| repo | gt | tool | predicted | tp | fp | fn | precision | recall | f1 |');
     out.push('|------|---:|------|----------:|---:|---:|---:|----------:|-------:|----:|');
     for (const repo of REPOS) {

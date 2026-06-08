@@ -9,6 +9,11 @@ precision/recall/f1 は％。tp = パスが正解に含まれる数。
 
 ## 正解 = all
 
+公式コマンド:
+```bash
+go list -m all
+```
+
 | repo | gt | tool | predicted | tp | fp | fn | precision | recall | f1 |
 |------|---:|------|----------:|---:|---:|---:|----------:|-------:|----:|
 | gin | 56 | syft | 40 | 40 | 0 | 16 | 100.0 | 71.4 | 83.3 |
@@ -38,6 +43,11 @@ precision/recall/f1 は％。tp = パスが正解に含まれる数。
 
 ## 正解 = imported
 
+公式コマンド:
+```bash
+go list -deps -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./... | sort -u
+```
+
 | repo | gt | tool | predicted | tp | fp | fn | precision | recall | f1 |
 |------|---:|------|----------:|---:|---:|---:|----------:|-------:|----:|
 | gin | 18 | syft | 40 | 18 | 22 | 0 | 45.0 | 100.0 | 62.1 |
@@ -66,6 +76,11 @@ precision/recall/f1 は％。tp = パスが正解に含まれる数。
 | ollama | 71 | cyclonedx-gomod | 89 | 71 | 18 | 0 | 79.8 | 100.0 | 88.8 |
 
 ## 正解 = direct
+
+公式コマンド:
+```bash
+go mod edit -json    # 出力 JSON の .Require のうち "Indirect": true でないもの
+```
 
 | repo | gt | tool | predicted | tp | fp | fn | precision | recall | f1 |
 |------|---:|------|----------:|---:|---:|---:|----------:|-------:|----:|
@@ -111,6 +126,11 @@ tp = パス**かつ**バージョンが一致した数。注: direct のバー�
 
 ## 正解 = all
 
+公式コマンド:
+```bash
+go list -m all
+```
+
 | repo | gt | tool | predicted | tp | fp | fn | precision | recall | f1 |
 |------|---:|------|----------:|---:|---:|---:|----------:|-------:|----:|
 | gin | 56 | syft | 40 | 40 | 0 | 16 | 100.0 | 71.4 | 83.3 |
@@ -140,6 +160,11 @@ tp = パス**かつ**バージョンが一致した数。注: direct のバー�
 
 ## 正解 = imported
 
+公式コマンド:
+```bash
+go list -deps -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./... | sort -u
+```
+
 | repo | gt | tool | predicted | tp | fp | fn | precision | recall | f1 |
 |------|---:|------|----------:|---:|---:|---:|----------:|-------:|----:|
 | gin | 18 | syft | 40 | 18 | 22 | 0 | 45.0 | 100.0 | 62.1 |
@@ -168,6 +193,11 @@ tp = パス**かつ**バージョンが一致した数。注: direct のバー�
 | ollama | 71 | cyclonedx-gomod | 89 | 71 | 18 | 0 | 79.8 | 100.0 | 88.8 |
 
 ## 正解 = direct
+
+公式コマンド:
+```bash
+go mod edit -json    # 出力 JSON の .Require のうち "Indirect": true でないもの
+```
 
 | repo | gt | tool | predicted | tp | fp | fn | precision | recall | f1 |
 |------|---:|------|----------:|---:|---:|---:|----------:|-------:|----:|
