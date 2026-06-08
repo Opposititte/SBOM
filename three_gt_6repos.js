@@ -6,7 +6,7 @@ const fs = require('fs'), path = require('path');
 const RES = 'results';
 const REPOS = ['gin', 'cobra', 'hugo', 'frp', 'gorm', 'ollama'];
 const TOOLS = ['syft', 'trivy', 'cdxgen', 'cyclonedx-gomod'];
-const GTS = [['all', 'gt_go_list.txt'], ['imported', 'gt_imported.txt'], ['direct', 'gt_direct.txt']];
+const GTS = [['all', 'gt_go_list.txt'], ['imported', 'gt_imported.txt']];
 const pct = x => (x * 100).toFixed(1);
 const norm = p => { try { p = decodeURIComponent(p); } catch (e) {} return p.toLowerCase(); };
 
@@ -60,24 +60,23 @@ function section(level, title, note) {
     }
   }
   out.push(`\n## まとめ（6リポジトリ平均, ％）— ${level === 'name' ? '名前一致' : 'バージョン一致(厳格)'}\n`);
-  out.push('| ツール | precision (all/imp/dir) | recall (all/imp/dir) | **f1 (all/imp/dir)** |');
-  out.push('|--------|------------------------:|---------------------:|---------------------:|');
+  out.push('| ツール | precision (all/imp) | recall (all/imp) | **f1 (all/imp)** |');
+  out.push('|--------|--------------------:|-----------------:|-----------------:|');
   for (const t of TOOLS) {
     const c = g => { const k = avg[t + '|' + g]; return [pct(k.p / k.n), pct(k.r / k.n), pct(k.f1 / k.n)]; };
-    const a = c('all'), i = c('imported'), d = c('direct');
-    out.push(`| ${t} | ${a[0]} / ${i[0]} / ${d[0]} | ${a[1]} / ${i[1]} / ${d[1]} | **${a[2]} / ${i[2]} / ${d[2]}** |`);
+    const a = c('all'), i = c('imported');
+    out.push(`| ${t} | ${a[0]} / ${i[0]} | ${a[1]} / ${i[1]} | **${a[2]} / ${i[2]}** |`);
   }
   return out.join('\n');
 }
 
 const doc = [];
 doc.push('# 6リポジトリ × 4ツール — 正解(GT) 別の結果表（名前一致 と バージョン一致）\n');
-doc.push('正解を all / imported / direct の3通りに変えて評価。各セル「all / imported / direct」の順。');
+doc.push('正解を all / imported の2通りに変えて評価。まとめ表の各セルは「all / imported」の順。');
 doc.push(section('name', '【A】名前一致（パスだけ一致で正解）',
   'precision/recall/f1 は％。tp = パスが正解に含まれる数。'));
 doc.push(section('ver', '【B】バージョン一致（厳格：purl のパス＋バージョンが両方一致して初めて正解）',
-  'tp = パス**かつ**バージョンが一致した数。注: direct のバージョンは go.mod の宣言値（最小版）で、\n' +
-  'ビルドで選択される版(all/imported)と異なる場合があるため、direct のバージョン一致は低めに出やすい。'));
+  'tp = パス**かつ**バージョンが一致した数。'));
 const md = doc.join('\n') + '\n';
 fs.writeFileSync(path.join(RES, 'three_gt_6repos.md'), md);
 console.log('wrote results/three_gt_6repos.md');
