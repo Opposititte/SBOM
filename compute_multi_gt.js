@@ -25,17 +25,19 @@ function readGT(file, kind) {
   });
   return s;
 }
-function readTool(file) {
+function readTool(file, main) {
   const s = new Set();
   let d; try { d = JSON.parse(fs.readFileSync(file, 'utf8')); } catch (e) { return s; }
   for (const c of (d.components || [])) {
     const purl = c.purl || ''; if (!purl.startsWith('pkg:golang/')) continue;
     let rest = purl.slice(11).split('?')[0].split('#')[0];
     const at = rest.lastIndexOf('@'); const p = norm(at === -1 ? rest : rest.slice(0, at));
-    if (p !== 'stdlib') s.add(p);
+    if (p !== 'stdlib' && p !== main) s.add(p);
   }
   return s;
 }
+function mainOf(repo) { const f = path.join(RESULTS, repo, 'gt_go_list.txt'); if (!fs.existsSync(f)) return null;
+  const first = fs.readFileSync(f, 'utf8').split('\n')[0].trim().split(/\s+/); return first.length === 1 ? norm(first[0]) : null; }
 function prf(pred, gt) {
   let tp = 0; for (const x of pred) if (gt.has(x)) tp++;
   const fp = pred.size - tp, fn = gt.size - tp;
@@ -55,7 +57,7 @@ for (const repo of repos) {
     imported: readGT(path.join(RESULTS, repo, 'gt_imported.txt'), 'imported'),
     direct: readGT(path.join(RESULTS, repo, 'gt_direct.txt'), 'direct'),
   };
-  const tools = {}; for (const t of TOOLS) tools[t] = readTool(path.join(RESULTS, repo, `${t}_output.json`));
+  const tools = {}; for (const t of TOOLS) tools[t] = readTool(path.join(RESULTS, repo, `${t}_output.json`), mainOf(repo));
   for (const t of TOOLS) for (const g of GTS) {
     if (!gts[g] || gts[g].size === 0) continue;            // skip missing/empty GT (e.g. frp imported failed)
     const m = prf(tools[t], gts[g]); const k = acc[t + '|' + g];

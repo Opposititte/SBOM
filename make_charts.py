@@ -12,10 +12,10 @@ COL = {"syft": "#1f77b4", "trivy": "#ff7f0e", "cdxgen": "#2ca02c", "cyclonedx-go
 
 # ---- Chart 1: F1 heatmap (tools x ground truths), macro-avg % (verified values) ----
 GTS = ["all", "imported", "direct"]
-F1 = {  # macro-F1 % from compute_multi_gt.js on results300
-    "syft":            [71.4, 63.9, 43.6],
-    "trivy":           [70.7, 65.4, 44.2],
-    "cdxgen":          [55.5, 90.7, 57.2],
+F1 = {  # macro-F1 % from compute_multi_gt.js on results300 (root module excluded)
+    "syft":            [76.2, 68.5, 48.7],
+    "trivy":           [75.5, 69.9, 49.1],
+    "cdxgen":          [55.6, 91.0, 57.4],
     "cyclonedx-gomod": [53.1, 94.0, 54.6],
 }
 fig, ax = plt.subplots(figsize=(6.2, 4.2))

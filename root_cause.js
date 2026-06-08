@@ -14,9 +14,11 @@ const norm = p => { try { p = decodeURIComponent(p); } catch (e) {} return p.toL
 function readGT(f, kind) { if (!fs.existsSync(f)) return null;
   const L = fs.readFileSync(f, 'utf8').split('\n').map(s => s.trim()).filter(Boolean); const s = new Set();
   L.forEach((line, i) => { const a = line.split(/\s+/); if (kind === 'all' && i === 0 && a.length === 1) return; if (a[0]) s.add(norm(a[0])); }); return s; }
-function readTool(f) { const s = new Set(); let d; try { d = JSON.parse(fs.readFileSync(f, 'utf8')); } catch (e) { return s; }
+function readTool(f, main) { const s = new Set(); let d; try { d = JSON.parse(fs.readFileSync(f, 'utf8')); } catch (e) { return s; }
   for (const c of (d.components || [])) { const u = c.purl || ''; if (!u.startsWith('pkg:golang/')) continue;
-    let r = u.slice(11).split('?')[0].split('#')[0]; const at = r.lastIndexOf('@'); const p = norm(at === -1 ? r : r.slice(0, at)); if (p !== 'stdlib') s.add(p); } return s; }
+    let r = u.slice(11).split('?')[0].split('#')[0]; const at = r.lastIndexOf('@'); const p = norm(at === -1 ? r : r.slice(0, at)); if (p !== 'stdlib' && p !== main) s.add(p); } return s; }
+function mainOf(repo) { const f = path.join(RESULTS, repo, 'gt_go_list.txt'); if (!fs.existsSync(f)) return null;
+  const first = fs.readFileSync(f, 'utf8').split('\n')[0].trim().split(/\s+/); return first.length === 1 ? norm(first[0]) : null; }
 
 const repos = fs.readdirSync(RESULTS, { withFileTypes: true }).filter(e => e.isDirectory()).map(e => e.name)
   .filter(n => fs.existsSync(path.join(RESULTS, n, 'gt_go_list.txt'))).sort();
@@ -29,7 +31,7 @@ for (const repo of repos) {
   if (!all || all.size === 0 || !imp || imp.size === 0) continue;  // need both
   usedRepos++;
   for (const t of TOOLS) {
-    const tool = readTool(path.join(RESULTS, repo, `${t}_output.json`));
+    const tool = readTool(path.join(RESULTS, repo, `${t}_output.json`), mainOf(repo));
     agg[t].nrepos++; agg[t].all += all.size;
     for (const d of all) if (!tool.has(d)) (imp.has(d) ? agg[t].genuine++ : agg[t].notCompiled++);
     for (const d of tool) if (!all.has(d)) agg[t].fp++;

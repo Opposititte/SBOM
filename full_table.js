@@ -12,9 +12,11 @@ const norm = p => { try { p = decodeURIComponent(p); } catch (e) {} return p.toL
 function readGT(f, kind) { if (!fs.existsSync(f) || fs.statSync(f).size === 0) return null;
   const L = fs.readFileSync(f, 'utf8').split('\n').map(s => s.trim()).filter(Boolean); const s = new Set();
   L.forEach((line, i) => { const a = line.split(/\s+/); if (kind === 'all' && i === 0 && a.length === 1) return; if (a[0]) s.add(norm(a[0])); }); return s; }
-function readTool(f) { const s = new Set(); let d; try { d = JSON.parse(fs.readFileSync(f, 'utf8')); } catch (e) { return s; }
+function readTool(f, main) { const s = new Set(); let d; try { d = JSON.parse(fs.readFileSync(f, 'utf8')); } catch (e) { return s; }
   for (const c of (d.components || [])) { const u = c.purl || ''; if (!u.startsWith('pkg:golang/')) continue;
-    let r = u.slice(11).split('?')[0].split('#')[0]; const at = r.lastIndexOf('@'); const p = norm(at === -1 ? r : r.slice(0, at)); if (p !== 'stdlib') s.add(p); } return s; }
+    let r = u.slice(11).split('?')[0].split('#')[0]; const at = r.lastIndexOf('@'); const p = norm(at === -1 ? r : r.slice(0, at)); if (p !== 'stdlib' && p !== main) s.add(p); } return s; }
+function mainOf(repo) { const f = path.join(RESULTS, repo, 'gt_go_list.txt'); if (!fs.existsSync(f)) return null;
+  const first = fs.readFileSync(f, 'utf8').split('\n')[0].trim().split(/\s+/); return first.length === 1 ? norm(first[0]) : null; }
 function prf(pred, gt) { if (!gt) return null; let tp = 0; for (const x of pred) if (gt.has(x)) tp++;
   const fp = pred.size - tp, fn = gt.size - tp; const p = tp + fp ? tp / (tp + fp) : 0, r = tp + fn ? tp / (tp + fn) : 0;
   return { p, r, f1: p + r ? 2 * p * r / (p + r) : 0 }; }
@@ -32,7 +34,7 @@ const md = [`# 全リポジトリ × 4ツール × 3正解(all/imported/direct) 
 for (const repo of repos) {
   const gts = {}; for (const g of GTS) gts[g] = readGT(path.join(RESULTS, repo, FILE[g]), g);
   for (const t of TOOLS) {
-    const pred = readTool(path.join(RESULTS, repo, `${t}_output.json`));
+    const pred = readTool(path.join(RESULTS, repo, `${t}_output.json`), mainOf(repo));
     const m = {}; for (const g of GTS) m[g] = prf(pred, gts[g]);
     const cells = g => m[g] ? [pct(m[g].p), pct(m[g].r), pct(m[g].f1)] : ['', '', ''];
     const row = [repo, gts.all ? gts.all.size : '', gts.imported ? gts.imported.size : '', gts.direct ? gts.direct.size : '',
