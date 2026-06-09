@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:e15a2fa5-4759-473d-86a3-675bb7c62dad",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:06:48+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "45a53c21-e4e1-4e84-bc5c-4dadbcd851d7",
+      "type": "application",
+      "name": "/home/user/SBOM/work/bradfitz__gomemcache",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "6793e3a0-d06b-475a-a511-72ea16950e34",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/bradfitz/gomemcache",
+      "type": "library",
+      "name": "github.com/bradfitz/gomemcache",
+      "purl": "pkg:golang/github.com/bradfitz/gomemcache",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/bradfitz/gomemcache"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "45a53c21-e4e1-4e84-bc5c-4dadbcd851d7",
+      "dependsOn": [
+        "6793e3a0-d06b-475a-a511-72ea16950e34"
+      ]
+    },
+    {
+      "ref": "6793e3a0-d06b-475a-a511-72ea16950e34",
+      "dependsOn": [
+        "pkg:golang/github.com/bradfitz/gomemcache"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/bradfitz/gomemcache",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:ebf0d535-539d-4bd0-88ce-5d20a460d615",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:05:23+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "e2784193-1a77-419c-ae6b-15e8e1951baa",
+      "type": "application",
+      "name": "/home/user/SBOM/work/solher__arangolite",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "96d39582-f142-4142-921f-ef052b24944f",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/solher/arangolite/v2",
+      "type": "library",
+      "name": "github.com/solher/arangolite/v2",
+      "purl": "pkg:golang/github.com/solher/arangolite/v2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/solher/arangolite/v2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "96d39582-f142-4142-921f-ef052b24944f",
+      "dependsOn": [
+        "pkg:golang/github.com/solher/arangolite/v2"
+      ]
+    },
+    {
+      "ref": "e2784193-1a77-419c-ae6b-15e8e1951baa",
+      "dependsOn": [
+        "96d39582-f142-4142-921f-ef052b24944f"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/solher/arangolite/v2",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
