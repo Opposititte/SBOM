@@ -1,0 +1,160 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:feb722bd-3b82-4b57-a270-afe0c07fea66",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:32:55+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "6b4078a7-5ef4-4b2f-aa11-35f9419adab3",
+      "type": "application",
+      "name": "/home/user/SBOM/work/bsm__redislock",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "9e74e0ed-03d9-46ff-8ad1-bb2ced287834",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/bsm/redislock",
+      "type": "library",
+      "name": "github.com/bsm/redislock",
+      "purl": "pkg:golang/github.com/bsm/redislock",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/bsm/redislock"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/cespare/xxhash/v2@v2.3.0",
+      "type": "library",
+      "name": "github.com/cespare/xxhash/v2",
+      "version": "v2.3.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/cespare/xxhash/v2@v2.3.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/cespare/xxhash/v2@v2.3.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/redis/go-redis/v9@v9.19.0",
+      "type": "library",
+      "name": "github.com/redis/go-redis/v9",
+      "version": "v9.19.0",
+      "purl": "pkg:golang/github.com/redis/go-redis/v9@v9.19.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/redis/go-redis/v9@v9.19.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/go.uber.org/atomic@v1.11.0",
+      "type": "library",
+      "name": "go.uber.org/atomic",
+      "version": "v1.11.0",
+      "purl": "pkg:golang/go.uber.org/atomic@v1.11.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "go.uber.org/atomic@v1.11.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "6b4078a7-5ef4-4b2f-aa11-35f9419adab3",
+      "dependsOn": [
+        "9e74e0ed-03d9-46ff-8ad1-bb2ced287834"
+      ]
+    },
+    {
+      "ref": "9e74e0ed-03d9-46ff-8ad1-bb2ced287834",
+      "dependsOn": [
+        "pkg:golang/github.com/bsm/redislock"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/bsm/redislock",
+      "dependsOn": [
+        "pkg:golang/github.com/cespare/xxhash/v2@v2.3.0",
+        "pkg:golang/github.com/redis/go-redis/v9@v9.19.0",
+        "pkg:golang/go.uber.org/atomic@v1.11.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/cespare/xxhash/v2@v2.3.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/redis/go-redis/v9@v9.19.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/go.uber.org/atomic@v1.11.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
