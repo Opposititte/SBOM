@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:5df3a167-eb20-4df8-9646-f16284db33c3",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T09:15:13+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "0826d906-6681-4bb1-9629-273ce0938c9c",
+      "type": "application",
+      "name": "/home/user/SBOM/work/jltorresm__otpgo",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "791a4481-157f-4395-9ea5-4e8b08640995",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jltorresm/otpgo",
+      "type": "library",
+      "name": "github.com/jltorresm/otpgo",
+      "purl": "pkg:golang/github.com/jltorresm/otpgo",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/jltorresm/otpgo"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/skip2/go-qrcode@v0.0.0-20200617195104-da1b6568686e",
+      "type": "library",
+      "name": "github.com/skip2/go-qrcode",
+      "version": "v0.0.0-20200617195104-da1b6568686e",
+      "purl": "pkg:golang/github.com/skip2/go-qrcode@v0.0.0-20200617195104-da1b6568686e",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/skip2/go-qrcode@v0.0.0-20200617195104-da1b6568686e"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "0826d906-6681-4bb1-9629-273ce0938c9c",
+      "dependsOn": [
+        "791a4481-157f-4395-9ea5-4e8b08640995"
+      ]
+    },
+    {
+      "ref": "791a4481-157f-4395-9ea5-4e8b08640995",
+      "dependsOn": [
+        "pkg:golang/github.com/jltorresm/otpgo"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/jltorresm/otpgo",
+      "dependsOn": [
+        "pkg:golang/github.com/skip2/go-qrcode@v0.0.0-20200617195104-da1b6568686e"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/skip2/go-qrcode@v0.0.0-20200617195104-da1b6568686e",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

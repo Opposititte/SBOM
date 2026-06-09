@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:6b3ad23a-12e0-4036-ad6d-89fabb1ffeaf",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T09:12:29+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "0957cb38-cfad-4e59-984b-fb8be720cdaa",
+      "type": "application",
+      "name": "/home/user/SBOM/work/cristalhq__jwt",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "19b010dd-0b75-4ecd-9669-94aa58d1c8ce",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/cristalhq/jwt/v5",
+      "type": "library",
+      "name": "github.com/cristalhq/jwt/v5",
+      "purl": "pkg:golang/github.com/cristalhq/jwt/v5",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/cristalhq/jwt/v5"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "0957cb38-cfad-4e59-984b-fb8be720cdaa",
+      "dependsOn": [
+        "19b010dd-0b75-4ecd-9669-94aa58d1c8ce"
+      ]
+    },
+    {
+      "ref": "19b010dd-0b75-4ecd-9669-94aa58d1c8ce",
+      "dependsOn": [
+        "pkg:golang/github.com/cristalhq/jwt/v5"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/cristalhq/jwt/v5",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

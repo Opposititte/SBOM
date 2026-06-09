@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:5210e221-86dc-49df-8641-d20b6f625c2f",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T09:15:07+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "eb683790-73be-4490-b30f-e316b01f25cb",
+      "type": "application",
+      "name": "/home/user/SBOM/work/grijul__otpgen",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "298e8937-eae4-480f-87b9-7b55108ac93c",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/grijul/otpgen",
+      "type": "library",
+      "name": "github.com/grijul/otpgen",
+      "purl": "pkg:golang/github.com/grijul/otpgen",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/grijul/otpgen"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "298e8937-eae4-480f-87b9-7b55108ac93c",
+      "dependsOn": [
+        "pkg:golang/github.com/grijul/otpgen"
+      ]
+    },
+    {
+      "ref": "eb683790-73be-4490-b30f-e316b01f25cb",
+      "dependsOn": [
+        "298e8937-eae4-480f-87b9-7b55108ac93c"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/grijul/otpgen",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

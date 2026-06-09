@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:434ffd36-5909-4be6-80db-200e4a050f37",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T09:16:18+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "0fc602ea-bf93-4618-b6f2-6f63c37d432e",
+      "type": "application",
+      "name": "/home/user/SBOM/work/chmike__securecookie",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "e8f6a3d7-1330-49fb-bc67-a8e551d6a501",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/chmike/securecookie",
+      "type": "library",
+      "name": "github.com/chmike/securecookie",
+      "purl": "pkg:golang/github.com/chmike/securecookie",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/chmike/securecookie"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gorilla/securecookie@v1.1.1",
+      "type": "library",
+      "name": "github.com/gorilla/securecookie",
+      "version": "v1.1.1",
+      "purl": "pkg:golang/github.com/gorilla/securecookie@v1.1.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gorilla/securecookie@v1.1.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "0fc602ea-bf93-4618-b6f2-6f63c37d432e",
+      "dependsOn": [
+        "e8f6a3d7-1330-49fb-bc67-a8e551d6a501"
+      ]
+    },
+    {
+      "ref": "e8f6a3d7-1330-49fb-bc67-a8e551d6a501",
+      "dependsOn": [
+        "pkg:golang/github.com/chmike/securecookie"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/chmike/securecookie",
+      "dependsOn": [
+        "pkg:golang/github.com/gorilla/securecookie@v1.1.1"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/gorilla/securecookie@v1.1.1",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
