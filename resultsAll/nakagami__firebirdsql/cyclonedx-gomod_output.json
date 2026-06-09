@@ -1,0 +1,155 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:e8f6f279-be09-4ecc-9d58-4148bfc6db86",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:01:47Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/nakagami/firebirdsql@v0.0.0-20260609041011-79cc1c6e1fff?type=module",
+      "type": "application",
+      "name": "github.com/nakagami/firebirdsql",
+      "version": "v0.0.0-20260609041011-79cc1c6e1fff",
+      "purl": "pkg:golang/github.com/nakagami/firebirdsql@v0.0.0-20260609041011-79cc1c6e1fff?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/nakagami/firebirdsql",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/github.com/kardianos/osext@v0.0.0-20190222173326-2bc1f35cddc0?type=module",
+      "type": "library",
+      "name": "github.com/kardianos/osext",
+      "version": "v0.0.0-20190222173326-2bc1f35cddc0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8904f0ffc1564ee73bba26927a95f0c9fde8e761da518715f93bbae92dc5e460"
+        }
+      ],
+      "purl": "pkg:golang/github.com/kardianos/osext@v0.0.0-20190222173326-2bc1f35cddc0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/kardianos/osext",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/nakagami/chacha20@v0.1.0?type=module",
+      "type": "library",
+      "name": "github.com/nakagami/chacha20",
+      "version": "v0.1.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d9f6dfe4a795530ee846901eebf03b0eabc124b618bb491ae56b2d15b9e4115a"
+        }
+      ],
+      "purl": "pkg:golang/github.com/nakagami/chacha20@v0.1.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/nakagami/chacha20",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/gitlab.com/nyarla/go-crypt@v0.0.0-20160106005555-d9a5dc2b789b?type=module",
+      "type": "library",
+      "name": "gitlab.com/nyarla/go-crypt",
+      "version": "v0.0.0-20160106005555-d9a5dc2b789b",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ee077eaddf0fddba9c9fff7a80e65adc5e5da49affbc488341894d6ffcb6b8db"
+        }
+      ],
+      "purl": "pkg:golang/gitlab.com/nyarla/go-crypt@v0.0.0-20160106005555-d9a5dc2b789b?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/text@v0.22.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/text",
+      "version": "v0.22.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6e87eaee6dff1c016f6c5e758f3dd0f702e0de392f48fba266efe90f55f082d3"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/text@v0.22.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/nakagami/firebirdsql@v0.0.0-20260609041011-79cc1c6e1fff?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/kardianos/osext@v0.0.0-20190222173326-2bc1f35cddc0?type=module",
+        "pkg:golang/github.com/nakagami/chacha20@v0.1.0?type=module",
+        "pkg:golang/gitlab.com/nyarla/go-crypt@v0.0.0-20160106005555-d9a5dc2b789b?type=module",
+        "pkg:golang/golang.org/x/text@v0.22.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/kardianos/osext@v0.0.0-20190222173326-2bc1f35cddc0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/nakagami/chacha20@v0.1.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/gitlab.com/nyarla/go-crypt@v0.0.0-20160106005555-d9a5dc2b789b?type=module"
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/text@v0.22.0?type=module"
+    }
+  ]
+}

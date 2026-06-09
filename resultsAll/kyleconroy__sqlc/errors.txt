@@ -1,0 +1,54 @@
+Cloning into '/home/user/SBOM/work/kyleconroy__sqlc'...
+Updating files:  32% (2156/6721)Updating files:  33% (2218/6721)Updating files:  34% (2286/6721)Updating files:  35% (2353/6721)Updating files:  36% (2420/6721)Updating files:  37% (2487/6721)Updating files:  38% (2554/6721)Updating files:  39% (2622/6721)Updating files:  40% (2689/6721)Updating files:  41% (2756/6721)Updating files:  42% (2823/6721)Updating files:  43% (2891/6721)Updating files:  44% (2958/6721)Updating files:  45% (3025/6721)Updating files:  46% (3092/6721)Updating files:  47% (3159/6721)Updating files:  48% (3227/6721)Updating files:  49% (3294/6721)Updating files:  50% (3361/6721)Updating files:  51% (3428/6721)Updating files:  52% (3495/6721)Updating files:  53% (3563/6721)Updating files:  54% (3630/6721)Updating files:  55% (3697/6721)Updating files:  56% (3764/6721)Updating files:  57% (3831/6721)Updating files:  58% (3899/6721)Updating files:  59% (3966/6721)Updating files:  60% (4033/6721)Updating files:  61% (4100/6721)Updating files:  62% (4168/6721)Updating files:  63% (4235/6721)Updating files:  64% (4302/6721)Updating files:  65% (4369/6721)Updating files:  66% (4436/6721)Updating files:  67% (4504/6721)Updating files:  68% (4571/6721)Updating files:  69% (4638/6721)Updating files:  70% (4705/6721)Updating files:  71% (4772/6721)Updating files:  72% (4840/6721)Updating files:  73% (4907/6721)Updating files:  74% (4974/6721)Updating files:  75% (5041/6721)Updating files:  76% (5108/6721)Updating files:  77% (5176/6721)Updating files:  78% (5243/6721)Updating files:  79% (5310/6721)Updating files:  80% (5377/6721)Updating files:  81% (5445/6721)Updating files:  82% (5512/6721)Updating files:  83% (5579/6721)Updating files:  84% (5646/6721)Updating files:  85% (5713/6721)Updating files:  86% (5781/6721)Updating files:  87% (5848/6721)Updating files:  88% (5915/6721)Updating files:  89% (5982/6721)Updating files:  90% (6049/6721)Updating files:  91% (6117/6721)Updating files:  92% (6184/6721)Updating files:  93% (6251/6721)Updating files:  94% (6318/6721)Updating files:  95% (6385/6721)Updating files:  96% (6453/6721)Updating files:  97% (6520/6721)Updating files:  98% (6587/6721)Updating files:  99% (6654/6721)Updating files: 100% (6721/6721)Updating files: 100% (6721/6721), done.
+go: downloading go1.26.4 (linux/amd64)
+go: downloading google.golang.org/protobuf v1.36.11
+go: downloading github.com/fatih/structtag v1.2.0
+go: downloading github.com/cubicdaiya/gonp v1.0.4
+go: downloading github.com/google/cel-go v0.28.1
+go: downloading github.com/ncruces/go-sqlite3 v0.34.1
+go: downloading github.com/spf13/cobra v1.10.2
+go: downloading github.com/spf13/pflag v1.0.10
+go: downloading google.golang.org/grpc v1.81.0
+go: downloading github.com/sqlc-dev/doubleclick v1.0.0
+go: downloading github.com/sqlc-dev/marino v0.1.0
+go: downloading github.com/pganalyze/pg_query_go/v6 v6.2.2
+go: downloading github.com/antlr4-go/antlr/v4 v4.13.1
+go: downloading github.com/tetratelabs/wazero v1.11.0
+go: downloading github.com/jinzhu/inflection v1.0.0
+go: downloading github.com/riza-io/grpc-go v0.2.0
+go: downloading cel.dev/expr v0.25.1
+go: downloading google.golang.org/genproto/googleapis/api v0.0.0-20260226221140-a57be14db171
+go: downloading golang.org/x/net v0.51.0
+go: downloading github.com/ncruces/go-sqlite3-wasm/v2 v2.2.35301
+go: downloading github.com/ncruces/julianday v1.0.0
+go: downloading google.golang.org/genproto/googleapis/rpc v0.0.0-20260226221140-a57be14db171
+go: downloading go.yaml.in/yaml/v3 v3.0.4
+go: downloading golang.org/x/sys v0.44.0
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-09T10:57:27Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-09T10:57:27Z	WARN	[pip] Unable to find python `site-packages` directory. License detection is skipped.	err="site-packages directory not found"
+2026-06-09T10:57:28Z	INFO	Number of language-specific files	num=3
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m

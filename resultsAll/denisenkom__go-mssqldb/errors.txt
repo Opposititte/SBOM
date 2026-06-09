@@ -1,0 +1,46 @@
+Cloning into '/home/user/SBOM/work/denisenkom__go-mssqldb'...
+go: downloading github.com/Azure/azure-sdk-for-go/sdk/azcore v0.19.0
+go: downloading github.com/Azure/azure-sdk-for-go/sdk/azidentity v0.11.0
+go: downloading golang.org/x/crypto v0.0.0-20220622213112-05595931fe9d
+go: downloading github.com/Azure/azure-sdk-for-go/sdk/internal v0.7.0
+go: downloading github.com/pkg/browser v0.0.0-20180916011732-0a3d74bf9ce4
+go: downloading golang.org/x/net v0.0.0-20211112202133-69e39bad7dc2
+go: downloading golang.org/x/text v0.3.6
+go: finding module for package github.com/Azure/go-autorest/autorest/adal
+go: downloading github.com/Azure/go-autorest/autorest v0.11.30
+go: downloading github.com/Azure/go-autorest/autorest/adal v0.9.24
+go: downloading github.com/Azure/go-autorest v14.2.0+incompatible
+go: found github.com/Azure/go-autorest/autorest/adal in github.com/Azure/go-autorest/autorest/adal v0.9.24
+go: downloading github.com/Azure/go-autorest/autorest/date v0.3.0
+go: downloading github.com/Azure/go-autorest/logger v0.2.1
+go: downloading github.com/Azure/go-autorest/tracing v0.6.0
+go: downloading github.com/golang-jwt/jwt/v4 v4.5.0
+go: downloading golang.org/x/crypto v0.17.0
+go: downloading golang.org/x/net v0.10.0
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-09T11:01:57Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-09T11:01:58Z	INFO	Number of language-specific files	num=1
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m

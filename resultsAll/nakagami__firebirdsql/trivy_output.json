@@ -1,0 +1,297 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:73fa6b35-71f4-4897-a9f1-88fff80370f5",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:01:44+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "c4cef8f4-8e71-41c1-ae8f-72c5dc013479",
+      "type": "application",
+      "name": "/home/user/SBOM/work/nakagami__firebirdsql",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "b543398a-c33d-4dad-827e-aae4742cd07c",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+      "type": "library",
+      "name": "github.com/davecgh/go-spew",
+      "version": "v1.1.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/davecgh/go-spew@v1.1.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/kardianos/osext@v0.0.0-20190222173326-2bc1f35cddc0",
+      "type": "library",
+      "name": "github.com/kardianos/osext",
+      "version": "v0.0.0-20190222173326-2bc1f35cddc0",
+      "purl": "pkg:golang/github.com/kardianos/osext@v0.0.0-20190222173326-2bc1f35cddc0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/kardianos/osext@v0.0.0-20190222173326-2bc1f35cddc0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/nakagami/chacha20@v0.1.0",
+      "type": "library",
+      "name": "github.com/nakagami/chacha20",
+      "version": "v0.1.0",
+      "purl": "pkg:golang/github.com/nakagami/chacha20@v0.1.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/nakagami/chacha20@v0.1.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/nakagami/firebirdsql",
+      "type": "library",
+      "name": "github.com/nakagami/firebirdsql",
+      "purl": "pkg:golang/github.com/nakagami/firebirdsql",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/nakagami/firebirdsql"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+      "type": "library",
+      "name": "github.com/pmezard/go-difflib",
+      "version": "v1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/pmezard/go-difflib@v1.0.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/stretchr/testify@v1.11.1",
+      "type": "library",
+      "name": "github.com/stretchr/testify",
+      "version": "v1.11.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/stretchr/testify@v1.11.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/stretchr/testify@v1.11.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/gitlab.com/nyarla/go-crypt@v0.0.0-20160106005555-d9a5dc2b789b",
+      "type": "library",
+      "name": "gitlab.com/nyarla/go-crypt",
+      "version": "v0.0.0-20160106005555-d9a5dc2b789b",
+      "purl": "pkg:golang/gitlab.com/nyarla/go-crypt@v0.0.0-20160106005555-d9a5dc2b789b",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "gitlab.com/nyarla/go-crypt@v0.0.0-20160106005555-d9a5dc2b789b"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/text@v0.22.0",
+      "type": "library",
+      "name": "golang.org/x/text",
+      "version": "v0.22.0",
+      "purl": "pkg:golang/golang.org/x/text@v0.22.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/text@v0.22.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/gopkg.in/yaml.v3@v3.0.1",
+      "type": "library",
+      "name": "gopkg.in/yaml.v3",
+      "version": "v3.0.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        },
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:golang/gopkg.in/yaml.v3@v3.0.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "gopkg.in/yaml.v3@v3.0.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "b543398a-c33d-4dad-827e-aae4742cd07c",
+      "dependsOn": [
+        "pkg:golang/github.com/nakagami/firebirdsql"
+      ]
+    },
+    {
+      "ref": "c4cef8f4-8e71-41c1-ae8f-72c5dc013479",
+      "dependsOn": [
+        "b543398a-c33d-4dad-827e-aae4742cd07c"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/kardianos/osext@v0.0.0-20190222173326-2bc1f35cddc0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/nakagami/chacha20@v0.1.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/nakagami/firebirdsql",
+      "dependsOn": [
+        "pkg:golang/github.com/kardianos/osext@v0.0.0-20190222173326-2bc1f35cddc0",
+        "pkg:golang/github.com/nakagami/chacha20@v0.1.0",
+        "pkg:golang/github.com/stretchr/testify@v1.11.1",
+        "pkg:golang/gitlab.com/nyarla/go-crypt@v0.0.0-20160106005555-d9a5dc2b789b",
+        "pkg:golang/golang.org/x/text@v0.22.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/stretchr/testify@v1.11.1",
+      "dependsOn": [
+        "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+        "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+        "pkg:golang/gopkg.in/yaml.v3@v3.0.1"
+      ]
+    },
+    {
+      "ref": "pkg:golang/gitlab.com/nyarla/go-crypt@v0.0.0-20160106005555-d9a5dc2b789b",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/text@v0.22.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/gopkg.in/yaml.v3@v3.0.1",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

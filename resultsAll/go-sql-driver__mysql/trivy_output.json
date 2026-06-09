@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:6fbe232c-6556-47ea-8cb2-f9e5653f0107",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:02:14+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "f0546600-af04-4da9-937e-fb5ab8885e2e",
+      "type": "application",
+      "name": "/home/user/SBOM/work/go-sql-driver__mysql",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "675cd93d-2e92-4d63-a3ab-9096bda1dc22",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/filippo.io/edwards25519@v1.2.0",
+      "type": "library",
+      "name": "filippo.io/edwards25519",
+      "version": "v1.2.0",
+      "purl": "pkg:golang/filippo.io/edwards25519@v1.2.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "filippo.io/edwards25519@v1.2.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/go-sql-driver/mysql",
+      "type": "library",
+      "name": "github.com/go-sql-driver/mysql",
+      "purl": "pkg:golang/github.com/go-sql-driver/mysql",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/go-sql-driver/mysql"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "675cd93d-2e92-4d63-a3ab-9096bda1dc22",
+      "dependsOn": [
+        "pkg:golang/github.com/go-sql-driver/mysql"
+      ]
+    },
+    {
+      "ref": "f0546600-af04-4da9-937e-fb5ab8885e2e",
+      "dependsOn": [
+        "675cd93d-2e92-4d63-a3ab-9096bda1dc22"
+      ]
+    },
+    {
+      "ref": "pkg:golang/filippo.io/edwards25519@v1.2.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/go-sql-driver/mysql",
+      "dependsOn": [
+        "pkg:golang/filippo.io/edwards25519@v1.2.0"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}

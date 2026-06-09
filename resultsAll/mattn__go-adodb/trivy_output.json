@@ -1,0 +1,197 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:2ce5210c-3b0a-44b0-be1a-abefa2856ef4",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:01:50+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "47ae5cd3-a11e-41e3-9a81-bdc8d814a55c",
+      "type": "application",
+      "name": "/home/user/SBOM/work/mattn__go-adodb",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "38277533-2459-489d-8737-74fcf9fa38be",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/go-ole/go-ole@v1.2.4",
+      "type": "library",
+      "name": "github.com/go-ole/go-ole",
+      "version": "v1.2.4",
+      "purl": "pkg:golang/github.com/go-ole/go-ole@v1.2.4",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/go-ole/go-ole@v1.2.4"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mattn/go-adodb",
+      "type": "library",
+      "name": "github.com/mattn/go-adodb",
+      "purl": "pkg:golang/github.com/mattn/go-adodb",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mattn/go-adodb"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/crypto@v0.0.0-20190308221718-c2843e01d9a2",
+      "type": "library",
+      "name": "golang.org/x/crypto",
+      "version": "v0.0.0-20190308221718-c2843e01d9a2",
+      "purl": "pkg:golang/golang.org/x/crypto@v0.0.0-20190308221718-c2843e01d9a2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/crypto@v0.0.0-20190308221718-c2843e01d9a2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/net@v0.0.0-20200114155413-6afb5195e5aa",
+      "type": "library",
+      "name": "golang.org/x/net",
+      "version": "v0.0.0-20200114155413-6afb5195e5aa",
+      "purl": "pkg:golang/golang.org/x/net@v0.0.0-20200114155413-6afb5195e5aa",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/net@v0.0.0-20200114155413-6afb5195e5aa"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.0.0-20190215142949-d0b11bdaac8a",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.0.0-20190215142949-d0b11bdaac8a",
+      "purl": "pkg:golang/golang.org/x/sys@v0.0.0-20190215142949-d0b11bdaac8a",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sys@v0.0.0-20190215142949-d0b11bdaac8a"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/text@v0.3.0",
+      "type": "library",
+      "name": "golang.org/x/text",
+      "version": "v0.3.0",
+      "purl": "pkg:golang/golang.org/x/text@v0.3.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/text@v0.3.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "38277533-2459-489d-8737-74fcf9fa38be",
+      "dependsOn": [
+        "pkg:golang/github.com/mattn/go-adodb"
+      ]
+    },
+    {
+      "ref": "47ae5cd3-a11e-41e3-9a81-bdc8d814a55c",
+      "dependsOn": [
+        "38277533-2459-489d-8737-74fcf9fa38be"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/go-ole/go-ole@v1.2.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/mattn/go-adodb",
+      "dependsOn": [
+        "pkg:golang/github.com/go-ole/go-ole@v1.2.4",
+        "pkg:golang/golang.org/x/crypto@v0.0.0-20190308221718-c2843e01d9a2",
+        "pkg:golang/golang.org/x/net@v0.0.0-20200114155413-6afb5195e5aa",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20190215142949-d0b11bdaac8a",
+        "pkg:golang/golang.org/x/text@v0.3.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/crypto@v0.0.0-20190308221718-c2843e01d9a2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/net@v0.0.0-20200114155413-6afb5195e5aa",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.0.0-20190215142949-d0b11bdaac8a",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/text@v0.3.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
