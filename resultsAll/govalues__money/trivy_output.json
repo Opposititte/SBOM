@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:8f8c3e4f-0bd5-4ce5-a393-8d81efcbc9f8",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:53:50+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "97921b57-5e1d-4af2-805b-c794cf2b803b",
+      "type": "application",
+      "name": "/home/user/SBOM/work/govalues__money",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "2b52870a-d617-4ab3-8fc8-f007c1fe6862",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/govalues/decimal@v0.1.36",
+      "type": "library",
+      "name": "github.com/govalues/decimal",
+      "version": "v0.1.36",
+      "purl": "pkg:golang/github.com/govalues/decimal@v0.1.36",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/govalues/decimal@v0.1.36"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/govalues/money",
+      "type": "library",
+      "name": "github.com/govalues/money",
+      "purl": "pkg:golang/github.com/govalues/money",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/govalues/money"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "2b52870a-d617-4ab3-8fc8-f007c1fe6862",
+      "dependsOn": [
+        "pkg:golang/github.com/govalues/money"
+      ]
+    },
+    {
+      "ref": "97921b57-5e1d-4af2-805b-c794cf2b803b",
+      "dependsOn": [
+        "2b52870a-d617-4ab3-8fc8-f007c1fe6862"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/govalues/decimal@v0.1.36",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/govalues/money",
+      "dependsOn": [
+        "pkg:golang/github.com/govalues/decimal@v0.1.36"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}

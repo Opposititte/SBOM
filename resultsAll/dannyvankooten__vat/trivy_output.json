@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:5fa40ccb-626b-4570-a8ae-4a455f6dafdf",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:55:15+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "f5fa58c1-4aae-48f4-9d3b-1259063d85c2",
+      "type": "application",
+      "name": "/home/user/SBOM/work/dannyvankooten__vat",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "48aa7f8c-d9ce-40ad-a42a-aeb58af3f2b1",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/dannyvankooten/vat",
+      "type": "library",
+      "name": "github.com/dannyvankooten/vat",
+      "purl": "pkg:golang/github.com/dannyvankooten/vat",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/dannyvankooten/vat"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "48aa7f8c-d9ce-40ad-a42a-aeb58af3f2b1",
+      "dependsOn": [
+        "pkg:golang/github.com/dannyvankooten/vat"
+      ]
+    },
+    {
+      "ref": "f5fa58c1-4aae-48f4-9d3b-1259063d85c2",
+      "dependsOn": [
+        "48aa7f8c-d9ce-40ad-a42a-aeb58af3f2b1"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/dannyvankooten/vat",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

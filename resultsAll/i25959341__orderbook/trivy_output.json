@@ -1,0 +1,143 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:80efc4f5-b9ad-490e-8e33-a060c9be4a16",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:54:01+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "de843b63-d2a3-4a6f-b798-532714113156",
+      "type": "application",
+      "name": "/home/user/SBOM/work/i25959341__orderbook",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "2d67cad2-859d-442b-bf36-6f2bcbc3db80",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/emirpasic/gods@v1.18.1",
+      "type": "library",
+      "name": "github.com/emirpasic/gods",
+      "version": "v1.18.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-2-Clause"
+          }
+        },
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/emirpasic/gods@v1.18.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/emirpasic/gods@v1.18.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/shopspring/decimal@v1.4.0",
+      "type": "library",
+      "name": "github.com/shopspring/decimal",
+      "version": "v1.4.0",
+      "purl": "pkg:golang/github.com/shopspring/decimal@v1.4.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/shopspring/decimal@v1.4.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/orderbook",
+      "type": "library",
+      "name": "orderbook",
+      "purl": "pkg:golang/orderbook",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "orderbook"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "2d67cad2-859d-442b-bf36-6f2bcbc3db80",
+      "dependsOn": [
+        "pkg:golang/orderbook"
+      ]
+    },
+    {
+      "ref": "de843b63-d2a3-4a6f-b798-532714113156",
+      "dependsOn": [
+        "2d67cad2-859d-442b-bf36-6f2bcbc3db80"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/emirpasic/gods@v1.18.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/shopspring/decimal@v1.4.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/orderbook",
+      "dependsOn": [
+        "pkg:golang/github.com/emirpasic/gods@v1.18.1",
+        "pkg:golang/github.com/shopspring/decimal@v1.4.0"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}

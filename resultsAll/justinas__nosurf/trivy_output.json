@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:1381b32b-49b7-443a-b6da-7068caf841f8",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:56:21+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "46083362-1f4d-4741-b813-27a36ff0394a",
+      "type": "application",
+      "name": "/home/user/SBOM/work/justinas__nosurf",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "d7899cd4-1449-48a9-b3b7-df933f7961c3",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/justinas/nosurf",
+      "type": "library",
+      "name": "github.com/justinas/nosurf",
+      "purl": "pkg:golang/github.com/justinas/nosurf",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/justinas/nosurf"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "46083362-1f4d-4741-b813-27a36ff0394a",
+      "dependsOn": [
+        "d7899cd4-1449-48a9-b3b7-df933f7961c3"
+      ]
+    },
+    {
+      "ref": "d7899cd4-1449-48a9-b3b7-df933f7961c3",
+      "dependsOn": [
+        "pkg:golang/github.com/justinas/nosurf"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/justinas/nosurf",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
