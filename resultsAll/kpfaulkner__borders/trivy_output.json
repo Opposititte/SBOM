@@ -1,0 +1,131 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:0c242ab4-9f9c-4efb-a7b5-14a6d9fa9991",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:05:36+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "bddf1048-7719-4db8-af45-3cfdab91016e",
+      "type": "application",
+      "name": "/home/user/SBOM/work/kpfaulkner__borders",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "68598e7a-d1ee-46a5-a084-6d189f55a9bf",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/kpfaulkner/borders",
+      "type": "library",
+      "name": "github.com/kpfaulkner/borders",
+      "purl": "pkg:golang/github.com/kpfaulkner/borders",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/kpfaulkner/borders"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/lib/pq@v1.1.1",
+      "type": "library",
+      "name": "github.com/lib/pq",
+      "version": "v1.1.1",
+      "purl": "pkg:golang/github.com/lib/pq@v1.1.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/lib/pq@v1.1.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/peterstace/simplefeatures@v0.47.0",
+      "type": "library",
+      "name": "github.com/peterstace/simplefeatures",
+      "version": "v0.47.0",
+      "purl": "pkg:golang/github.com/peterstace/simplefeatures@v0.47.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/peterstace/simplefeatures@v0.47.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "68598e7a-d1ee-46a5-a084-6d189f55a9bf",
+      "dependsOn": [
+        "pkg:golang/github.com/kpfaulkner/borders"
+      ]
+    },
+    {
+      "ref": "bddf1048-7719-4db8-af45-3cfdab91016e",
+      "dependsOn": [
+        "68598e7a-d1ee-46a5-a084-6d189f55a9bf"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/kpfaulkner/borders",
+      "dependsOn": [
+        "pkg:golang/github.com/lib/pq@v1.1.1",
+        "pkg:golang/github.com/peterstace/simplefeatures@v0.47.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/lib/pq@v1.1.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/peterstace/simplefeatures@v0.47.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:e8c46a25-4789-4113-8207-19b425f04e01",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:09:23+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "a54b52e7-041c-47d2-91ff-0e280b1c96f7",
+      "type": "application",
+      "name": "/home/user/SBOM/work/wroge__wgs84",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "c5c8e51f-90a1-4418-9e34-7bbe6de0a74e",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/wroge/wgs84/v2",
+      "type": "library",
+      "name": "github.com/wroge/wgs84/v2",
+      "purl": "pkg:golang/github.com/wroge/wgs84/v2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/wroge/wgs84/v2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "a54b52e7-041c-47d2-91ff-0e280b1c96f7",
+      "dependsOn": [
+        "c5c8e51f-90a1-4418-9e34-7bbe6de0a74e"
+      ]
+    },
+    {
+      "ref": "c5c8e51f-90a1-4418-9e34-7bbe6de0a74e",
+      "dependsOn": [
+        "pkg:golang/github.com/wroge/wgs84/v2"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/wroge/wgs84/v2",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

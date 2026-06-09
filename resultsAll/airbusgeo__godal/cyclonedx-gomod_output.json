@@ -1,0 +1,1491 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:a941f5f2-c497-40c7-9f17-ba9466122da0",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:07:09Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/airbusgeo/godal@v0.0.18?type=module",
+      "type": "application",
+      "name": "github.com/airbusgeo/godal",
+      "version": "v0.0.18",
+      "purl": "pkg:golang/github.com/airbusgeo/godal@v0.0.18?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/airbusgeo/godal",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/cel.dev/expr@v0.19.2?type=module",
+      "type": "library",
+      "name": "cel.dev/expr",
+      "version": "v0.19.2",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "577e783dba885ebf4841dc32e12600e316b41d7696ab50543c01b3ba0058e55e"
+        }
+      ],
+      "purl": "pkg:golang/cel.dev/expr@v0.19.2?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/cloud.google.com/go@v0.118.3?type=module",
+      "type": "library",
+      "name": "cloud.google.com/go",
+      "version": "v0.118.3",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8ecca94a7ac4ff0e26272b22a0674c060e0c896fe11f1fec02b16968158774c1"
+        }
+      ],
+      "purl": "pkg:golang/cloud.google.com/go@v0.118.3?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/cloud.google.com/go/auth/oauth2adapt@v0.2.7?type=module",
+      "type": "library",
+      "name": "cloud.google.com/go/auth/oauth2adapt",
+      "version": "v0.2.7",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "fcb73bc4e0dda9c130f08ad9f52bf09e52d7ea3f451d033be33e9c064f51c3a3"
+        }
+      ],
+      "purl": "pkg:golang/cloud.google.com/go/auth/oauth2adapt@v0.2.7?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/cloud.google.com/go/compute/metadata@v0.6.0?type=module",
+      "type": "library",
+      "name": "cloud.google.com/go/compute/metadata",
+      "version": "v0.6.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "03a84436312c083b42d64f1bc95b20c2f55c8a86a6107bd9e23d353b02b11bd2"
+        }
+      ],
+      "purl": "pkg:golang/cloud.google.com/go/compute/metadata@v0.6.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/cloud.google.com/go/iam@v1.4.1?type=module",
+      "type": "library",
+      "name": "cloud.google.com/go/iam",
+      "version": "v1.4.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7050b6e4dbfebb90644d1fc14f5b5776817675a8956d9d512f1d9ea9f43d44c3"
+        }
+      ],
+      "purl": "pkg:golang/cloud.google.com/go/iam@v1.4.1?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/cloud.google.com/go/monitoring@v1.24.0?type=module",
+      "type": "library",
+      "name": "cloud.google.com/go/monitoring",
+      "version": "v1.24.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "72c48a88227e595460364473cf3dc13e81a31618cf636dd94dc69e9d3a09c4c3"
+        }
+      ],
+      "purl": "pkg:golang/cloud.google.com/go/monitoring@v1.24.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/cloud.google.com/go/storage@v1.51.0?type=module",
+      "type": "library",
+      "name": "cloud.google.com/go/storage",
+      "version": "v1.51.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "655675d730a20fb6f793e707e6542cfea70d6a84b3dd4f48d23830573a83942c"
+        }
+      ],
+      "purl": "pkg:golang/cloud.google.com/go/storage@v1.51.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp@v1.25.0?type=module",
+      "type": "library",
+      "name": "github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp",
+      "version": "v1.25.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ddcf3279de2582a4edfa84d0f8934c0e8f85e31a6b05ff8efe2978642d2744bc"
+        }
+      ],
+      "purl": "pkg:golang/github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp@v1.25.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric@v0.51.0?type=module",
+      "type": "library",
+      "name": "github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric",
+      "version": "v0.51.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7d813da777ac3f103f0b4ad0d001e13f476bb4f5c34616968b08350cfa8eec85"
+        }
+      ],
+      "purl": "pkg:golang/github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric@v0.51.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/GoogleCloudPlatform/opentelemetry-operations-go/internal/resourcemapping@v0.51.0?type=module",
+      "type": "library",
+      "name": "github.com/GoogleCloudPlatform/opentelemetry-operations-go/internal/resourcemapping",
+      "version": "v0.51.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ebfd2251dd31ae75fbaadfa62cd4708397343c6bfcc2913c2bdd2bc80350c0c2"
+        }
+      ],
+      "purl": "pkg:golang/github.com/GoogleCloudPlatform/opentelemetry-operations-go/internal/resourcemapping@v0.51.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/GoogleCloudPlatform/opentelemetry-operations-go/internal/resourcemapping",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/airbusgeo/cogger@v0.0.7?type=module",
+      "type": "library",
+      "name": "github.com/airbusgeo/cogger",
+      "version": "v0.0.7",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1fa315beddd1cd9ad62c953053783bec7ae909ca49dffae8ba34e2c4246a439e"
+        }
+      ],
+      "purl": "pkg:golang/github.com/airbusgeo/cogger@v0.0.7?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/airbusgeo/cogger",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/airbusgeo/errs@v0.0.3?type=module",
+      "type": "library",
+      "name": "github.com/airbusgeo/errs",
+      "version": "v0.0.3",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "fa551c6df9b8e6d3cbcff0cc502dfc413fb2f4deb468aacfbf8317a956fb3687"
+        }
+      ],
+      "purl": "pkg:golang/github.com/airbusgeo/errs@v0.0.3?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/airbusgeo/errs",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/airbusgeo/osio@v0.1.3?type=module",
+      "type": "library",
+      "name": "github.com/airbusgeo/osio",
+      "version": "v0.1.3",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "23135fd5ca3c971c2a242ce257ee6a67265b913e8961d991dcbd28a2635f7eb9"
+        }
+      ],
+      "purl": "pkg:golang/github.com/airbusgeo/osio@v0.1.3?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/airbusgeo/osio",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/cespare/xxhash/v2@v2.3.0?type=module",
+      "type": "library",
+      "name": "github.com/cespare/xxhash/v2",
+      "version": "v2.3.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "50bf35e7153d4aab059626f3ba08338d786883b6cbea85fd05b3599cbd9416fb"
+        }
+      ],
+      "purl": "pkg:golang/github.com/cespare/xxhash/v2@v2.3.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/cespare/xxhash",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/cncf/xds/go@v0.0.0-20250121191232-2f005788dc42?type=module",
+      "type": "library",
+      "name": "github.com/cncf/xds/go",
+      "version": "v0.0.0-20250121191232-2f005788dc42",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3a6ea4610603524e7059b4f4b74abaa6fc8ce3d8bd5d902ff5d0eb90303b8239"
+        }
+      ],
+      "purl": "pkg:golang/github.com/cncf/xds/go@v0.0.0-20250121191232-2f005788dc42?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/cncf/xds/go",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/envoyproxy/go-control-plane/envoy@v1.32.4?type=module",
+      "type": "library",
+      "name": "github.com/envoyproxy/go-control-plane/envoy",
+      "version": "v1.32.4",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8dbf3795a9434594a93d65b667b31c93ff245d9e4240015856341c75522bf370"
+        }
+      ],
+      "purl": "pkg:golang/github.com/envoyproxy/go-control-plane/envoy@v1.32.4?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/envoyproxy/go-control-plane/envoy",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/envoyproxy/protoc-gen-validate@v1.2.1?type=module",
+      "type": "library",
+      "name": "github.com/envoyproxy/protoc-gen-validate",
+      "version": "v1.2.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0c4a373bdf54f23e21045c1b25faf3f55b607037d4292eca27bb291f777ce8ff"
+        }
+      ],
+      "purl": "pkg:golang/github.com/envoyproxy/protoc-gen-validate@v1.2.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/envoyproxy/protoc-gen-validate",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/felixge/httpsnoop@v1.0.4?type=module",
+      "type": "library",
+      "name": "github.com/felixge/httpsnoop",
+      "version": "v1.0.4",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3454d5d998f56cbe2673db2a5800976d01550418365b718fbeaa7cfc4492d968"
+        }
+      ],
+      "purl": "pkg:golang/github.com/felixge/httpsnoop@v1.0.4?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/felixge/httpsnoop",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/go-logr/logr@v1.4.2?type=module",
+      "type": "library",
+      "name": "github.com/go-logr/logr",
+      "version": "v1.4.2",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ea91636a99fc6c57086e22a8dd74f88ff06100da651a2846eadbddfbcad882b6"
+        }
+      ],
+      "purl": "pkg:golang/github.com/go-logr/logr@v1.4.2?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/go-logr/logr",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/go-logr/stdr@v1.2.2?type=module",
+      "type": "library",
+      "name": "github.com/go-logr/stdr",
+      "version": "v1.2.2",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8525b11e8a93816d92daa19cd0b4c0239eb7299e582984614f730529931b8da8"
+        }
+      ],
+      "purl": "pkg:golang/github.com/go-logr/stdr@v1.2.2?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/go-logr/stdr",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/google/tiff@v0.0.0-20161109161721-4b31f3041d9a?type=module",
+      "type": "library",
+      "name": "github.com/google/tiff",
+      "version": "v0.0.0-20161109161721-4b31f3041d9a",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "322e659cd729a98376336279da0cb5ba49d24617c0f410403d505de577c78be5"
+        }
+      ],
+      "purl": "pkg:golang/github.com/google/tiff@v0.0.0-20161109161721-4b31f3041d9a?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/google/tiff",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/google/uuid@v1.6.0?type=module",
+      "type": "library",
+      "name": "github.com/google/uuid",
+      "version": "v1.6.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "348bda24330eb231c0f27d630212d2833ac0cf2d4782bfa136b6f9edefbde05d"
+        }
+      ],
+      "purl": "pkg:golang/github.com/google/uuid@v1.6.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/google/uuid",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/googleapis/enterprise-certificate-proxy@v0.3.5?type=module",
+      "type": "library",
+      "name": "github.com/googleapis/enterprise-certificate-proxy",
+      "version": "v0.3.5",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "560cd36368e8830df1b77f42bac1271495a6eeb96cab9c8be6af5774b3ae3f98"
+        }
+      ],
+      "purl": "pkg:golang/github.com/googleapis/enterprise-certificate-proxy@v0.3.5?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/googleapis/enterprise-certificate-proxy",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/googleapis/gax-go/v2@v2.14.1?type=module",
+      "type": "library",
+      "name": "github.com/googleapis/gax-go/v2",
+      "version": "v2.14.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "85bd0515e88f690b249af6a42aee446c26e99ed427e3c8f21eebeb92ead24bf4"
+        }
+      ],
+      "purl": "pkg:golang/github.com/googleapis/gax-go/v2@v2.14.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/googleapis/gax-go",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/hashicorp/golang-lru@v1.0.2?type=module",
+      "type": "library",
+      "name": "github.com/hashicorp/golang-lru",
+      "version": "v1.0.2",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "755de0f59fee9eae43a5b94fa70f8ea9cbf8754ff5a269dbe0e93c88f63aa757"
+        }
+      ],
+      "purl": "pkg:golang/github.com/hashicorp/golang-lru@v1.0.2?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/hashicorp/golang-lru",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/inconshreveable/mousetrap@v1.0.0?type=module",
+      "type": "library",
+      "name": "github.com/inconshreveable/mousetrap",
+      "version": "v1.0.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "67cb6ee6cada2d709721c011c41a7ff1c6ef97055aed9d4d1e0f5710a86d4af3"
+        }
+      ],
+      "purl": "pkg:golang/github.com/inconshreveable/mousetrap@v1.0.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/inconshreveable/mousetrap",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/planetscale/vtprotobuf@v0.6.1-0.20240319094008-0393e58bdf10?type=module",
+      "type": "library",
+      "name": "github.com/planetscale/vtprotobuf",
+      "version": "v0.6.1-0.20240319094008-0393e58bdf10",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "18508a826a74b5e714274b09bafe29cd80aa4bdf911929f9d8cdc55303ecfaea"
+        }
+      ],
+      "purl": "pkg:golang/github.com/planetscale/vtprotobuf@v0.6.1-0.20240319094008-0393e58bdf10?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/planetscale/vtprotobuf",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/spf13/cobra@v1.2.1?type=module",
+      "type": "library",
+      "name": "github.com/spf13/cobra",
+      "version": "v1.2.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f8a9a36d4c3586b89234c179e683eb91971bdbb6840b2ae3f15db2b6fee4583c"
+        }
+      ],
+      "purl": "pkg:golang/github.com/spf13/cobra@v1.2.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/spf13/cobra",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/spf13/pflag@v1.0.5?type=module",
+      "type": "library",
+      "name": "github.com/spf13/pflag",
+      "version": "v1.0.5",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8b2f951543823f56bef3216da3f76b836089e6ed3246807b7d9c370cabff2570"
+        }
+      ],
+      "purl": "pkg:golang/github.com/spf13/pflag@v1.0.5?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/spf13/pflag",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/go.opentelemetry.io/auto/sdk@v1.1.0?type=module",
+      "type": "library",
+      "name": "go.opentelemetry.io/auto/sdk",
+      "version": "v1.1.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "707e778de84b50de9414b63bd73f8d0ce88d26a0dd3d1697cd37a5d2c2724980"
+        }
+      ],
+      "purl": "pkg:golang/go.opentelemetry.io/auto/sdk@v1.1.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/go.opentelemetry.io/contrib/detectors/gcp@v1.34.0?type=module",
+      "type": "library",
+      "name": "go.opentelemetry.io/contrib/detectors/gcp",
+      "version": "v1.34.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "251c6cb286e23e0db7a2d614e526d6b500bffec9c65483374f1e9047395005aa"
+        }
+      ],
+      "purl": "pkg:golang/go.opentelemetry.io/contrib/detectors/gcp@v1.34.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc@v0.59.0?type=module",
+      "type": "library",
+      "name": "go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc",
+      "version": "v0.59.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ae03249a219f8b1f6f1490dc0e2d4f2bc58440fe052d0c0b0df869e592e915e1"
+        }
+      ],
+      "purl": "pkg:golang/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc@v0.59.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp@v0.59.0?type=module",
+      "type": "library",
+      "name": "go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp",
+      "version": "v0.59.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "095ed4752189b7f028e86a780977242f155146c4600c7a08f178db2f73c397cb"
+        }
+      ],
+      "purl": "pkg:golang/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp@v0.59.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/go.opentelemetry.io/otel@v1.34.0?type=module",
+      "type": "library",
+      "name": "go.opentelemetry.io/otel",
+      "version": "v1.34.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "cd12d7c4b0a02f55b22ac3d5ae06d274c37873414c90302c9124d03fed217546"
+        }
+      ],
+      "purl": "pkg:golang/go.opentelemetry.io/otel@v1.34.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/go.opentelemetry.io/otel/metric@v1.34.0?type=module",
+      "type": "library",
+      "name": "go.opentelemetry.io/otel/metric",
+      "version": "v1.34.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f9e4d1dd4d0cc9f5a344386614cc5ed92b16eb842b67ce003a1bea4bb63e3e84"
+        }
+      ],
+      "purl": "pkg:golang/go.opentelemetry.io/otel/metric@v1.34.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/go.opentelemetry.io/otel/sdk@v1.34.0?type=module",
+      "type": "library",
+      "name": "go.opentelemetry.io/otel/sdk",
+      "version": "v1.34.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f79cd2e24ff618ecb4ebd777db53bc8d6818b16dcccd557e2ae48f2a9ed6af50"
+        }
+      ],
+      "purl": "pkg:golang/go.opentelemetry.io/otel/sdk@v1.34.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/go.opentelemetry.io/otel/sdk/metric@v1.34.0?type=module",
+      "type": "library",
+      "name": "go.opentelemetry.io/otel/sdk/metric",
+      "version": "v1.34.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e4278af6e8e36c554be5cd4f84bb92b60d70c40eef42fedc7b510ad06caf6a19"
+        }
+      ],
+      "purl": "pkg:golang/go.opentelemetry.io/otel/sdk/metric@v1.34.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/go.opentelemetry.io/otel/trace@v1.34.0?type=module",
+      "type": "library",
+      "name": "go.opentelemetry.io/otel/trace",
+      "version": "v1.34.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "fa8b974b657c45de21a78e7cd1af2adb76e0d1acc5da723c72a2d89c2f2687f9"
+        }
+      ],
+      "purl": "pkg:golang/go.opentelemetry.io/otel/trace@v1.34.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/net@v0.35.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/net",
+      "version": "v0.35.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4f91904506f6cb4f244c0072abd2f8fdbcfc722a42740f056d14d77b0a27a98f"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/net@v0.35.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/oauth2@v0.28.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/oauth2",
+      "version": "v0.28.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0ab8022a5f0f3c056d2e753773e103c3ac75d7af7d11696c0de58d58a7483a47"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/oauth2@v0.28.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sync@v0.12.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/sync",
+      "version": "v0.12.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3077390693ee0b7d2e264e7ded18bc4d5dc23597132eee81eb3e25272fa0e89c"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/sync@v0.12.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.30.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.30.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "423912c0fff7e9adb48c5616912b9ed58c17ccb9ac57919fabb122cbbd82d6e7"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/sys@v0.30.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/text@v0.22.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/text",
+      "version": "v0.22.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6e87eaee6dff1c016f6c5e758f3dd0f702e0de392f48fba266efe90f55f082d3"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/text@v0.22.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/time@v0.10.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/time",
+      "version": "v0.10.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "deeb02580f2d427d0bf3e845250360ce959b77cf5b7a0c4debaa353a3767e4be"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/time@v0.10.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/google.golang.org/api@v0.224.0?type=module",
+      "type": "library",
+      "name": "google.golang.org/api",
+      "version": "v0.224.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "22be143ed0ec362c08387744c6bddf023e31678d908caeee42d7b794e44b2705"
+        }
+      ],
+      "purl": "pkg:golang/google.golang.org/api@v0.224.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/google.golang.org/genproto@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+      "type": "library",
+      "name": "google.golang.org/genproto",
+      "version": "v0.0.0-20250303144028-a0af3efb3deb",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "21380fae5e36f5b73afb666b68d4b330393723de67990967d9fb8fb2d2b01431"
+        }
+      ],
+      "purl": "pkg:golang/google.golang.org/genproto@v0.0.0-20250303144028-a0af3efb3deb?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/google.golang.org/genproto/googleapis/api@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+      "type": "library",
+      "name": "google.golang.org/genproto/googleapis/api",
+      "version": "v0.0.0-20250303144028-a0af3efb3deb",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a77d714f8cab62b48cfc6e129f6f9335491584509b1bdcbc8ad3364ba4e1f79d"
+        }
+      ],
+      "purl": "pkg:golang/google.golang.org/genproto/googleapis/api@v0.0.0-20250303144028-a0af3efb3deb?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+      "type": "library",
+      "name": "google.golang.org/genproto/googleapis/rpc",
+      "version": "v0.0.0-20250303144028-a0af3efb3deb",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4cb3d055bc75189f15299c73e76540c65d440602975db4e253d15ce5f65e2e7e"
+        }
+      ],
+      "purl": "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20250303144028-a0af3efb3deb?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/google.golang.org/grpc@v1.71.0?type=module",
+      "type": "library",
+      "name": "google.golang.org/grpc",
+      "version": "v1.71.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "905efb04674f4d0e3f25958c95bf55a49e696b6e5aaaf56aa20b313471dd7818"
+        }
+      ],
+      "purl": "pkg:golang/google.golang.org/grpc@v1.71.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/google.golang.org/protobuf@v1.36.5?type=module",
+      "type": "library",
+      "name": "google.golang.org/protobuf",
+      "version": "v1.36.5",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b4f86bfb0a126e37d8bd8ebf18fb9f528622cf1c35705ff2168c49d9f9a9c253"
+        }
+      ],
+      "purl": "pkg:golang/google.golang.org/protobuf@v1.36.5?goarch=amd64\u0026goos=linux\u0026type=module"
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/airbusgeo/godal@v0.0.18?type=module",
+      "dependsOn": [
+        "pkg:golang/cloud.google.com/go/storage@v1.51.0?type=module",
+        "pkg:golang/github.com/airbusgeo/cogger@v0.0.7?type=module",
+        "pkg:golang/github.com/airbusgeo/osio@v0.1.3?type=module",
+        "pkg:golang/github.com/spf13/cobra@v1.2.1?type=module",
+        "pkg:golang/google.golang.org/api@v0.224.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/cel.dev/expr@v0.19.2?type=module",
+      "dependsOn": [
+        "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/protobuf@v1.36.5?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/cloud.google.com/go@v0.118.3?type=module",
+      "dependsOn": [
+        "pkg:golang/cel.dev/expr@v0.19.2?type=module",
+        "pkg:golang/cloud.google.com/go/auth/oauth2adapt@v0.2.7?type=module",
+        "pkg:golang/cloud.google.com/go/compute/metadata@v0.6.0?type=module",
+        "pkg:golang/cloud.google.com/go/iam@v1.4.1?type=module",
+        "pkg:golang/cloud.google.com/go/monitoring@v1.24.0?type=module",
+        "pkg:golang/cloud.google.com/go/storage@v1.51.0?type=module",
+        "pkg:golang/github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp@v1.25.0?type=module",
+        "pkg:golang/github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric@v0.51.0?type=module",
+        "pkg:golang/github.com/GoogleCloudPlatform/opentelemetry-operations-go/internal/resourcemapping@v0.51.0?type=module",
+        "pkg:golang/github.com/cespare/xxhash/v2@v2.3.0?type=module",
+        "pkg:golang/github.com/cncf/xds/go@v0.0.0-20250121191232-2f005788dc42?type=module",
+        "pkg:golang/github.com/envoyproxy/go-control-plane/envoy@v1.32.4?type=module",
+        "pkg:golang/github.com/envoyproxy/protoc-gen-validate@v1.2.1?type=module",
+        "pkg:golang/github.com/felixge/httpsnoop@v1.0.4?type=module",
+        "pkg:golang/github.com/go-logr/logr@v1.4.2?type=module",
+        "pkg:golang/github.com/go-logr/stdr@v1.2.2?type=module",
+        "pkg:golang/github.com/google/uuid@v1.6.0?type=module",
+        "pkg:golang/github.com/googleapis/enterprise-certificate-proxy@v0.3.5?type=module",
+        "pkg:golang/github.com/googleapis/gax-go/v2@v2.14.1?type=module",
+        "pkg:golang/github.com/planetscale/vtprotobuf@v0.6.1-0.20240319094008-0393e58bdf10?type=module",
+        "pkg:golang/go.opentelemetry.io/auto/sdk@v1.1.0?type=module",
+        "pkg:golang/go.opentelemetry.io/contrib/detectors/gcp@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc@v0.59.0?type=module",
+        "pkg:golang/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp@v0.59.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/metric@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/sdk@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/sdk/metric@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/trace@v1.34.0?type=module",
+        "pkg:golang/golang.org/x/net@v0.35.0?type=module",
+        "pkg:golang/golang.org/x/oauth2@v0.28.0?type=module",
+        "pkg:golang/golang.org/x/sync@v0.12.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.30.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.22.0?type=module",
+        "pkg:golang/golang.org/x/time@v0.10.0?type=module",
+        "pkg:golang/google.golang.org/api@v0.224.0?type=module",
+        "pkg:golang/google.golang.org/genproto@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/api@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/grpc@v1.71.0?type=module",
+        "pkg:golang/google.golang.org/protobuf@v1.36.5?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/cloud.google.com/go/auth/oauth2adapt@v0.2.7?type=module",
+      "dependsOn": [
+        "pkg:golang/cloud.google.com/go/compute/metadata@v0.6.0?type=module",
+        "pkg:golang/golang.org/x/net@v0.35.0?type=module",
+        "pkg:golang/golang.org/x/oauth2@v0.28.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.30.0?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/grpc@v1.71.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/cloud.google.com/go/compute/metadata@v0.6.0?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/sys@v0.30.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/cloud.google.com/go/iam@v1.4.1?type=module",
+      "dependsOn": [
+        "pkg:golang/cloud.google.com/go@v0.118.3?type=module",
+        "pkg:golang/cloud.google.com/go/auth/oauth2adapt@v0.2.7?type=module",
+        "pkg:golang/cloud.google.com/go/compute/metadata@v0.6.0?type=module",
+        "pkg:golang/github.com/felixge/httpsnoop@v1.0.4?type=module",
+        "pkg:golang/github.com/go-logr/logr@v1.4.2?type=module",
+        "pkg:golang/github.com/go-logr/stdr@v1.2.2?type=module",
+        "pkg:golang/github.com/google/uuid@v1.6.0?type=module",
+        "pkg:golang/github.com/googleapis/enterprise-certificate-proxy@v0.3.5?type=module",
+        "pkg:golang/github.com/googleapis/gax-go/v2@v2.14.1?type=module",
+        "pkg:golang/go.opentelemetry.io/auto/sdk@v1.1.0?type=module",
+        "pkg:golang/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc@v0.59.0?type=module",
+        "pkg:golang/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp@v0.59.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/metric@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/sdk@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/trace@v1.34.0?type=module",
+        "pkg:golang/golang.org/x/net@v0.35.0?type=module",
+        "pkg:golang/golang.org/x/oauth2@v0.28.0?type=module",
+        "pkg:golang/golang.org/x/sync@v0.12.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.30.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.22.0?type=module",
+        "pkg:golang/golang.org/x/time@v0.10.0?type=module",
+        "pkg:golang/google.golang.org/api@v0.224.0?type=module",
+        "pkg:golang/google.golang.org/genproto@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/api@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/grpc@v1.71.0?type=module",
+        "pkg:golang/google.golang.org/protobuf@v1.36.5?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/cloud.google.com/go/monitoring@v1.24.0?type=module",
+      "dependsOn": [
+        "pkg:golang/cloud.google.com/go@v0.118.3?type=module",
+        "pkg:golang/cloud.google.com/go/auth/oauth2adapt@v0.2.7?type=module",
+        "pkg:golang/cloud.google.com/go/compute/metadata@v0.6.0?type=module",
+        "pkg:golang/github.com/felixge/httpsnoop@v1.0.4?type=module",
+        "pkg:golang/github.com/go-logr/logr@v1.4.2?type=module",
+        "pkg:golang/github.com/go-logr/stdr@v1.2.2?type=module",
+        "pkg:golang/github.com/googleapis/enterprise-certificate-proxy@v0.3.5?type=module",
+        "pkg:golang/github.com/googleapis/gax-go/v2@v2.14.1?type=module",
+        "pkg:golang/go.opentelemetry.io/auto/sdk@v1.1.0?type=module",
+        "pkg:golang/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc@v0.59.0?type=module",
+        "pkg:golang/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp@v0.59.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/metric@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/sdk@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/trace@v1.34.0?type=module",
+        "pkg:golang/golang.org/x/net@v0.35.0?type=module",
+        "pkg:golang/golang.org/x/oauth2@v0.28.0?type=module",
+        "pkg:golang/golang.org/x/sync@v0.12.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.30.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.22.0?type=module",
+        "pkg:golang/golang.org/x/time@v0.10.0?type=module",
+        "pkg:golang/google.golang.org/api@v0.224.0?type=module",
+        "pkg:golang/google.golang.org/genproto@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/api@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/grpc@v1.71.0?type=module",
+        "pkg:golang/google.golang.org/protobuf@v1.36.5?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/cloud.google.com/go/storage@v1.51.0?type=module",
+      "dependsOn": [
+        "pkg:golang/cel.dev/expr@v0.19.2?type=module",
+        "pkg:golang/cloud.google.com/go@v0.118.3?type=module",
+        "pkg:golang/cloud.google.com/go/auth/oauth2adapt@v0.2.7?type=module",
+        "pkg:golang/cloud.google.com/go/compute/metadata@v0.6.0?type=module",
+        "pkg:golang/cloud.google.com/go/iam@v1.4.1?type=module",
+        "pkg:golang/cloud.google.com/go/monitoring@v1.24.0?type=module",
+        "pkg:golang/github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp@v1.25.0?type=module",
+        "pkg:golang/github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric@v0.51.0?type=module",
+        "pkg:golang/github.com/GoogleCloudPlatform/opentelemetry-operations-go/internal/resourcemapping@v0.51.0?type=module",
+        "pkg:golang/github.com/cespare/xxhash/v2@v2.3.0?type=module",
+        "pkg:golang/github.com/cncf/xds/go@v0.0.0-20250121191232-2f005788dc42?type=module",
+        "pkg:golang/github.com/envoyproxy/go-control-plane/envoy@v1.32.4?type=module",
+        "pkg:golang/github.com/envoyproxy/protoc-gen-validate@v1.2.1?type=module",
+        "pkg:golang/github.com/felixge/httpsnoop@v1.0.4?type=module",
+        "pkg:golang/github.com/go-logr/logr@v1.4.2?type=module",
+        "pkg:golang/github.com/go-logr/stdr@v1.2.2?type=module",
+        "pkg:golang/github.com/google/uuid@v1.6.0?type=module",
+        "pkg:golang/github.com/googleapis/enterprise-certificate-proxy@v0.3.5?type=module",
+        "pkg:golang/github.com/googleapis/gax-go/v2@v2.14.1?type=module",
+        "pkg:golang/github.com/planetscale/vtprotobuf@v0.6.1-0.20240319094008-0393e58bdf10?type=module",
+        "pkg:golang/go.opentelemetry.io/auto/sdk@v1.1.0?type=module",
+        "pkg:golang/go.opentelemetry.io/contrib/detectors/gcp@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc@v0.59.0?type=module",
+        "pkg:golang/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp@v0.59.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/metric@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/sdk@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/sdk/metric@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/trace@v1.34.0?type=module",
+        "pkg:golang/golang.org/x/net@v0.35.0?type=module",
+        "pkg:golang/golang.org/x/oauth2@v0.28.0?type=module",
+        "pkg:golang/golang.org/x/sync@v0.12.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.30.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.22.0?type=module",
+        "pkg:golang/golang.org/x/time@v0.10.0?type=module",
+        "pkg:golang/google.golang.org/api@v0.224.0?type=module",
+        "pkg:golang/google.golang.org/genproto@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/api@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/grpc@v1.71.0?type=module",
+        "pkg:golang/google.golang.org/protobuf@v1.36.5?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp@v1.25.0?type=module",
+      "dependsOn": [
+        "pkg:golang/cloud.google.com/go/compute/metadata@v0.6.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.30.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric@v0.51.0?type=module",
+      "dependsOn": [
+        "pkg:golang/cloud.google.com/go/auth/oauth2adapt@v0.2.7?type=module",
+        "pkg:golang/cloud.google.com/go/compute/metadata@v0.6.0?type=module",
+        "pkg:golang/cloud.google.com/go/monitoring@v1.24.0?type=module",
+        "pkg:golang/github.com/GoogleCloudPlatform/opentelemetry-operations-go/internal/resourcemapping@v0.51.0?type=module",
+        "pkg:golang/github.com/go-logr/logr@v1.4.2?type=module",
+        "pkg:golang/github.com/go-logr/stdr@v1.2.2?type=module",
+        "pkg:golang/github.com/google/uuid@v1.6.0?type=module",
+        "pkg:golang/github.com/googleapis/enterprise-certificate-proxy@v0.3.5?type=module",
+        "pkg:golang/github.com/googleapis/gax-go/v2@v2.14.1?type=module",
+        "pkg:golang/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc@v0.59.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/metric@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/sdk@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/sdk/metric@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/trace@v1.34.0?type=module",
+        "pkg:golang/golang.org/x/net@v0.35.0?type=module",
+        "pkg:golang/golang.org/x/oauth2@v0.28.0?type=module",
+        "pkg:golang/golang.org/x/sync@v0.12.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.30.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.22.0?type=module",
+        "pkg:golang/golang.org/x/time@v0.10.0?type=module",
+        "pkg:golang/google.golang.org/api@v0.224.0?type=module",
+        "pkg:golang/google.golang.org/genproto@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/api@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/grpc@v1.71.0?type=module",
+        "pkg:golang/google.golang.org/protobuf@v1.36.5?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/GoogleCloudPlatform/opentelemetry-operations-go/internal/resourcemapping@v0.51.0?type=module",
+      "dependsOn": [
+        "pkg:golang/go.opentelemetry.io/otel@v1.34.0?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/api@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/protobuf@v1.36.5?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/airbusgeo/cogger@v0.0.7?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/google/tiff@v0.0.0-20161109161721-4b31f3041d9a?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/airbusgeo/errs@v0.0.3?type=module",
+      "dependsOn": [
+        "pkg:golang/cloud.google.com/go@v0.118.3?type=module",
+        "pkg:golang/golang.org/x/net@v0.35.0?type=module",
+        "pkg:golang/google.golang.org/api@v0.224.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/airbusgeo/osio@v0.1.3?type=module",
+      "dependsOn": [
+        "pkg:golang/cloud.google.com/go/storage@v1.51.0?type=module",
+        "pkg:golang/github.com/airbusgeo/errs@v0.0.3?type=module",
+        "pkg:golang/github.com/hashicorp/golang-lru@v1.0.2?type=module",
+        "pkg:golang/google.golang.org/api@v0.224.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/cespare/xxhash/v2@v2.3.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/cncf/xds/go@v0.0.0-20250121191232-2f005788dc42?type=module",
+      "dependsOn": [
+        "pkg:golang/cel.dev/expr@v0.19.2?type=module",
+        "pkg:golang/github.com/envoyproxy/protoc-gen-validate@v1.2.1?type=module",
+        "pkg:golang/golang.org/x/net@v0.35.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.30.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.22.0?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/api@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/grpc@v1.71.0?type=module",
+        "pkg:golang/google.golang.org/protobuf@v1.36.5?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/envoyproxy/go-control-plane/envoy@v1.32.4?type=module",
+      "dependsOn": [
+        "pkg:golang/cel.dev/expr@v0.19.2?type=module",
+        "pkg:golang/github.com/cncf/xds/go@v0.0.0-20250121191232-2f005788dc42?type=module",
+        "pkg:golang/github.com/envoyproxy/protoc-gen-validate@v1.2.1?type=module",
+        "pkg:golang/github.com/planetscale/vtprotobuf@v0.6.1-0.20240319094008-0393e58bdf10?type=module",
+        "pkg:golang/golang.org/x/net@v0.35.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.30.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.22.0?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/api@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/grpc@v1.71.0?type=module",
+        "pkg:golang/google.golang.org/protobuf@v1.36.5?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/envoyproxy/protoc-gen-validate@v1.2.1?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/net@v0.35.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.22.0?type=module",
+        "pkg:golang/google.golang.org/protobuf@v1.36.5?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/felixge/httpsnoop@v1.0.4?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/go-logr/logr@v1.4.2?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/go-logr/stdr@v1.2.2?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/go-logr/logr@v1.4.2?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/google/tiff@v0.0.0-20161109161721-4b31f3041d9a?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/google/uuid@v1.6.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/googleapis/enterprise-certificate-proxy@v0.3.5?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/sys@v0.30.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/googleapis/gax-go/v2@v2.14.1?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/net@v0.35.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.30.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.22.0?type=module",
+        "pkg:golang/google.golang.org/api@v0.224.0?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/api@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/grpc@v1.71.0?type=module",
+        "pkg:golang/google.golang.org/protobuf@v1.36.5?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/hashicorp/golang-lru@v1.0.2?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/inconshreveable/mousetrap@v1.0.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/planetscale/vtprotobuf@v0.6.1-0.20240319094008-0393e58bdf10?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/net@v0.35.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.30.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.22.0?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/grpc@v1.71.0?type=module",
+        "pkg:golang/google.golang.org/protobuf@v1.36.5?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/spf13/cobra@v1.2.1?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/inconshreveable/mousetrap@v1.0.0?type=module",
+        "pkg:golang/github.com/spf13/pflag@v1.0.5?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/spf13/pflag@v1.0.5?type=module"
+    },
+    {
+      "ref": "pkg:golang/go.opentelemetry.io/auto/sdk@v1.1.0?type=module",
+      "dependsOn": [
+        "pkg:golang/go.opentelemetry.io/otel@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/trace@v1.34.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/go.opentelemetry.io/contrib/detectors/gcp@v1.34.0?type=module",
+      "dependsOn": [
+        "pkg:golang/cloud.google.com/go/compute/metadata@v0.6.0?type=module",
+        "pkg:golang/github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp@v1.25.0?type=module",
+        "pkg:golang/github.com/go-logr/logr@v1.4.2?type=module",
+        "pkg:golang/github.com/go-logr/stdr@v1.2.2?type=module",
+        "pkg:golang/github.com/google/uuid@v1.6.0?type=module",
+        "pkg:golang/go.opentelemetry.io/auto/sdk@v1.1.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/metric@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/sdk@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/trace@v1.34.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.30.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc@v0.59.0?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/go-logr/logr@v1.4.2?type=module",
+        "pkg:golang/github.com/go-logr/stdr@v1.2.2?type=module",
+        "pkg:golang/go.opentelemetry.io/auto/sdk@v1.1.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/metric@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/trace@v1.34.0?type=module",
+        "pkg:golang/golang.org/x/net@v0.35.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.30.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.22.0?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/grpc@v1.71.0?type=module",
+        "pkg:golang/google.golang.org/protobuf@v1.36.5?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp@v0.59.0?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/felixge/httpsnoop@v1.0.4?type=module",
+        "pkg:golang/github.com/go-logr/logr@v1.4.2?type=module",
+        "pkg:golang/github.com/go-logr/stdr@v1.2.2?type=module",
+        "pkg:golang/go.opentelemetry.io/auto/sdk@v1.1.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/metric@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/trace@v1.34.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/go.opentelemetry.io/otel@v1.34.0?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/go-logr/logr@v1.4.2?type=module",
+        "pkg:golang/github.com/go-logr/stdr@v1.2.2?type=module",
+        "pkg:golang/go.opentelemetry.io/auto/sdk@v1.1.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/metric@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/trace@v1.34.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/go.opentelemetry.io/otel/metric@v1.34.0?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/go-logr/logr@v1.4.2?type=module",
+        "pkg:golang/github.com/go-logr/stdr@v1.2.2?type=module",
+        "pkg:golang/go.opentelemetry.io/auto/sdk@v1.1.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/trace@v1.34.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/go.opentelemetry.io/otel/sdk@v1.34.0?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/go-logr/logr@v1.4.2?type=module",
+        "pkg:golang/github.com/go-logr/stdr@v1.2.2?type=module",
+        "pkg:golang/github.com/google/uuid@v1.6.0?type=module",
+        "pkg:golang/go.opentelemetry.io/auto/sdk@v1.1.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/metric@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/trace@v1.34.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.30.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/go.opentelemetry.io/otel/sdk/metric@v1.34.0?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/go-logr/logr@v1.4.2?type=module",
+        "pkg:golang/github.com/go-logr/stdr@v1.2.2?type=module",
+        "pkg:golang/github.com/google/uuid@v1.6.0?type=module",
+        "pkg:golang/go.opentelemetry.io/auto/sdk@v1.1.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/metric@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/sdk@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/trace@v1.34.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.30.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/go.opentelemetry.io/otel/trace@v1.34.0?type=module",
+      "dependsOn": [
+        "pkg:golang/go.opentelemetry.io/otel@v1.34.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/net@v0.35.0?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/sys@v0.30.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.22.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/oauth2@v0.28.0?type=module",
+      "dependsOn": [
+        "pkg:golang/cloud.google.com/go/compute/metadata@v0.6.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sync@v0.12.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.30.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/text@v0.22.0?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/sync@v0.12.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/time@v0.10.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/google.golang.org/api@v0.224.0?type=module",
+      "dependsOn": [
+        "pkg:golang/cloud.google.com/go/auth/oauth2adapt@v0.2.7?type=module",
+        "pkg:golang/cloud.google.com/go/compute/metadata@v0.6.0?type=module",
+        "pkg:golang/github.com/felixge/httpsnoop@v1.0.4?type=module",
+        "pkg:golang/github.com/go-logr/logr@v1.4.2?type=module",
+        "pkg:golang/github.com/go-logr/stdr@v1.2.2?type=module",
+        "pkg:golang/github.com/google/uuid@v1.6.0?type=module",
+        "pkg:golang/github.com/googleapis/enterprise-certificate-proxy@v0.3.5?type=module",
+        "pkg:golang/github.com/googleapis/gax-go/v2@v2.14.1?type=module",
+        "pkg:golang/go.opentelemetry.io/auto/sdk@v1.1.0?type=module",
+        "pkg:golang/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc@v0.59.0?type=module",
+        "pkg:golang/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp@v0.59.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/metric@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/trace@v1.34.0?type=module",
+        "pkg:golang/golang.org/x/net@v0.35.0?type=module",
+        "pkg:golang/golang.org/x/oauth2@v0.28.0?type=module",
+        "pkg:golang/golang.org/x/sync@v0.12.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.30.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.22.0?type=module",
+        "pkg:golang/golang.org/x/time@v0.10.0?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/grpc@v1.71.0?type=module",
+        "pkg:golang/google.golang.org/protobuf@v1.36.5?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/google.golang.org/genproto@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+      "dependsOn": [
+        "pkg:golang/cloud.google.com/go@v0.118.3?type=module",
+        "pkg:golang/cloud.google.com/go/iam@v1.4.1?type=module",
+        "pkg:golang/cloud.google.com/go/monitoring@v1.24.0?type=module",
+        "pkg:golang/golang.org/x/net@v0.35.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.30.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.22.0?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/api@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/grpc@v1.71.0?type=module",
+        "pkg:golang/google.golang.org/protobuf@v1.36.5?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/google.golang.org/genproto/googleapis/api@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/net@v0.35.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.30.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.22.0?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/grpc@v1.71.0?type=module",
+        "pkg:golang/google.golang.org/protobuf@v1.36.5?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+      "dependsOn": [
+        "pkg:golang/google.golang.org/protobuf@v1.36.5?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/google.golang.org/grpc@v1.71.0?type=module",
+      "dependsOn": [
+        "pkg:golang/cel.dev/expr@v0.19.2?type=module",
+        "pkg:golang/cloud.google.com/go/compute/metadata@v0.6.0?type=module",
+        "pkg:golang/github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp@v1.25.0?type=module",
+        "pkg:golang/github.com/cespare/xxhash/v2@v2.3.0?type=module",
+        "pkg:golang/github.com/cncf/xds/go@v0.0.0-20250121191232-2f005788dc42?type=module",
+        "pkg:golang/github.com/envoyproxy/go-control-plane/envoy@v1.32.4?type=module",
+        "pkg:golang/github.com/envoyproxy/protoc-gen-validate@v1.2.1?type=module",
+        "pkg:golang/github.com/go-logr/logr@v1.4.2?type=module",
+        "pkg:golang/github.com/go-logr/stdr@v1.2.2?type=module",
+        "pkg:golang/github.com/google/uuid@v1.6.0?type=module",
+        "pkg:golang/github.com/planetscale/vtprotobuf@v0.6.1-0.20240319094008-0393e58bdf10?type=module",
+        "pkg:golang/go.opentelemetry.io/auto/sdk@v1.1.0?type=module",
+        "pkg:golang/go.opentelemetry.io/contrib/detectors/gcp@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/metric@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/sdk@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/sdk/metric@v1.34.0?type=module",
+        "pkg:golang/go.opentelemetry.io/otel/trace@v1.34.0?type=module",
+        "pkg:golang/golang.org/x/net@v0.35.0?type=module",
+        "pkg:golang/golang.org/x/oauth2@v0.28.0?type=module",
+        "pkg:golang/golang.org/x/sync@v0.12.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.30.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.22.0?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/api@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20250303144028-a0af3efb3deb?type=module",
+        "pkg:golang/google.golang.org/protobuf@v1.36.5?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/google.golang.org/protobuf@v1.36.5?type=module"
+    }
+  ]
+}

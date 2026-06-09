@@ -1,0 +1,138 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:d5d71415-2ade-479a-8df0-63f7dc7163ee",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:08:25+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "81ba692f-0b95-4f2e-a435-2ff78a451d8c",
+      "type": "application",
+      "name": "/home/user/SBOM/work/golang__geo",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "f314c899-57a3-480c-b984-673fa96fd235",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/golang/geo",
+      "type": "library",
+      "name": "github.com/golang/geo",
+      "purl": "pkg:golang/github.com/golang/geo",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/golang/geo"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/google/go-cmp@v0.7.0",
+      "type": "library",
+      "name": "github.com/google/go-cmp",
+      "version": "v0.7.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/google/go-cmp@v0.7.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/google/go-cmp@v0.7.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/google/go-units@v0.0.0-20250612230646-eddd77f68220",
+      "type": "library",
+      "name": "github.com/google/go-units",
+      "version": "v0.0.0-20250612230646-eddd77f68220",
+      "purl": "pkg:golang/github.com/google/go-units@v0.0.0-20250612230646-eddd77f68220",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/google/go-units@v0.0.0-20250612230646-eddd77f68220"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "81ba692f-0b95-4f2e-a435-2ff78a451d8c",
+      "dependsOn": [
+        "f314c899-57a3-480c-b984-673fa96fd235"
+      ]
+    },
+    {
+      "ref": "f314c899-57a3-480c-b984-673fa96fd235",
+      "dependsOn": [
+        "pkg:golang/github.com/golang/geo"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/golang/geo",
+      "dependsOn": [
+        "pkg:golang/github.com/google/go-cmp@v0.7.0",
+        "pkg:golang/github.com/google/go-units@v0.0.0-20250612230646-eddd77f68220"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/google/go-cmp@v0.7.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/google/go-units@v0.0.0-20250612230646-eddd77f68220",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
