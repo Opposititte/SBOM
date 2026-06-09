@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:1e53f8ca-4f9c-4bac-b2ce-f44274419830",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:11:06+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "52fd21bf-6b23-456d-9ee1-5d377a89936b",
+      "type": "application",
+      "name": "/home/user/SBOM/work/lrita__cmap",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "c5fae9ae-d0b4-481e-9d8a-598a770a85bb",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/lrita/cmap",
+      "type": "library",
+      "name": "github.com/lrita/cmap",
+      "purl": "pkg:golang/github.com/lrita/cmap",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/lrita/cmap"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "52fd21bf-6b23-456d-9ee1-5d377a89936b",
+      "dependsOn": [
+        "c5fae9ae-d0b4-481e-9d8a-598a770a85bb"
+      ]
+    },
+    {
+      "ref": "c5fae9ae-d0b4-481e-9d8a-598a770a85bb",
+      "dependsOn": [
+        "pkg:golang/github.com/lrita/cmap"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/lrita/cmap",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
