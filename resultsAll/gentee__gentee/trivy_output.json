@@ -1,0 +1,182 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:2479f53f-0925-4d1d-ae25-0c8b2a291eee",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:41:56+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "a1443230-3ed4-4858-9f9f-643c5034d535",
+      "type": "application",
+      "name": "/home/user/SBOM/work/gentee__gentee",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "bd4cd6f9-5bfc-45a2-9b9b-ca6bc1a1590c",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gentee/gentee",
+      "type": "library",
+      "name": "github.com/gentee/gentee",
+      "purl": "pkg:golang/github.com/gentee/gentee",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gentee/gentee"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/posener/complete/v2@v2.1.0",
+      "type": "library",
+      "name": "github.com/posener/complete/v2",
+      "version": "v2.1.0",
+      "purl": "pkg:golang/github.com/posener/complete/v2@v2.1.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/posener/complete/v2@v2.1.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/posener/script@v1.2.0",
+      "type": "library",
+      "name": "github.com/posener/script",
+      "version": "v1.2.0",
+      "purl": "pkg:golang/github.com/posener/script@v1.2.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/posener/script@v1.2.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/stretchr/testify@v1.10.0",
+      "type": "library",
+      "name": "github.com/stretchr/testify",
+      "version": "v1.10.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/stretchr/testify@v1.10.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/stretchr/testify@v1.10.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/crypto@v0.39.0",
+      "type": "library",
+      "name": "golang.org/x/crypto",
+      "version": "v0.39.0",
+      "purl": "pkg:golang/golang.org/x/crypto@v0.39.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/crypto@v0.39.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "a1443230-3ed4-4858-9f9f-643c5034d535",
+      "dependsOn": [
+        "bd4cd6f9-5bfc-45a2-9b9b-ca6bc1a1590c"
+      ]
+    },
+    {
+      "ref": "bd4cd6f9-5bfc-45a2-9b9b-ca6bc1a1590c",
+      "dependsOn": [
+        "pkg:golang/github.com/gentee/gentee"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/gentee/gentee",
+      "dependsOn": [
+        "pkg:golang/github.com/posener/complete/v2@v2.1.0",
+        "pkg:golang/github.com/posener/script@v1.2.0",
+        "pkg:golang/github.com/stretchr/testify@v1.10.0",
+        "pkg:golang/golang.org/x/crypto@v0.39.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/posener/complete/v2@v2.1.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/posener/script@v1.2.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/stretchr/testify@v1.10.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/crypto@v0.39.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

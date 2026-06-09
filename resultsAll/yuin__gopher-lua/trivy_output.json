@@ -1,0 +1,175 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:05b730bb-efdb-436f-8bce-0a14296ee4e1",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:40:34+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "e5025b0f-19ad-48b9-bb80-ca1275a14b1b",
+      "type": "application",
+      "name": "/home/user/SBOM/work/yuin__gopher-lua",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "428739a1-161f-4623-930f-70895b91b6fa",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/chzyer/logex@v1.1.10",
+      "type": "library",
+      "name": "github.com/chzyer/logex",
+      "version": "v1.1.10",
+      "purl": "pkg:golang/github.com/chzyer/logex@v1.1.10",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/chzyer/logex@v1.1.10"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/chzyer/readline@v0.0.0-20180603132655-2972be24d48e",
+      "type": "library",
+      "name": "github.com/chzyer/readline",
+      "version": "v0.0.0-20180603132655-2972be24d48e",
+      "purl": "pkg:golang/github.com/chzyer/readline@v0.0.0-20180603132655-2972be24d48e",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/chzyer/readline@v0.0.0-20180603132655-2972be24d48e"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/chzyer/test@v0.0.0-20180213035817-a1ea475d72b1",
+      "type": "library",
+      "name": "github.com/chzyer/test",
+      "version": "v0.0.0-20180213035817-a1ea475d72b1",
+      "purl": "pkg:golang/github.com/chzyer/test@v0.0.0-20180213035817-a1ea475d72b1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/chzyer/test@v0.0.0-20180213035817-a1ea475d72b1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/yuin/gopher-lua",
+      "type": "library",
+      "name": "github.com/yuin/gopher-lua",
+      "purl": "pkg:golang/github.com/yuin/gopher-lua",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/yuin/gopher-lua"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.0.0-20190204203706-41f3e6584952",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.0.0-20190204203706-41f3e6584952",
+      "purl": "pkg:golang/golang.org/x/sys@v0.0.0-20190204203706-41f3e6584952",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sys@v0.0.0-20190204203706-41f3e6584952"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "428739a1-161f-4623-930f-70895b91b6fa",
+      "dependsOn": [
+        "pkg:golang/github.com/yuin/gopher-lua"
+      ]
+    },
+    {
+      "ref": "e5025b0f-19ad-48b9-bb80-ca1275a14b1b",
+      "dependsOn": [
+        "428739a1-161f-4623-930f-70895b91b6fa"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/chzyer/logex@v1.1.10",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/chzyer/readline@v0.0.0-20180603132655-2972be24d48e",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/chzyer/test@v0.0.0-20180213035817-a1ea475d72b1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/yuin/gopher-lua",
+      "dependsOn": [
+        "pkg:golang/github.com/chzyer/logex@v1.1.10",
+        "pkg:golang/github.com/chzyer/readline@v0.0.0-20180603132655-2972be24d48e",
+        "pkg:golang/github.com/chzyer/test@v0.0.0-20180213035817-a1ea475d72b1",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20190204203706-41f3e6584952"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.0.0-20190204203706-41f3e6584952",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
