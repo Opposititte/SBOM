@@ -1,0 +1,57 @@
+Cloning into '/home/user/SBOM/work/sunary__sqlize'...
+go: downloading github.com/auxten/postgresql-parser v1.0.1
+go: downloading github.com/pingcap/tidb/pkg/parser v0.0.0-20260224103845-c6286af12e98
+go: downloading github.com/rqlite/sql v0.0.0-20260224021119-1b2524a41372
+go: downloading github.com/pingcap/errors v0.11.5-0.20250523034308-74f78ae071ee
+go: downloading github.com/pingcap/failpoint v0.0.0-20251231045439-91d91e123837
+go: downloading github.com/cockroachdb/errors v1.12.0
+go: downloading github.com/cockroachdb/apd v1.1.1-0.20181017181144-bced77f817b4
+go: downloading github.com/lib/pq v1.11.2
+go: downloading github.com/gogo/protobuf v1.3.2
+go: downloading github.com/pingcap/log v1.1.0
+go: downloading go.uber.org/zap v1.27.1
+go: downloading go.uber.org/atomic v1.11.0
+go: downloading github.com/grpc-ecosystem/grpc-gateway v1.16.0
+go: downloading golang.org/x/sync v0.19.0
+go: downloading gopkg.in/natefinch/lumberjack.v2 v2.2.1
+go: downloading github.com/cockroachdb/logtags v0.0.0-20241215232642-bb51bb14a506
+go: downloading github.com/cockroachdb/redact v1.1.6
+go: downloading github.com/getsentry/sentry-go v0.42.0
+go: downloading github.com/getsentry/raven-go v0.2.0
+go: downloading golang.org/x/sys v0.41.0
+go: downloading go.uber.org/multierr v1.11.0
+go: downloading github.com/golang/protobuf v1.5.4
+go: downloading google.golang.org/genproto/googleapis/api v0.0.0-20260223185530-2f722ef697dc
+go: downloading google.golang.org/genproto v0.0.0-20260223185530-2f722ef697dc
+go: downloading google.golang.org/grpc v1.79.1
+go: downloading github.com/certifi/gocertifi v0.0.0-20210507211836-431795d63e8d
+go: downloading google.golang.org/protobuf v1.36.11
+go: downloading google.golang.org/genproto/googleapis/rpc v0.0.0-20260223185530-2f722ef697dc
+go: downloading github.com/dustin/go-humanize v1.0.1
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-09T10:47:08Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-09T10:47:09Z	INFO	Number of language-specific files	num=1
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
