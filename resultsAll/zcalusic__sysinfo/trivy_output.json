@@ -1,0 +1,116 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:55433577-c922-4273-9d69-53fae0fc8330",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:22:37+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "fc0f341a-a1da-43ac-81d7-89ae56a9c65e",
+      "type": "application",
+      "name": "/home/user/SBOM/work/zcalusic__sysinfo",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "54aec21c-7125-456f-9156-d860f074b134",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/google/uuid@v1.6.0",
+      "type": "library",
+      "name": "github.com/google/uuid",
+      "version": "v1.6.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/google/uuid@v1.6.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/google/uuid@v1.6.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/zcalusic/sysinfo",
+      "type": "library",
+      "name": "github.com/zcalusic/sysinfo",
+      "purl": "pkg:golang/github.com/zcalusic/sysinfo",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/zcalusic/sysinfo"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "54aec21c-7125-456f-9156-d860f074b134",
+      "dependsOn": [
+        "pkg:golang/github.com/zcalusic/sysinfo"
+      ]
+    },
+    {
+      "ref": "fc0f341a-a1da-43ac-81d7-89ae56a9c65e",
+      "dependsOn": [
+        "54aec21c-7125-456f-9156-d860f074b134"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/google/uuid@v1.6.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/zcalusic/sysinfo",
+      "dependsOn": [
+        "pkg:golang/github.com/google/uuid@v1.6.0"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}

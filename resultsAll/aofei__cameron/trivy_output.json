@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:28ee3606-ceaf-4454-b73b-cbabf4f1c956",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:23:04+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "ab931c82-58d3-4a0c-ba13-ff0d37ca3944",
+      "type": "application",
+      "name": "/home/user/SBOM/work/aofei__cameron",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "26d8365e-0e40-4620-90ea-7789a193522e",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/aofei/cameron",
+      "type": "library",
+      "name": "github.com/aofei/cameron",
+      "purl": "pkg:golang/github.com/aofei/cameron",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/aofei/cameron"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "26d8365e-0e40-4620-90ea-7789a193522e",
+      "dependsOn": [
+        "pkg:golang/github.com/aofei/cameron"
+      ]
+    },
+    {
+      "ref": "ab931c82-58d3-4a0c-ba13-ff0d37ca3944",
+      "dependsOn": [
+        "26d8365e-0e40-4620-90ea-7789a193522e"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/aofei/cameron",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

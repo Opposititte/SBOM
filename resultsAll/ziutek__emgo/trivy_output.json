@@ -1,0 +1,175 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:77f52050-3bda-4bd4-bee5-d624aedfddbe",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:21:48+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "ba565b74-4f8c-4aeb-b7cf-60d1b5fc7395",
+      "type": "application",
+      "name": "/home/user/SBOM/work/ziutek__emgo",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "7b107d7d-ba1c-45eb-a311-606e85590b5e",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/ziutek/dvb@v0.1.5",
+      "type": "library",
+      "name": "github.com/ziutek/dvb",
+      "version": "v0.1.5",
+      "purl": "pkg:golang/github.com/ziutek/dvb@v0.1.5",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/ziutek/dvb@v0.1.5"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/ziutek/emgo",
+      "type": "library",
+      "name": "github.com/ziutek/emgo",
+      "purl": "pkg:golang/github.com/ziutek/emgo",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/ziutek/emgo"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/ziutek/sched@v0.0.0-20131112123417-99e9aee91990",
+      "type": "library",
+      "name": "github.com/ziutek/sched",
+      "version": "v0.0.0-20131112123417-99e9aee91990",
+      "purl": "pkg:golang/github.com/ziutek/sched@v0.0.0-20131112123417-99e9aee91990",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/ziutek/sched@v0.0.0-20131112123417-99e9aee91990"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/ziutek/textenc@v0.1.0",
+      "type": "library",
+      "name": "github.com/ziutek/textenc",
+      "version": "v0.1.0",
+      "purl": "pkg:golang/github.com/ziutek/textenc@v0.1.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/ziutek/textenc@v0.1.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/ziutek/thread@v0.0.0-20121228123141-f23f229f4583",
+      "type": "library",
+      "name": "github.com/ziutek/thread",
+      "version": "v0.0.0-20121228123141-f23f229f4583",
+      "purl": "pkg:golang/github.com/ziutek/thread@v0.0.0-20121228123141-f23f229f4583",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/ziutek/thread@v0.0.0-20121228123141-f23f229f4583"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "7b107d7d-ba1c-45eb-a311-606e85590b5e",
+      "dependsOn": [
+        "pkg:golang/github.com/ziutek/emgo"
+      ]
+    },
+    {
+      "ref": "ba565b74-4f8c-4aeb-b7cf-60d1b5fc7395",
+      "dependsOn": [
+        "7b107d7d-ba1c-45eb-a311-606e85590b5e"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/ziutek/dvb@v0.1.5",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/ziutek/emgo",
+      "dependsOn": [
+        "pkg:golang/github.com/ziutek/dvb@v0.1.5",
+        "pkg:golang/github.com/ziutek/sched@v0.0.0-20131112123417-99e9aee91990",
+        "pkg:golang/github.com/ziutek/textenc@v0.1.0",
+        "pkg:golang/github.com/ziutek/thread@v0.0.0-20121228123141-f23f229f4583"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/ziutek/sched@v0.0.0-20131112123417-99e9aee91990",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/ziutek/textenc@v0.1.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/ziutek/thread@v0.0.0-20121228123141-f23f229f4583",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
