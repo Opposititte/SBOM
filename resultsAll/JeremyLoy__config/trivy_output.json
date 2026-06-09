@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:0c4e3f52-26c2-48f8-9aa7-09703894ba34",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T09:48:57+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "d1d6e87b-8dce-48e2-a630-4a2e0db08ff8",
+      "type": "application",
+      "name": "/home/user/SBOM/work/JeremyLoy__config",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "e64a6071-5cb1-4e38-9e3f-dc735abfa617",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jeremyloy/config",
+      "type": "library",
+      "name": "github.com/JeremyLoy/config",
+      "purl": "pkg:golang/github.com/jeremyloy/config",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/JeremyLoy/config"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "d1d6e87b-8dce-48e2-a630-4a2e0db08ff8",
+      "dependsOn": [
+        "e64a6071-5cb1-4e38-9e3f-dc735abfa617"
+      ]
+    },
+    {
+      "ref": "e64a6071-5cb1-4e38-9e3f-dc735abfa617",
+      "dependsOn": [
+        "pkg:golang/github.com/jeremyloy/config"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/jeremyloy/config",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
