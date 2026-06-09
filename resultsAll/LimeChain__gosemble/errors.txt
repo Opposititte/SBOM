@@ -1,0 +1,52 @@
+Cloning into '/home/user/SBOM/work/LimeChain__gosemble'...
+go: github.com/ChainSafe/gossamer@v0.9.0 (replaced by ./gossamer): reading gossamer/go.mod: open /home/user/SBOM/work/LimeChain__gosemble/gossamer/go.mod: no such file or directory
+ERROR: 'go list -m all' failed
+go: downloading github.com/montanaflynn/stats v0.7.1
+go: downloading github.com/vedhavyas/go-subkey v1.0.4
+go: downloading github.com/centrifuge/go-substrate-rpc-client/v4 v4.2.1
+go: downloading github.com/shirou/gopsutil/v3 v3.24.5
+go: downloading github.com/gtank/merlin v0.1.1
+go: downloading golang.org/x/crypto v0.31.0
+go: downloading github.com/decred/base58 v1.0.5
+go: downloading github.com/vedhavyas/go-subkey/v2 v2.0.0
+go: downloading github.com/ethereum/go-ethereum v1.14.3
+go: downloading github.com/mimoo/StrobeGo v0.0.0-20220103164710-9a04d6ca976b
+go: downloading github.com/ChainSafe/go-schnorrkel v1.1.0
+go: downloading github.com/pierrec/xxHash v0.1.5
+go: downloading golang.org/x/sys v0.28.0
+go: downloading github.com/gtank/ristretto255 v0.1.3-0.20210930101514-6bb39798585c
+go: downloading filippo.io/edwards25519 v1.0.0-rc.1
+go: downloading github.com/decred/dcrd/crypto/blake256 v1.0.1
+go: downloading github.com/holiman/uint256 v1.2.4
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-09T09:21:28Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-09T09:21:29Z	INFO	Number of language-specific files	num=1
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
+go list -deps command has failed for /home/user/SBOM/work/LimeChain__gosemble
+go mod graph command has failed.
+Manually parsing go.mod files. The resultant BOM would be incomplete.
+[90m9:21AM[0m [31mERR[0m [36merror=[0m[31m[1m"failed to download modules: command `/usr/local/go/bin/go mod why -m -vendor github.com/CycloneDX/cyclonedx-go` failed: exit status 1"[0m[0m
+ERROR: cyclonedx-gomod failed

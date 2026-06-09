@@ -1,0 +1,83 @@
+Cloning into '/home/user/SBOM/work/gnolang__gno'...
+Updating files:  83% (6602/7883)Updating files:  84% (6622/7883)Updating files:  85% (6701/7883)Updating files:  86% (6780/7883)Updating files:  87% (6859/7883)Updating files:  88% (6938/7883)Updating files:  89% (7016/7883)Updating files:  90% (7095/7883)Updating files:  91% (7174/7883)Updating files:  92% (7253/7883)Updating files:  93% (7332/7883)Updating files:  94% (7411/7883)Updating files:  95% (7489/7883)Updating files:  96% (7568/7883)Updating files:  97% (7647/7883)Updating files:  98% (7726/7883)Updating files:  99% (7805/7883)Updating files: 100% (7883/7883)Updating files: 100% (7883/7883), done.
+go: downloading go1.25.9 (linux/amd64)
+go: downloading github.com/yuin/goldmark v1.7.16
+go: downloading github.com/pelletier/go-toml v1.9.5
+go: downloading github.com/alecthomas/chroma/v2 v2.23.1
+go: downloading github.com/yuin/goldmark-highlighting/v2 v2.0.0-20230729083705-37449abec8cc
+go: downloading github.com/peterbourgon/ff/v3 v3.4.0
+go: downloading golang.org/x/sync v0.19.0
+go: downloading golang.org/x/net v0.50.0
+go: downloading go.uber.org/zap/exp v0.3.0
+go: downloading golang.org/x/tools v0.41.0
+go: downloading github.com/cockroachdb/apd/v3 v3.2.1
+go: downloading go.opentelemetry.io/otel v1.41.0
+go: downloading github.com/bendory/conway-hebrew-calendar v0.0.0-20210829020739-dcc34210ce9b
+go: downloading go.opentelemetry.io/otel/metric v1.41.0
+go: downloading golang.org/x/mod v0.32.0
+go: downloading github.com/gofrs/flock v0.13.0
+go: downloading github.com/consensys/gnark-crypto v0.14.0
+go: downloading golang.org/x/crypto v0.48.0
+go: downloading github.com/valyala/bytebufferpool v1.0.0
+go: downloading github.com/rs/xid v1.6.0
+go: downloading golang.org/x/term v0.40.0
+go: downloading github.com/btcsuite/btcd/btcec/v2 v2.3.6
+go: downloading github.com/decred/dcrd/dcrec/secp256k1/v4 v4.4.0
+go: downloading github.com/bmatsuo/lmdb-go v1.8.0
+go: downloading github.com/erigontech/mdbx-go v0.40.0
+go: downloading github.com/sig-0/insertion-queue v0.0.0-20241004125609-6b3ca841346b
+go: downloading go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc v1.37.0
+go: downloading go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp v1.41.0
+go: downloading go.opentelemetry.io/otel/sdk/metric v1.41.0
+go: downloading go.opentelemetry.io/otel/sdk v1.41.0
+go: downloading go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp v1.41.0
+go: downloading go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.41.0
+go: downloading go.opentelemetry.io/otel/trace v1.41.0
+go: downloading github.com/dlclark/regexp2 v1.11.5
+go: downloading github.com/cosmos/gogoproto v1.7.0
+go: downloading github.com/prometheus/client_golang v1.23.0
+go: downloading golang.org/x/exp v0.0.0-20231006140011-7918f672742d
+go: downloading go.opentelemetry.io/proto/otlp v1.9.0
+go: downloading google.golang.org/genproto/googleapis/rpc v0.0.0-20260209200024-4cfbd4190f57
+go: downloading google.golang.org/grpc v1.79.1
+go: downloading github.com/bits-and-blooms/bitset v1.14.2
+go: downloading github.com/getsentry/sentry-go v0.35.0
+go: downloading github.com/DataDog/zstd v1.4.5
+go: downloading github.com/prometheus/common v0.65.0
+go: downloading google.golang.org/genproto/googleapis/api v0.0.0-20260209200024-4cfbd4190f57
+go: downloading github.com/consensys/bavard v0.1.13
+go: downloading github.com/mmcloughlin/addchain v0.4.0
+go: downloading rsc.io/tmplfunc v0.0.3
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-09T09:20:41Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-09T09:20:41Z	INFO	[npm] Run "npm install" to collect the license information of packages	dir="gno.land/pkg/gnoweb/frontend/node_modules"
+2026-06-09T09:20:43Z	INFO	Suppressing dependencies for development and testing. To display them, try the '--include-dev-deps' flag.
+2026-06-09T09:20:43Z	INFO	Number of language-specific files	num=22
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
+go list -deps command has failed for /home/user/SBOM/work/gnolang__gno/gno.land/pkg/gnoweb/tools
+Manually parsing go.mod files. The resultant BOM would be incomplete.
+[ 'Invalid purl pkg:golang/../../../' ]
+ERROR: cdxgen failed

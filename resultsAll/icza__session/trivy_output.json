@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:b44f6fa2-c41a-4ee1-9622-b8adecd0da96",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T09:16:26+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "599ce142-ba35-40db-a10f-21f86e469ed4",
+      "type": "application",
+      "name": "/home/user/SBOM/work/icza__session",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "97e187d1-a0f6-4bb2-a8ef-3bab96d75f5a",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/icza/mighty@v0.0.0-20230330133200-c4b03a294ed8",
+      "type": "library",
+      "name": "github.com/icza/mighty",
+      "version": "v0.0.0-20230330133200-c4b03a294ed8",
+      "purl": "pkg:golang/github.com/icza/mighty@v0.0.0-20230330133200-c4b03a294ed8",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/icza/mighty@v0.0.0-20230330133200-c4b03a294ed8"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/icza/session",
+      "type": "library",
+      "name": "github.com/icza/session",
+      "purl": "pkg:golang/github.com/icza/session",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/icza/session"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "599ce142-ba35-40db-a10f-21f86e469ed4",
+      "dependsOn": [
+        "97e187d1-a0f6-4bb2-a8ef-3bab96d75f5a"
+      ]
+    },
+    {
+      "ref": "97e187d1-a0f6-4bb2-a8ef-3bab96d75f5a",
+      "dependsOn": [
+        "pkg:golang/github.com/icza/session"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/icza/mighty@v0.0.0-20230330133200-c4b03a294ed8",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/icza/session",
+      "dependsOn": [
+        "pkg:golang/github.com/icza/mighty@v0.0.0-20230330133200-c4b03a294ed8"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}
