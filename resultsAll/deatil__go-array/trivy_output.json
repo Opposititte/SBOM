@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:36c929f7-101f-4290-ba70-7b209663cb55",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T09:51:04+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "5a4b384a-3099-4dab-a2fc-978552d99a6d",
+      "type": "application",
+      "name": "/home/user/SBOM/work/deatil__go-array",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "19bbb64b-21f7-4ff8-86f9-b5d620b853ee",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/deatil/go-array",
+      "type": "library",
+      "name": "github.com/deatil/go-array",
+      "purl": "pkg:golang/github.com/deatil/go-array",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/deatil/go-array"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "19bbb64b-21f7-4ff8-86f9-b5d620b853ee",
+      "dependsOn": [
+        "pkg:golang/github.com/deatil/go-array"
+      ]
+    },
+    {
+      "ref": "5a4b384a-3099-4dab-a2fc-978552d99a6d",
+      "dependsOn": [
+        "19bbb64b-21f7-4ff8-86f9-b5d620b853ee"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/deatil/go-array",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

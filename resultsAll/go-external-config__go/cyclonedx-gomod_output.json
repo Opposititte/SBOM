@@ -1,0 +1,170 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:64242199-83fc-4af8-878c-057423c52afb",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T09:51:25Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/go-external-config/go@v1.0.35?type=module",
+      "type": "application",
+      "name": "github.com/go-external-config/go",
+      "version": "v1.0.35",
+      "purl": "pkg:golang/github.com/go-external-config/go@v1.0.35?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/go-external-config/go",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/github.com/expr-lang/expr@v1.17.5?type=module",
+      "type": "library",
+      "name": "github.com/expr-lang/expr",
+      "version": "v1.17.5",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8b55ab32f71d2c5db8f6748d9694193754ba357b96f5668e7c5e6d3e2ddac379"
+        }
+      ],
+      "purl": "pkg:golang/github.com/expr-lang/expr@v1.17.5?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/expr-lang/expr",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/go-errr/go@v1.0.12?type=module",
+      "type": "library",
+      "name": "github.com/go-errr/go",
+      "version": "v1.0.12",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "20bb11e1ed707a6d71ba51823f7a33a6137da3ef8c28cec7ed7c930cd8c6b1ce"
+        }
+      ],
+      "purl": "pkg:golang/github.com/go-errr/go@v1.0.12?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/go-errr/go",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/magiconair/properties@v1.8.10?type=module",
+      "type": "library",
+      "name": "github.com/magiconair/properties",
+      "version": "v1.8.10",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b37d7211206ab8a5c257d6bf49c07711290e8d4618bfe5f4ae0f1263123df661"
+        }
+      ],
+      "purl": "pkg:golang/github.com/magiconair/properties@v1.8.10?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/magiconair/properties",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/gopkg.in/yaml.v3@v3.0.1?type=module",
+      "type": "library",
+      "name": "gopkg.in/yaml.v3",
+      "version": "v3.0.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7f1566fc6cc0cc45aa2c7baf72d23dd4a4bd8613669963a85aed174d8252ec20"
+        }
+      ],
+      "purl": "pkg:golang/gopkg.in/yaml.v3@v3.0.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/go-yaml/yaml",
+          "type": "vcs"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/go-external-config/go@v1.0.35?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/expr-lang/expr@v1.17.5?type=module",
+        "pkg:golang/github.com/go-errr/go@v1.0.12?type=module",
+        "pkg:golang/github.com/magiconair/properties@v1.8.10?type=module",
+        "pkg:golang/gopkg.in/yaml.v3@v3.0.1?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/expr-lang/expr@v1.17.5?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/go-errr/go@v1.0.12?type=module",
+      "dependsOn": [
+        "pkg:golang/gopkg.in/yaml.v3@v3.0.1?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/magiconair/properties@v1.8.10?type=module"
+    },
+    {
+      "ref": "pkg:golang/gopkg.in/yaml.v3@v3.0.1?type=module"
+    }
+  ]
+}

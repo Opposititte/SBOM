@@ -1,0 +1,145 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:1abbe155-ccae-445c-8a36-9459ed239f15",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T09:52:44Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/ianlopshire/go-ssm-config@v0.0.0-20230929234813-04abb80513dc?type=module",
+      "type": "application",
+      "name": "github.com/ianlopshire/go-ssm-config",
+      "version": "v0.0.0-20230929234813-04abb80513dc",
+      "purl": "pkg:golang/github.com/ianlopshire/go-ssm-config@v0.0.0-20230929234813-04abb80513dc?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/ianlopshire/go-ssm-config",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go@v1.25.44?type=module",
+      "type": "library",
+      "name": "github.com/aws/aws-sdk-go",
+      "version": "v1.25.44",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "9fd6a11688b29faeac9a3177e2162bded6fafd974170bb85cfb0420e11f227b2"
+        }
+      ],
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go@v1.25.44?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/aws/aws-sdk-go",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jmespath/go-jmespath@v0.0.0-20180206201540-c2b33e8439af?type=module",
+      "type": "library",
+      "name": "github.com/jmespath/go-jmespath",
+      "version": "v0.0.0-20180206201540-c2b33e8439af",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a667e3644371e629a46e03a4a515182e799b53b50415b8ed0c0da1c49d627213"
+        }
+      ],
+      "purl": "pkg:golang/github.com/jmespath/go-jmespath@v0.0.0-20180206201540-c2b33e8439af?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/jmespath/go-jmespath",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/pkg/errors@v0.8.1?type=module",
+      "type": "library",
+      "name": "github.com/pkg/errors",
+      "version": "v0.8.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "894454ad11b13d434f772e7f1d14a6f988faa2427a52d2c834dd10f4ce3e8772"
+        }
+      ],
+      "purl": "pkg:golang/github.com/pkg/errors@v0.8.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/pkg/errors",
+          "type": "vcs"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/ianlopshire/go-ssm-config@v0.0.0-20230929234813-04abb80513dc?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/aws/aws-sdk-go@v1.25.44?type=module",
+        "pkg:golang/github.com/pkg/errors@v0.8.1?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/aws/aws-sdk-go@v1.25.44?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/jmespath/go-jmespath@v0.0.0-20180206201540-c2b33e8439af?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/jmespath/go-jmespath@v0.0.0-20180206201540-c2b33e8439af?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/pkg/errors@v0.8.1?type=module"
+    }
+  ]
+}
