@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:0511062b-cdc2-4401-a32a-cc3246900011",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:52:08+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "6f38234b-b17a-4508-897f-a89453e4dd5d",
+      "type": "application",
+      "name": "/home/user/SBOM/work/alpeb__go-finance",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "7a1c2e63-c257-41a7-a47a-05b51a56d7e3",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/alpeb/go-finance",
+      "type": "library",
+      "name": "github.com/alpeb/go-finance",
+      "purl": "pkg:golang/github.com/alpeb/go-finance",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/alpeb/go-finance"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "6f38234b-b17a-4508-897f-a89453e4dd5d",
+      "dependsOn": [
+        "7a1c2e63-c257-41a7-a47a-05b51a56d7e3"
+      ]
+    },
+    {
+      "ref": "7a1c2e63-c257-41a7-a47a-05b51a56d7e3",
+      "dependsOn": [
+        "pkg:golang/github.com/alpeb/go-finance"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/alpeb/go-finance",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

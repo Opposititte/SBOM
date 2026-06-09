@@ -1,0 +1,131 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:957bed3c-09ce-439c-a5d6-d0ef7f1bda74",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:51:26+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "97f0f3bc-e24c-4118-961b-294b5c7dfe0c",
+      "type": "application",
+      "name": "/home/user/SBOM/work/bojanz__currency",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "a187ab4a-d435-4d96-9d39-f1f6ae7eb456",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/bojanz/currency",
+      "type": "library",
+      "name": "github.com/bojanz/currency",
+      "purl": "pkg:golang/github.com/bojanz/currency",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/bojanz/currency"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/cockroachdb/apd/v3@v3.2.1",
+      "type": "library",
+      "name": "github.com/cockroachdb/apd/v3",
+      "version": "v3.2.1",
+      "purl": "pkg:golang/github.com/cockroachdb/apd/v3@v3.2.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/cockroachdb/apd/v3@v3.2.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/lib/pq@v1.10.7",
+      "type": "library",
+      "name": "github.com/lib/pq",
+      "version": "v1.10.7",
+      "purl": "pkg:golang/github.com/lib/pq@v1.10.7",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/lib/pq@v1.10.7"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "97f0f3bc-e24c-4118-961b-294b5c7dfe0c",
+      "dependsOn": [
+        "a187ab4a-d435-4d96-9d39-f1f6ae7eb456"
+      ]
+    },
+    {
+      "ref": "a187ab4a-d435-4d96-9d39-f1f6ae7eb456",
+      "dependsOn": [
+        "pkg:golang/github.com/bojanz/currency"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/bojanz/currency",
+      "dependsOn": [
+        "pkg:golang/github.com/cockroachdb/apd/v3@v3.2.1",
+        "pkg:golang/github.com/lib/pq@v1.10.7"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/cockroachdb/apd/v3@v3.2.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/lib/pq@v1.10.7",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

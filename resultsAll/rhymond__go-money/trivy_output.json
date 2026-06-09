@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:e6e009a3-df92-4584-9cb5-16bd7d4d4aee",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:52:18+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "f77fec19-a207-42cb-a28f-50eead544072",
+      "type": "application",
+      "name": "/home/user/SBOM/work/rhymond__go-money",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "82a7338a-3068-4061-b808-006448175cc0",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/rhymond/go-money",
+      "type": "library",
+      "name": "github.com/Rhymond/go-money",
+      "purl": "pkg:golang/github.com/rhymond/go-money",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/Rhymond/go-money"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "82a7338a-3068-4061-b808-006448175cc0",
+      "dependsOn": [
+        "pkg:golang/github.com/rhymond/go-money"
+      ]
+    },
+    {
+      "ref": "f77fec19-a207-42cb-a28f-50eead544072",
+      "dependsOn": [
+        "82a7338a-3068-4061-b808-006448175cc0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/rhymond/go-money",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

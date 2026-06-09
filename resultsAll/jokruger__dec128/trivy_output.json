@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:0b38147e-b8f0-48b8-9ddc-1415a1f73a61",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:51:40+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "3894a996-3d9b-4235-bb00-a6a67ad037cd",
+      "type": "application",
+      "name": "/home/user/SBOM/work/jokruger__dec128",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "d191fb7f-2ce1-4d4f-9536-0f5154e77a73",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jokruger/dec128",
+      "type": "library",
+      "name": "github.com/jokruger/dec128",
+      "purl": "pkg:golang/github.com/jokruger/dec128",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/jokruger/dec128"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "3894a996-3d9b-4235-bb00-a6a67ad037cd",
+      "dependsOn": [
+        "d191fb7f-2ce1-4d4f-9536-0f5154e77a73"
+      ]
+    },
+    {
+      "ref": "d191fb7f-2ce1-4d4f-9536-0f5154e77a73",
+      "dependsOn": [
+        "pkg:golang/github.com/jokruger/dec128"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/jokruger/dec128",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

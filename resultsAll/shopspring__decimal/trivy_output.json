@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:737dc3bb-e52d-4fc8-a6e2-60eff37c5623",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:51:45+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "c3ef5d4d-fa28-4aa8-8cd7-5bac2a387d26",
+      "type": "application",
+      "name": "/home/user/SBOM/work/shopspring__decimal",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "bee1c343-535d-4b7f-ba4e-be86b2f787b0",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/shopspring/decimal",
+      "type": "library",
+      "name": "github.com/shopspring/decimal",
+      "purl": "pkg:golang/github.com/shopspring/decimal",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/shopspring/decimal"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "bee1c343-535d-4b7f-ba4e-be86b2f787b0",
+      "dependsOn": [
+        "pkg:golang/github.com/shopspring/decimal"
+      ]
+    },
+    {
+      "ref": "c3ef5d4d-fa28-4aa8-8cd7-5bac2a387d26",
+      "dependsOn": [
+        "bee1c343-535d-4b7f-ba4e-be86b2f787b0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/shopspring/decimal",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
