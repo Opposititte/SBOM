@@ -1,0 +1,72 @@
+Cloning into '/home/user/SBOM/work/netresearch__ofelia'...
+go: downloading go1.26.4 (linux/amd64)
+go: downloading github.com/netresearch/go-cron v0.15.0
+go: downloading github.com/armon/circbuf v0.0.0-20190214190532-5111143e8da2
+go: downloading github.com/gobs/args v0.0.0-20210311043657-b8c0b223be93
+go: downloading github.com/containerd/errdefs v1.0.0
+go: downloading github.com/distribution/reference v0.6.0
+go: downloading github.com/docker/cli v29.5.3+incompatible
+go: downloading github.com/docker/docker v28.5.2+incompatible
+go: downloading github.com/docker/go-connections v0.7.0
+go: downloading github.com/opencontainers/image-spec v1.1.1
+go: downloading github.com/jessevdk/go-flags v1.6.1
+go: downloading gopkg.in/ini.v1 v1.67.2
+go: downloading github.com/creasty/defaults v1.8.0
+go: downloading github.com/go-playground/validator/v10 v10.30.3
+go: downloading golang.org/x/crypto v0.52.0
+go: downloading github.com/go-viper/mapstructure/v2 v2.5.0
+go: downloading github.com/go-mail/mail/v2 v2.3.0
+go: downloading golang.org/x/time v0.15.0
+go: downloading github.com/manifoldco/promptui v0.9.0
+go: downloading golang.org/x/text v0.37.0
+go: downloading golang.org/x/term v0.43.0
+go: downloading gopkg.in/yaml.v3 v3.0.1
+go: downloading github.com/opencontainers/go-digest v1.0.0
+go: downloading github.com/sirupsen/logrus v1.9.4
+go: downloading github.com/moby/docker-image-spec v1.3.1
+go: downloading github.com/docker/go-units v0.5.0
+go: downloading github.com/containerd/errdefs/pkg v0.3.0
+go: downloading github.com/pkg/errors v0.9.1
+go: downloading go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.69.0
+go: downloading go.opentelemetry.io/otel/trace v1.44.0
+go: downloading golang.org/x/sys v0.45.0
+go: downloading go.opentelemetry.io/otel v1.44.0
+go: downloading github.com/chzyer/readline v1.5.1
+go: downloading github.com/gabriel-vasile/mimetype v1.4.13
+go: downloading github.com/go-playground/universal-translator v0.18.1
+go: downloading github.com/leodido/go-urn v1.4.0
+go: downloading github.com/docker/docker-credential-helpers v0.9.7
+go: downloading github.com/felixge/httpsnoop v1.0.4
+go: downloading go.opentelemetry.io/otel/metric v1.44.0
+go: downloading github.com/go-playground/locales v0.14.1
+go: downloading github.com/go-logr/logr v1.4.3
+go: downloading github.com/go-logr/stdr v1.2.2
+go: downloading go.opentelemetry.io/auto/sdk v1.2.1
+go: downloading github.com/cespare/xxhash/v2 v2.3.0
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-09T12:36:35Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-09T12:36:36Z	INFO	Number of language-specific files	num=1
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m

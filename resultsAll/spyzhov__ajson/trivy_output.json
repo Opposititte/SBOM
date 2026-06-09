@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:e75963b3-d7f6-4d4b-bebf-cd29cc481c5f",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:37:56+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "c1cf31bd-0e88-44f6-82d4-29351d852863",
+      "type": "application",
+      "name": "/home/user/SBOM/work/spyzhov__ajson",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "305e8f72-fef9-4c44-8d11-21bb1a3bf9a6",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/spyzhov/ajson",
+      "type": "library",
+      "name": "github.com/spyzhov/ajson",
+      "purl": "pkg:golang/github.com/spyzhov/ajson",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/spyzhov/ajson"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "305e8f72-fef9-4c44-8d11-21bb1a3bf9a6",
+      "dependsOn": [
+        "pkg:golang/github.com/spyzhov/ajson"
+      ]
+    },
+    {
+      "ref": "c1cf31bd-0e88-44f6-82d4-29351d852863",
+      "dependsOn": [
+        "305e8f72-fef9-4c44-8d11-21bb1a3bf9a6"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/spyzhov/ajson",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

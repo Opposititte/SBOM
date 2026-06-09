@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:49e75cd0-84c0-4b9d-9fe5-e70636ea4a53",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:36:07+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "42083ada-770c-4bad-a321-6cb89ad898d9",
+      "type": "application",
+      "name": "/home/user/SBOM/work/bamzi__jobrunner",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "62a37902-fd54-44cf-a7b8-ab0285dd25a8",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/bamzi/jobrunner",
+      "type": "library",
+      "name": "github.com/bamzi/jobrunner",
+      "purl": "pkg:golang/github.com/bamzi/jobrunner",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/bamzi/jobrunner"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/robfig/cron/v3@v3.0.0",
+      "type": "library",
+      "name": "github.com/robfig/cron/v3",
+      "version": "v3.0.0",
+      "purl": "pkg:golang/github.com/robfig/cron/v3@v3.0.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/robfig/cron/v3@v3.0.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "42083ada-770c-4bad-a321-6cb89ad898d9",
+      "dependsOn": [
+        "62a37902-fd54-44cf-a7b8-ab0285dd25a8"
+      ]
+    },
+    {
+      "ref": "62a37902-fd54-44cf-a7b8-ab0285dd25a8",
+      "dependsOn": [
+        "pkg:golang/github.com/bamzi/jobrunner"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/bamzi/jobrunner",
+      "dependsOn": [
+        "pkg:golang/github.com/robfig/cron/v3@v3.0.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/robfig/cron/v3@v3.0.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

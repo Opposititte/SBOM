@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:38a2409e-dafd-4294-a4ce-1f44dbeadd1c",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:36:02+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "56d43b1c-37c5-4f75-bd72-96356a4ef9d3",
+      "type": "application",
+      "name": "/home/user/SBOM/work/adhocore__gronx",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "5432b08c-f051-4195-963b-66d1f79a3b6c",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/adhocore/gronx",
+      "type": "library",
+      "name": "github.com/adhocore/gronx",
+      "purl": "pkg:golang/github.com/adhocore/gronx",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/adhocore/gronx"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "5432b08c-f051-4195-963b-66d1f79a3b6c",
+      "dependsOn": [
+        "pkg:golang/github.com/adhocore/gronx"
+      ]
+    },
+    {
+      "ref": "56d43b1c-37c5-4f75-bd72-96356a4ef9d3",
+      "dependsOn": [
+        "5432b08c-f051-4195-963b-66d1f79a3b6c"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/adhocore/gronx",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

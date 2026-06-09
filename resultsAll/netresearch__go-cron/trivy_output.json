@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:66d1ab22-352d-4e8b-981a-846ea4658805",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:34:57+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "7159b1ee-9aa4-4ce5-bd09-3a33b5d5a74d",
+      "type": "application",
+      "name": "/home/user/SBOM/work/netresearch__go-cron",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "075ef2c2-e773-4a9e-ab83-e2bccd2b6aba",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/netresearch/go-cron",
+      "type": "library",
+      "name": "github.com/netresearch/go-cron",
+      "purl": "pkg:golang/github.com/netresearch/go-cron",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/netresearch/go-cron"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "075ef2c2-e773-4a9e-ab83-e2bccd2b6aba",
+      "dependsOn": [
+        "pkg:golang/github.com/netresearch/go-cron"
+      ]
+    },
+    {
+      "ref": "7159b1ee-9aa4-4ce5-bd09-3a33b5d5a74d",
+      "dependsOn": [
+        "075ef2c2-e773-4a9e-ab83-e2bccd2b6aba"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/netresearch/go-cron",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:4731c8a8-d9b3-4fc8-92ab-a135a635f5b0",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:38:06+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "a4b782ad-6749-4565-aa0d-5cc7b51b8e64",
+      "type": "application",
+      "name": "/home/user/SBOM/work/cocoonspace__dynjson",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "86325405-5519-47b2-9ec0-cb494daecd5a",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/cocoonspace/dynjson",
+      "type": "library",
+      "name": "github.com/cocoonspace/dynjson",
+      "purl": "pkg:golang/github.com/cocoonspace/dynjson",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/cocoonspace/dynjson"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "86325405-5519-47b2-9ec0-cb494daecd5a",
+      "dependsOn": [
+        "pkg:golang/github.com/cocoonspace/dynjson"
+      ]
+    },
+    {
+      "ref": "a4b782ad-6749-4565-aa0d-5cc7b51b8e64",
+      "dependsOn": [
+        "86325405-5519-47b2-9ec0-cb494daecd5a"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/cocoonspace/dynjson",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:b7df756c-3992-4835-a24b-2eefa94d930a",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:37:27+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "92afb6db-8762-4989-a035-fc5df93542bc",
+      "type": "application",
+      "name": "/home/user/SBOM/work/madflojo__tasks",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "d574b953-f3ef-4ae6-9136-33393c23d0f3",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/madflojo/tasks",
+      "type": "library",
+      "name": "github.com/madflojo/tasks",
+      "purl": "pkg:golang/github.com/madflojo/tasks",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/madflojo/tasks"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/rs/xid@v1.6.0",
+      "type": "library",
+      "name": "github.com/rs/xid",
+      "version": "v1.6.0",
+      "purl": "pkg:golang/github.com/rs/xid@v1.6.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/rs/xid@v1.6.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "92afb6db-8762-4989-a035-fc5df93542bc",
+      "dependsOn": [
+        "d574b953-f3ef-4ae6-9136-33393c23d0f3"
+      ]
+    },
+    {
+      "ref": "d574b953-f3ef-4ae6-9136-33393c23d0f3",
+      "dependsOn": [
+        "pkg:golang/github.com/madflojo/tasks"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/madflojo/tasks",
+      "dependsOn": [
+        "pkg:golang/github.com/rs/xid@v1.6.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/rs/xid@v1.6.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
