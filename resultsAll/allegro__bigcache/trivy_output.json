@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:aeb67092-94c4-4b7c-ab49-8cd73b03bd24",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:18:04+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "5c32022a-b463-4ae8-9284-60385c693078",
+      "type": "application",
+      "name": "/home/user/SBOM/work/allegro__bigcache",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "f314b11f-0994-47ab-a6ec-3e2064c7e23e",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/allegro/bigcache/v3",
+      "type": "library",
+      "name": "github.com/allegro/bigcache/v3",
+      "purl": "pkg:golang/github.com/allegro/bigcache/v3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/allegro/bigcache/v3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "5c32022a-b463-4ae8-9284-60385c693078",
+      "dependsOn": [
+        "f314b11f-0994-47ab-a6ec-3e2064c7e23e"
+      ]
+    },
+    {
+      "ref": "f314b11f-0994-47ab-a6ec-3e2064c7e23e",
+      "dependsOn": [
+        "pkg:golang/github.com/allegro/bigcache/v3"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/allegro/bigcache/v3",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

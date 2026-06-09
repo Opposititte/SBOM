@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:28cddda7-d89a-4c50-9948-18f7adce5022",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:17:40+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "ddc4511e-dfe7-4352-8ebe-0cbc4777c286",
+      "type": "application",
+      "name": "/home/user/SBOM/work/nazar256__parapipe",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "c6dd4738-1c43-44c1-85cc-486d8f1e26a7",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/nazar256/parapipe",
+      "type": "library",
+      "name": "github.com/nazar256/parapipe",
+      "purl": "pkg:golang/github.com/nazar256/parapipe",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/nazar256/parapipe"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "c6dd4738-1c43-44c1-85cc-486d8f1e26a7",
+      "dependsOn": [
+        "pkg:golang/github.com/nazar256/parapipe"
+      ]
+    },
+    {
+      "ref": "ddc4511e-dfe7-4352-8ebe-0cbc4777c286",
+      "dependsOn": [
+        "c6dd4738-1c43-44c1-85cc-486d8f1e26a7"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/nazar256/parapipe",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

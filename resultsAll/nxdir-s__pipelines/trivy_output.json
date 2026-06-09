@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:33c03dcb-361f-4584-bc2e-a3af19d2f8ad",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:17:56+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "79388147-fc6d-4ad0-a4c7-b73d33da312c",
+      "type": "application",
+      "name": "/home/user/SBOM/work/nxdir-s__pipelines",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "b6c3550b-906f-4888-808a-4232b482a858",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/nxdir-s/pipelines",
+      "type": "library",
+      "name": "github.com/nxdir-s/pipelines",
+      "purl": "pkg:golang/github.com/nxdir-s/pipelines",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/nxdir-s/pipelines"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "79388147-fc6d-4ad0-a4c7-b73d33da312c",
+      "dependsOn": [
+        "b6c3550b-906f-4888-808a-4232b482a858"
+      ]
+    },
+    {
+      "ref": "b6c3550b-906f-4888-808a-4232b482a858",
+      "dependsOn": [
+        "pkg:golang/github.com/nxdir-s/pipelines"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/nxdir-s/pipelines",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

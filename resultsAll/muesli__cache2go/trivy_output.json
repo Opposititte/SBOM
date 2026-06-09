@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:7cb7d2ef-f1be-4fc2-8cec-0dd37fb5a4b4",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:18:09+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "f026867b-bd99-42d4-97ed-718479469a00",
+      "type": "application",
+      "name": "/home/user/SBOM/work/muesli__cache2go",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "848f40ce-543b-4d31-ab4b-9ee6fc166744",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/muesli/cache2go",
+      "type": "library",
+      "name": "github.com/muesli/cache2go",
+      "purl": "pkg:golang/github.com/muesli/cache2go",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/muesli/cache2go"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "848f40ce-543b-4d31-ab4b-9ee6fc166744",
+      "dependsOn": [
+        "pkg:golang/github.com/muesli/cache2go"
+      ]
+    },
+    {
+      "ref": "f026867b-bd99-42d4-97ed-718479469a00",
+      "dependsOn": [
+        "848f40ce-543b-4d31-ab4b-9ee6fc166744"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/muesli/cache2go",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

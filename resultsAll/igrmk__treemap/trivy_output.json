@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:1c68238b-c746-4646-81e5-feac62fb28f7",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:17:31+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "b909447c-5905-4098-9875-a9df399ab30b",
+      "type": "application",
+      "name": "/home/user/SBOM/work/igrmk__treemap",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "b0e9cf78-b6de-4c4a-88a4-93b604cee2aa",
+      "type": "application",
+      "name": "v2/go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/igrmk/treemap/v2",
+      "type": "library",
+      "name": "github.com/igrmk/treemap/v2",
+      "purl": "pkg:golang/github.com/igrmk/treemap/v2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/igrmk/treemap/v2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/exp@v0.0.0-20220317015231-48e79f11773a",
+      "type": "library",
+      "name": "golang.org/x/exp",
+      "version": "v0.0.0-20220317015231-48e79f11773a",
+      "purl": "pkg:golang/golang.org/x/exp@v0.0.0-20220317015231-48e79f11773a",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/exp@v0.0.0-20220317015231-48e79f11773a"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "b0e9cf78-b6de-4c4a-88a4-93b604cee2aa",
+      "dependsOn": [
+        "pkg:golang/github.com/igrmk/treemap/v2"
+      ]
+    },
+    {
+      "ref": "b909447c-5905-4098-9875-a9df399ab30b",
+      "dependsOn": [
+        "b0e9cf78-b6de-4c4a-88a4-93b604cee2aa"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/igrmk/treemap/v2",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/exp@v0.0.0-20220317015231-48e79f11773a"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/exp@v0.0.0-20220317015231-48e79f11773a",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
