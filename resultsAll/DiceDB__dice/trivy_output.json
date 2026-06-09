@@ -1,0 +1,101 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:3469de15-fb18-4304-802e-91e17d8e5b63",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:27:51+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "06191b82-6d65-4e23-9725-951b1dfb1ff1",
+      "type": "application",
+      "name": "/home/user/SBOM/work/DiceDB__dice",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "54139362-e7b9-47a3-873d-fbcdaa623bbb",
+      "type": "application",
+      "name": "utils/req-res-validator/requirements.txt",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/jsonschema@4.17.3",
+      "type": "library",
+      "name": "jsonschema",
+      "version": "4.17.3",
+      "purl": "pkg:pypi/jsonschema@4.17.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/redis@4.5.1",
+      "type": "library",
+      "name": "redis",
+      "version": "4.5.1",
+      "purl": "pkg:pypi/redis@4.5.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "06191b82-6d65-4e23-9725-951b1dfb1ff1",
+      "dependsOn": [
+        "54139362-e7b9-47a3-873d-fbcdaa623bbb"
+      ]
+    },
+    {
+      "ref": "54139362-e7b9-47a3-873d-fbcdaa623bbb",
+      "dependsOn": [
+        "pkg:pypi/jsonschema@4.17.3",
+        "pkg:pypi/redis@4.5.1"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/jsonschema@4.17.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/redis@4.5.1",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

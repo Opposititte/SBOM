@@ -1,0 +1,131 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:5128a8f8-7ba4-4fed-aa0c-0def4aca11f2",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:34:41+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "0362f79a-3d13-4095-bf3a-817265c46848",
+      "type": "application",
+      "name": "/home/user/SBOM/work/objectbox__objectbox-go",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "ee221cb7-b995-45ed-b633-1b9fb1c3a865",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/google/flatbuffers@v23.5.26%2Bincompatible",
+      "type": "library",
+      "name": "github.com/google/flatbuffers",
+      "version": "v23.5.26+incompatible",
+      "purl": "pkg:golang/github.com/google/flatbuffers@v23.5.26%2Bincompatible",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/google/flatbuffers@v23.5.26+incompatible"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/objectbox/objectbox-generator/v4@v4.0.0",
+      "type": "library",
+      "name": "github.com/objectbox/objectbox-generator/v4",
+      "version": "v4.0.0",
+      "purl": "pkg:golang/github.com/objectbox/objectbox-generator/v4@v4.0.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/objectbox/objectbox-generator/v4@v4.0.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/objectbox/objectbox-go",
+      "type": "library",
+      "name": "github.com/objectbox/objectbox-go",
+      "purl": "pkg:golang/github.com/objectbox/objectbox-go",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/objectbox/objectbox-go"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "0362f79a-3d13-4095-bf3a-817265c46848",
+      "dependsOn": [
+        "ee221cb7-b995-45ed-b633-1b9fb1c3a865"
+      ]
+    },
+    {
+      "ref": "ee221cb7-b995-45ed-b633-1b9fb1c3a865",
+      "dependsOn": [
+        "pkg:golang/github.com/objectbox/objectbox-go"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/google/flatbuffers@v23.5.26%2Bincompatible",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/objectbox/objectbox-generator/v4@v4.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/objectbox/objectbox-go",
+      "dependsOn": [
+        "pkg:golang/github.com/google/flatbuffers@v23.5.26%2Bincompatible",
+        "pkg:golang/github.com/objectbox/objectbox-generator/v4@v4.0.0"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}

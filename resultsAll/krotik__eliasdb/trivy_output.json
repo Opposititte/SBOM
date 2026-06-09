@@ -1,0 +1,153 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:cce3babd-19a4-4847-8af4-62662b69aa4c",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:28:49+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "44986768-381b-4ed0-b7fe-ac61a6176d25",
+      "type": "application",
+      "name": "/home/user/SBOM/work/krotik__eliasdb",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "afdcb545-2594-4a5e-8148-897ef5c354f4",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gorilla/websocket@v1.4.1",
+      "type": "library",
+      "name": "github.com/gorilla/websocket",
+      "version": "v1.4.1",
+      "purl": "pkg:golang/github.com/gorilla/websocket@v1.4.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gorilla/websocket@v1.4.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/krotik/common@v1.5.1",
+      "type": "library",
+      "name": "github.com/krotik/common",
+      "version": "v1.5.1",
+      "purl": "pkg:golang/github.com/krotik/common@v1.5.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/krotik/common@v1.5.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/krotik/ecal@v1.6.3",
+      "type": "library",
+      "name": "github.com/krotik/ecal",
+      "version": "v1.6.3",
+      "purl": "pkg:golang/github.com/krotik/ecal@v1.6.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/krotik/ecal@v1.6.3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/krotik/eliasdb",
+      "type": "library",
+      "name": "github.com/krotik/eliasdb",
+      "purl": "pkg:golang/github.com/krotik/eliasdb",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/krotik/eliasdb"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "44986768-381b-4ed0-b7fe-ac61a6176d25",
+      "dependsOn": [
+        "afdcb545-2594-4a5e-8148-897ef5c354f4"
+      ]
+    },
+    {
+      "ref": "afdcb545-2594-4a5e-8148-897ef5c354f4",
+      "dependsOn": [
+        "pkg:golang/github.com/krotik/eliasdb"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/gorilla/websocket@v1.4.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/krotik/common@v1.5.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/krotik/ecal@v1.6.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/krotik/eliasdb",
+      "dependsOn": [
+        "pkg:golang/github.com/gorilla/websocket@v1.4.1",
+        "pkg:golang/github.com/krotik/common@v1.5.1",
+        "pkg:golang/github.com/krotik/ecal@v1.6.3"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}

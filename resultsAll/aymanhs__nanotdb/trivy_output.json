@@ -1,0 +1,138 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:4b204978-c75e-4b3a-ba5b-3748915924bc",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:33:56+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "f740caab-73eb-4656-bee2-ff88870e80ca",
+      "type": "application",
+      "name": "/home/user/SBOM/work/aymanhs__nanotdb",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "c699775d-4181-4e67-bfee-33f1e16fdefd",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/aymanhs/nanotdb",
+      "type": "library",
+      "name": "github.com/aymanhs/nanotdb",
+      "purl": "pkg:golang/github.com/aymanhs/nanotdb",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/aymanhs/nanotdb"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/burntsushi/toml@v1.5.0",
+      "type": "library",
+      "name": "github.com/BurntSushi/toml",
+      "version": "v1.5.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/burntsushi/toml@v1.5.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/BurntSushi/toml@v1.5.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/klauspost/compress@v1.18.6",
+      "type": "library",
+      "name": "github.com/klauspost/compress",
+      "version": "v1.18.6",
+      "purl": "pkg:golang/github.com/klauspost/compress@v1.18.6",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/klauspost/compress@v1.18.6"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "c699775d-4181-4e67-bfee-33f1e16fdefd",
+      "dependsOn": [
+        "pkg:golang/github.com/aymanhs/nanotdb"
+      ]
+    },
+    {
+      "ref": "f740caab-73eb-4656-bee2-ff88870e80ca",
+      "dependsOn": [
+        "c699775d-4181-4e67-bfee-33f1e16fdefd"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/aymanhs/nanotdb",
+      "dependsOn": [
+        "pkg:golang/github.com/burntsushi/toml@v1.5.0",
+        "pkg:golang/github.com/klauspost/compress@v1.18.6"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/burntsushi/toml@v1.5.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/klauspost/compress@v1.18.6",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

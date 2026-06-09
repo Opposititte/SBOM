@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:1b4efa24-72e2-4152-adb7-fa5e0030f17f",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:27:55+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "4abf144e-7f80-451a-9b60-7e025c313f75",
+      "type": "application",
+      "name": "/home/user/SBOM/work/peterbourgon__diskv",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "6abd3cff-8118-4248-a76f-a94941d7976f",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/google/btree@v1.0.0",
+      "type": "library",
+      "name": "github.com/google/btree",
+      "version": "v1.0.0",
+      "purl": "pkg:golang/github.com/google/btree@v1.0.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/google/btree@v1.0.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/peterbourgon/diskv/v3",
+      "type": "library",
+      "name": "github.com/peterbourgon/diskv/v3",
+      "purl": "pkg:golang/github.com/peterbourgon/diskv/v3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/peterbourgon/diskv/v3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "4abf144e-7f80-451a-9b60-7e025c313f75",
+      "dependsOn": [
+        "6abd3cff-8118-4248-a76f-a94941d7976f"
+      ]
+    },
+    {
+      "ref": "6abd3cff-8118-4248-a76f-a94941d7976f",
+      "dependsOn": [
+        "pkg:golang/github.com/peterbourgon/diskv/v3"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/google/btree@v1.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/peterbourgon/diskv/v3",
+      "dependsOn": [
+        "pkg:golang/github.com/google/btree@v1.0.0"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}
