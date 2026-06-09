@@ -1,0 +1,219 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:de636cea-35d8-409a-8dd8-e3a24827a3ac",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:02:34+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "07bcbee1-ba38-49bc-a433-8c5010136241",
+      "type": "application",
+      "name": "/home/user/SBOM/work/gonutz__prototype",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "6064f2b5-1397-4d6d-8173-912ccdb54d15",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gonutz/d3d9@v1.2.4",
+      "type": "library",
+      "name": "github.com/gonutz/d3d9",
+      "version": "v1.2.4",
+      "purl": "pkg:golang/github.com/gonutz/d3d9@v1.2.4",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gonutz/d3d9@v1.2.4"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gonutz/ds@v1.0.0",
+      "type": "library",
+      "name": "github.com/gonutz/ds",
+      "version": "v1.0.0",
+      "purl": "pkg:golang/github.com/gonutz/ds@v1.0.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gonutz/ds@v1.0.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gonutz/gl@v1.0.0",
+      "type": "library",
+      "name": "github.com/gonutz/gl",
+      "version": "v1.0.0",
+      "purl": "pkg:golang/github.com/gonutz/gl@v1.0.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gonutz/gl@v1.0.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gonutz/glfw@v1.0.2",
+      "type": "library",
+      "name": "github.com/gonutz/glfw",
+      "version": "v1.0.2",
+      "purl": "pkg:golang/github.com/gonutz/glfw@v1.0.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gonutz/glfw@v1.0.2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gonutz/mixer@v1.0.0",
+      "type": "library",
+      "name": "github.com/gonutz/mixer",
+      "version": "v1.0.0",
+      "purl": "pkg:golang/github.com/gonutz/mixer@v1.0.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gonutz/mixer@v1.0.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gonutz/prototype",
+      "type": "library",
+      "name": "github.com/gonutz/prototype",
+      "purl": "pkg:golang/github.com/gonutz/prototype",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gonutz/prototype"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gonutz/w32/v2@v2.2.0",
+      "type": "library",
+      "name": "github.com/gonutz/w32/v2",
+      "version": "v2.2.0",
+      "purl": "pkg:golang/github.com/gonutz/w32/v2@v2.2.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gonutz/w32/v2@v2.2.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "07bcbee1-ba38-49bc-a433-8c5010136241",
+      "dependsOn": [
+        "6064f2b5-1397-4d6d-8173-912ccdb54d15"
+      ]
+    },
+    {
+      "ref": "6064f2b5-1397-4d6d-8173-912ccdb54d15",
+      "dependsOn": [
+        "pkg:golang/github.com/gonutz/prototype"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/gonutz/d3d9@v1.2.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/gonutz/ds@v1.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/gonutz/gl@v1.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/gonutz/glfw@v1.0.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/gonutz/mixer@v1.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/gonutz/prototype",
+      "dependsOn": [
+        "pkg:golang/github.com/gonutz/d3d9@v1.2.4",
+        "pkg:golang/github.com/gonutz/ds@v1.0.0",
+        "pkg:golang/github.com/gonutz/gl@v1.0.0",
+        "pkg:golang/github.com/gonutz/glfw@v1.0.2",
+        "pkg:golang/github.com/gonutz/mixer@v1.0.0",
+        "pkg:golang/github.com/gonutz/w32/v2@v2.2.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/gonutz/w32/v2@v2.2.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
