@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:165bdb14-e627-4789-88e1-e19118951a2b",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:13:35+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "cd187f2b-20ce-4d2b-b08a-c368b786728a",
+      "type": "application",
+      "name": "/home/user/SBOM/work/deatil__go-datebin",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "d2d65be8-599b-43be-8d69-c279cfd1ec82",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/deatil/go-datebin",
+      "type": "library",
+      "name": "github.com/deatil/go-datebin",
+      "purl": "pkg:golang/github.com/deatil/go-datebin",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/deatil/go-datebin"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "cd187f2b-20ce-4d2b-b08a-c368b786728a",
+      "dependsOn": [
+        "d2d65be8-599b-43be-8d69-c279cfd1ec82"
+      ]
+    },
+    {
+      "ref": "d2d65be8-599b-43be-8d69-c279cfd1ec82",
+      "dependsOn": [
+        "pkg:golang/github.com/deatil/go-datebin"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/deatil/go-datebin",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

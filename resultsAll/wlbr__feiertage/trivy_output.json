@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:0b0a6e78-48cb-47b8-9fcf-0a1b6363d47d",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:13:20+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "69ac3710-63c9-47d5-bee9-ef7693ec0388",
+      "type": "application",
+      "name": "/home/user/SBOM/work/wlbr__feiertage",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "4a109d5d-df72-4c97-ad58-9dc0db824482",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/wlbr/feiertage",
+      "type": "library",
+      "name": "github.com/wlbr/feiertage",
+      "purl": "pkg:golang/github.com/wlbr/feiertage",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/wlbr/feiertage"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "4a109d5d-df72-4c97-ad58-9dc0db824482",
+      "dependsOn": [
+        "pkg:golang/github.com/wlbr/feiertage"
+      ]
+    },
+    {
+      "ref": "69ac3710-63c9-47d5-bee9-ef7693ec0388",
+      "dependsOn": [
+        "4a109d5d-df72-4c97-ad58-9dc0db824482"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/wlbr/feiertage",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

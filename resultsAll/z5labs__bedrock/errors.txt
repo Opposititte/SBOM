@@ -1,0 +1,65 @@
+Cloning into '/home/user/SBOM/work/z5labs__bedrock'...
+go: downloading go.opentelemetry.io/otel v1.44.0
+go: downloading go.opentelemetry.io/otel/log v0.20.0
+go: downloading go.opentelemetry.io/otel/metric v1.44.0
+go: downloading go.opentelemetry.io/otel/sdk/metric v1.44.0
+go: downloading go.opentelemetry.io/otel/sdk v1.44.0
+go: downloading go.opentelemetry.io/otel/sdk/log v0.20.0
+go: downloading go.opentelemetry.io/otel/trace v1.44.0
+go: downloading github.com/go-chi/chi/v5 v5.3.0
+go: downloading github.com/swaggest/openapi-go v0.2.61
+go: downloading go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploggrpc v0.20.0
+go: downloading go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploghttp v0.20.0
+go: downloading go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc v1.44.0
+go: downloading go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp v1.44.0
+go: downloading go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.44.0
+go: downloading go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.44.0
+go: downloading go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp v1.44.0
+go: downloading google.golang.org/grpc v1.81.1
+go: downloading go.opentelemetry.io/otel/exporters/stdout/stdoutlog v0.20.0
+go: downloading go.opentelemetry.io/otel/exporters/stdout/stdoutmetric v1.44.0
+go: downloading go.opentelemetry.io/otel/exporters/stdout/stdouttrace v1.44.0
+go: downloading github.com/go-logr/logr v1.4.3
+go: downloading github.com/google/uuid v1.6.0
+go: downloading golang.org/x/sys v0.46.0
+go: downloading go.opentelemetry.io/proto/otlp v1.10.0
+go: downloading google.golang.org/genproto/googleapis/rpc v0.0.0-20260526163538-3dc84a4a5aaa
+go: downloading google.golang.org/protobuf v1.36.11
+go: downloading github.com/swaggest/jsonschema-go v0.3.79
+go: downloading github.com/swaggest/refl v1.4.0
+go: downloading gopkg.in/yaml.v2 v2.4.0
+go: downloading go.opentelemetry.io/auto/sdk v1.2.1
+go: downloading github.com/go-logr/stdr v1.2.2
+go: downloading github.com/cenkalti/backoff/v5 v5.0.3
+go: downloading github.com/grpc-ecosystem/grpc-gateway/v2 v2.29.0
+go: downloading golang.org/x/net v0.55.0
+go: downloading github.com/cespare/xxhash/v2 v2.3.0
+go: downloading google.golang.org/genproto/googleapis/api v0.0.0-20260526163538-3dc84a4a5aaa
+go: downloading golang.org/x/text v0.38.0
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-09T11:15:22Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-09T11:15:23Z	INFO	Number of language-specific files	num=1
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m

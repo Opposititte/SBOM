@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:2f350d2e-328f-4f9e-ab6f-38e330681ffc",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:14:31+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "ba4270fd-11b5-4a88-bae5-cde0ae9564de",
+      "type": "application",
+      "name": "/home/user/SBOM/work/relvacode__iso8601",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "12c6d018-4483-47d7-ad42-9a1e0fc03717",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/relvacode/iso8601",
+      "type": "library",
+      "name": "github.com/relvacode/iso8601",
+      "purl": "pkg:golang/github.com/relvacode/iso8601",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/relvacode/iso8601"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "12c6d018-4483-47d7-ad42-9a1e0fc03717",
+      "dependsOn": [
+        "pkg:golang/github.com/relvacode/iso8601"
+      ]
+    },
+    {
+      "ref": "ba4270fd-11b5-4a88-bae5-cde0ae9564de",
+      "dependsOn": [
+        "12c6d018-4483-47d7-ad42-9a1e0fc03717"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/relvacode/iso8601",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

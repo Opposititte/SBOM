@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:ae3fee0d-8ea6-480c-9a49-fc499c448f5a",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:14:10+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "a3055971-a4de-4f4d-b432-7ce18b9ca12b",
+      "type": "application",
+      "name": "/home/user/SBOM/work/xhit__go-str2duration",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "7357a2c6-4cad-4ba7-80bf-bdab1348d49d",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/xhit/go-str2duration/v2",
+      "type": "library",
+      "name": "github.com/xhit/go-str2duration/v2",
+      "purl": "pkg:golang/github.com/xhit/go-str2duration/v2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/xhit/go-str2duration/v2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "7357a2c6-4cad-4ba7-80bf-bdab1348d49d",
+      "dependsOn": [
+        "pkg:golang/github.com/xhit/go-str2duration/v2"
+      ]
+    },
+    {
+      "ref": "a3055971-a4de-4f4d-b432-7ce18b9ca12b",
+      "dependsOn": [
+        "7357a2c6-4cad-4ba7-80bf-bdab1348d49d"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/xhit/go-str2duration/v2",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

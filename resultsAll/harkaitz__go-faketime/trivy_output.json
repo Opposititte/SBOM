@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:cc7350d7-d085-4d50-8fa7-f6b11c14c86a",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:13:41+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "4106abe8-6bff-481a-9b74-85d126c538de",
+      "type": "application",
+      "name": "/home/user/SBOM/work/harkaitz__go-faketime",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "36d43e76-394c-449e-b87f-548a403e643c",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/harkaitz/go-faketime",
+      "type": "library",
+      "name": "github.com/harkaitz/go-faketime",
+      "purl": "pkg:golang/github.com/harkaitz/go-faketime",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/harkaitz/go-faketime"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "36d43e76-394c-449e-b87f-548a403e643c",
+      "dependsOn": [
+        "pkg:golang/github.com/harkaitz/go-faketime"
+      ]
+    },
+    {
+      "ref": "4106abe8-6bff-481a-9b74-85d126c538de",
+      "dependsOn": [
+        "36d43e76-394c-449e-b87f-548a403e643c"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/harkaitz/go-faketime",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

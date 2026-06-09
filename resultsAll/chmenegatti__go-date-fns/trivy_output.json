@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:b420b14b-ae81-41d7-bd53-2b8d93afa47d",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:13:30+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "123dc05b-9b1f-4921-9d89-02159a5fcf8c",
+      "type": "application",
+      "name": "/home/user/SBOM/work/chmenegatti__go-date-fns",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "f2ae4aed-2d4c-4790-b06c-2793bed10933",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/chmenegatti/go-date-fns",
+      "type": "library",
+      "name": "github.com/chmenegatti/go-date-fns",
+      "purl": "pkg:golang/github.com/chmenegatti/go-date-fns",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/chmenegatti/go-date-fns"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "123dc05b-9b1f-4921-9d89-02159a5fcf8c",
+      "dependsOn": [
+        "f2ae4aed-2d4c-4790-b06c-2793bed10933"
+      ]
+    },
+    {
+      "ref": "f2ae4aed-2d4c-4790-b06c-2793bed10933",
+      "dependsOn": [
+        "pkg:golang/github.com/chmenegatti/go-date-fns"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/chmenegatti/go-date-fns",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
