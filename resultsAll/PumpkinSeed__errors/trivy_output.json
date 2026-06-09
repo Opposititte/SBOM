@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:294a79e4-f6f6-4757-9f5a-2a7e77b9df42",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:44:14+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "6b890296-2c27-4972-aedb-a178caf6ac62",
+      "type": "application",
+      "name": "/home/user/SBOM/work/PumpkinSeed__errors",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "48b5735f-42f9-4aca-89cf-adb5c236b72b",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/pumpkinseed/errors",
+      "type": "library",
+      "name": "github.com/PumpkinSeed/errors",
+      "purl": "pkg:golang/github.com/pumpkinseed/errors",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/PumpkinSeed/errors"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "48b5735f-42f9-4aca-89cf-adb5c236b72b",
+      "dependsOn": [
+        "pkg:golang/github.com/pumpkinseed/errors"
+      ]
+    },
+    {
+      "ref": "6b890296-2c27-4972-aedb-a178caf6ac62",
+      "dependsOn": [
+        "48b5735f-42f9-4aca-89cf-adb5c236b72b"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/pumpkinseed/errors",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
