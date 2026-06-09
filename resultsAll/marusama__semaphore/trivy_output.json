@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:009a2d6f-d32d-4a2b-8b37-5ad735a4e818",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:15:24+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "4609c085-39f8-4cf7-9e95-21eca6d3040a",
+      "type": "application",
+      "name": "/home/user/SBOM/work/marusama__semaphore",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "3ab4ecaa-b4b6-4a95-9c67-011af1d322a0",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/marusama/semaphore/v2",
+      "type": "library",
+      "name": "github.com/marusama/semaphore/v2",
+      "purl": "pkg:golang/github.com/marusama/semaphore/v2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/marusama/semaphore/v2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "3ab4ecaa-b4b6-4a95-9c67-011af1d322a0",
+      "dependsOn": [
+        "pkg:golang/github.com/marusama/semaphore/v2"
+      ]
+    },
+    {
+      "ref": "4609c085-39f8-4cf7-9e95-21eca6d3040a",
+      "dependsOn": [
+        "3ab4ecaa-b4b6-4a95-9c67-011af1d322a0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/marusama/semaphore/v2",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

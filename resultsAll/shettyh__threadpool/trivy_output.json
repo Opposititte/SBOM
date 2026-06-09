@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:7f07d2f3-f348-469d-8fb3-bbff3b2fda3b",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:15:33+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "e8881319-651f-4ffe-b444-4ba6bfdc7649",
+      "type": "application",
+      "name": "/home/user/SBOM/work/shettyh__threadpool",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "4e4bb4f1-bf06-4bf7-a2c3-40c877ce581c",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/shettyh/threadpool",
+      "type": "library",
+      "name": "github.com/shettyh/threadpool",
+      "purl": "pkg:golang/github.com/shettyh/threadpool",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/shettyh/threadpool"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "4e4bb4f1-bf06-4bf7-a2c3-40c877ce581c",
+      "dependsOn": [
+        "pkg:golang/github.com/shettyh/threadpool"
+      ]
+    },
+    {
+      "ref": "e8881319-651f-4ffe-b444-4ba6bfdc7649",
+      "dependsOn": [
+        "4e4bb4f1-bf06-4bf7-a2c3-40c877ce581c"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/shettyh/threadpool",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

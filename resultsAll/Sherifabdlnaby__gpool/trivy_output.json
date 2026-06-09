@@ -1,0 +1,116 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:3bc16d22-b048-4af3-bebc-e82d4bed887d",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:14:02+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "781ac234-d504-4469-aa2b-ceb88af6b955",
+      "type": "application",
+      "name": "/home/user/SBOM/work/Sherifabdlnaby__gpool",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "b8ae1f36-bb0d-4423-b18a-7d7a38f1e6b9",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/sherifabdlnaby/gpool",
+      "type": "library",
+      "name": "github.com/sherifabdlnaby/gpool",
+      "purl": "pkg:golang/github.com/sherifabdlnaby/gpool",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/sherifabdlnaby/gpool"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/sherifabdlnaby/semaphore@v1.1.0",
+      "type": "library",
+      "name": "github.com/sherifabdlnaby/semaphore",
+      "version": "v1.1.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/sherifabdlnaby/semaphore@v1.1.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/sherifabdlnaby/semaphore@v1.1.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "781ac234-d504-4469-aa2b-ceb88af6b955",
+      "dependsOn": [
+        "b8ae1f36-bb0d-4423-b18a-7d7a38f1e6b9"
+      ]
+    },
+    {
+      "ref": "b8ae1f36-bb0d-4423-b18a-7d7a38f1e6b9",
+      "dependsOn": [
+        "pkg:golang/github.com/sherifabdlnaby/gpool"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/sherifabdlnaby/gpool",
+      "dependsOn": [
+        "pkg:golang/github.com/sherifabdlnaby/semaphore@v1.1.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/sherifabdlnaby/semaphore@v1.1.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

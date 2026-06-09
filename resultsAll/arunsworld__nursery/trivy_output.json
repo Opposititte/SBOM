@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:0c925260-4843-408f-a8d0-2669603b6add",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:14:40+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "857f2282-2bf5-491c-93e6-6af5524bf32a",
+      "type": "application",
+      "name": "/home/user/SBOM/work/arunsworld__nursery",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "ad6ce9cf-366b-41ca-a63d-782d4e4e5ca8",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/arunsworld/nursery",
+      "type": "library",
+      "name": "github.com/arunsworld/nursery",
+      "purl": "pkg:golang/github.com/arunsworld/nursery",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/arunsworld/nursery"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "857f2282-2bf5-491c-93e6-6af5524bf32a",
+      "dependsOn": [
+        "ad6ce9cf-366b-41ca-a63d-782d4e4e5ca8"
+      ]
+    },
+    {
+      "ref": "ad6ce9cf-366b-41ca-a63d-782d4e4e5ca8",
+      "dependsOn": [
+        "pkg:golang/github.com/arunsworld/nursery"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/arunsworld/nursery",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:d35fd25c-2ae2-4cc3-82f0-b8d30e8357b4",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:14:59+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "8df63768-bf9a-401d-beec-d6aa26a3778f",
+      "type": "application",
+      "name": "/home/user/SBOM/work/destel__rill",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "53847bd4-760f-4885-a6f7-c897055e5053",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/destel/rill",
+      "type": "library",
+      "name": "github.com/destel/rill",
+      "purl": "pkg:golang/github.com/destel/rill",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/destel/rill"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "53847bd4-760f-4885-a6f7-c897055e5053",
+      "dependsOn": [
+        "pkg:golang/github.com/destel/rill"
+      ]
+    },
+    {
+      "ref": "8df63768-bf9a-401d-beec-d6aa26a3778f",
+      "dependsOn": [
+        "53847bd4-760f-4885-a6f7-c897055e5053"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/destel/rill",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
