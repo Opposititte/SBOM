@@ -1,0 +1,80 @@
+Cloning into '/home/user/SBOM/work/melvinodsa__go-iam'...
+go: downloading github.com/gofiber/fiber/v2 v2.52.5
+go: downloading go.mongodb.org/mongo-driver v1.17.1
+go: downloading golang.org/x/oauth2 v0.24.0
+go: downloading google.golang.org/api v0.214.0
+go: downloading github.com/redis/go-redis/v9 v9.7.0
+go: downloading github.com/golang-jwt/jwt/v4 v4.5.1
+go: downloading github.com/getkin/kin-openapi v0.132.0
+go: downloading github.com/stretchr/testify v1.10.0
+go: downloading github.com/valyala/bytebufferpool v1.0.0
+go: downloading github.com/mattn/go-colorable v0.1.13
+go: downloading github.com/mattn/go-isatty v0.0.20
+go: downloading github.com/mattn/go-runewidth v0.0.16
+go: downloading github.com/valyala/fasthttp v1.57.0
+go: downloading cloud.google.com/go/compute/metadata v0.6.0
+go: downloading github.com/youmark/pkcs8 v0.0.0-20240726163527-a2c0da244d78
+go: downloading github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f
+go: downloading github.com/stretchr/objx v0.5.2
+go: downloading github.com/go-openapi/jsonpointer v0.21.0
+go: downloading github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826
+go: downloading github.com/oasdiff/yaml v0.0.0-20250309154309-f31be36b4037
+go: downloading github.com/perimeterx/marshmallow v1.1.5
+go: downloading golang.org/x/sys v0.28.0
+go: downloading github.com/rivo/uniseg v0.4.7
+go: downloading golang.org/x/crypto v0.31.0
+go: downloading github.com/golang/snappy v0.0.4
+go: downloading github.com/klauspost/compress v1.17.11
+go: downloading github.com/xdg-go/scram v1.1.2
+go: downloading github.com/xdg-go/stringprep v1.0.4
+go: downloading github.com/montanaflynn/stats v0.7.1
+go: downloading github.com/valyala/tcplisten v1.0.0
+go: downloading github.com/andybalholm/brotli v1.1.1
+go: downloading github.com/go-openapi/swag v0.23.0
+go: downloading github.com/oasdiff/yaml3 v0.0.0-20250309153720-d2182401db90
+go: downloading github.com/mailru/easyjson v0.7.7
+go: downloading github.com/xdg-go/pbkdf2 v1.0.0
+go: downloading golang.org/x/sync v0.10.0
+go: downloading golang.org/x/text v0.21.0
+go: downloading github.com/josharian/intern v1.0.0
+go: downloading github.com/googleapis/gax-go/v2 v2.14.0
+go: downloading cloud.google.com/go/auth v0.13.0
+go: downloading google.golang.org/grpc v1.67.1
+go: downloading cloud.google.com/go/auth/oauth2adapt v0.2.6
+go: downloading golang.org/x/net v0.33.0
+go: downloading go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.54.0
+go: downloading github.com/google/s2a-go v0.1.8
+go: downloading google.golang.org/protobuf v1.35.2
+go: downloading google.golang.org/genproto/googleapis/rpc v0.0.0-20241209162323-e6fa225c2576
+go: downloading github.com/googleapis/enterprise-certificate-proxy v0.3.4
+go: downloading go.opentelemetry.io/otel v1.29.0
+go: downloading go.opentelemetry.io/otel/metric v1.29.0
+go: downloading go.opentelemetry.io/otel/trace v1.29.0
+go: downloading github.com/go-logr/logr v1.4.2
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-09T09:10:17Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-09T09:10:18Z	INFO	Number of language-specific files	num=1
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m

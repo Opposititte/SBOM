@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:d6ccbd2a-2725-4602-b28b-fc049563dcb7",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T09:07:07+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "32b09e6a-a018-48f9-a10a-f166daa62e4e",
+      "type": "application",
+      "name": "/home/user/SBOM/work/DylanMeeus__GoAudio",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "8ad6e0f7-2551-4e53-b0f2-a5ad374d06f0",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/dylanmeeus/goaudio",
+      "type": "library",
+      "name": "github.com/DylanMeeus/GoAudio",
+      "purl": "pkg:golang/github.com/dylanmeeus/goaudio",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/DylanMeeus/GoAudio"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "32b09e6a-a018-48f9-a10a-f166daa62e4e",
+      "dependsOn": [
+        "8ad6e0f7-2551-4e53-b0f2-a5ad374d06f0"
+      ]
+    },
+    {
+      "ref": "8ad6e0f7-2551-4e53-b0f2-a5ad374d06f0",
+      "dependsOn": [
+        "pkg:golang/github.com/dylanmeeus/goaudio"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/dylanmeeus/goaudio",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,95 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:036ce9bf-4193-4d6c-b6d3-516bcc1a121b",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T09:07:56Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/gordonklaus/portaudio@v0.0.0-20260203164431-765aa7dfa631?type=module",
+      "type": "application",
+      "name": "github.com/gordonklaus/portaudio",
+      "version": "v0.0.0-20260203164431-765aa7dfa631",
+      "purl": "pkg:golang/github.com/gordonklaus/portaudio@v0.0.0-20260203164431-765aa7dfa631?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/gordonklaus/portaudio",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/github.com/bobertlo/go-mpg123@v0.0.0-20211210004329-c83f21a0fd39?type=module",
+      "type": "library",
+      "name": "github.com/bobertlo/go-mpg123",
+      "version": "v0.0.0-20211210004329-c83f21a0fd39",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5427a356bcf76721596c365301ac32cea5533efb2a69890336b8aebea23e525e"
+        }
+      ],
+      "purl": "pkg:golang/github.com/bobertlo/go-mpg123@v0.0.0-20211210004329-c83f21a0fd39?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/bobertlo/go-mpg123",
+          "type": "vcs"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/gordonklaus/portaudio@v0.0.0-20260203164431-765aa7dfa631?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/bobertlo/go-mpg123@v0.0.0-20211210004329-c83f21a0fd39?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/bobertlo/go-mpg123@v0.0.0-20211210004329-c83f21a0fd39?type=module"
+    }
+  ]
+}

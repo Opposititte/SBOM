@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:080fd87e-d807-4dff-a2b6-abc2f86483c6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T09:09:42+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "b3685ae1-f6b2-414b-b1f4-9ed2499c3e38",
+      "type": "application",
+      "name": "/home/user/SBOM/work/mengzhuo__cookiestxt",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "9813b5cb-a35d-480a-bd5f-0396773733a1",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mengzhuo/cookiestxt",
+      "type": "library",
+      "name": "github.com/mengzhuo/cookiestxt",
+      "purl": "pkg:golang/github.com/mengzhuo/cookiestxt",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mengzhuo/cookiestxt"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "9813b5cb-a35d-480a-bd5f-0396773733a1",
+      "dependsOn": [
+        "pkg:golang/github.com/mengzhuo/cookiestxt"
+      ]
+    },
+    {
+      "ref": "b3685ae1-f6b2-414b-b1f4-9ed2499c3e38",
+      "dependsOn": [
+        "9813b5cb-a35d-480a-bd5f-0396773733a1"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/mengzhuo/cookiestxt",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

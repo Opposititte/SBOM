@@ -1,0 +1,160 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:9f059b66-111e-4b83-a117-853a40cedbb6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T09:07:47+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "dcaa8f0a-4a96-4b17-aef9-95288bd879a0",
+      "type": "application",
+      "name": "/home/user/SBOM/work/hajimehoshi__oto",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "48617b54-a0a5-4eaa-bd84-c8028d3212fa",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/ebitengine/oto/v3",
+      "type": "library",
+      "name": "github.com/ebitengine/oto/v3",
+      "purl": "pkg:golang/github.com/ebitengine/oto/v3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/ebitengine/oto/v3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/ebitengine/purego@v0.10.1",
+      "type": "library",
+      "name": "github.com/ebitengine/purego",
+      "version": "v0.10.1",
+      "purl": "pkg:golang/github.com/ebitengine/purego@v0.10.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/ebitengine/purego@v0.10.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jfreymuth/pulse@v0.1.1",
+      "type": "library",
+      "name": "github.com/jfreymuth/pulse",
+      "version": "v0.1.1",
+      "purl": "pkg:golang/github.com/jfreymuth/pulse@v0.1.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/jfreymuth/pulse@v0.1.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.45.0",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.45.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/sys@v0.45.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sys@v0.45.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "48617b54-a0a5-4eaa-bd84-c8028d3212fa",
+      "dependsOn": [
+        "pkg:golang/github.com/ebitengine/oto/v3"
+      ]
+    },
+    {
+      "ref": "dcaa8f0a-4a96-4b17-aef9-95288bd879a0",
+      "dependsOn": [
+        "48617b54-a0a5-4eaa-bd84-c8028d3212fa"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/ebitengine/oto/v3",
+      "dependsOn": [
+        "pkg:golang/github.com/ebitengine/purego@v0.10.1",
+        "pkg:golang/github.com/jfreymuth/pulse@v0.1.1",
+        "pkg:golang/golang.org/x/sys@v0.45.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/ebitengine/purego@v0.10.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/jfreymuth/pulse@v0.1.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.45.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

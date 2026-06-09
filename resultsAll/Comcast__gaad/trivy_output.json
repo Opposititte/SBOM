@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:14b8b561-6779-4242-84ac-684d8e0355bf",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T09:06:51+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "6e7f09f4-5e21-45ff-8277-2ae44a9834c5",
+      "type": "application",
+      "name": "/home/user/SBOM/work/Comcast__gaad",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "a2d82de6-2316-4f95-8bdd-0567801606d7",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/comcast/gaad",
+      "type": "library",
+      "name": "github.com/Comcast/gaad",
+      "purl": "pkg:golang/github.com/comcast/gaad",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/Comcast/gaad"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "6e7f09f4-5e21-45ff-8277-2ae44a9834c5",
+      "dependsOn": [
+        "a2d82de6-2316-4f95-8bdd-0567801606d7"
+      ]
+    },
+    {
+      "ref": "a2d82de6-2316-4f95-8bdd-0567801606d7",
+      "dependsOn": [
+        "pkg:golang/github.com/comcast/gaad"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/comcast/gaad",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

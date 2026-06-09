@@ -1,0 +1,270 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:82c3a72c-024e-4e8e-ba0b-6fc134ed00b9",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T09:08:38+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "bd92d4a8-9cc9-48de-be2b-1843ac5fe24b",
+      "type": "application",
+      "name": "/home/user/SBOM/work/volatiletech__authboss",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "09cd10cf-10b4-4550-a089-c474881b3e17",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/cloud.google.com/go@v0.34.0",
+      "type": "library",
+      "name": "cloud.google.com/go",
+      "version": "v0.34.0",
+      "purl": "pkg:golang/cloud.google.com/go@v0.34.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "cloud.google.com/go@v0.34.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/aarondl/authboss/v3",
+      "type": "library",
+      "name": "github.com/aarondl/authboss/v3",
+      "purl": "pkg:golang/github.com/aarondl/authboss/v3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/aarondl/authboss/v3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/boombuler/barcode@v1.0.1",
+      "type": "library",
+      "name": "github.com/boombuler/barcode",
+      "version": "v1.0.1",
+      "purl": "pkg:golang/github.com/boombuler/barcode@v1.0.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/boombuler/barcode@v1.0.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+      "type": "library",
+      "name": "github.com/davecgh/go-spew",
+      "version": "v1.1.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/davecgh/go-spew@v1.1.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/friendsofgo/errors@v0.9.2",
+      "type": "library",
+      "name": "github.com/friendsofgo/errors",
+      "version": "v0.9.2",
+      "purl": "pkg:golang/github.com/friendsofgo/errors@v0.9.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/friendsofgo/errors@v0.9.2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/pquerna/otp@v1.4.0",
+      "type": "library",
+      "name": "github.com/pquerna/otp",
+      "version": "v1.4.0",
+      "purl": "pkg:golang/github.com/pquerna/otp@v1.4.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/pquerna/otp@v1.4.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/crypto@v0.45.0",
+      "type": "library",
+      "name": "golang.org/x/crypto",
+      "version": "v0.45.0",
+      "purl": "pkg:golang/golang.org/x/crypto@v0.45.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/crypto@v0.45.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/oauth2@v0.30.0",
+      "type": "library",
+      "name": "golang.org/x/oauth2",
+      "version": "v0.30.0",
+      "purl": "pkg:golang/golang.org/x/oauth2@v0.30.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/oauth2@v0.30.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/xerrors@v0.0.0-20220907171357-04be3eba64a2",
+      "type": "library",
+      "name": "golang.org/x/xerrors",
+      "version": "v0.0.0-20220907171357-04be3eba64a2",
+      "purl": "pkg:golang/golang.org/x/xerrors@v0.0.0-20220907171357-04be3eba64a2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/xerrors@v0.0.0-20220907171357-04be3eba64a2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "09cd10cf-10b4-4550-a089-c474881b3e17",
+      "dependsOn": [
+        "pkg:golang/github.com/aarondl/authboss/v3"
+      ]
+    },
+    {
+      "ref": "bd92d4a8-9cc9-48de-be2b-1843ac5fe24b",
+      "dependsOn": [
+        "09cd10cf-10b4-4550-a089-c474881b3e17"
+      ]
+    },
+    {
+      "ref": "pkg:golang/cloud.google.com/go@v0.34.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/aarondl/authboss/v3",
+      "dependsOn": [
+        "pkg:golang/cloud.google.com/go@v0.34.0",
+        "pkg:golang/github.com/boombuler/barcode@v1.0.1",
+        "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+        "pkg:golang/github.com/friendsofgo/errors@v0.9.2",
+        "pkg:golang/github.com/pquerna/otp@v1.4.0",
+        "pkg:golang/golang.org/x/crypto@v0.45.0",
+        "pkg:golang/golang.org/x/oauth2@v0.30.0",
+        "pkg:golang/golang.org/x/xerrors@v0.0.0-20220907171357-04be3eba64a2"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/boombuler/barcode@v1.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/friendsofgo/errors@v0.9.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/pquerna/otp@v1.4.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/crypto@v0.45.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/oauth2@v0.30.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/xerrors@v0.0.0-20220907171357-04be3eba64a2",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
