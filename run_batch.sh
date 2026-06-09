@@ -122,11 +122,16 @@ while IFS= read -r url || [ -n "$url" ]; do
     continue
   fi
 
-  # 2. go list -m all  (ground truth)
+  # 2. go list -m all  (ground truth: all)
   gl_status=ok
   if ! ( cd "$folder" && timeout "$TOOL_TIMEOUT" go list -m all ) > "$outdir/gt_go_list.txt" 2>>"$errlog"; then
     gl_status=fail; echo "ERROR: 'go list -m all' failed" >> "$errlog"
   fi
+
+  # 2b. imported ground truth: GOOS=linux go list -deps (modules actually compiled in)
+  gmain=$( cd "$folder" && go list -m 2>/dev/null | head -1 )
+  ( cd "$folder" && GOOS=linux timeout "$TOOL_TIMEOUT" go list -deps -e -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./... 2>>"$errlog" ) \
+    | grep -v '^$' | grep -v "^${gmain} \?$" | sort -u > "$outdir/gt_imported.txt"
 
   # 3. syft
   sy_status=ok
