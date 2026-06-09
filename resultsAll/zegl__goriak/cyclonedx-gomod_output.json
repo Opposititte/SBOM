@@ -1,0 +1,165 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:732e309f-8f92-4642-9e09-221b7fdfe803",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:07:23Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/zegl/goriak/v3@v0.0.0-20181227230651-853c1d1c26fc?type=module",
+      "type": "application",
+      "name": "github.com/zegl/goriak/v3",
+      "version": "v0.0.0-20181227230651-853c1d1c26fc",
+      "purl": "pkg:golang/github.com/zegl/goriak/v3@v0.0.0-20181227230651-853c1d1c26fc?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/zegl/goriak",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/github.com/basho/backoff@v0.0.0-20150307023525-2ff7c4694083?type=module",
+      "type": "library",
+      "name": "github.com/basho/backoff",
+      "version": "v0.0.0-20150307023525-2ff7c4694083",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "18ab38d7441323458a32554e1c6dc2e7cf78a8d0be88b4f480a7779659a4f10e"
+        }
+      ],
+      "purl": "pkg:golang/github.com/basho/backoff@v0.0.0-20150307023525-2ff7c4694083?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/basho/backoff",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/basho/riak-go-client@v0.0.0-20170327205844-5587c16e0b8b?type=module",
+      "type": "library",
+      "name": "github.com/basho/riak-go-client",
+      "version": "v0.0.0-20170327205844-5587c16e0b8b",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7f4b50f107b9e804140ba4ba28b0383bf58a92dcce904d163955e8606fb58ae1"
+        }
+      ],
+      "purl": "pkg:golang/github.com/basho/riak-go-client@v0.0.0-20170327205844-5587c16e0b8b?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/basho/riak-go-client",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/golang/protobuf@v1.1.0?type=module",
+      "type": "library",
+      "name": "github.com/golang/protobuf",
+      "version": "v1.1.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d221f815f77f99e1a85ea176952021647b7c5fe70f8247e7fdc6fa09c7b95697"
+        }
+      ],
+      "purl": "pkg:golang/github.com/golang/protobuf@v1.1.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/golang/protobuf",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/zegl/goriak@v3.2.1+incompatible?type=module",
+      "type": "library",
+      "name": "github.com/zegl/goriak",
+      "version": "v3.2.1+incompatible",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a3df6419d48a249b342043fb68bd45e3000e33831554a1aa111fb4a766b0562d"
+        }
+      ],
+      "purl": "pkg:golang/github.com/zegl/goriak@v3.2.1+incompatible?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/zegl/goriak",
+          "type": "vcs"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/zegl/goriak/v3@v0.0.0-20181227230651-853c1d1c26fc?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/basho/riak-go-client@v0.0.0-20170327205844-5587c16e0b8b?type=module",
+        "pkg:golang/github.com/zegl/goriak@v3.2.1+incompatible?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/basho/backoff@v0.0.0-20150307023525-2ff7c4694083?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/basho/riak-go-client@v0.0.0-20170327205844-5587c16e0b8b?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/golang/protobuf@v1.1.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/zegl/goriak@v3.2.1+incompatible?type=module"
+    }
+  ]
+}

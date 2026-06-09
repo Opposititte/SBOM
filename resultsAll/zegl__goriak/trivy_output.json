@@ -1,0 +1,175 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:9ae5d326-3d9a-47f0-a7fd-6e695b36d425",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:07:21+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "a03f50ae-bac6-47f2-8804-4c171964b431",
+      "type": "application",
+      "name": "/home/user/SBOM/work/zegl__goriak",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "8a1cbea5-5eba-46b9-afb2-621e85d8eca0",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/basho/backoff@v0.0.0-20150307023525-2ff7c4694083",
+      "type": "library",
+      "name": "github.com/basho/backoff",
+      "version": "v0.0.0-20150307023525-2ff7c4694083",
+      "purl": "pkg:golang/github.com/basho/backoff@v0.0.0-20150307023525-2ff7c4694083",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/basho/backoff@v0.0.0-20150307023525-2ff7c4694083"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/basho/riak-go-client@v0.0.0-20170327205844-5587c16e0b8b",
+      "type": "library",
+      "name": "github.com/basho/riak-go-client",
+      "version": "v0.0.0-20170327205844-5587c16e0b8b",
+      "purl": "pkg:golang/github.com/basho/riak-go-client@v0.0.0-20170327205844-5587c16e0b8b",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/basho/riak-go-client@v0.0.0-20170327205844-5587c16e0b8b"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/golang/protobuf@v1.1.0",
+      "type": "library",
+      "name": "github.com/golang/protobuf",
+      "version": "v1.1.0",
+      "purl": "pkg:golang/github.com/golang/protobuf@v1.1.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/golang/protobuf@v1.1.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/zegl/goriak/v3",
+      "type": "library",
+      "name": "github.com/zegl/goriak/v3",
+      "purl": "pkg:golang/github.com/zegl/goriak/v3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/zegl/goriak/v3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/zegl/goriak@v3.2.1%2Bincompatible",
+      "type": "library",
+      "name": "github.com/zegl/goriak",
+      "version": "v3.2.1+incompatible",
+      "purl": "pkg:golang/github.com/zegl/goriak@v3.2.1%2Bincompatible",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/zegl/goriak@v3.2.1+incompatible"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "8a1cbea5-5eba-46b9-afb2-621e85d8eca0",
+      "dependsOn": [
+        "pkg:golang/github.com/zegl/goriak/v3"
+      ]
+    },
+    {
+      "ref": "a03f50ae-bac6-47f2-8804-4c171964b431",
+      "dependsOn": [
+        "8a1cbea5-5eba-46b9-afb2-621e85d8eca0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/basho/backoff@v0.0.0-20150307023525-2ff7c4694083",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/basho/riak-go-client@v0.0.0-20170327205844-5587c16e0b8b",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/golang/protobuf@v1.1.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/zegl/goriak/v3",
+      "dependsOn": [
+        "pkg:golang/github.com/basho/backoff@v0.0.0-20150307023525-2ff7c4694083",
+        "pkg:golang/github.com/basho/riak-go-client@v0.0.0-20170327205844-5587c16e0b8b",
+        "pkg:golang/github.com/golang/protobuf@v1.1.0",
+        "pkg:golang/github.com/zegl/goriak@v3.2.1%2Bincompatible"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/zegl/goriak@v3.2.1%2Bincompatible",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

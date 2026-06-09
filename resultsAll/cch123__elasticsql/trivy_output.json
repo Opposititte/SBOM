@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:6b97ff4a-7623-46d9-93bd-12055b53335d",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:10:25+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "13a72a32-bbb3-4987-9a3e-82a2011c1bf0",
+      "type": "application",
+      "name": "/home/user/SBOM/work/cch123__elasticsql",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "be8e1415-5dd1-41b2-981b-e1805386f92e",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/cch123/elasticsql",
+      "type": "library",
+      "name": "github.com/cch123/elasticsql",
+      "purl": "pkg:golang/github.com/cch123/elasticsql",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/cch123/elasticsql"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/xwb1989/sqlparser@v0.0.0-20171128062118-da747e0c62c4",
+      "type": "library",
+      "name": "github.com/xwb1989/sqlparser",
+      "version": "v0.0.0-20171128062118-da747e0c62c4",
+      "purl": "pkg:golang/github.com/xwb1989/sqlparser@v0.0.0-20171128062118-da747e0c62c4",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/xwb1989/sqlparser@v0.0.0-20171128062118-da747e0c62c4"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "13a72a32-bbb3-4987-9a3e-82a2011c1bf0",
+      "dependsOn": [
+        "be8e1415-5dd1-41b2-981b-e1805386f92e"
+      ]
+    },
+    {
+      "ref": "be8e1415-5dd1-41b2-981b-e1805386f92e",
+      "dependsOn": [
+        "pkg:golang/github.com/cch123/elasticsql"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/cch123/elasticsql",
+      "dependsOn": [
+        "pkg:golang/github.com/xwb1989/sqlparser@v0.0.0-20171128062118-da747e0c62c4"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/xwb1989/sqlparser@v0.0.0-20171128062118-da747e0c62c4",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
