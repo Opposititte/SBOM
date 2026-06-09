@@ -1,0 +1,153 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:8ba0b49a-fd4f-4343-a53d-24952d7e0cb9",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:19:34+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "fd4f1499-99c9-4085-9195-e92e6ba48bbb",
+      "type": "application",
+      "name": "/home/user/SBOM/work/vectaport__flowgraph",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "db66c49c-327f-4f36-aa36-571731b4ff4c",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/vectaport/fgbase@v0.0.0-20200618171749-65072ea6a76e",
+      "type": "library",
+      "name": "github.com/vectaport/fgbase",
+      "version": "v0.0.0-20200618171749-65072ea6a76e",
+      "purl": "pkg:golang/github.com/vectaport/fgbase@v0.0.0-20200618171749-65072ea6a76e",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/vectaport/fgbase@v0.0.0-20200618171749-65072ea6a76e"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/vectaport/flowgraph",
+      "type": "library",
+      "name": "github.com/vectaport/flowgraph",
+      "purl": "pkg:golang/github.com/vectaport/flowgraph",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/vectaport/flowgraph"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/crypto@v0.9.0",
+      "type": "library",
+      "name": "golang.org/x/crypto",
+      "version": "v0.9.0",
+      "purl": "pkg:golang/golang.org/x/crypto@v0.9.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/crypto@v0.9.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.8.0",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.8.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.8.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sys@v0.8.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "db66c49c-327f-4f36-aa36-571731b4ff4c",
+      "dependsOn": [
+        "pkg:golang/github.com/vectaport/flowgraph"
+      ]
+    },
+    {
+      "ref": "fd4f1499-99c9-4085-9195-e92e6ba48bbb",
+      "dependsOn": [
+        "db66c49c-327f-4f36-aa36-571731b4ff4c"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/vectaport/fgbase@v0.0.0-20200618171749-65072ea6a76e",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/vectaport/flowgraph",
+      "dependsOn": [
+        "pkg:golang/github.com/vectaport/fgbase@v0.0.0-20200618171749-65072ea6a76e",
+        "pkg:golang/golang.org/x/crypto@v0.9.0",
+        "pkg:golang/golang.org/x/sys@v0.8.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/crypto@v0.9.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.8.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

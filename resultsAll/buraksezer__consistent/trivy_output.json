@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:e27f644c-6695-43d4-bb87-c8b7ab602636",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:16:12+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "ea27a50b-fb3e-4746-a485-7905fd286918",
+      "type": "application",
+      "name": "/home/user/SBOM/work/buraksezer__consistent",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "1269d0cd-434e-41cb-982c-975297e97f27",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/buraksezer/consistent",
+      "type": "library",
+      "name": "github.com/buraksezer/consistent",
+      "purl": "pkg:golang/github.com/buraksezer/consistent",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/buraksezer/consistent"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "1269d0cd-434e-41cb-982c-975297e97f27",
+      "dependsOn": [
+        "pkg:golang/github.com/buraksezer/consistent"
+      ]
+    },
+    {
+      "ref": "ea27a50b-fb3e-4746-a485-7905fd286918",
+      "dependsOn": [
+        "1269d0cd-434e-41cb-982c-975297e97f27"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/buraksezer/consistent",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

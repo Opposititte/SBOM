@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:605b4e11-9329-423c-81e1-f08a40ff7fb8",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:15:49+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "90635d61-9608-406e-9d5e-237388bedeb2",
+      "type": "application",
+      "name": "/home/user/SBOM/work/schigh__circuit",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "f61f08d6-0136-4ba5-bc44-ba1db3c1e0b5",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/schigh/circuit",
+      "type": "library",
+      "name": "github.com/schigh/circuit",
+      "purl": "pkg:golang/github.com/schigh/circuit",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/schigh/circuit"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "90635d61-9608-406e-9d5e-237388bedeb2",
+      "dependsOn": [
+        "f61f08d6-0136-4ba5-bc44-ba1db3c1e0b5"
+      ]
+    },
+    {
+      "ref": "f61f08d6-0136-4ba5-bc44-ba1db3c1e0b5",
+      "dependsOn": [
+        "pkg:golang/github.com/schigh/circuit"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/schigh/circuit",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

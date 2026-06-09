@@ -1,0 +1,116 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:4e75963d-865c-4022-a330-162638c68998",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:19:29+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "6b53437d-2bc9-47ee-ad5c-003fb609e2e0",
+      "type": "application",
+      "name": "/home/user/SBOM/work/andy2046__failured",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "72132d48-4647-420a-a68a-54fed20faac9",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/andy2046/failured",
+      "type": "library",
+      "name": "github.com/andy2046/failured",
+      "purl": "pkg:golang/github.com/andy2046/failured",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/andy2046/failured"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.0.0-20210630005230-0f9fa26af87c",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.0.0-20210630005230-0f9fa26af87c",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/sys@v0.0.0-20210630005230-0f9fa26af87c",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sys@v0.0.0-20210630005230-0f9fa26af87c"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "6b53437d-2bc9-47ee-ad5c-003fb609e2e0",
+      "dependsOn": [
+        "72132d48-4647-420a-a68a-54fed20faac9"
+      ]
+    },
+    {
+      "ref": "72132d48-4647-420a-a68a-54fed20faac9",
+      "dependsOn": [
+        "pkg:golang/github.com/andy2046/failured"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/andy2046/failured",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/sys@v0.0.0-20210630005230-0f9fa26af87c"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.0.0-20210630005230-0f9fa26af87c",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

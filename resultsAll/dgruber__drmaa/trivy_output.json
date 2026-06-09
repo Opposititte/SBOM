@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:1b3b2bbc-a145-4483-b8f8-aa88e6065124",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:18:05+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "e888c246-05ba-4b08-ab17-f90090194c13",
+      "type": "application",
+      "name": "/home/user/SBOM/work/dgruber__drmaa",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "beefaa22-cad4-4f7e-b5cd-e4cd7a329fee",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/dgruber/drmaa",
+      "type": "library",
+      "name": "github.com/dgruber/drmaa",
+      "purl": "pkg:golang/github.com/dgruber/drmaa",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/dgruber/drmaa"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "beefaa22-cad4-4f7e-b5cd-e4cd7a329fee",
+      "dependsOn": [
+        "pkg:golang/github.com/dgruber/drmaa"
+      ]
+    },
+    {
+      "ref": "e888c246-05ba-4b08-ab17-f90090194c13",
+      "dependsOn": [
+        "beefaa22-cad4-4f7e-b5cd-e4cd7a329fee"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/dgruber/drmaa",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
