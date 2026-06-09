@@ -9,7 +9,7 @@ precision/recall/f1 は％。tp = パスが正解に含まれる数。
 
 ## 正解 = all
 
-公式コマンド:
+正解(GT)定義コマンド（このコマンドの出力を正解とする）:
 ```bash
 go list -m all
 ```
@@ -43,7 +43,7 @@ go list -m all
 
 ## 正解 = imported
 
-公式コマンド:
+正解(GT)定義コマンド（このコマンドの出力を正解とする）:
 ```bash
 GOOS=linux go list -deps -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./... | sort -u
 ```
@@ -91,7 +91,7 @@ tp = パス**かつ**バージョンが一致した数。
 
 ## 正解 = all
 
-公式コマンド:
+正解(GT)定義コマンド（このコマンドの出力を正解とする）:
 ```bash
 go list -m all
 ```
@@ -125,7 +125,7 @@ go list -m all
 
 ## 正解 = imported
 
-公式コマンド:
+正解(GT)定義コマンド（このコマンドの出力を正解とする）:
 ```bash
 GOOS=linux go list -deps -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./... | sort -u
 ```

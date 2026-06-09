@@ -43,7 +43,7 @@ function section(level, title, note) {
   const avg = {}; for (const t of TOOLS) for (const [g] of GTS) avg[t + '|' + g] = { p: 0, r: 0, f1: 0, n: 0 };
   for (const [gname, gfile] of GTS) {
     out.push(`\n## 正解 = ${gname}\n`);
-    out.push('公式コマンド:');
+    out.push('正解(GT)定義コマンド（このコマンドの出力を正解とする）:');
     out.push('```bash');
     out.push(CMD[gname]);
     out.push('```\n');
