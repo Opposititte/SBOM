@@ -1,0 +1,131 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:3bdaf37a-7bb3-42f9-a220-b9ea0b8ea1ab",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T09:34:00+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "a3f11811-8890-46f8-bbc9-3d086ab4e75f",
+      "type": "application",
+      "name": "/home/user/SBOM/work/wzshiming__ctc",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "68a7a907-80c8-4843-97a0-66285e677137",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/wzshiming/ctc",
+      "type": "library",
+      "name": "github.com/wzshiming/ctc",
+      "purl": "pkg:golang/github.com/wzshiming/ctc",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/wzshiming/ctc"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/wzshiming/winseq@v0.0.0-20200112104235-db357dc107ae",
+      "type": "library",
+      "name": "github.com/wzshiming/winseq",
+      "version": "v0.0.0-20200112104235-db357dc107ae",
+      "purl": "pkg:golang/github.com/wzshiming/winseq@v0.0.0-20200112104235-db357dc107ae",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/wzshiming/winseq@v0.0.0-20200112104235-db357dc107ae"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.1.0",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.1.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.1.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sys@v0.1.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "68a7a907-80c8-4843-97a0-66285e677137",
+      "dependsOn": [
+        "pkg:golang/github.com/wzshiming/ctc"
+      ]
+    },
+    {
+      "ref": "a3f11811-8890-46f8-bbc9-3d086ab4e75f",
+      "dependsOn": [
+        "68a7a907-80c8-4843-97a0-66285e677137"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/wzshiming/ctc",
+      "dependsOn": [
+        "pkg:golang/github.com/wzshiming/winseq@v0.0.0-20200112104235-db357dc107ae",
+        "pkg:golang/golang.org/x/sys@v0.1.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/wzshiming/winseq@v0.0.0-20200112104235-db357dc107ae",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.1.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
