@@ -1,0 +1,100 @@
+Cloning into '/home/user/SBOM/work/alibaba__opentelemetry-go-auto-instrumentation'...
+go: downloading github.com/dave/dst v0.27.3
+go: downloading golang.org/x/mod v0.24.0
+go: downloading golang.org/x/sync v0.14.0
+go: downloading golang.org/x/tools v0.33.0
+go: downloading github.com/docker/docker v28.2.2+incompatible
+go: downloading github.com/docker/go-connections v0.5.0
+go: downloading github.com/testcontainers/testcontainers-go v0.38.0
+go: downloading github.com/testcontainers/testcontainers-go/modules/k3s v0.38.0
+go: downloading github.com/testcontainers/testcontainers-go/modules/mysql v0.37.0
+go: downloading dario.cat/mergo v1.0.2
+go: downloading github.com/cenkalti/backoff/v4 v4.3.0
+go: downloading github.com/containerd/errdefs v1.0.0
+go: downloading github.com/containerd/platforms v0.2.1
+go: downloading github.com/cpuguy83/dockercfg v0.3.2
+go: downloading github.com/google/uuid v1.6.0
+go: downloading github.com/moby/go-archive v0.1.0
+go: downloading github.com/moby/patternmatcher v0.6.0
+go: downloading github.com/moby/term v0.5.2
+go: downloading github.com/opencontainers/image-spec v1.1.1
+go: downloading github.com/stretchr/testify v1.11.1
+go: downloading golang.org/x/crypto v0.38.0
+go: downloading gopkg.in/yaml.v3 v3.0.1
+go: downloading golang.org/x/sys v0.40.0
+go: downloading github.com/containerd/log v0.1.0
+go: downloading github.com/docker/go-units v0.5.0
+go: downloading github.com/moby/docker-image-spec v1.3.1
+go: downloading github.com/opencontainers/go-digest v1.0.0
+go: downloading github.com/morikuni/aec v1.0.0
+go: downloading github.com/containerd/errdefs/pkg v0.3.0
+go: downloading github.com/distribution/reference v0.6.0
+go: downloading github.com/pkg/errors v0.9.1
+go: downloading go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.65.0
+go: downloading go.opentelemetry.io/otel/trace v1.40.0
+go: downloading github.com/magiconair/properties v1.8.10
+go: downloading go.opentelemetry.io/otel v1.40.0
+go: downloading github.com/shirou/gopsutil/v4 v4.25.5
+go: downloading github.com/moby/sys/sequential v0.6.0
+go: downloading github.com/moby/sys/user v0.4.0
+go: downloading github.com/moby/sys/userns v0.1.0
+go: downloading github.com/sirupsen/logrus v1.9.3
+go: downloading github.com/felixge/httpsnoop v1.0.4
+go: downloading go.opentelemetry.io/otel/metric v1.40.0
+go: downloading github.com/klauspost/compress v1.18.0
+go: downloading github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc
+go: downloading github.com/pmezard/go-difflib v1.0.0
+go: downloading github.com/tklauser/go-sysconf v0.3.15
+go: downloading github.com/gogo/protobuf v1.3.2
+go: downloading github.com/go-logr/logr v1.4.3
+go: downloading github.com/tklauser/numcpus v0.10.0
+go: downloading github.com/go-logr/stdr v1.2.2
+go: downloading go.opentelemetry.io/auto/sdk v1.2.1
+go: downloading github.com/cespare/xxhash/v2 v2.3.0
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-09T11:30:45Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-09T11:30:46Z	INFO	[npm] Run "npm install" to collect the license information of packages	dir="node_modules"
+2026-06-09T11:30:46Z	INFO	Suppressing dependencies for development and testing. To display them, try the '--include-dev-deps' flag.
+2026-06-09T11:30:46Z	INFO	Number of language-specific files	num=215
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
+go list -deps command has failed for /home/user/SBOM/work/alibaba__opentelemetry-go-auto-instrumentation/test/build
+go list -deps command has failed for /home/user/SBOM/work/alibaba__opentelemetry-go-auto-instrumentation/test/streadway-amqp/v1.0.0
+go list -deps command has failed for /home/user/SBOM/work/alibaba__opentelemetry-go-auto-instrumentation/test/gopg/v10.14.0
+go mod graph command has failed.
+go list -deps command has failed for /home/user/SBOM/work/alibaba__opentelemetry-go-auto-instrumentation/test/gopg/v10.10.0
+go mod graph command has failed.
+go list -deps command has failed for /home/user/SBOM/work/alibaba__opentelemetry-go-auto-instrumentation/test/goants-v2/v2.0.0
+go list -deps command has failed for /home/user/SBOM/work/alibaba__opentelemetry-go-auto-instrumentation/test/goants-v1/v1.1.0
+go list -deps command has failed for /home/user/SBOM/work/alibaba__opentelemetry-go-auto-instrumentation/test/cron/v3.0.0
+go list -deps command has failed for /home/user/SBOM/work/alibaba__opentelemetry-go-auto-instrumentation/test/asynq/v0.26.0
+go list -deps command has failed for /home/user/SBOM/work/alibaba__opentelemetry-go-auto-instrumentation/test/asynq/v0.23.0
+go list -deps command has failed for /home/user/SBOM/work/alibaba__opentelemetry-go-auto-instrumentation/test/adk-go/v1.0.0
+Manually parsing go.mod files. The resultant BOM would be incomplete.
+[
+  'Invalid purl pkg:golang/../../',
+  'Invalid purl pkg:golang/../../../'
+]
+ERROR: cdxgen failed

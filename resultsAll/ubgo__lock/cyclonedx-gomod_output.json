@@ -1,0 +1,941 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:b917583f-8bf9-46b3-9eb1-69b4ecfb3705",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:27:27Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/ubgo/lock@v0.0.0-20260504195812-0f133b784a61?type=module",
+      "type": "application",
+      "name": "github.com/ubgo/lock",
+      "version": "v0.0.0-20260504195812-0f133b784a61",
+      "purl": "pkg:golang/github.com/ubgo/lock@v0.0.0-20260504195812-0f133b784a61?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/ubgo/lock",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/github.com/ubgo/lock/contrib/gocronlock?type=module",
+      "type": "library",
+      "name": "github.com/ubgo/lock/contrib/gocronlock",
+      "purl": "pkg:golang/github.com/ubgo/lock/contrib/gocronlock?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/ubgo/lock/contrib/gocronlock",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/ubgo/lock/etcdlock?type=module",
+      "type": "library",
+      "name": "github.com/ubgo/lock/etcdlock",
+      "purl": "pkg:golang/github.com/ubgo/lock/etcdlock?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/ubgo/lock/etcdlock",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/ubgo/lock/filelock?type=module",
+      "type": "library",
+      "name": "github.com/ubgo/lock/filelock",
+      "purl": "pkg:golang/github.com/ubgo/lock/filelock?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/ubgo/lock/filelock",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/ubgo/lock/flock?type=module",
+      "type": "library",
+      "name": "github.com/ubgo/lock/flock",
+      "purl": "pkg:golang/github.com/ubgo/lock/flock?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/ubgo/lock/flock",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/ubgo/lock/memlock?type=module",
+      "type": "library",
+      "name": "github.com/ubgo/lock/memlock",
+      "purl": "pkg:golang/github.com/ubgo/lock/memlock?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/ubgo/lock/memlock",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/ubgo/lock/pglock?type=module",
+      "type": "library",
+      "name": "github.com/ubgo/lock/pglock",
+      "purl": "pkg:golang/github.com/ubgo/lock/pglock?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/ubgo/lock/pglock",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/ubgo/lock/redislock?type=module",
+      "type": "library",
+      "name": "github.com/ubgo/lock/redislock",
+      "purl": "pkg:golang/github.com/ubgo/lock/redislock?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/ubgo/lock/redislock",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/cespare/xxhash/v2@v2.2.0?type=module",
+      "type": "library",
+      "name": "github.com/cespare/xxhash/v2",
+      "version": "v2.2.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0c2d82675129e58e24dd943cf7d0e575ea60adac9150613a04167f71df428f8e"
+        }
+      ],
+      "purl": "pkg:golang/github.com/cespare/xxhash/v2@v2.2.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/cespare/xxhash",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/coreos/go-semver@v0.3.0?type=module",
+      "type": "library",
+      "name": "github.com/coreos/go-semver",
+      "version": "v0.3.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c241cb8b0d163404d99d21bb7a92ecba388c0a03c073dc618c9e2d82703199f3"
+        }
+      ],
+      "purl": "pkg:golang/github.com/coreos/go-semver@v0.3.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/coreos/go-semver",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/coreos/go-systemd/v22@v22.3.2?type=module",
+      "type": "library",
+      "name": "github.com/coreos/go-systemd/v22",
+      "version": "v22.3.2",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0fdfdb424e6f95740567a2b0baeeb36a25c9f684cf7baf3ef80cc025cd43cd22"
+        }
+      ],
+      "purl": "pkg:golang/github.com/coreos/go-systemd/v22@v22.3.2?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/coreos/go-systemd",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/dgryski/go-rendezvous@v0.0.0-20200823014737-9f7001d12a5f?type=module",
+      "type": "library",
+      "name": "github.com/dgryski/go-rendezvous",
+      "version": "v0.0.0-20200823014737-9f7001d12a5f",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "94ee160f817fad5342bb71ea10b95ed2388f2cb06cef471639db99a644b513bf"
+        }
+      ],
+      "purl": "pkg:golang/github.com/dgryski/go-rendezvous@v0.0.0-20200823014737-9f7001d12a5f?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/dgryski/go-rendezvous",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/go-co-op/gocron/v2@v2.21.1?type=module",
+      "type": "library",
+      "name": "github.com/go-co-op/gocron/v2",
+      "version": "v2.21.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "41838aea2390542badfa30dcb38cd175645304747144211e7858b54e702681b5"
+        }
+      ],
+      "purl": "pkg:golang/github.com/go-co-op/gocron/v2@v2.21.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/go-co-op/gocron",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gogo/protobuf@v1.3.2?type=module",
+      "type": "library",
+      "name": "github.com/gogo/protobuf",
+      "version": "v1.3.2",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3afd5cbdce7c505ddbe578c19d9bfbfa8a5c4dc40565e6d88d6ce2df8bdd9b84"
+        }
+      ],
+      "purl": "pkg:golang/github.com/gogo/protobuf@v1.3.2?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/gogo/protobuf",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/golang/protobuf@v1.5.4?type=module",
+      "type": "library",
+      "name": "github.com/golang/protobuf",
+      "version": "v1.5.4",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8bb7892fca994e94845ce3d3c4d2a1012629327fbc7b943a01d9dd55ad5d59e9"
+        }
+      ],
+      "purl": "pkg:golang/github.com/golang/protobuf@v1.5.4?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/golang/protobuf",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/google/uuid@v1.6.0?type=module",
+      "type": "library",
+      "name": "github.com/google/uuid",
+      "version": "v1.6.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "348bda24330eb231c0f27d630212d2833ac0cf2d4782bfa136b6f9edefbde05d"
+        }
+      ],
+      "purl": "pkg:golang/github.com/google/uuid@v1.6.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/google/uuid",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jackc/pgpassfile@v1.0.0?type=module",
+      "type": "library",
+      "name": "github.com/jackc/pgpassfile",
+      "version": "v1.0.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ffa1e6ab2d774acdb30aaeb655d346f2d335c1c867f338d218e049ea2729b083"
+        }
+      ],
+      "purl": "pkg:golang/github.com/jackc/pgpassfile@v1.0.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/jackc/pgpassfile",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jackc/pgservicefile@v0.0.0-20240606120523-5a60cdf6a761?type=module",
+      "type": "library",
+      "name": "github.com/jackc/pgservicefile",
+      "version": "v0.0.0-20240606120523-5a60cdf6a761",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "882127a287bb525c0e418a4a16105a6cf322e1a3407e83833c414d8809c2971a"
+        }
+      ],
+      "purl": "pkg:golang/github.com/jackc/pgservicefile@v0.0.0-20240606120523-5a60cdf6a761?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/jackc/pgservicefile",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jackc/pgx/v5@v5.7.1?type=module",
+      "type": "library",
+      "name": "github.com/jackc/pgx/v5",
+      "version": "v5.7.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c7b498b0f0580e41c392ca20792999679c734e1713811cfef88e44f9e3c551cb"
+        }
+      ],
+      "purl": "pkg:golang/github.com/jackc/pgx/v5@v5.7.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/jackc/pgx",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jackc/puddle/v2@v2.2.2?type=module",
+      "type": "library",
+      "name": "github.com/jackc/puddle/v2",
+      "version": "v2.2.2",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3d1f27c3e13fd70d062ee4454a68a2a18e94a28329e8a26fd3feb59c1ee2707a"
+        }
+      ],
+      "purl": "pkg:golang/github.com/jackc/puddle/v2@v2.2.2?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/jackc/puddle",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jonboulle/clockwork@v0.5.0?type=module",
+      "type": "library",
+      "name": "github.com/jonboulle/clockwork",
+      "version": "v0.5.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1f287d03cbb9d64a6d76447e72a4694f511e6c1c139f5a0af587c661b745cfa2"
+        }
+      ],
+      "purl": "pkg:golang/github.com/jonboulle/clockwork@v0.5.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/jonboulle/clockwork",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/redis/go-redis/v9@v9.7.3?type=module",
+      "type": "library",
+      "name": "github.com/redis/go-redis/v9",
+      "version": "v9.7.3",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6293f201ac8957e5c4acdb1ab52125811659542c175fd43390a60dbceef1d303"
+        }
+      ],
+      "purl": "pkg:golang/github.com/redis/go-redis/v9@v9.7.3?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/redis/go-redis",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/robfig/cron/v3@v3.0.1?type=module",
+      "type": "library",
+      "name": "github.com/robfig/cron/v3",
+      "version": "v3.0.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "59d47192f6c9ced9fc2cccff404bcb379b0153ec4aa52ab0c143b53e3af8a83b"
+        }
+      ],
+      "purl": "pkg:golang/github.com/robfig/cron/v3@v3.0.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/robfig/cron",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/go.etcd.io/etcd/api/v3@v3.5.16?type=module",
+      "type": "library",
+      "name": "go.etcd.io/etcd/api/v3",
+      "version": "v3.5.16",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5af9b22556e35aa2b847513e075d91447cf76d11b2f5755f87ef8c81b37eea7d"
+        }
+      ],
+      "purl": "pkg:golang/go.etcd.io/etcd/api/v3@v3.5.16?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/go.etcd.io/etcd/client/pkg/v3@v3.5.16?type=module",
+      "type": "library",
+      "name": "go.etcd.io/etcd/client/pkg/v3",
+      "version": "v3.5.16",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "660638f2e1fa52f07effb47d61fe31e7be2e08ede3231d13443c9eb527c87774"
+        }
+      ],
+      "purl": "pkg:golang/go.etcd.io/etcd/client/pkg/v3@v3.5.16?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/go.etcd.io/etcd/client/v3@v3.5.16?type=module",
+      "type": "library",
+      "name": "go.etcd.io/etcd/client/v3",
+      "version": "v3.5.16",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b1299560e007782f5da2a8b482feeff3aa18fc14e57744841466b1b14f5e4611"
+        }
+      ],
+      "purl": "pkg:golang/go.etcd.io/etcd/client/v3@v3.5.16?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/go.uber.org/atomic@v1.7.0?type=module",
+      "type": "library",
+      "name": "go.uber.org/atomic",
+      "version": "v1.7.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "00352a9991a02c30df6d22fd6663f1293c9b7281181e0a587c42cda0dfbb86cc"
+        }
+      ],
+      "purl": "pkg:golang/go.uber.org/atomic@v1.7.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/go.uber.org/multierr@v1.6.0?type=module",
+      "type": "library",
+      "name": "go.uber.org/multierr",
+      "version": "v1.6.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "cba20f152b530084f962d97bfd76261efcd743b4b783f21e656f61c99e6d870e"
+        }
+      ],
+      "purl": "pkg:golang/go.uber.org/multierr@v1.6.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/go.uber.org/zap@v1.17.0?type=module",
+      "type": "library",
+      "name": "go.uber.org/zap",
+      "version": "v1.17.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3138e016ee992cabd8e8fbdaaa4f7b1a5c4d06e3295781f2ff73fab511a52365"
+        }
+      ],
+      "purl": "pkg:golang/go.uber.org/zap@v1.17.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/crypto@v0.31.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/crypto",
+      "version": "v0.31.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8a16f248cbd58cb01e487d486df7114e40ff88db1ccb3f2b1b38c5fc4e6157a5"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/crypto@v0.31.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/net@v0.25.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/net",
+      "version": "v0.25.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "77f3820a804452adf7a63c9d2ab190870ec89543c8d8eca5afef2a2f1e3d91a7"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/net@v0.25.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sync@v0.10.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/sync",
+      "version": "v0.10.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "dcd42b8c38b18e01b050e09a17cc36f95607bf455efef19849b7644daf7c8264"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/sync@v0.10.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.28.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.28.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "164b28bbb5044145a52af21db2acc99949825f7719b83dbe3f75f2cb3c0c8650"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/sys@v0.28.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/text@v0.21.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/text",
+      "version": "v0.21.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "cf2400024af06a7790d3aeacb2947225a1bd54d8bf609d4d7f3706077859feaa"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/text@v0.21.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/google.golang.org/genproto@v0.0.0-20230822172742-b8732ec3820d?type=module",
+      "type": "library",
+      "name": "google.golang.org/genproto",
+      "version": "v0.0.0-20230822172742-b8732ec3820d",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "541bb962a28fbfa5e2275f7d7b177c06bf807adcfea34f05f8f2cc9f02501c06"
+        }
+      ],
+      "purl": "pkg:golang/google.golang.org/genproto@v0.0.0-20230822172742-b8732ec3820d?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/google.golang.org/genproto/googleapis/api@v0.0.0-20230822172742-b8732ec3820d?type=module",
+      "type": "library",
+      "name": "google.golang.org/genproto/googleapis/api",
+      "version": "v0.0.0-20230822172742-b8732ec3820d",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0e83d33bbd07f9b7035dc777f6f3aa6f6be267182a7817921ad679e72654e3f4"
+        }
+      ],
+      "purl": "pkg:golang/google.golang.org/genproto/googleapis/api@v0.0.0-20230822172742-b8732ec3820d?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20230822172742-b8732ec3820d?type=module",
+      "type": "library",
+      "name": "google.golang.org/genproto/googleapis/rpc",
+      "version": "v0.0.0-20230822172742-b8732ec3820d",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "baf62e13230728db7e953e0addb37a7c6b3098af2a4af72b78cdc1c230e1fb2e"
+        }
+      ],
+      "purl": "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20230822172742-b8732ec3820d?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/google.golang.org/grpc@v1.59.0?type=module",
+      "type": "library",
+      "name": "google.golang.org/grpc",
+      "version": "v1.59.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "67921e736a63c1bf8b10eab3a41d8c475dbf78a1610cf86ea96f753bee1bc149"
+        }
+      ],
+      "purl": "pkg:golang/google.golang.org/grpc@v1.59.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/google.golang.org/protobuf@v1.33.0?type=module",
+      "type": "library",
+      "name": "google.golang.org/protobuf",
+      "version": "v1.33.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b8d3b6aec00836afc9945a5275810a219d2e283fd1f5ca5dbf44feca81b01a62"
+        }
+      ],
+      "purl": "pkg:golang/google.golang.org/protobuf@v1.33.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/ubgo/lock@v0.0.0-20260504195812-0f133b784a61?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/ubgo/lock/contrib/gocronlock?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/go-co-op/gocron/v2@v2.21.1?type=module",
+        "pkg:golang/github.com/ubgo/lock@v0.0.0-20260504195812-0f133b784a61?type=module",
+        "pkg:golang/github.com/ubgo/lock/filelock?type=module",
+        "pkg:golang/github.com/ubgo/lock/memlock?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/ubgo/lock/etcdlock?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/ubgo/lock@v0.0.0-20260504195812-0f133b784a61?type=module",
+        "pkg:golang/go.etcd.io/etcd/client/v3@v3.5.16?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/ubgo/lock/filelock?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/ubgo/lock@v0.0.0-20260504195812-0f133b784a61?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/ubgo/lock/flock?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/ubgo/lock@v0.0.0-20260504195812-0f133b784a61?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/ubgo/lock/memlock?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/ubgo/lock@v0.0.0-20260504195812-0f133b784a61?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/ubgo/lock/pglock?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/jackc/pgx/v5@v5.7.1?type=module",
+        "pkg:golang/github.com/ubgo/lock@v0.0.0-20260504195812-0f133b784a61?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/ubgo/lock/redislock?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/redis/go-redis/v9@v9.7.3?type=module",
+        "pkg:golang/github.com/ubgo/lock@v0.0.0-20260504195812-0f133b784a61?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/cespare/xxhash/v2@v2.2.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/coreos/go-semver@v0.3.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/coreos/go-systemd/v22@v22.3.2?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/dgryski/go-rendezvous@v0.0.0-20200823014737-9f7001d12a5f?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/go-co-op/gocron/v2@v2.21.1?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/google/uuid@v1.6.0?type=module",
+        "pkg:golang/github.com/jonboulle/clockwork@v0.5.0?type=module",
+        "pkg:golang/github.com/robfig/cron/v3@v3.0.1?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/gogo/protobuf@v1.3.2?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/golang/protobuf@v1.5.4?type=module",
+      "dependsOn": [
+        "pkg:golang/google.golang.org/protobuf@v1.33.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/google/uuid@v1.6.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/jackc/pgpassfile@v1.0.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/jackc/pgservicefile@v0.0.0-20240606120523-5a60cdf6a761?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/jackc/pgx/v5@v5.7.1?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/jackc/pgpassfile@v1.0.0?type=module",
+        "pkg:golang/github.com/jackc/pgservicefile@v0.0.0-20240606120523-5a60cdf6a761?type=module",
+        "pkg:golang/github.com/jackc/puddle/v2@v2.2.2?type=module",
+        "pkg:golang/golang.org/x/crypto@v0.31.0?type=module",
+        "pkg:golang/golang.org/x/sync@v0.10.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.21.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/jackc/puddle/v2@v2.2.2?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/sync@v0.10.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/jonboulle/clockwork@v0.5.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/redis/go-redis/v9@v9.7.3?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/cespare/xxhash/v2@v2.2.0?type=module",
+        "pkg:golang/github.com/dgryski/go-rendezvous@v0.0.0-20200823014737-9f7001d12a5f?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/robfig/cron/v3@v3.0.1?type=module"
+    },
+    {
+      "ref": "pkg:golang/go.etcd.io/etcd/api/v3@v3.5.16?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/coreos/go-semver@v0.3.0?type=module",
+        "pkg:golang/github.com/gogo/protobuf@v1.3.2?type=module",
+        "pkg:golang/github.com/golang/protobuf@v1.5.4?type=module",
+        "pkg:golang/golang.org/x/net@v0.25.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.28.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.21.0?type=module",
+        "pkg:golang/google.golang.org/genproto@v0.0.0-20230822172742-b8732ec3820d?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/api@v0.0.0-20230822172742-b8732ec3820d?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20230822172742-b8732ec3820d?type=module",
+        "pkg:golang/google.golang.org/grpc@v1.59.0?type=module",
+        "pkg:golang/google.golang.org/protobuf@v1.33.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/go.etcd.io/etcd/client/pkg/v3@v3.5.16?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/coreos/go-systemd/v22@v22.3.2?type=module",
+        "pkg:golang/go.uber.org/atomic@v1.7.0?type=module",
+        "pkg:golang/go.uber.org/multierr@v1.6.0?type=module",
+        "pkg:golang/go.uber.org/zap@v1.17.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.28.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/go.etcd.io/etcd/client/v3@v3.5.16?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/cespare/xxhash/v2@v2.2.0?type=module",
+        "pkg:golang/github.com/coreos/go-semver@v0.3.0?type=module",
+        "pkg:golang/github.com/coreos/go-systemd/v22@v22.3.2?type=module",
+        "pkg:golang/github.com/gogo/protobuf@v1.3.2?type=module",
+        "pkg:golang/github.com/golang/protobuf@v1.5.4?type=module",
+        "pkg:golang/go.etcd.io/etcd/api/v3@v3.5.16?type=module",
+        "pkg:golang/go.etcd.io/etcd/client/pkg/v3@v3.5.16?type=module",
+        "pkg:golang/go.uber.org/atomic@v1.7.0?type=module",
+        "pkg:golang/go.uber.org/multierr@v1.6.0?type=module",
+        "pkg:golang/go.uber.org/zap@v1.17.0?type=module",
+        "pkg:golang/golang.org/x/net@v0.25.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.28.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.21.0?type=module",
+        "pkg:golang/google.golang.org/genproto@v0.0.0-20230822172742-b8732ec3820d?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/api@v0.0.0-20230822172742-b8732ec3820d?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20230822172742-b8732ec3820d?type=module",
+        "pkg:golang/google.golang.org/grpc@v1.59.0?type=module",
+        "pkg:golang/google.golang.org/protobuf@v1.33.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/go.uber.org/atomic@v1.7.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/go.uber.org/multierr@v1.6.0?type=module",
+      "dependsOn": [
+        "pkg:golang/go.uber.org/atomic@v1.7.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/go.uber.org/zap@v1.17.0?type=module",
+      "dependsOn": [
+        "pkg:golang/go.uber.org/atomic@v1.7.0?type=module",
+        "pkg:golang/go.uber.org/multierr@v1.6.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/crypto@v0.31.0?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/net@v0.25.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.28.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.21.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/net@v0.25.0?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/crypto@v0.31.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.28.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.21.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sync@v0.10.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.28.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/text@v0.21.0?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/sync@v0.10.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/google.golang.org/genproto@v0.0.0-20230822172742-b8732ec3820d?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/golang/protobuf@v1.5.4?type=module",
+        "pkg:golang/golang.org/x/net@v0.25.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.28.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.21.0?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/api@v0.0.0-20230822172742-b8732ec3820d?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20230822172742-b8732ec3820d?type=module",
+        "pkg:golang/google.golang.org/grpc@v1.59.0?type=module",
+        "pkg:golang/google.golang.org/protobuf@v1.33.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/google.golang.org/genproto/googleapis/api@v0.0.0-20230822172742-b8732ec3820d?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/golang/protobuf@v1.5.4?type=module",
+        "pkg:golang/golang.org/x/net@v0.25.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.28.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.21.0?type=module",
+        "pkg:golang/google.golang.org/genproto@v0.0.0-20230822172742-b8732ec3820d?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20230822172742-b8732ec3820d?type=module",
+        "pkg:golang/google.golang.org/grpc@v1.59.0?type=module",
+        "pkg:golang/google.golang.org/protobuf@v1.33.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20230822172742-b8732ec3820d?type=module",
+      "dependsOn": [
+        "pkg:golang/google.golang.org/genproto@v0.0.0-20230822172742-b8732ec3820d?type=module",
+        "pkg:golang/google.golang.org/protobuf@v1.33.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/google.golang.org/grpc@v1.59.0?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/cespare/xxhash/v2@v2.2.0?type=module",
+        "pkg:golang/github.com/golang/protobuf@v1.5.4?type=module",
+        "pkg:golang/github.com/google/uuid@v1.6.0?type=module",
+        "pkg:golang/golang.org/x/net@v0.25.0?type=module",
+        "pkg:golang/golang.org/x/sync@v0.10.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.28.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.21.0?type=module",
+        "pkg:golang/google.golang.org/genproto@v0.0.0-20230822172742-b8732ec3820d?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/api@v0.0.0-20230822172742-b8732ec3820d?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20230822172742-b8732ec3820d?type=module",
+        "pkg:golang/google.golang.org/protobuf@v1.33.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/google.golang.org/protobuf@v1.33.0?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/golang/protobuf@v1.5.4?type=module"
+      ]
+    }
+  ]
+}
