@@ -1,0 +1,131 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:5ceef49b-5005-403f-a738-1a20e5309c27",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:26:30+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "e2549db4-e60b-4533-b51b-04a81ca0af94",
+      "type": "application",
+      "name": "/home/user/SBOM/work/disintegration__imaging",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "5a30305f-4d78-4e10-8df5-0305d8223dc3",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/disintegration/imaging",
+      "type": "library",
+      "name": "github.com/disintegration/imaging",
+      "purl": "pkg:golang/github.com/disintegration/imaging",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/disintegration/imaging"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/image@v0.0.0-20191009234506-e7c1f5e7dbb8",
+      "type": "library",
+      "name": "golang.org/x/image",
+      "version": "v0.0.0-20191009234506-e7c1f5e7dbb8",
+      "purl": "pkg:golang/golang.org/x/image@v0.0.0-20191009234506-e7c1f5e7dbb8",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/image@v0.0.0-20191009234506-e7c1f5e7dbb8"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/text@v0.3.0",
+      "type": "library",
+      "name": "golang.org/x/text",
+      "version": "v0.3.0",
+      "purl": "pkg:golang/golang.org/x/text@v0.3.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/text@v0.3.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "5a30305f-4d78-4e10-8df5-0305d8223dc3",
+      "dependsOn": [
+        "pkg:golang/github.com/disintegration/imaging"
+      ]
+    },
+    {
+      "ref": "e2549db4-e60b-4533-b51b-04a81ca0af94",
+      "dependsOn": [
+        "5a30305f-4d78-4e10-8df5-0305d8223dc3"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/disintegration/imaging",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/image@v0.0.0-20191009234506-e7c1f5e7dbb8",
+        "pkg:golang/golang.org/x/text@v0.3.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/image@v0.0.0-20191009234506-e7c1f5e7dbb8",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/text@v0.3.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

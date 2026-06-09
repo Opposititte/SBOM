@@ -1,0 +1,116 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:c16a25b5-6130-4c37-b21c-1a8cd45eaeed",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:25:03+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "17a7513d-21dc-441c-a263-b53ccd58f75e",
+      "type": "application",
+      "name": "/home/user/SBOM/work/corona10__goimagehash",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "b840a7af-b683-4fd0-9f8f-742f083e9ca6",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/corona10/goimagehash",
+      "type": "library",
+      "name": "github.com/corona10/goimagehash",
+      "purl": "pkg:golang/github.com/corona10/goimagehash",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/corona10/goimagehash"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/nfnt/resize@v0.0.0-20180221191011-83c6a9932646",
+      "type": "library",
+      "name": "github.com/nfnt/resize",
+      "version": "v0.0.0-20180221191011-83c6a9932646",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/nfnt/resize@v0.0.0-20180221191011-83c6a9932646",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/nfnt/resize@v0.0.0-20180221191011-83c6a9932646"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "17a7513d-21dc-441c-a263-b53ccd58f75e",
+      "dependsOn": [
+        "b840a7af-b683-4fd0-9f8f-742f083e9ca6"
+      ]
+    },
+    {
+      "ref": "b840a7af-b683-4fd0-9f8f-742f083e9ca6",
+      "dependsOn": [
+        "pkg:golang/github.com/corona10/goimagehash"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/corona10/goimagehash",
+      "dependsOn": [
+        "pkg:golang/github.com/nfnt/resize@v0.0.0-20180221191011-83c6a9932646"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/nfnt/resize@v0.0.0-20180221191011-83c6a9932646",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
