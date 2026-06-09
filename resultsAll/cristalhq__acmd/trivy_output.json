@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:833a0915-5615-4738-99ad-998ad3f0b937",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T09:38:50+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "4bf85c2b-1c2d-404c-86f8-505d5e719721",
+      "type": "application",
+      "name": "/home/user/SBOM/work/cristalhq__acmd",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "a4e9eac7-b539-4ade-9626-6240170ea47f",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/cristalhq/acmd",
+      "type": "library",
+      "name": "github.com/cristalhq/acmd",
+      "purl": "pkg:golang/github.com/cristalhq/acmd",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/cristalhq/acmd"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "4bf85c2b-1c2d-404c-86f8-505d5e719721",
+      "dependsOn": [
+        "a4e9eac7-b539-4ade-9626-6240170ea47f"
+      ]
+    },
+    {
+      "ref": "a4e9eac7-b539-4ade-9626-6240170ea47f",
+      "dependsOn": [
+        "pkg:golang/github.com/cristalhq/acmd"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/cristalhq/acmd",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

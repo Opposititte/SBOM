@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:e7a979df-7730-467d-958f-a2d024f9b44d",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T09:38:16+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "2d4b08e7-6bc6-49d0-ba5c-e64697d527fc",
+      "type": "application",
+      "name": "/home/user/SBOM/work/gosuri__uilive",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "1a51cedf-b328-4ddc-8e38-7432a059436b",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gosuri/uilive",
+      "type": "library",
+      "name": "github.com/gosuri/uilive",
+      "purl": "pkg:golang/github.com/gosuri/uilive",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gosuri/uilive"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "1a51cedf-b328-4ddc-8e38-7432a059436b",
+      "dependsOn": [
+        "pkg:golang/github.com/gosuri/uilive"
+      ]
+    },
+    {
+      "ref": "2d4b08e7-6bc6-49d0-ba5c-e64697d527fc",
+      "dependsOn": [
+        "1a51cedf-b328-4ddc-8e38-7432a059436b"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/gosuri/uilive",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

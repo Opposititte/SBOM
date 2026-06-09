@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:cfedfc4d-d6c3-4173-89fd-be398a79d400",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T09:38:55+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "812bd05c-c886-4098-9587-8f17dfca82c0",
+      "type": "application",
+      "name": "/home/user/SBOM/work/akamensky__argparse",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "3c252130-9a9b-4175-9ade-baa616cc5769",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/akamensky/argparse",
+      "type": "library",
+      "name": "github.com/akamensky/argparse",
+      "purl": "pkg:golang/github.com/akamensky/argparse",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/akamensky/argparse"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "3c252130-9a9b-4175-9ade-baa616cc5769",
+      "dependsOn": [
+        "pkg:golang/github.com/akamensky/argparse"
+      ]
+    },
+    {
+      "ref": "812bd05c-c886-4098-9587-8f17dfca82c0",
+      "dependsOn": [
+        "3c252130-9a9b-4175-9ade-baa616cc5769"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/akamensky/argparse",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
