@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:82d30412-675e-43a1-b7ee-4082012a56b8",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:13:03+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "9b942342-5fcb-46e2-b218-0c98a8bdd7d2",
+      "type": "application",
+      "name": "/home/user/SBOM/work/subchen__go-trylock",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "638fa968-bcde-4c6d-ba7e-22688e6d573a",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/subchen/go-trylock/v2",
+      "type": "library",
+      "name": "github.com/subchen/go-trylock/v2",
+      "purl": "pkg:golang/github.com/subchen/go-trylock/v2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/subchen/go-trylock/v2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "638fa968-bcde-4c6d-ba7e-22688e6d573a",
+      "dependsOn": [
+        "pkg:golang/github.com/subchen/go-trylock/v2"
+      ]
+    },
+    {
+      "ref": "9b942342-5fcb-46e2-b218-0c98a8bdd7d2",
+      "dependsOn": [
+        "638fa968-bcde-4c6d-ba7e-22688e6d573a"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/subchen/go-trylock/v2",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

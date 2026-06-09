@@ -1,0 +1,131 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:3b248252-63d7-435b-8aca-08472b5894bc",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:11:54+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "6c0904c7-8cce-4dbf-9489-c605e982e2dc",
+      "type": "application",
+      "name": "/home/user/SBOM/work/ITcathyh__conexec",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "cb7551a2-4ca9-49a0-9bd9-f0d66bad76fb",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/go-playground/assert/v2@v2.0.1",
+      "type": "library",
+      "name": "github.com/go-playground/assert/v2",
+      "version": "v2.0.1",
+      "purl": "pkg:golang/github.com/go-playground/assert/v2@v2.0.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/go-playground/assert/v2@v2.0.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/itcathyh/conexec",
+      "type": "library",
+      "name": "github.com/ITcathyh/conexec",
+      "purl": "pkg:golang/github.com/itcathyh/conexec",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/ITcathyh/conexec"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/panjf2000/ants/v2@v2.2.2",
+      "type": "library",
+      "name": "github.com/panjf2000/ants/v2",
+      "version": "v2.2.2",
+      "purl": "pkg:golang/github.com/panjf2000/ants/v2@v2.2.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/panjf2000/ants/v2@v2.2.2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "6c0904c7-8cce-4dbf-9489-c605e982e2dc",
+      "dependsOn": [
+        "cb7551a2-4ca9-49a0-9bd9-f0d66bad76fb"
+      ]
+    },
+    {
+      "ref": "cb7551a2-4ca9-49a0-9bd9-f0d66bad76fb",
+      "dependsOn": [
+        "pkg:golang/github.com/itcathyh/conexec"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/go-playground/assert/v2@v2.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/itcathyh/conexec",
+      "dependsOn": [
+        "pkg:golang/github.com/go-playground/assert/v2@v2.0.1",
+        "pkg:golang/github.com/panjf2000/ants/v2@v2.2.2"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/panjf2000/ants/v2@v2.2.2",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

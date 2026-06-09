@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:4584b0b0-467e-4626-bc54-1995af032589",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:11:04+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "fae439f6-9a0b-47d3-93b9-d8986d051c6a",
+      "type": "application",
+      "name": "/home/user/SBOM/work/reugn__async",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "5b88503b-e7bf-48de-8fd9-61014c1ea077",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/reugn/async",
+      "type": "library",
+      "name": "github.com/reugn/async",
+      "purl": "pkg:golang/github.com/reugn/async",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/reugn/async"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "5b88503b-e7bf-48de-8fd9-61014c1ea077",
+      "dependsOn": [
+        "pkg:golang/github.com/reugn/async"
+      ]
+    },
+    {
+      "ref": "fae439f6-9a0b-47d3-93b9-d8986d051c6a",
+      "dependsOn": [
+        "5b88503b-e7bf-48de-8fd9-61014c1ea077"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/reugn/async",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

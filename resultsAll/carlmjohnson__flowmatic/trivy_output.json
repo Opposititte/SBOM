@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:646f719a-0663-4dda-9404-0c2b90ec44c6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:12:20+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "885fbfd8-e96f-4945-87b4-a350f89dcda6",
+      "type": "application",
+      "name": "/home/user/SBOM/work/carlmjohnson__flowmatic",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "b9dc7f2a-e3ac-4d1d-aca1-5c193116cc02",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/carlmjohnson/deque@v0.23.1",
+      "type": "library",
+      "name": "github.com/carlmjohnson/deque",
+      "version": "v0.23.1",
+      "purl": "pkg:golang/github.com/carlmjohnson/deque@v0.23.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/carlmjohnson/deque@v0.23.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/carlmjohnson/flowmatic",
+      "type": "library",
+      "name": "github.com/carlmjohnson/flowmatic",
+      "purl": "pkg:golang/github.com/carlmjohnson/flowmatic",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/carlmjohnson/flowmatic"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "885fbfd8-e96f-4945-87b4-a350f89dcda6",
+      "dependsOn": [
+        "b9dc7f2a-e3ac-4d1d-aca1-5c193116cc02"
+      ]
+    },
+    {
+      "ref": "b9dc7f2a-e3ac-4d1d-aca1-5c193116cc02",
+      "dependsOn": [
+        "pkg:golang/github.com/carlmjohnson/flowmatic"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/carlmjohnson/deque@v0.23.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/carlmjohnson/flowmatic",
+      "dependsOn": [
+        "pkg:golang/github.com/carlmjohnson/deque@v0.23.1"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}
