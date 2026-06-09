@@ -1,0 +1,57 @@
+Cloning into '/home/user/SBOM/work/deepaksinghvi__cdule'...
+go: downloading github.com/sirupsen/logrus v1.8.1
+go: downloading github.com/spf13/viper v1.10.1
+go: downloading gorm.io/driver/mysql v1.3.3
+go: downloading gorm.io/driver/postgres v1.3.4
+go: downloading gorm.io/driver/sqlite v1.2.6
+go: downloading gorm.io/gorm v1.23.1
+go: downloading github.com/go-sql-driver/mysql v1.6.0
+go: downloading github.com/jackc/pgx/v4 v4.15.0
+go: downloading github.com/mattn/go-sqlite3 v1.14.9
+go: downloading golang.org/x/sys v0.0.0-20211216021012-1d35b9e2eb4e
+go: downloading github.com/fsnotify/fsnotify v1.5.1
+go: downloading github.com/magiconair/properties v1.8.5
+go: downloading github.com/mitchellh/mapstructure v1.4.3
+go: downloading github.com/spf13/afero v1.6.0
+go: downloading github.com/spf13/cast v1.4.1
+go: downloading github.com/spf13/jwalterweatherman v1.1.0
+go: downloading github.com/subosito/gotenv v1.2.0
+go: downloading gopkg.in/ini.v1 v1.66.2
+go: downloading github.com/jinzhu/now v1.1.4
+go: downloading github.com/jackc/pgconn v1.11.0
+go: downloading github.com/jackc/pgio v1.0.0
+go: downloading github.com/jackc/pgproto3/v2 v2.2.0
+go: downloading github.com/jackc/pgtype v1.10.0
+go: downloading golang.org/x/text v0.3.7
+go: downloading github.com/hashicorp/hcl v1.0.0
+go: downloading github.com/pelletier/go-toml v1.9.4
+go: downloading github.com/jackc/chunkreader/v2 v2.0.1
+go: downloading github.com/jackc/pgservicefile v0.0.0-20200714003250-2b9c44734f2b
+go: downloading golang.org/x/crypto v0.0.0-20210921155107-089bfa567519
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-09T12:34:03Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-09T12:34:04Z	INFO	Number of language-specific files	num=1
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m

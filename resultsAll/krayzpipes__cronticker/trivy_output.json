@@ -1,0 +1,131 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:0fdf66ff-eb0c-43fb-8ba3-d4e3c47ed529",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:34:39+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "57214a19-ba23-4107-a43b-174ce6c296e1",
+      "type": "application",
+      "name": "/home/user/SBOM/work/krayzpipes__cronticker",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "e4974019-cf0c-46fa-bf38-cb3336fdce5a",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/krayzpipes/cronticker",
+      "type": "library",
+      "name": "github.com/krayzpipes/cronticker",
+      "purl": "pkg:golang/github.com/krayzpipes/cronticker",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/krayzpipes/cronticker"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/robfig/cron/v3@v3.0.1",
+      "type": "library",
+      "name": "github.com/robfig/cron/v3",
+      "version": "v3.0.1",
+      "purl": "pkg:golang/github.com/robfig/cron/v3@v3.0.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/robfig/cron/v3@v3.0.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/robfig/cron@v1.2.0",
+      "type": "library",
+      "name": "github.com/robfig/cron",
+      "version": "v1.2.0",
+      "purl": "pkg:golang/github.com/robfig/cron@v1.2.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/robfig/cron@v1.2.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "57214a19-ba23-4107-a43b-174ce6c296e1",
+      "dependsOn": [
+        "e4974019-cf0c-46fa-bf38-cb3336fdce5a"
+      ]
+    },
+    {
+      "ref": "e4974019-cf0c-46fa-bf38-cb3336fdce5a",
+      "dependsOn": [
+        "pkg:golang/github.com/krayzpipes/cronticker"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/krayzpipes/cronticker",
+      "dependsOn": [
+        "pkg:golang/github.com/robfig/cron/v3@v3.0.1",
+        "pkg:golang/github.com/robfig/cron@v1.2.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/robfig/cron/v3@v3.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/robfig/cron@v1.2.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

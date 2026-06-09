@@ -1,0 +1,143 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:0816113d-f867-498f-ac3e-d9ad34c23389",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:29:43Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/Pixboost/transformimgs/v8@v8.19.0?type=module",
+      "type": "application",
+      "name": "github.com/Pixboost/transformimgs/v8",
+      "version": "v8.19.0",
+      "purl": "pkg:golang/github.com/Pixboost/transformimgs/v8@v8.19.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/Pixboost/transformimgs",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/github.com/dooman87/glogi@v0.0.0-20180107233622-68f3443d07f1?type=module",
+      "type": "library",
+      "name": "github.com/dooman87/glogi",
+      "version": "v0.0.0-20180107233622-68f3443d07f1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f3deb877473243a88eebe3afd1611f38cf4107270f55bfa9457bdf98e535cfb9"
+        }
+      ],
+      "purl": "pkg:golang/github.com/dooman87/glogi@v0.0.0-20180107233622-68f3443d07f1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/dooman87/glogi",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/dooman87/kolibri@v0.0.0-20170117194222-c194ff118b67?type=module",
+      "type": "library",
+      "name": "github.com/dooman87/kolibri",
+      "version": "v0.0.0-20170117194222-c194ff118b67",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e73c782d448fd223e7d0a2fa72220d7b1ccd030e229b1e036fb07e2c70883f7b"
+        }
+      ],
+      "purl": "pkg:golang/github.com/dooman87/kolibri@v0.0.0-20170117194222-c194ff118b67?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/dooman87/kolibri",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gorilla/mux@v1.8.1?type=module",
+      "type": "library",
+      "name": "github.com/gorilla/mux",
+      "version": "v1.8.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4ee04be3db57c20ac561686aacd82b50d118f76bbcd523e1bbbb137734048966"
+        }
+      ],
+      "purl": "pkg:golang/github.com/gorilla/mux@v1.8.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/gorilla/mux",
+          "type": "vcs"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/Pixboost/transformimgs/v8@v8.19.0?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/dooman87/glogi@v0.0.0-20180107233622-68f3443d07f1?type=module",
+        "pkg:golang/github.com/dooman87/kolibri@v0.0.0-20170117194222-c194ff118b67?type=module",
+        "pkg:golang/github.com/gorilla/mux@v1.8.1?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/dooman87/glogi@v0.0.0-20180107233622-68f3443d07f1?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/dooman87/kolibri@v0.0.0-20170117194222-c194ff118b67?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/gorilla/mux@v1.8.1?type=module"
+    }
+  ]
+}
