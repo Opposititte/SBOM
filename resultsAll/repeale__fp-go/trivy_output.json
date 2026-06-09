@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:4606be67-d1ce-4609-9375-83c17dd787b3",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:56:50+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "c024a369-c0d4-4e51-a6a7-a0844e40171a",
+      "type": "application",
+      "name": "/home/user/SBOM/work/repeale__fp-go",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "00305a18-cac1-4da6-aca5-bda24ffefb7d",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/repeale/fp-go",
+      "type": "library",
+      "name": "github.com/repeale/fp-go",
+      "purl": "pkg:golang/github.com/repeale/fp-go",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/repeale/fp-go"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "00305a18-cac1-4da6-aca5-bda24ffefb7d",
+      "dependsOn": [
+        "pkg:golang/github.com/repeale/fp-go"
+      ]
+    },
+    {
+      "ref": "c024a369-c0d4-4e51-a6a7-a0844e40171a",
+      "dependsOn": [
+        "00305a18-cac1-4da6-aca5-bda24ffefb7d"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/repeale/fp-go",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:f48663ab-2a2b-4675-93c8-7d9326c6846a",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:00:39+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "50a340ef-5657-48c3-a916-7ac508b4f2d9",
+      "type": "application",
+      "name": "/home/user/SBOM/work/gogpu__naga",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "7ea0ef41-a0dd-4ba7-ac8a-280e06278188",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gogpu/naga",
+      "type": "library",
+      "name": "github.com/gogpu/naga",
+      "purl": "pkg:golang/github.com/gogpu/naga",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gogpu/naga"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "50a340ef-5657-48c3-a916-7ac508b4f2d9",
+      "dependsOn": [
+        "7ea0ef41-a0dd-4ba7-ac8a-280e06278188"
+      ]
+    },
+    {
+      "ref": "7ea0ef41-a0dd-4ba7-ac8a-280e06278188",
+      "dependsOn": [
+        "pkg:golang/github.com/gogpu/naga"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/gogpu/naga",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

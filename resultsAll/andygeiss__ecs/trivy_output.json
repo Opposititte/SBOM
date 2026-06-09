@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:f145acd0-0f6d-4d14-b20c-7b3b6b627ce0",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:58:39+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "c26459c2-05c1-4319-8645-34750a12d571",
+      "type": "application",
+      "name": "/home/user/SBOM/work/andygeiss__ecs",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "311c4f6f-5aa6-4007-aea9-f881a2068d58",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/andygeiss/ecs",
+      "type": "library",
+      "name": "github.com/andygeiss/ecs",
+      "purl": "pkg:golang/github.com/andygeiss/ecs",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/andygeiss/ecs"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "311c4f6f-5aa6-4007-aea9-f881a2068d58",
+      "dependsOn": [
+        "pkg:golang/github.com/andygeiss/ecs"
+      ]
+    },
+    {
+      "ref": "c26459c2-05c1-4319-8645-34750a12d571",
+      "dependsOn": [
+        "311c4f6f-5aa6-4007-aea9-f881a2068d58"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/andygeiss/ecs",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

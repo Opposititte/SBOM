@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:5a9d0c98-979b-4a53-bc62-7592ff6aaf18",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:59:37+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "506b043e-1e8e-4506-a07e-6dc09d2653aa",
+      "type": "application",
+      "name": "/home/user/SBOM/work/ungerik__go3d",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "f2b57325-6319-4d62-a940-e53d3699b67d",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/chewxy/math32@v1.11.1",
+      "type": "library",
+      "name": "github.com/chewxy/math32",
+      "version": "v1.11.1",
+      "purl": "pkg:golang/github.com/chewxy/math32@v1.11.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/chewxy/math32@v1.11.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/ungerik/go3d",
+      "type": "library",
+      "name": "github.com/ungerik/go3d",
+      "purl": "pkg:golang/github.com/ungerik/go3d",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/ungerik/go3d"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "506b043e-1e8e-4506-a07e-6dc09d2653aa",
+      "dependsOn": [
+        "f2b57325-6319-4d62-a940-e53d3699b67d"
+      ]
+    },
+    {
+      "ref": "f2b57325-6319-4d62-a940-e53d3699b67d",
+      "dependsOn": [
+        "pkg:golang/github.com/ungerik/go3d"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/chewxy/math32@v1.11.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/ungerik/go3d",
+      "dependsOn": [
+        "pkg:golang/github.com/chewxy/math32@v1.11.1"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}

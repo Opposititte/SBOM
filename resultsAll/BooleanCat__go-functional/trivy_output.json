@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:9ad0c3e6-c6de-4f80-96db-2d50fb6fda48",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:57:32+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "a40de6a5-6ddf-4a17-a060-637a8349ded6",
+      "type": "application",
+      "name": "/home/user/SBOM/work/BooleanCat__go-functional",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "8af9d4fb-5276-43a1-a234-8b94824a9a89",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/booleancat/go-functional/v2",
+      "type": "library",
+      "name": "github.com/BooleanCat/go-functional/v2",
+      "purl": "pkg:golang/github.com/booleancat/go-functional/v2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/BooleanCat/go-functional/v2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "8af9d4fb-5276-43a1-a234-8b94824a9a89",
+      "dependsOn": [
+        "pkg:golang/github.com/booleancat/go-functional/v2"
+      ]
+    },
+    {
+      "ref": "a40de6a5-6ddf-4a17-a060-637a8349ded6",
+      "dependsOn": [
+        "8af9d4fb-5276-43a1-a234-8b94824a9a89"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/booleancat/go-functional/v2",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
