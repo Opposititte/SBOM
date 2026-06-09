@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:017a976a-537d-4f54-8692-9e0a08ad35a5",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:55:55+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "9670c992-f860-4d8c-8ce0-57a1da95a462",
+      "type": "application",
+      "name": "/home/user/SBOM/work/profe-ajedrez__obreron",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "74b3dd10-1f2a-49d6-8870-92fae4d90d55",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/profe-ajedrez/obreron",
+      "type": "library",
+      "name": "github.com/profe-ajedrez/obreron",
+      "purl": "pkg:golang/github.com/profe-ajedrez/obreron",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/profe-ajedrez/obreron"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "74b3dd10-1f2a-49d6-8870-92fae4d90d55",
+      "dependsOn": [
+        "pkg:golang/github.com/profe-ajedrez/obreron"
+      ]
+    },
+    {
+      "ref": "9670c992-f860-4d8c-8ce0-57a1da95a462",
+      "dependsOn": [
+        "74b3dd10-1f2a-49d6-8870-92fae4d90d55"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/profe-ajedrez/obreron",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

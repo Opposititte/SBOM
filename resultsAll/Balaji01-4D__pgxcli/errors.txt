@@ -1,0 +1,84 @@
+Cloning into '/home/user/SBOM/work/Balaji01-4D__pgxcli'...
+go: downloading go1.25.8 (linux/amd64)
+go: downloading github.com/fatih/color v1.19.0
+go: downloading github.com/olekukonko/tablewriter v1.1.4
+go: downloading charm.land/bubbles/v2 v2.1.0
+go: downloading charm.land/bubbletea/v2 v2.0.6
+go: downloading charm.land/huh/v2 v2.0.3
+go: downloading charm.land/lipgloss/v2 v2.0.3
+go: downloading github.com/alecthomas/chroma/v2 v2.26.1
+go: downloading github.com/balajz/bubbline v0.2.1-0.20260529022404-560341275523
+go: downloading github.com/charmbracelet/x/term v0.2.2
+go: downloading github.com/muesli/termenv v0.16.0
+go: downloading github.com/balajz/pgxls v0.1.2
+go: downloading github.com/spf13/cobra v1.10.2
+go: downloading github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510
+go: downloading github.com/spf13/viper v1.21.0
+go: downloading github.com/mattn/go-colorable v0.1.14
+go: downloading github.com/mattn/go-isatty v0.0.22
+go: downloading github.com/olekukonko/ll v0.1.8
+go: downloading github.com/mattn/go-runewidth v0.0.23
+go: downloading github.com/olekukonko/errors v1.3.0
+go: downloading github.com/catppuccin/go v0.3.0
+go: downloading github.com/charmbracelet/x/exp/ordered v0.1.0
+go: downloading github.com/charmbracelet/x/exp/strings v0.1.0
+go: downloading github.com/mitchellh/hashstructure/v2 v2.0.2
+go: downloading github.com/charmbracelet/colorprofile v0.4.3
+go: downloading github.com/charmbracelet/ultraviolet v0.0.0-20260525132238-948f4557a654
+go: downloading github.com/charmbracelet/x/ansi v0.11.7
+go: downloading github.com/lucasb-eyer/go-colorful v1.4.0
+go: downloading github.com/muesli/cancelreader v0.2.2
+go: downloading github.com/clipperhouse/displaywidth v0.11.0
+go: downloading github.com/rivo/uniseg v0.4.7
+go: downloading github.com/aymanbagabas/go-osc52/v2 v2.0.1
+go: downloading github.com/muesli/reflow v0.3.0
+go: downloading golang.org/x/crypto v0.48.0
+go: downloading github.com/spf13/pflag v1.0.10
+go: downloading github.com/fsnotify/fsnotify v1.10.1
+go: downloading github.com/go-viper/mapstructure/v2 v2.5.0
+go: downloading github.com/sagikazarmark/locafero v0.12.0
+go: downloading github.com/spf13/afero v1.15.0
+go: downloading github.com/spf13/cast v1.10.0
+go: downloading github.com/clipperhouse/uax29/v2 v2.7.0
+go: downloading github.com/dustin/go-humanize v1.0.1
+go: downloading github.com/atotto/clipboard v0.1.4
+go: downloading github.com/olekukonko/cat v0.0.0-20250911104152-50322a0618f6
+go: downloading github.com/goccy/go-json v0.10.6
+go: downloading github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e
+go: downloading github.com/charmbracelet/x/termios v0.1.1
+go: downloading github.com/charmbracelet/x/windows v0.2.2
+go: downloading github.com/dlclark/regexp2/v2 v2.1.1
+go: downloading gopkg.in/yaml.v2 v2.4.0
+go: downloading github.com/subosito/gotenv v1.6.0
+go: downloading github.com/pelletier/go-toml/v2 v2.3.1
+go: downloading go.yaml.in/yaml/v3 v3.0.4
+go: downloading github.com/sahilm/fuzzy v0.1.2
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-09T10:52:00Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-09T10:52:01Z	INFO	[npm] Run "npm install" to collect the license information of packages	dir="docs/node_modules"
+2026-06-09T10:52:01Z	INFO	Suppressing dependencies for development and testing. To display them, try the '--include-dev-deps' flag.
+2026-06-09T10:52:01Z	INFO	Number of language-specific files	num=2
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
