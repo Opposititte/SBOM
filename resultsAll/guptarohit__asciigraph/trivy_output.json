@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:5ff34ea5-13a0-4efb-b4dc-2dfae91b767e",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T09:32:55+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "2ac8b6af-30a4-410b-b514-5836639925b9",
+      "type": "application",
+      "name": "/home/user/SBOM/work/guptarohit__asciigraph",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "ddd6d0c9-6819-4e2b-b970-7ce0197603da",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/guptarohit/asciigraph",
+      "type": "library",
+      "name": "github.com/guptarohit/asciigraph",
+      "purl": "pkg:golang/github.com/guptarohit/asciigraph",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/guptarohit/asciigraph"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "2ac8b6af-30a4-410b-b514-5836639925b9",
+      "dependsOn": [
+        "ddd6d0c9-6819-4e2b-b970-7ce0197603da"
+      ]
+    },
+    {
+      "ref": "ddd6d0c9-6819-4e2b-b970-7ce0197603da",
+      "dependsOn": [
+        "pkg:golang/github.com/guptarohit/asciigraph"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/guptarohit/asciigraph",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
