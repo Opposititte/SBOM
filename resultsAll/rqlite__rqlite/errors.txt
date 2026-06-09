@@ -1,0 +1,66 @@
+Cloning into '/home/user/SBOM/work/rqlite__rqlite'...
+go: downloading go1.26.0 (linux/amd64)
+go: downloading github.com/aws/aws-sdk-go-v2/config v1.32.17
+go: downloading github.com/aws/aws-sdk-go-v2/credentials v1.19.16
+go: downloading github.com/aws/aws-sdk-go-v2/feature/s3/manager v1.22.18
+go: downloading github.com/aws/aws-sdk-go-v2/service/s3 v1.101.0
+go: downloading go.etcd.io/bbolt v1.4.3
+go: downloading github.com/mkideal/cli v0.2.7
+go: downloading github.com/rqlite/rqlite-disco-clients v0.0.0-20250205044118-8ada2b350099
+go: downloading github.com/rqlite/sql v0.0.0-20260224021119-1b2524a41372
+go: downloading github.com/mkideal/pkg v0.1.3
+go: downloading github.com/peterh/liner v1.2.2
+go: downloading github.com/rqlite/go-sqlite3 v1.47.0
+go: downloading github.com/hashicorp/raft v1.7.3
+go: downloading github.com/rqlite/raft-boltdb/v2 v2.0.0-20230523104317-c08e70f4de48
+go: downloading github.com/aws/smithy-go v1.25.1
+go: downloading github.com/aws/aws-sdk-go-v2/service/ssooidc v1.35.21
+go: downloading github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.7.10
+go: downloading github.com/aws/aws-sdk-go-v2/service/internal/checksum v1.9.15
+go: downloading github.com/aws/aws-sdk-go-v2/service/internal/s3shared v1.19.23
+go: downloading github.com/labstack/gommon v0.5.0
+go: downloading github.com/mattn/go-isatty v0.0.22
+go: downloading github.com/mkideal/expr v0.1.0
+go: downloading github.com/mattn/go-runewidth v0.0.23
+go: downloading github.com/hashicorp/consul/api v1.34.2
+go: downloading go.etcd.io/etcd/client/v3 v3.6.11
+go: downloading github.com/fatih/color v1.19.0
+go: downloading github.com/hashicorp/go-metrics v0.5.1
+go: downloading github.com/hashicorp/go-msgpack v1.1.5
+go: downloading github.com/clipperhouse/uax29/v2 v2.7.0
+go: downloading github.com/hashicorp/serf v0.10.2
+go: downloading golang.org/x/exp v0.0.0-20260508232706-74f9aab9d74a
+go: downloading github.com/coreos/go-semver v0.3.1
+go: downloading go.etcd.io/etcd/api/v3 v3.6.11
+go: downloading go.etcd.io/etcd/client/pkg/v3 v3.6.11
+go: downloading google.golang.org/grpc v1.81.0
+go: downloading google.golang.org/genproto/googleapis/api v0.0.0-20260504160031-60b97b32f348
+go: downloading google.golang.org/genproto/googleapis/rpc v0.0.0-20260504160031-60b97b32f348
+go: downloading github.com/hashicorp/golang-lru v1.0.2
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-09T10:37:15Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-09T10:37:16Z	INFO	Number of language-specific files	num=1
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
