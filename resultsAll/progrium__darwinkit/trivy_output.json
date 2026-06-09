@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:9df79314-e6d3-4646-807d-f1c19b41f85e",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:17:20+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "482d46b2-8cde-4620-8891-eaaba40dd45a",
+      "type": "application",
+      "name": "/home/user/SBOM/work/progrium__darwinkit",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "2fad107b-d7df-4063-a6da-c33befdc0af2",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/go-test/deep@v1.1.0",
+      "type": "library",
+      "name": "github.com/go-test/deep",
+      "version": "v1.1.0",
+      "purl": "pkg:golang/github.com/go-test/deep@v1.1.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/go-test/deep@v1.1.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/progrium/darwinkit",
+      "type": "library",
+      "name": "github.com/progrium/darwinkit",
+      "purl": "pkg:golang/github.com/progrium/darwinkit",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/progrium/darwinkit"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "2fad107b-d7df-4063-a6da-c33befdc0af2",
+      "dependsOn": [
+        "pkg:golang/github.com/progrium/darwinkit"
+      ]
+    },
+    {
+      "ref": "482d46b2-8cde-4620-8891-eaaba40dd45a",
+      "dependsOn": [
+        "2fad107b-d7df-4063-a6da-c33befdc0af2"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/go-test/deep@v1.1.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/progrium/darwinkit",
+      "dependsOn": [
+        "pkg:golang/github.com/go-test/deep@v1.1.0"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}

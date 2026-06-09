@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:3363bda1-4502-4870-bb01-854680d369e9",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:15:59+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "ab379f40-c46c-4a47-897e-70bb5a894548",
+      "type": "application",
+      "name": "/home/user/SBOM/work/AshvinBambhaniya__autopool",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "ae2199e4-a234-49a8-a22e-dde6a7da07ba",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/ashvinbambhaniya/autopool/v2",
+      "type": "library",
+      "name": "github.com/AshvinBambhaniya/autopool/v2",
+      "purl": "pkg:golang/github.com/ashvinbambhaniya/autopool/v2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/AshvinBambhaniya/autopool/v2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "ab379f40-c46c-4a47-897e-70bb5a894548",
+      "dependsOn": [
+        "ae2199e4-a234-49a8-a22e-dde6a7da07ba"
+      ]
+    },
+    {
+      "ref": "ae2199e4-a234-49a8-a22e-dde6a7da07ba",
+      "dependsOn": [
+        "pkg:golang/github.com/ashvinbambhaniya/autopool/v2"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/ashvinbambhaniya/autopool/v2",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

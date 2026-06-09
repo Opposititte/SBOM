@@ -1,0 +1,131 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:5a73db22-2af8-4f5b-8c2d-fb6d36d8f701",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:19:08+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "fec5bcc2-a9f5-4aaa-9a2d-3cfa29f09b46",
+      "type": "application",
+      "name": "/home/user/SBOM/work/roblillack__spot",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "eb46bd2d-949e-4d80-b503-e4a051c9dff7",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/pwiecz/go-fltk@v0.0.0-20240511142305-990b442ae1ed",
+      "type": "library",
+      "name": "github.com/pwiecz/go-fltk",
+      "version": "v0.0.0-20240511142305-990b442ae1ed",
+      "purl": "pkg:golang/github.com/pwiecz/go-fltk@v0.0.0-20240511142305-990b442ae1ed",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/pwiecz/go-fltk@v0.0.0-20240511142305-990b442ae1ed"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/roblillack/spot",
+      "type": "library",
+      "name": "github.com/roblillack/spot",
+      "purl": "pkg:golang/github.com/roblillack/spot",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/roblillack/spot"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/image@v0.16.0",
+      "type": "library",
+      "name": "golang.org/x/image",
+      "version": "v0.16.0",
+      "purl": "pkg:golang/golang.org/x/image@v0.16.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/image@v0.16.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "eb46bd2d-949e-4d80-b503-e4a051c9dff7",
+      "dependsOn": [
+        "pkg:golang/github.com/roblillack/spot"
+      ]
+    },
+    {
+      "ref": "fec5bcc2-a9f5-4aaa-9a2d-3cfa29f09b46",
+      "dependsOn": [
+        "eb46bd2d-949e-4d80-b503-e4a051c9dff7"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/pwiecz/go-fltk@v0.0.0-20240511142305-990b442ae1ed",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/roblillack/spot",
+      "dependsOn": [
+        "pkg:golang/github.com/pwiecz/go-fltk@v0.0.0-20240511142305-990b442ae1ed",
+        "pkg:golang/golang.org/x/image@v0.16.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/image@v0.16.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:3794aef3-de7b-47a4-aa3f-44b861adc70d",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T12:15:44+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "ca49db3a-239e-4663-a98d-6c58d557f6b6",
+      "type": "application",
+      "name": "/home/user/SBOM/work/vardius__worker-pool",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "5fd29f3d-9bf8-482e-968c-a7acd1857ff3",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/vardius/worker-pool/v2",
+      "type": "library",
+      "name": "github.com/vardius/worker-pool/v2",
+      "purl": "pkg:golang/github.com/vardius/worker-pool/v2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/vardius/worker-pool/v2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "5fd29f3d-9bf8-482e-968c-a7acd1857ff3",
+      "dependsOn": [
+        "pkg:golang/github.com/vardius/worker-pool/v2"
+      ]
+    },
+    {
+      "ref": "ca49db3a-239e-4663-a98d-6c58d557f6b6",
+      "dependsOn": [
+        "5fd29f3d-9bf8-482e-968c-a7acd1857ff3"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/vardius/worker-pool/v2",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
