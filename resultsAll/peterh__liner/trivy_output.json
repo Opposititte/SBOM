@@ -1,0 +1,131 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:3a29baa6-58e8-4672-b07b-ce6964ac9280",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T09:43:53+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "2de08b60-7399-4615-9198-cf9f90ef9ef9",
+      "type": "application",
+      "name": "/home/user/SBOM/work/peterh__liner",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "bf34e66b-302d-4f8d-8d0c-37eca2eb94d0",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mattn/go-runewidth@v0.0.3",
+      "type": "library",
+      "name": "github.com/mattn/go-runewidth",
+      "version": "v0.0.3",
+      "purl": "pkg:golang/github.com/mattn/go-runewidth@v0.0.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mattn/go-runewidth@v0.0.3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/peterh/liner",
+      "type": "library",
+      "name": "github.com/peterh/liner",
+      "purl": "pkg:golang/github.com/peterh/liner",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/peterh/liner"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.0.0-20211117180635-dee7805ff2e1",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.0.0-20211117180635-dee7805ff2e1",
+      "purl": "pkg:golang/golang.org/x/sys@v0.0.0-20211117180635-dee7805ff2e1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sys@v0.0.0-20211117180635-dee7805ff2e1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "2de08b60-7399-4615-9198-cf9f90ef9ef9",
+      "dependsOn": [
+        "bf34e66b-302d-4f8d-8d0c-37eca2eb94d0"
+      ]
+    },
+    {
+      "ref": "bf34e66b-302d-4f8d-8d0c-37eca2eb94d0",
+      "dependsOn": [
+        "pkg:golang/github.com/peterh/liner"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/mattn/go-runewidth@v0.0.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/peterh/liner",
+      "dependsOn": [
+        "pkg:golang/github.com/mattn/go-runewidth@v0.0.3",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20211117180635-dee7805ff2e1"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.0.0-20211117180635-dee7805ff2e1",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
