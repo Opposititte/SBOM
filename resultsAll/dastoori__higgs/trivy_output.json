@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:34169c12-1e85-458f-91fc-ba93fb4af572",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:48:38+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "f3fa79e5-a351-41f5-9f03-7493549a2d12",
+      "type": "application",
+      "name": "/home/user/SBOM/work/dastoori__higgs",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "04b84929-fe8f-4452-96fe-6c5dbc5f974c",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/dastoori/higgs",
+      "type": "library",
+      "name": "github.com/dastoori/higgs",
+      "purl": "pkg:golang/github.com/dastoori/higgs",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/dastoori/higgs"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "04b84929-fe8f-4452-96fe-6c5dbc5f974c",
+      "dependsOn": [
+        "pkg:golang/github.com/dastoori/higgs"
+      ]
+    },
+    {
+      "ref": "f3fa79e5-a351-41f5-9f03-7493549a2d12",
+      "dependsOn": [
+        "04b84929-fe8f-4452-96fe-6c5dbc5f974c"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/dastoori/higgs",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

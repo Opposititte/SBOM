@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:8b835745-e67e-493e-aa43-73637cf97a65",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:47:34+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "0c7383ea-256a-4cfb-8f50-ed14b76e4a02",
+      "type": "application",
+      "name": "/home/user/SBOM/work/artonge__go-gtfs",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "a902b207-0792-4aca-a43d-37f5efcc79f0",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/artonge/go-csv-tag/v2@v2.2.0",
+      "type": "library",
+      "name": "github.com/artonge/go-csv-tag/v2",
+      "version": "v2.2.0",
+      "purl": "pkg:golang/github.com/artonge/go-csv-tag/v2@v2.2.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/artonge/go-csv-tag/v2@v2.2.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/artonge/go-gtfs",
+      "type": "library",
+      "name": "github.com/artonge/go-gtfs",
+      "purl": "pkg:golang/github.com/artonge/go-gtfs",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/artonge/go-gtfs"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "0c7383ea-256a-4cfb-8f50-ed14b76e4a02",
+      "dependsOn": [
+        "a902b207-0792-4aca-a43d-37f5efcc79f0"
+      ]
+    },
+    {
+      "ref": "a902b207-0792-4aca-a43d-37f5efcc79f0",
+      "dependsOn": [
+        "pkg:golang/github.com/artonge/go-gtfs"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/artonge/go-csv-tag/v2@v2.2.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/artonge/go-gtfs",
+      "dependsOn": [
+        "pkg:golang/github.com/artonge/go-csv-tag/v2@v2.2.0"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:940732cf-b795-4fd2-a75c-b3bf1910991a",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:47:18+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "b9afa4fa-870d-4757-9ba2-171e45787fda",
+      "type": "application",
+      "name": "/home/user/SBOM/work/artonge__go-csv-tag",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "7d2324c2-99ab-4f4b-b1a9-a869e2241862",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/artonge/go-csv-tag/v2",
+      "type": "library",
+      "name": "github.com/artonge/go-csv-tag/v2",
+      "purl": "pkg:golang/github.com/artonge/go-csv-tag/v2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/artonge/go-csv-tag/v2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "7d2324c2-99ab-4f4b-b1a9-a869e2241862",
+      "dependsOn": [
+        "pkg:golang/github.com/artonge/go-csv-tag/v2"
+      ]
+    },
+    {
+      "ref": "b9afa4fa-870d-4757-9ba2-171e45787fda",
+      "dependsOn": [
+        "7d2324c2-99ab-4f4b-b1a9-a869e2241862"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/artonge/go-csv-tag/v2",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,153 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:87d4dc61-c156-4997-a070-1bb5d8e1c8b8",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T11:46:23+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "ce3afabc-92a2-40ae-a288-668e55b7babb",
+      "type": "application",
+      "name": "/home/user/SBOM/work/codingsince1985__checksum",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "901b1049-5f88-4b75-888f-4266c15ae0d6",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/codingsince1985/checksum",
+      "type": "library",
+      "name": "github.com/codingsince1985/checksum",
+      "purl": "pkg:golang/github.com/codingsince1985/checksum",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/codingsince1985/checksum"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mitchellh/go-homedir@v1.1.0",
+      "type": "library",
+      "name": "github.com/mitchellh/go-homedir",
+      "version": "v1.1.0",
+      "purl": "pkg:golang/github.com/mitchellh/go-homedir@v1.1.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mitchellh/go-homedir@v1.1.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/crypto@v0.6.0",
+      "type": "library",
+      "name": "golang.org/x/crypto",
+      "version": "v0.6.0",
+      "purl": "pkg:golang/golang.org/x/crypto@v0.6.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/crypto@v0.6.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.5.0",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.5.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.5.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sys@v0.5.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "901b1049-5f88-4b75-888f-4266c15ae0d6",
+      "dependsOn": [
+        "pkg:golang/github.com/codingsince1985/checksum"
+      ]
+    },
+    {
+      "ref": "ce3afabc-92a2-40ae-a288-668e55b7babb",
+      "dependsOn": [
+        "901b1049-5f88-4b75-888f-4266c15ae0d6"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/codingsince1985/checksum",
+      "dependsOn": [
+        "pkg:golang/github.com/mitchellh/go-homedir@v1.1.0",
+        "pkg:golang/golang.org/x/crypto@v0.6.0",
+        "pkg:golang/golang.org/x/sys@v0.5.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/mitchellh/go-homedir@v1.1.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/crypto@v0.6.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.5.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

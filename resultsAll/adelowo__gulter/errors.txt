@@ -1,0 +1,53 @@
+Cloning into '/home/user/SBOM/work/adelowo__gulter'...
+go: downloading github.com/aws/aws-sdk-go-v2 v1.25.1
+go: downloading github.com/aws/aws-sdk-go-v2/config v1.27.3
+go: downloading github.com/aws/aws-sdk-go-v2/service/s3 v1.51.0
+go: downloading github.com/ayinke-llc/hermes v0.0.0-20241111220852-f19376e25099
+go: downloading github.com/cloudinary/cloudinary-go/v2 v2.7.0
+go: downloading go.uber.org/mock v0.4.0
+go: downloading golang.org/x/sync v0.6.0
+go: downloading github.com/aws/smithy-go v1.20.1
+go: downloading github.com/aws/aws-sdk-go-v2/credentials v1.17.3
+go: downloading github.com/aws/aws-sdk-go-v2/internal/ini v1.8.0
+go: downloading github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.6.1
+go: downloading github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.15.1
+go: downloading github.com/aws/aws-sdk-go-v2/service/sso v1.20.0
+go: downloading github.com/aws/aws-sdk-go-v2/service/ssooidc v1.23.0
+go: downloading github.com/aws/aws-sdk-go-v2/service/sts v1.28.0
+go: downloading github.com/aws/aws-sdk-go-v2/internal/configsources v1.3.1
+go: downloading github.com/aws/aws-sdk-go-v2/internal/v4a v1.3.1
+go: downloading github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding v1.11.1
+go: downloading github.com/aws/aws-sdk-go-v2/service/internal/checksum v1.3.1
+go: downloading github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.11.1
+go: downloading github.com/aws/aws-sdk-go-v2/service/internal/s3shared v1.17.1
+go: downloading github.com/google/uuid v1.2.0
+go: downloading github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.6.1
+go: downloading github.com/creasty/defaults v1.5.1
+go: downloading github.com/gorilla/schema v1.2.0
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-09T11:48:09Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-09T11:48:10Z	INFO	Number of language-specific files	num=1
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
