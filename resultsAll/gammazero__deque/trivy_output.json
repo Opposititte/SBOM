@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:7c057b1f-d761-4d73-8050-f59f3d4fc154",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:13:53+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "26be8db3-017f-4257-96d6-8fc74c659523",
+      "type": "application",
+      "name": "/home/user/SBOM/work/gammazero__deque",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "2d41763d-6269-48c8-9c3a-2e279eaba6e9",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gammazero/deque",
+      "type": "library",
+      "name": "github.com/gammazero/deque",
+      "purl": "pkg:golang/github.com/gammazero/deque",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gammazero/deque"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "26be8db3-017f-4257-96d6-8fc74c659523",
+      "dependsOn": [
+        "2d41763d-6269-48c8-9c3a-2e279eaba6e9"
+      ]
+    },
+    {
+      "ref": "2d41763d-6269-48c8-9c3a-2e279eaba6e9",
+      "dependsOn": [
+        "pkg:golang/github.com/gammazero/deque"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/gammazero/deque",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

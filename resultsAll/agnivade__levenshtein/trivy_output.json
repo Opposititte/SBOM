@@ -1,0 +1,138 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:af3aec33-7043-4624-b21f-adc46f406c8d",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:16:24+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "5daa0286-3283-4968-ba2f-d6febf0609e6",
+      "type": "application",
+      "name": "/home/user/SBOM/work/agnivade__levenshtein",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "b6a187b4-13ef-48f5-8683-b139d267af5e",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/agnivade/levenshtein",
+      "type": "library",
+      "name": "github.com/agnivade/levenshtein",
+      "purl": "pkg:golang/github.com/agnivade/levenshtein",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/agnivade/levenshtein"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/arbovm/levenshtein@v0.0.0-20160628152529-48b4e1c0c4d0",
+      "type": "library",
+      "name": "github.com/arbovm/levenshtein",
+      "version": "v0.0.0-20160628152529-48b4e1c0c4d0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/arbovm/levenshtein@v0.0.0-20160628152529-48b4e1c0c4d0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/arbovm/levenshtein@v0.0.0-20160628152529-48b4e1c0c4d0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/dgryski/trifles@v0.0.0-20230903005119-f50d829f2e54",
+      "type": "library",
+      "name": "github.com/dgryski/trifles",
+      "version": "v0.0.0-20230903005119-f50d829f2e54",
+      "purl": "pkg:golang/github.com/dgryski/trifles@v0.0.0-20230903005119-f50d829f2e54",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/dgryski/trifles@v0.0.0-20230903005119-f50d829f2e54"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "5daa0286-3283-4968-ba2f-d6febf0609e6",
+      "dependsOn": [
+        "b6a187b4-13ef-48f5-8683-b139d267af5e"
+      ]
+    },
+    {
+      "ref": "b6a187b4-13ef-48f5-8683-b139d267af5e",
+      "dependsOn": [
+        "pkg:golang/github.com/agnivade/levenshtein"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/agnivade/levenshtein",
+      "dependsOn": [
+        "pkg:golang/github.com/arbovm/levenshtein@v0.0.0-20160628152529-48b4e1c0c4d0",
+        "pkg:golang/github.com/dgryski/trifles@v0.0.0-20230903005119-f50d829f2e54"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/arbovm/levenshtein@v0.0.0-20160628152529-48b4e1c0c4d0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/dgryski/trifles@v0.0.0-20230903005119-f50d829f2e54",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

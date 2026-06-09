@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:6ee59799-0fc1-4dba-b252-303ae7e21ace",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:14:06+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "926cf995-07c4-4047-b24f-4377167c15a6",
+      "type": "application",
+      "name": "/home/user/SBOM/work/vodolaz095__dqueue",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "b18385e8-c928-4d08-bf9c-a3244d19c0b2",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/vodolaz095/dqueue",
+      "type": "library",
+      "name": "github.com/vodolaz095/dqueue",
+      "purl": "pkg:golang/github.com/vodolaz095/dqueue",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/vodolaz095/dqueue"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "926cf995-07c4-4047-b24f-4377167c15a6",
+      "dependsOn": [
+        "b18385e8-c928-4d08-bf9c-a3244d19c0b2"
+      ]
+    },
+    {
+      "ref": "b18385e8-c928-4d08-bf9c-a3244d19c0b2",
+      "dependsOn": [
+        "pkg:golang/github.com/vodolaz095/dqueue"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/vodolaz095/dqueue",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

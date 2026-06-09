@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:69b9672a-749c-49d3-9e7c-98545074c764",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:13:44+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "42918f2a-3b9e-4c88-9cf1-b4183ed3e68c",
+      "type": "application",
+      "name": "/home/user/SBOM/work/aalpar__deheap",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "291ad0b5-92e1-4d69-b09b-c3cc2f833f76",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/aalpar/deheap",
+      "type": "library",
+      "name": "github.com/aalpar/deheap",
+      "purl": "pkg:golang/github.com/aalpar/deheap",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/aalpar/deheap"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "291ad0b5-92e1-4d69-b09b-c3cc2f833f76",
+      "dependsOn": [
+        "pkg:golang/github.com/aalpar/deheap"
+      ]
+    },
+    {
+      "ref": "42918f2a-3b9e-4c88-9cf1-b4183ed3e68c",
+      "dependsOn": [
+        "291ad0b5-92e1-4d69-b09b-c3cc2f833f76"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/aalpar/deheap",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

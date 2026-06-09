@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:44be7209-0ba3-4cff-9965-189ec5862b39",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:15:39+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "27546cc5-5bc7-48e8-8fd6-23fc2293bfa0",
+      "type": "application",
+      "name": "/home/user/SBOM/work/zoumo__goset",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "cda7d53e-4451-4022-bea2-b91e60d7e939",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/zoumo/goset",
+      "type": "library",
+      "name": "github.com/zoumo/goset",
+      "purl": "pkg:golang/github.com/zoumo/goset",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/zoumo/goset"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "27546cc5-5bc7-48e8-8fd6-23fc2293bfa0",
+      "dependsOn": [
+        "cda7d53e-4451-4022-bea2-b91e60d7e939"
+      ]
+    },
+    {
+      "ref": "cda7d53e-4451-4022-bea2-b91e60d7e939",
+      "dependsOn": [
+        "pkg:golang/github.com/zoumo/goset"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/zoumo/goset",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

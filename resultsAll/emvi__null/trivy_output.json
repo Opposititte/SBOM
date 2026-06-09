@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:f71735ee-4562-470f-9470-17c395b3997a",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:13:34+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "0603570b-f3f6-40b0-8dbf-014d42ec4300",
+      "type": "application",
+      "name": "/home/user/SBOM/work/emvi__null",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "f13569aa-41a2-4225-8067-85be6ed494ba",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/emvi/null",
+      "type": "library",
+      "name": "github.com/emvi/null",
+      "purl": "pkg:golang/github.com/emvi/null",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/emvi/null"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "0603570b-f3f6-40b0-8dbf-014d42ec4300",
+      "dependsOn": [
+        "f13569aa-41a2-4225-8067-85be6ed494ba"
+      ]
+    },
+    {
+      "ref": "f13569aa-41a2-4225-8067-85be6ed494ba",
+      "dependsOn": [
+        "pkg:golang/github.com/emvi/null"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/emvi/null",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

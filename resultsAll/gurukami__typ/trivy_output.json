@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:53b4d72d-9059-4768-a4b7-76c4dc92ffef",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:13:39+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "befe1204-8a6a-4698-9830-0be683df85f6",
+      "type": "application",
+      "name": "/home/user/SBOM/work/gurukami__typ",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "8c8c1ff3-f22a-4d63-abfb-2ffbbd4cb8dd",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gurukami/typ/v2",
+      "type": "library",
+      "name": "github.com/gurukami/typ/v2",
+      "purl": "pkg:golang/github.com/gurukami/typ/v2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gurukami/typ/v2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "8c8c1ff3-f22a-4d63-abfb-2ffbbd4cb8dd",
+      "dependsOn": [
+        "pkg:golang/github.com/gurukami/typ/v2"
+      ]
+    },
+    {
+      "ref": "befe1204-8a6a-4698-9830-0be683df85f6",
+      "dependsOn": [
+        "8c8c1ff3-f22a-4d63-abfb-2ffbbd4cb8dd"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/gurukami/typ/v2",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

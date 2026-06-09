@@ -1,0 +1,128 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:6e4b58fa-76ba-409d-874a-44f7fc9c86a8",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:13:49+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "df19dcf2-053b-4569-bfda-fba07181c9c0",
+      "type": "application",
+      "name": "/home/user/SBOM/work/edwingeng__deque",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "2d4a2fe7-b950-4ccb-98e5-172a9fa23d48",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "379e21a4-c649-43de-9fdf-50f98155756a",
+      "type": "application",
+      "name": "v2/go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/edwingeng/deque",
+      "type": "library",
+      "name": "github.com/edwingeng/deque",
+      "purl": "pkg:golang/github.com/edwingeng/deque",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/edwingeng/deque"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/edwingeng/deque/v2",
+      "type": "library",
+      "name": "github.com/edwingeng/deque/v2",
+      "purl": "pkg:golang/github.com/edwingeng/deque/v2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/edwingeng/deque/v2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "2d4a2fe7-b950-4ccb-98e5-172a9fa23d48",
+      "dependsOn": [
+        "pkg:golang/github.com/edwingeng/deque"
+      ]
+    },
+    {
+      "ref": "379e21a4-c649-43de-9fdf-50f98155756a",
+      "dependsOn": [
+        "pkg:golang/github.com/edwingeng/deque/v2"
+      ]
+    },
+    {
+      "ref": "df19dcf2-053b-4569-bfda-fba07181c9c0",
+      "dependsOn": [
+        "2d4a2fe7-b950-4ccb-98e5-172a9fa23d48",
+        "379e21a4-c649-43de-9fdf-50f98155756a"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/edwingeng/deque",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/edwingeng/deque/v2",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

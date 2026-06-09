@@ -1,0 +1,201 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:c113260d-25ba-4e8a-8dc2-f875f35954b1",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:16:09+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "18cd3e7e-b1b2-4c72-a7fa-c9ab8ffe49dd",
+      "type": "application",
+      "name": "/home/user/SBOM/work/plar__go-adaptive-radix-tree",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "962d6b29-67c1-403a-8ee7-e603c6e4c485",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+      "type": "library",
+      "name": "github.com/davecgh/go-spew",
+      "version": "v1.1.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/davecgh/go-spew@v1.1.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/plar/go-adaptive-radix-tree/v2",
+      "type": "library",
+      "name": "github.com/plar/go-adaptive-radix-tree/v2",
+      "purl": "pkg:golang/github.com/plar/go-adaptive-radix-tree/v2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/plar/go-adaptive-radix-tree/v2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+      "type": "library",
+      "name": "github.com/pmezard/go-difflib",
+      "version": "v1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/pmezard/go-difflib@v1.0.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/stretchr/testify@v1.9.0",
+      "type": "library",
+      "name": "github.com/stretchr/testify",
+      "version": "v1.9.0",
+      "purl": "pkg:golang/github.com/stretchr/testify@v1.9.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/stretchr/testify@v1.9.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/gopkg.in/yaml.v3@v3.0.1",
+      "type": "library",
+      "name": "gopkg.in/yaml.v3",
+      "version": "v3.0.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        },
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:golang/gopkg.in/yaml.v3@v3.0.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "gopkg.in/yaml.v3@v3.0.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "18cd3e7e-b1b2-4c72-a7fa-c9ab8ffe49dd",
+      "dependsOn": [
+        "962d6b29-67c1-403a-8ee7-e603c6e4c485"
+      ]
+    },
+    {
+      "ref": "962d6b29-67c1-403a-8ee7-e603c6e4c485",
+      "dependsOn": [
+        "pkg:golang/github.com/plar/go-adaptive-radix-tree/v2"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/plar/go-adaptive-radix-tree/v2",
+      "dependsOn": [
+        "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+        "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+        "pkg:golang/github.com/stretchr/testify@v1.9.0",
+        "pkg:golang/gopkg.in/yaml.v3@v3.0.1"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/stretchr/testify@v1.9.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/gopkg.in/yaml.v3@v3.0.1",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

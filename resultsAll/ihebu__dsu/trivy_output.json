@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:cc1c119f-085c-4fea-840c-f1e8fe58ca47",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:15:27+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "b4ea4633-f15e-4b39-8913-84f2c2a1be01",
+      "type": "application",
+      "name": "/home/user/SBOM/work/ihebu__dsu",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "2fe351ef-4dfc-47b2-8182-36ec0047f2e5",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/ihebu/dsu",
+      "type": "library",
+      "name": "github.com/ihebu/dsu",
+      "purl": "pkg:golang/github.com/ihebu/dsu",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/ihebu/dsu"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "2fe351ef-4dfc-47b2-8182-36ec0047f2e5",
+      "dependsOn": [
+        "pkg:golang/github.com/ihebu/dsu"
+      ]
+    },
+    {
+      "ref": "b4ea4633-f15e-4b39-8913-84f2c2a1be01",
+      "dependsOn": [
+        "2fe351ef-4dfc-47b2-8182-36ec0047f2e5"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/ihebu/dsu",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
