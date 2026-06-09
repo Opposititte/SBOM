@@ -1,0 +1,139 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:442afa97-76b7-441e-9c5d-d7cacbd0c879",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:20:33+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "765ec775-1b38-4c44-98ac-b9bab921c3f4",
+      "type": "application",
+      "name": "/home/user/SBOM/work/golang__groupcache",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "b3ada921-0f96-48ff-b3fb-d31b094f119b",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/golang/groupcache",
+      "type": "library",
+      "name": "github.com/golang/groupcache",
+      "purl": "pkg:golang/github.com/golang/groupcache",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/golang/groupcache"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/golang/protobuf@v1.5.4",
+      "type": "library",
+      "name": "github.com/golang/protobuf",
+      "version": "v1.5.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/golang/protobuf@v1.5.4",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/golang/protobuf@v1.5.4"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/google.golang.org/protobuf@v1.33.0",
+      "type": "library",
+      "name": "google.golang.org/protobuf",
+      "version": "v1.33.0",
+      "purl": "pkg:golang/google.golang.org/protobuf@v1.33.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "google.golang.org/protobuf@v1.33.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "765ec775-1b38-4c44-98ac-b9bab921c3f4",
+      "dependsOn": [
+        "b3ada921-0f96-48ff-b3fb-d31b094f119b"
+      ]
+    },
+    {
+      "ref": "b3ada921-0f96-48ff-b3fb-d31b094f119b",
+      "dependsOn": [
+        "pkg:golang/github.com/golang/groupcache"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/golang/groupcache",
+      "dependsOn": [
+        "pkg:golang/github.com/golang/protobuf@v1.5.4"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/golang/protobuf@v1.5.4",
+      "dependsOn": [
+        "pkg:golang/google.golang.org/protobuf@v1.33.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/google.golang.org/protobuf@v1.33.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:51e45565-316f-4c5b-99f4-be0c7a5f278b",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:20:42+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "7bc05f8c-85e0-4bba-8147-cafbc3847a02",
+      "type": "application",
+      "name": "/home/user/SBOM/work/erni27__imcache",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "77d1d4ad-9ee4-429b-b438-a1e14606179a",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/erni27/imcache",
+      "type": "library",
+      "name": "github.com/erni27/imcache",
+      "purl": "pkg:golang/github.com/erni27/imcache",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/erni27/imcache"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "77d1d4ad-9ee4-429b-b438-a1e14606179a",
+      "dependsOn": [
+        "pkg:golang/github.com/erni27/imcache"
+      ]
+    },
+    {
+      "ref": "7bc05f8c-85e0-4bba-8147-cafbc3847a02",
+      "dependsOn": [
+        "77d1d4ad-9ee4-429b-b438-a1e14606179a"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/erni27/imcache",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
