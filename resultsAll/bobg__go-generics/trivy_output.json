@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:eb94f7d7-679e-4f84-96e4-3e35f50b12db",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:12:16+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "f37f0b36-2bdf-4361-b67c-b3b6ed27845c",
+      "type": "application",
+      "name": "/home/user/SBOM/work/bobg__go-generics",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "8a8e452e-b482-4c49-a274-c3259ed22bc1",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/bobg/go-generics/v4",
+      "type": "library",
+      "name": "github.com/bobg/go-generics/v4",
+      "purl": "pkg:golang/github.com/bobg/go-generics/v4",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/bobg/go-generics/v4"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sync@v0.8.0",
+      "type": "library",
+      "name": "golang.org/x/sync",
+      "version": "v0.8.0",
+      "purl": "pkg:golang/golang.org/x/sync@v0.8.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sync@v0.8.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "8a8e452e-b482-4c49-a274-c3259ed22bc1",
+      "dependsOn": [
+        "pkg:golang/github.com/bobg/go-generics/v4"
+      ]
+    },
+    {
+      "ref": "f37f0b36-2bdf-4361-b67c-b3b6ed27845c",
+      "dependsOn": [
+        "8a8e452e-b482-4c49-a274-c3259ed22bc1"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/bobg/go-generics/v4",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/sync@v0.8.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sync@v0.8.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

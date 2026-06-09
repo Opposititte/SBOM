@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:7c648ca2-422e-4e11-8e36-d729e7adc707",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:11:53+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "5ebe259e-ee07-40b8-9bbf-38202659829a",
+      "type": "application",
+      "name": "/home/user/SBOM/work/seiflotfy__count-min-log",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "1b8b48f9-4dba-4345-ac95-a3cc8f455bfb",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/dgryski/go-farm@v0.0.0-20240924180020-3414d57e47da",
+      "type": "library",
+      "name": "github.com/dgryski/go-farm",
+      "version": "v0.0.0-20240924180020-3414d57e47da",
+      "purl": "pkg:golang/github.com/dgryski/go-farm@v0.0.0-20240924180020-3414d57e47da",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/dgryski/go-farm@v0.0.0-20240924180020-3414d57e47da"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/seiflotfy/count-min-log",
+      "type": "library",
+      "name": "github.com/seiflotfy/count-min-log",
+      "purl": "pkg:golang/github.com/seiflotfy/count-min-log",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/seiflotfy/count-min-log"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "1b8b48f9-4dba-4345-ac95-a3cc8f455bfb",
+      "dependsOn": [
+        "pkg:golang/github.com/seiflotfy/count-min-log"
+      ]
+    },
+    {
+      "ref": "5ebe259e-ee07-40b8-9bbf-38202659829a",
+      "dependsOn": [
+        "1b8b48f9-4dba-4345-ac95-a3cc8f455bfb"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/dgryski/go-farm@v0.0.0-20240924180020-3414d57e47da",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/seiflotfy/count-min-log",
+      "dependsOn": [
+        "pkg:golang/github.com/dgryski/go-farm@v0.0.0-20240924180020-3414d57e47da"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}

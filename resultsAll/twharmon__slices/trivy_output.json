@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:30694586-3f59-4498-b4b8-57095ca3d0cd",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:13:22+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "7d3ae98f-aaa2-43be-a1d8-70324c6c1971",
+      "type": "application",
+      "name": "/home/user/SBOM/work/twharmon__slices",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "49cc110a-750a-4495-a3b1-8146d40a83fb",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/twharmon/slices",
+      "type": "library",
+      "name": "github.com/twharmon/slices",
+      "purl": "pkg:golang/github.com/twharmon/slices",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/twharmon/slices"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "49cc110a-750a-4495-a3b1-8146d40a83fb",
+      "dependsOn": [
+        "pkg:golang/github.com/twharmon/slices"
+      ]
+    },
+    {
+      "ref": "7d3ae98f-aaa2-43be-a1d8-70324c6c1971",
+      "dependsOn": [
+        "49cc110a-750a-4495-a3b1-8146d40a83fb"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/twharmon/slices",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

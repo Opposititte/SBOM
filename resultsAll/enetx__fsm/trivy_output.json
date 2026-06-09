@@ -1,0 +1,197 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:ff69be14-e330-45a9-a828-da133c85269b",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:12:00+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "5350897b-2f26-4cbc-8c82-59a50bea3ac9",
+      "type": "application",
+      "name": "/home/user/SBOM/work/enetx__fsm",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "f4de9e63-bfe0-4ed2-977f-8fa317fb404c",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/andybalholm/brotli@v1.2.0",
+      "type": "library",
+      "name": "github.com/andybalholm/brotli",
+      "version": "v1.2.0",
+      "purl": "pkg:golang/github.com/andybalholm/brotli@v1.2.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/andybalholm/brotli@v1.2.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/enetx/fsm",
+      "type": "library",
+      "name": "github.com/enetx/fsm",
+      "purl": "pkg:golang/github.com/enetx/fsm",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/enetx/fsm"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/enetx/g@v1.0.211",
+      "type": "library",
+      "name": "github.com/enetx/g",
+      "version": "v1.0.211",
+      "purl": "pkg:golang/github.com/enetx/g@v1.0.211",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/enetx/g@v1.0.211"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/enetx/iter@v0.0.0-20250912135656-f1583323588f",
+      "type": "library",
+      "name": "github.com/enetx/iter",
+      "version": "v0.0.0-20250912135656-f1583323588f",
+      "purl": "pkg:golang/github.com/enetx/iter@v0.0.0-20250912135656-f1583323588f",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/enetx/iter@v0.0.0-20250912135656-f1583323588f"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/klauspost/compress@v1.18.4",
+      "type": "library",
+      "name": "github.com/klauspost/compress",
+      "version": "v1.18.4",
+      "purl": "pkg:golang/github.com/klauspost/compress@v1.18.4",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/klauspost/compress@v1.18.4"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/text@v0.34.0",
+      "type": "library",
+      "name": "golang.org/x/text",
+      "version": "v0.34.0",
+      "purl": "pkg:golang/golang.org/x/text@v0.34.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/text@v0.34.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "5350897b-2f26-4cbc-8c82-59a50bea3ac9",
+      "dependsOn": [
+        "f4de9e63-bfe0-4ed2-977f-8fa317fb404c"
+      ]
+    },
+    {
+      "ref": "f4de9e63-bfe0-4ed2-977f-8fa317fb404c",
+      "dependsOn": [
+        "pkg:golang/github.com/enetx/fsm"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/andybalholm/brotli@v1.2.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/enetx/fsm",
+      "dependsOn": [
+        "pkg:golang/github.com/andybalholm/brotli@v1.2.0",
+        "pkg:golang/github.com/enetx/g@v1.0.211",
+        "pkg:golang/github.com/enetx/iter@v0.0.0-20250912135656-f1583323588f",
+        "pkg:golang/github.com/klauspost/compress@v1.18.4",
+        "pkg:golang/golang.org/x/text@v0.34.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/enetx/g@v1.0.211",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/enetx/iter@v0.0.0-20250912135656-f1583323588f",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/klauspost/compress@v1.18.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/text@v0.34.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,204 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:97be8cbd-86ca-4f15-9824-b4720e8faaeb",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T10:11:45+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "f5b2c2bb-6cdf-4195-be03-d1b2d7707384",
+      "type": "application",
+      "name": "/home/user/SBOM/work/bobg__combo",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "476372ad-f11b-4a9f-b83c-bd5e0a00712a",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/bobg/combo",
+      "type": "library",
+      "name": "github.com/bobg/combo",
+      "purl": "pkg:golang/github.com/bobg/combo",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/bobg/combo"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/bobg/errors@v1.1.0",
+      "type": "library",
+      "name": "github.com/bobg/errors",
+      "version": "v1.1.0",
+      "purl": "pkg:golang/github.com/bobg/errors@v1.1.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/bobg/errors@v1.1.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/bobg/go-generics/v3@v3.7.0",
+      "type": "library",
+      "name": "github.com/bobg/go-generics/v3",
+      "version": "v3.7.0",
+      "purl": "pkg:golang/github.com/bobg/go-generics/v3@v3.7.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/bobg/go-generics/v3@v3.7.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/bobg/seqs@v1.0.0",
+      "type": "library",
+      "name": "github.com/bobg/seqs",
+      "version": "v1.0.0",
+      "purl": "pkg:golang/github.com/bobg/seqs@v1.0.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/bobg/seqs@v1.0.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/bobg/subcmd/v2@v2.3.0",
+      "type": "library",
+      "name": "github.com/bobg/subcmd/v2",
+      "version": "v2.3.0",
+      "purl": "pkg:golang/github.com/bobg/subcmd/v2@v2.3.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/bobg/subcmd/v2@v2.3.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/pkg/errors@v0.9.1",
+      "type": "library",
+      "name": "github.com/pkg/errors",
+      "version": "v0.9.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-2-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/pkg/errors@v0.9.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/pkg/errors@v0.9.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "476372ad-f11b-4a9f-b83c-bd5e0a00712a",
+      "dependsOn": [
+        "pkg:golang/github.com/bobg/combo"
+      ]
+    },
+    {
+      "ref": "f5b2c2bb-6cdf-4195-be03-d1b2d7707384",
+      "dependsOn": [
+        "476372ad-f11b-4a9f-b83c-bd5e0a00712a"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/bobg/combo",
+      "dependsOn": [
+        "pkg:golang/github.com/bobg/errors@v1.1.0",
+        "pkg:golang/github.com/bobg/go-generics/v3@v3.7.0",
+        "pkg:golang/github.com/bobg/seqs@v1.0.0",
+        "pkg:golang/github.com/bobg/subcmd/v2@v2.3.0",
+        "pkg:golang/github.com/pkg/errors@v0.9.1"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/bobg/errors@v1.1.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/bobg/go-generics/v3@v3.7.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/bobg/seqs@v1.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/bobg/subcmd/v2@v2.3.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/pkg/errors@v0.9.1",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
