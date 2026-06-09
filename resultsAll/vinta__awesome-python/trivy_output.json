@@ -1,0 +1,87 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:dbf3ad42-29b0-451e-8cc4-036960397abd",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-09T08:53:17+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "abb6bf9b-d708-4fa6-8d0e-d3459fd270e5",
+      "type": "application",
+      "name": "/home/user/SBOM/work/vinta__awesome-python",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "ba1ac31f-ae04-4c3c-bca5-d0a0fc349f7a",
+      "type": "application",
+      "name": "uv.lock",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "uv"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/awesome-python@0.1.0",
+      "type": "library",
+      "name": "awesome-python",
+      "version": "0.1.0",
+      "purl": "pkg:pypi/awesome-python@0.1.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "awesome-python@0.1.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "uv"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "abb6bf9b-d708-4fa6-8d0e-d3459fd270e5",
+      "dependsOn": [
+        "ba1ac31f-ae04-4c3c-bca5-d0a0fc349f7a"
+      ]
+    },
+    {
+      "ref": "ba1ac31f-ae04-4c3c-bca5-d0a0fc349f7a",
+      "dependsOn": [
+        "pkg:pypi/awesome-python@0.1.0"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/awesome-python@0.1.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
