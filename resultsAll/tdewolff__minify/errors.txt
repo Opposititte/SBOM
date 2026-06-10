@@ -1,0 +1,45 @@
+Cloning into '/home/user/SBOM/work/tdewolff__minify'...
+go: downloading go1.25.0 (linux/amd64)
+go: downloading github.com/tdewolff/parse/v2 v2.8.12
+go: downloading github.com/djherbis/atime v1.1.0
+go: downloading github.com/fsnotify/fsnotify v1.10.1
+go: downloading github.com/tdewolff/argp v0.0.0-20260424074207-decde4f86440
+go: downloading github.com/jmoiron/sqlx v1.4.0
+go: downloading github.com/pelletier/go-toml v1.9.5
+go: downloading gopkg.in/yaml.v3 v3.0.1
+go: downloading golang.org/x/sys v0.43.0
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-10T03:23:07Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-10T03:23:08Z	INFO	[npm] Run "npm install" to collect the license information of packages	dir="bindings/js/node_modules"
+2026-06-10T03:23:08Z	INFO	Suppressing dependencies for development and testing. To display them, try the '--include-dev-deps' flag.
+2026-06-10T03:23:08Z	INFO	Number of language-specific files	num=3
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
+go list -deps command has failed for /home/user/SBOM/work/tdewolff__minify/bindings/js/go
+1. Check if the correct version of golang is installed. Try building the application using go build or make command to troubleshoot.
+2. If the application uses private go modules, ensure the environment variable GOPRIVATE is set with the comma-separated repo names.
+Ensure $HOME/.netrc file contains a valid username and password for the private repos.
+3. Alternatively, consider generating a post-build SBOM from the built binary using blint. Use the official container image and invoke cdxgen with the arguments `-t binary --lifecycle post-build`.
+Manually parsing go.mod files. The resultant BOM would be incomplete.

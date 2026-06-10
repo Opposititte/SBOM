@@ -1,0 +1,217 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:1d8bd720-6431-4526-9d5f-38e1a33302f1",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:23:38Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/linxGnu/mssqlx@v0.0.0-20240312005104-add4490634a8?type=module",
+      "type": "application",
+      "name": "github.com/linxGnu/mssqlx",
+      "version": "v0.0.0-20240312005104-add4490634a8",
+      "purl": "pkg:golang/github.com/linxGnu/mssqlx@v0.0.0-20240312005104-add4490634a8?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/linxGnu/mssqlx",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/filippo.io/edwards25519@v1.1.0?type=module",
+      "type": "library",
+      "name": "filippo.io/edwards25519",
+      "version": "v1.1.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "14d7f8b72c110b51e616e296e71a295a98a01a324a889495d02aa8d1c2560da0"
+        }
+      ],
+      "purl": "pkg:golang/filippo.io/edwards25519@v1.1.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/go-sql-driver/mysql@v1.8.0?type=module",
+      "type": "library",
+      "name": "github.com/go-sql-driver/mysql",
+      "version": "v1.8.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "52d92d5da53635beb8cffa4b886231638e37d52278fdd4797233269551e09d3e"
+        }
+      ],
+      "purl": "pkg:golang/github.com/go-sql-driver/mysql@v1.8.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/go-sql-driver/mysql",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/hashicorp/errwrap@v1.1.0?type=module",
+      "type": "library",
+      "name": "github.com/hashicorp/errwrap",
+      "version": "v1.1.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3b1ace7a1ef91145cc63c4c18da8367f35c6678d0b07a20ac38e587865036362"
+        }
+      ],
+      "purl": "pkg:golang/github.com/hashicorp/errwrap@v1.1.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/hashicorp/errwrap",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/hashicorp/go-multierror@v1.1.1?type=module",
+      "type": "library",
+      "name": "github.com/hashicorp/go-multierror",
+      "version": "v1.1.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1f90e412d7fa097745a74374126e540b04295cc5a47bc200d3e943e3c6b0318a"
+        }
+      ],
+      "purl": "pkg:golang/github.com/hashicorp/go-multierror@v1.1.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/hashicorp/go-multierror",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jmoiron/sqlx@v1.3.5?type=module",
+      "type": "library",
+      "name": "github.com/jmoiron/sqlx",
+      "version": "v1.3.5",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "bc514f03bd69d68e6001eaad100c0b5387675f69daa69acab47afb3d821c3778"
+        }
+      ],
+      "purl": "pkg:golang/github.com/jmoiron/sqlx@v1.3.5?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/jmoiron/sqlx",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/lib/pq@v1.10.7?type=module",
+      "type": "library",
+      "name": "github.com/lib/pq",
+      "version": "v1.10.7",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a7b661303f8ab12468cc9af7e2e76552b85ba09c160200a0df8fbf65936f659c"
+        }
+      ],
+      "purl": "pkg:golang/github.com/lib/pq@v1.10.7?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/lib/pq",
+          "type": "vcs"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/linxGnu/mssqlx@v0.0.0-20240312005104-add4490634a8?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/go-sql-driver/mysql@v1.8.0?type=module",
+        "pkg:golang/github.com/hashicorp/go-multierror@v1.1.1?type=module",
+        "pkg:golang/github.com/jmoiron/sqlx@v1.3.5?type=module",
+        "pkg:golang/github.com/lib/pq@v1.10.7?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/filippo.io/edwards25519@v1.1.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/go-sql-driver/mysql@v1.8.0?type=module",
+      "dependsOn": [
+        "pkg:golang/filippo.io/edwards25519@v1.1.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/hashicorp/errwrap@v1.1.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/hashicorp/go-multierror@v1.1.1?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/hashicorp/errwrap@v1.1.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/jmoiron/sqlx@v1.3.5?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/go-sql-driver/mysql@v1.8.0?type=module",
+        "pkg:golang/github.com/lib/pq@v1.10.7?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/lib/pq@v1.10.7?type=module"
+    }
+  ]
+}

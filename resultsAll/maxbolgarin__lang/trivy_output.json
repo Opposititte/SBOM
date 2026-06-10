@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:3908fcd6-7da0-4cc4-a249-55cbdd04e448",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:20:38+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "a3b67f00-94a1-4fb9-a939-5903706151b8",
+      "type": "application",
+      "name": "/home/user/SBOM/work/maxbolgarin__lang",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "acf07560-dd6b-4ddb-a00e-4093ceb1c709",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/maxbolgarin/lang",
+      "type": "library",
+      "name": "github.com/maxbolgarin/lang",
+      "purl": "pkg:golang/github.com/maxbolgarin/lang",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/maxbolgarin/lang"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "a3b67f00-94a1-4fb9-a939-5903706151b8",
+      "dependsOn": [
+        "acf07560-dd6b-4ddb-a00e-4093ceb1c709"
+      ]
+    },
+    {
+      "ref": "acf07560-dd6b-4ddb-a00e-4093ceb1c709",
+      "dependsOn": [
+        "pkg:golang/github.com/maxbolgarin/lang"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/maxbolgarin/lang",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

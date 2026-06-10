@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:dee6d4c9-2998-4537-b53e-c326b2126924",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:20:22+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "54dded27-90b9-4a8f-af5f-04feaf958f80",
+      "type": "application",
+      "name": "/home/user/SBOM/work/gsamokovarov__jump",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "c5ea54f7-93e3-41e3-b9ba-6b30ba49e8d4",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gsamokovarov/assert@v0.0.0-20180414063448-8cd8ab63a335",
+      "type": "library",
+      "name": "github.com/gsamokovarov/assert",
+      "version": "v0.0.0-20180414063448-8cd8ab63a335",
+      "purl": "pkg:golang/github.com/gsamokovarov/assert@v0.0.0-20180414063448-8cd8ab63a335",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gsamokovarov/assert@v0.0.0-20180414063448-8cd8ab63a335"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gsamokovarov/jump",
+      "type": "library",
+      "name": "github.com/gsamokovarov/jump",
+      "purl": "pkg:golang/github.com/gsamokovarov/jump",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gsamokovarov/jump"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "54dded27-90b9-4a8f-af5f-04feaf958f80",
+      "dependsOn": [
+        "c5ea54f7-93e3-41e3-b9ba-6b30ba49e8d4"
+      ]
+    },
+    {
+      "ref": "c5ea54f7-93e3-41e3-b9ba-6b30ba49e8d4",
+      "dependsOn": [
+        "pkg:golang/github.com/gsamokovarov/jump"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/gsamokovarov/assert@v0.0.0-20180414063448-8cd8ab63a335",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/gsamokovarov/jump",
+      "dependsOn": [
+        "pkg:golang/github.com/gsamokovarov/assert@v0.0.0-20180414063448-8cd8ab63a335"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}

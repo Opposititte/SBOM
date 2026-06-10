@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:9f5bcd63-d9ba-444f-8513-6b1ac5e5325c",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:20:05+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "64f2a2d0-7dd6-42c9-8021-903fefa12b1c",
+      "type": "application",
+      "name": "/home/user/SBOM/work/NicoNex__jet",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "4f7e511f-899d-4c59-bc10-9294db5053c5",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/niconex/jet",
+      "type": "library",
+      "name": "github.com/NicoNex/jet",
+      "purl": "pkg:golang/github.com/niconex/jet",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/NicoNex/jet"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "4f7e511f-899d-4c59-bc10-9294db5053c5",
+      "dependsOn": [
+        "pkg:golang/github.com/niconex/jet"
+      ]
+    },
+    {
+      "ref": "64f2a2d0-7dd6-42c9-8021-903fefa12b1c",
+      "dependsOn": [
+        "4f7e511f-899d-4c59-bc10-9294db5053c5"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/niconex/jet",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
