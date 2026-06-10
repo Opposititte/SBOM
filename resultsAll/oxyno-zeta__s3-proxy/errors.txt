@@ -1,0 +1,94 @@
+Cloning into '/home/user/SBOM/work/oxyno-zeta__s3-proxy'...
+go: downloading go1.26.0 (linux/amd64)
+go: downloading emperror.dev/errors v0.8.1
+go: downloading github.com/coreos/go-oidc/v3 v3.18.0
+go: downloading github.com/go-chi/chi/v5 v5.2.5
+go: downloading github.com/gobwas/glob v0.2.3
+go: downloading github.com/thoas/go-funk v0.9.3
+go: downloading golang.org/x/oauth2 v0.36.0
+go: downloading go.uber.org/mock v0.6.0
+go: downloading github.com/aws/aws-sdk-go v1.55.6
+go: downloading github.com/fsnotify/fsnotify v1.10.1
+go: downloading github.com/go-playground/validator/v10 v10.30.2
+go: downloading github.com/spf13/cobra v1.10.2
+go: downloading github.com/spf13/viper v1.21.0
+go: downloading golang.org/x/sync v0.20.0
+go: downloading github.com/sirupsen/logrus v1.9.4
+go: downloading github.com/prometheus/client_golang v1.23.2
+go: downloading github.com/microcosm-cc/bluemonday v1.0.27
+go: downloading github.com/opentracing/opentracing-go v1.2.0
+go: downloading github.com/uber/jaeger-client-go v2.30.0+incompatible
+go: downloading github.com/uber/jaeger-lib v2.4.1+incompatible
+go: downloading github.com/Masterminds/sprig/v3 v3.3.0
+go: downloading github.com/dustin/go-humanize v1.0.1
+go: downloading gopkg.in/yaml.v3 v3.0.1
+go: downloading github.com/go-resty/resty/v2 v2.17.2
+go: downloading github.com/dimiro1/health v0.0.0-20231118160444-e388c68d7d7e
+go: downloading github.com/go-chi/cors v1.2.2
+go: downloading github.com/go-chi/httptracer v0.3.0
+go: downloading github.com/go-jose/go-jose/v4 v4.1.4
+go: downloading github.com/pkg/errors v0.9.1
+go: downloading go.uber.org/multierr v1.11.0
+go: downloading golang.org/x/sys v0.43.0
+go: downloading github.com/gabriel-vasile/mimetype v1.4.13
+go: downloading github.com/go-playground/universal-translator v0.18.1
+go: downloading github.com/leodido/go-urn v1.4.0
+go: downloading golang.org/x/crypto v0.50.0
+go: downloading golang.org/x/text v0.36.0
+go: downloading github.com/spf13/pflag v1.0.10
+go: downloading github.com/go-viper/mapstructure/v2 v2.5.0
+go: downloading github.com/sagikazarmark/locafero v0.12.0
+go: downloading github.com/spf13/afero v1.15.0
+go: downloading github.com/spf13/cast v1.10.0
+go: downloading github.com/aymerick/douceur v0.2.0
+go: downloading golang.org/x/net v0.53.0
+go: downloading github.com/beorn7/perks v1.0.1
+go: downloading github.com/cespare/xxhash/v2 v2.3.0
+go: downloading github.com/prometheus/client_model v0.6.2
+go: downloading github.com/prometheus/common v0.67.5
+go: downloading github.com/prometheus/procfs v0.20.1
+go: downloading google.golang.org/protobuf v1.36.11
+go: downloading dario.cat/mergo v1.0.2
+go: downloading github.com/Masterminds/goutils v1.1.1
+go: downloading github.com/Masterminds/semver/v3 v3.4.0
+go: downloading github.com/google/uuid v1.6.0
+go: downloading github.com/huandu/xstrings v1.5.0
+go: downloading github.com/mitchellh/copystructure v1.2.0
+go: downloading github.com/shopspring/decimal v1.4.0
+go: downloading go.uber.org/atomic v1.11.0
+go: downloading github.com/go-playground/locales v0.14.1
+go: downloading github.com/subosito/gotenv v1.6.0
+go: downloading github.com/pelletier/go-toml/v2 v2.3.0
+go: downloading go.yaml.in/yaml/v3 v3.0.4
+go: downloading github.com/gorilla/css v1.0.1
+go: downloading github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822
+go: downloading go.yaml.in/yaml/v2 v2.4.4
+go: downloading github.com/jmespath/go-jmespath v0.4.0
+go: downloading github.com/mitchellh/reflectwalk v1.0.2
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-10T08:26:28Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-10T08:26:29Z	INFO	Number of language-specific files	num=1
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
