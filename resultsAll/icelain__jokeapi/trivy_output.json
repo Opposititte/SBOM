@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:b276215d-439c-4923-8066-08c926e53573",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:03:49+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "267c31a0-704a-4420-b513-4fb7f24bb1c9",
+      "type": "application",
+      "name": "/home/user/SBOM/work/icelain__jokeapi",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "612ba6e6-017a-47b6-b0a5-c414e2c4ae1a",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/icelain/jokeapi",
+      "type": "library",
+      "name": "github.com/icelain/jokeapi",
+      "purl": "pkg:golang/github.com/icelain/jokeapi",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/icelain/jokeapi"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "267c31a0-704a-4420-b513-4fb7f24bb1c9",
+      "dependsOn": [
+        "612ba6e6-017a-47b6-b0a5-c414e2c4ae1a"
+      ]
+    },
+    {
+      "ref": "612ba6e6-017a-47b6-b0a5-c414e2c4ae1a",
+      "dependsOn": [
+        "pkg:golang/github.com/icelain/jokeapi"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/icelain/jokeapi",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

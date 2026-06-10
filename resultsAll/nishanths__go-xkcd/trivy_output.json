@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:70e7d06b-04c9-4036-abbe-5d253b243167",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:58:23+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "8baebe20-4a6d-46d5-a38e-97bfdf7e5ff6",
+      "type": "application",
+      "name": "/home/user/SBOM/work/nishanths__go-xkcd",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "a66bb80a-903a-488f-bddc-f1334a6c9663",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/nishanths/go-xkcd/v2",
+      "type": "library",
+      "name": "github.com/nishanths/go-xkcd/v2",
+      "purl": "pkg:golang/github.com/nishanths/go-xkcd/v2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/nishanths/go-xkcd/v2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "8baebe20-4a6d-46d5-a38e-97bfdf7e5ff6",
+      "dependsOn": [
+        "a66bb80a-903a-488f-bddc-f1334a6c9663"
+      ]
+    },
+    {
+      "ref": "a66bb80a-903a-488f-bddc-f1334a6c9663",
+      "dependsOn": [
+        "pkg:golang/github.com/nishanths/go-xkcd/v2"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/nishanths/go-xkcd/v2",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

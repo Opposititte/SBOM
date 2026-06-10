@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:8de6c39e-2f58-4b58-b367-3913a325ff2c",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:04:10+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "d4febc3d-2166-4e4d-8152-4b1053098df1",
+      "type": "application",
+      "name": "/home/user/SBOM/work/clevabit__libgoffi",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "6f04618b-68bb-43e2-a1b7-6280fa318ad1",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/achille-roussel/go-dl@v0.0.0-20160112015913-00e9c7be8e78",
+      "type": "library",
+      "name": "github.com/achille-roussel/go-dl",
+      "version": "v0.0.0-20160112015913-00e9c7be8e78",
+      "purl": "pkg:golang/github.com/achille-roussel/go-dl@v0.0.0-20160112015913-00e9c7be8e78",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/achille-roussel/go-dl@v0.0.0-20160112015913-00e9c7be8e78"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/clevabit/libgoffi",
+      "type": "library",
+      "name": "github.com/clevabit/libgoffi",
+      "purl": "pkg:golang/github.com/clevabit/libgoffi",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/clevabit/libgoffi"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "6f04618b-68bb-43e2-a1b7-6280fa318ad1",
+      "dependsOn": [
+        "pkg:golang/github.com/clevabit/libgoffi"
+      ]
+    },
+    {
+      "ref": "d4febc3d-2166-4e4d-8152-4b1053098df1",
+      "dependsOn": [
+        "6f04618b-68bb-43e2-a1b7-6280fa318ad1"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/achille-roussel/go-dl@v0.0.0-20160112015913-00e9c7be8e78",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/clevabit/libgoffi",
+      "dependsOn": [
+        "pkg:golang/github.com/achille-roussel/go-dl@v0.0.0-20160112015913-00e9c7be8e78"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}

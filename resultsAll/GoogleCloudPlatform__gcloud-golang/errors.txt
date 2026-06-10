@@ -1,0 +1,36 @@
+Cloning into '/home/user/SBOM/work/GoogleCloudPlatform__gcloud-golang'...
+Updating files:  43% (10197/23660)Updating files:  44% (10411/23660)Updating files:  45% (10647/23660)Updating files:  46% (10884/23660)Updating files:  47% (11121/23660)Updating files:  48% (11357/23660)Updating files:  49% (11594/23660)Updating files:  50% (11830/23660)Updating files:  51% (12067/23660)Updating files:  52% (12304/23660)Updating files:  53% (12540/23660)Updating files:  54% (12777/23660)Updating files:  55% (13013/23660)Updating files:  56% (13250/23660)Updating files:  57% (13487/23660)Updating files:  58% (13723/23660)Updating files:  59% (13960/23660)Updating files:  60% (14196/23660)Updating files:  61% (14433/23660)Updating files:  62% (14670/23660)Updating files:  63% (14906/23660)Updating files:  64% (15143/23660)Updating files:  65% (15379/23660)Updating files:  66% (15616/23660)Updating files:  67% (15853/23660)Updating files:  68% (16089/23660)Updating files:  69% (16326/23660)Updating files:  70% (16562/23660)Updating files:  71% (16799/23660)Updating files:  72% (17036/23660)Updating files:  73% (17272/23660)Updating files:  74% (17509/23660)Updating files:  75% (17745/23660)Updating files:  76% (17982/23660)Updating files:  77% (18219/23660)Updating files:  78% (18455/23660)Updating files:  79% (18692/23660)Updating files:  80% (18928/23660)Updating files:  81% (19165/23660)Updating files:  82% (19402/23660)Updating files:  83% (19638/23660)Updating files:  84% (19875/23660)Updating files:  85% (20111/23660)Updating files:  86% (20348/23660)Updating files:  87% (20585/23660)Updating files:  88% (20821/23660)Updating files:  89% (21058/23660)Updating files:  90% (21294/23660)Updating files:  91% (21531/23660)Updating files:  92% (21768/23660)Updating files:  93% (22004/23660)Updating files:  94% (22241/23660)Updating files:  95% (22477/23660)Updating files:  96% (22714/23660)Updating files:  97% (22951/23660)Updating files:  98% (23187/23660)Updating files:  99% (23424/23660)Updating files: 100% (23660/23660)Updating files: 100% (23660/23660), done.
+go: downloading github.com/google/martian/v3 v3.3.3
+go: downloading google.golang.org/api v0.283.0
+go: downloading go.opentelemetry.io/otel v1.44.0
+go: downloading go.opentelemetry.io/otel/sdk v1.44.0
+go: downloading go.opentelemetry.io/otel/trace v1.44.0
+go: downloading go.opentelemetry.io/otel/metric v1.44.0
+go: downloading golang.org/x/sync v0.20.0
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-10T03:02:21Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-10T03:02:24Z	INFO	Number of language-specific files	num=207
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m

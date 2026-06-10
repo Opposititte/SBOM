@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:8a6ebba4-5624-44f3-84bb-8f9b97cce92d",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:03:05+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "2cb0ae38-186b-46bc-a94e-e1e70ce97424",
+      "type": "application",
+      "name": "/home/user/SBOM/work/utekaravinash__gopaapi5",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "4325a775-e1ef-493e-8464-6f84936a001b",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/utekaravinash/gopaapi5",
+      "type": "library",
+      "name": "github.com/utekaravinash/gopaapi5",
+      "purl": "pkg:golang/github.com/utekaravinash/gopaapi5",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/utekaravinash/gopaapi5"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "2cb0ae38-186b-46bc-a94e-e1e70ce97424",
+      "dependsOn": [
+        "4325a775-e1ef-493e-8464-6f84936a001b"
+      ]
+    },
+    {
+      "ref": "4325a775-e1ef-493e-8464-6f84936a001b",
+      "dependsOn": [
+        "pkg:golang/github.com/utekaravinash/gopaapi5"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/utekaravinash/gopaapi5",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
