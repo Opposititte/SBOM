@@ -1,0 +1,167 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:458c81ec-70d6-41d6-ab96-364491c86cec",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:47:07+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "1c32351e-0aa3-4131-b5d6-d37a9df89673",
+      "type": "application",
+      "name": "/home/user/SBOM/work/microcosm-cc__bluemonday",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "233e1cab-3624-4d85-b48c-78383af2f3a9",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/aymerick/douceur@v0.2.0",
+      "type": "library",
+      "name": "github.com/aymerick/douceur",
+      "version": "v0.2.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/aymerick/douceur@v0.2.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/aymerick/douceur@v0.2.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gorilla/css@v1.0.1",
+      "type": "library",
+      "name": "github.com/gorilla/css",
+      "version": "v1.0.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/gorilla/css@v1.0.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gorilla/css@v1.0.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/microcosm-cc/bluemonday",
+      "type": "library",
+      "name": "github.com/microcosm-cc/bluemonday",
+      "purl": "pkg:golang/github.com/microcosm-cc/bluemonday",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/microcosm-cc/bluemonday"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/net@v0.26.0",
+      "type": "library",
+      "name": "golang.org/x/net",
+      "version": "v0.26.0",
+      "purl": "pkg:golang/golang.org/x/net@v0.26.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/net@v0.26.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "1c32351e-0aa3-4131-b5d6-d37a9df89673",
+      "dependsOn": [
+        "233e1cab-3624-4d85-b48c-78383af2f3a9"
+      ]
+    },
+    {
+      "ref": "233e1cab-3624-4d85-b48c-78383af2f3a9",
+      "dependsOn": [
+        "pkg:golang/github.com/microcosm-cc/bluemonday"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/aymerick/douceur@v0.2.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/gorilla/css@v1.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/microcosm-cc/bluemonday",
+      "dependsOn": [
+        "pkg:golang/github.com/aymerick/douceur@v0.2.0",
+        "pkg:golang/github.com/gorilla/css@v1.0.1",
+        "pkg:golang/golang.org/x/net@v0.26.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/net@v0.26.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

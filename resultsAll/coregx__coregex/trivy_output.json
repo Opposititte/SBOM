@@ -1,0 +1,138 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:b04e0569-91d9-48ec-8ce5-f68e9464028e",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:46:41+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "b3cc4f20-5cdf-4879-8991-ed6f7676d900",
+      "type": "application",
+      "name": "/home/user/SBOM/work/coregx__coregex",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "0dd4b9b3-7565-4d70-8e97-29d5d26bb58f",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/coregx/ahocorasick@v0.2.1",
+      "type": "library",
+      "name": "github.com/coregx/ahocorasick",
+      "version": "v0.2.1",
+      "purl": "pkg:golang/github.com/coregx/ahocorasick@v0.2.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/coregx/ahocorasick@v0.2.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/coregx/coregex",
+      "type": "library",
+      "name": "github.com/coregx/coregex",
+      "purl": "pkg:golang/github.com/coregx/coregex",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/coregx/coregex"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.40.0",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.40.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/sys@v0.40.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sys@v0.40.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "0dd4b9b3-7565-4d70-8e97-29d5d26bb58f",
+      "dependsOn": [
+        "pkg:golang/github.com/coregx/coregex"
+      ]
+    },
+    {
+      "ref": "b3cc4f20-5cdf-4879-8991-ed6f7676d900",
+      "dependsOn": [
+        "0dd4b9b3-7565-4d70-8e97-29d5d26bb58f"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/coregx/ahocorasick@v0.2.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/coregx/coregex",
+      "dependsOn": [
+        "pkg:golang/github.com/coregx/ahocorasick@v0.2.1",
+        "pkg:golang/golang.org/x/sys@v0.40.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.40.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

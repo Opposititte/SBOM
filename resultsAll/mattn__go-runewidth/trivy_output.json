@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:62b3f13c-b524-412d-96a8-458c5fd34cc6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:48:52+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "dcd91667-7cb0-4dcd-b574-1072c8273814",
+      "type": "application",
+      "name": "/home/user/SBOM/work/mattn__go-runewidth",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "fbe24a42-5fc5-4dca-94a8-be80ec24b983",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/clipperhouse/uax29/v2@v2.2.0",
+      "type": "library",
+      "name": "github.com/clipperhouse/uax29/v2",
+      "version": "v2.2.0",
+      "purl": "pkg:golang/github.com/clipperhouse/uax29/v2@v2.2.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/clipperhouse/uax29/v2@v2.2.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mattn/go-runewidth",
+      "type": "library",
+      "name": "github.com/mattn/go-runewidth",
+      "purl": "pkg:golang/github.com/mattn/go-runewidth",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mattn/go-runewidth"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "dcd91667-7cb0-4dcd-b574-1072c8273814",
+      "dependsOn": [
+        "fbe24a42-5fc5-4dca-94a8-be80ec24b983"
+      ]
+    },
+    {
+      "ref": "fbe24a42-5fc5-4dca-94a8-be80ec24b983",
+      "dependsOn": [
+        "pkg:golang/github.com/mattn/go-runewidth"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/clipperhouse/uax29/v2@v2.2.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/mattn/go-runewidth",
+      "dependsOn": [
+        "pkg:golang/github.com/clipperhouse/uax29/v2@v2.2.0"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}
