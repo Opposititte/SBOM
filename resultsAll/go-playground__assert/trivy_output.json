@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:9c12a04b-22d0-425b-a7e8-6465a77e7c64",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:25:17+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "45f45481-4ac4-4e69-9726-23b944611e51",
+      "type": "application",
+      "name": "/home/user/SBOM/work/go-playground__assert",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "7c3f36d1-f664-4c2b-85cd-feca116a29db",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/go-playground/assert/v2",
+      "type": "library",
+      "name": "github.com/go-playground/assert/v2",
+      "purl": "pkg:golang/github.com/go-playground/assert/v2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/go-playground/assert/v2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "45f45481-4ac4-4e69-9726-23b944611e51",
+      "dependsOn": [
+        "7c3f36d1-f664-4c2b-85cd-feca116a29db"
+      ]
+    },
+    {
+      "ref": "7c3f36d1-f664-4c2b-85cd-feca116a29db",
+      "dependsOn": [
+        "pkg:golang/github.com/go-playground/assert/v2"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/go-playground/assert/v2",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,192 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:688cbc01-c0b4-4f7e-8a0f-8d8fdab59423",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:23:34+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "86475401-4e64-4995-aa60-504c576bfb0a",
+      "type": "application",
+      "name": "/home/user/SBOM/work/flosch__pongo2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "92275d76-f6c3-4c29-ab60-b7b04f68827a",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/flosch/pongo2/v7",
+      "type": "library",
+      "name": "github.com/flosch/pongo2/v7",
+      "purl": "pkg:golang/github.com/flosch/pongo2/v7",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/flosch/pongo2/v7"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/mod@v0.31.0",
+      "type": "library",
+      "name": "golang.org/x/mod",
+      "version": "v0.31.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/mod@v0.31.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/mod@v0.31.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sync@v0.19.0",
+      "type": "library",
+      "name": "golang.org/x/sync",
+      "version": "v0.19.0",
+      "purl": "pkg:golang/golang.org/x/sync@v0.19.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sync@v0.19.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/text@v0.33.0",
+      "type": "library",
+      "name": "golang.org/x/text",
+      "version": "v0.33.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/text@v0.33.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/text@v0.33.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/tools@v0.40.0",
+      "type": "library",
+      "name": "golang.org/x/tools",
+      "version": "v0.40.0",
+      "purl": "pkg:golang/golang.org/x/tools@v0.40.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/tools@v0.40.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "86475401-4e64-4995-aa60-504c576bfb0a",
+      "dependsOn": [
+        "92275d76-f6c3-4c29-ab60-b7b04f68827a"
+      ]
+    },
+    {
+      "ref": "92275d76-f6c3-4c29-ab60-b7b04f68827a",
+      "dependsOn": [
+        "pkg:golang/github.com/flosch/pongo2/v7"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/flosch/pongo2/v7",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/mod@v0.31.0",
+        "pkg:golang/golang.org/x/sync@v0.19.0",
+        "pkg:golang/golang.org/x/text@v0.33.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/mod@v0.31.0",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/tools@v0.40.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sync@v0.19.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/text@v0.33.0",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/tools@v0.40.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/tools@v0.40.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
