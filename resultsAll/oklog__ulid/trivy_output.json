@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:65cb3a73-a7ef-41fe-a826-084c0bc22b4b",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:32:53+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "0ff0ff05-baa5-4072-b24f-8eaf4a8f80cc",
+      "type": "application",
+      "name": "/home/user/SBOM/work/oklog__ulid",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "6aeb6f2b-7773-41ab-b50e-823d60084d4e",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/oklog/ulid/v2",
+      "type": "library",
+      "name": "github.com/oklog/ulid/v2",
+      "purl": "pkg:golang/github.com/oklog/ulid/v2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/oklog/ulid/v2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/pborman/getopt@v0.0.0-20170112200414-7148bc3a4c30",
+      "type": "library",
+      "name": "github.com/pborman/getopt",
+      "version": "v0.0.0-20170112200414-7148bc3a4c30",
+      "purl": "pkg:golang/github.com/pborman/getopt@v0.0.0-20170112200414-7148bc3a4c30",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/pborman/getopt@v0.0.0-20170112200414-7148bc3a4c30"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "0ff0ff05-baa5-4072-b24f-8eaf4a8f80cc",
+      "dependsOn": [
+        "6aeb6f2b-7773-41ab-b50e-823d60084d4e"
+      ]
+    },
+    {
+      "ref": "6aeb6f2b-7773-41ab-b50e-823d60084d4e",
+      "dependsOn": [
+        "pkg:golang/github.com/oklog/ulid/v2"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/oklog/ulid/v2",
+      "dependsOn": [
+        "pkg:golang/github.com/pborman/getopt@v0.0.0-20170112200414-7148bc3a4c30"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/pborman/getopt@v0.0.0-20170112200414-7148bc3a4c30",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

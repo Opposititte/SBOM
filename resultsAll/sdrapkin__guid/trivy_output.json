@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:ad4bbbed-5a92-46e5-9246-e4ae39181507",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:32:39+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "e552a627-b2cc-4589-87dc-0376bf1fb2dd",
+      "type": "application",
+      "name": "/home/user/SBOM/work/sdrapkin__guid",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "39aab01b-8597-4df2-8931-c5a26e1a3bdd",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/sdrapkin/guid",
+      "type": "library",
+      "name": "github.com/sdrapkin/guid",
+      "purl": "pkg:golang/github.com/sdrapkin/guid",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/sdrapkin/guid"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.34.0",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.34.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.34.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sys@v0.34.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "39aab01b-8597-4df2-8931-c5a26e1a3bdd",
+      "dependsOn": [
+        "pkg:golang/github.com/sdrapkin/guid"
+      ]
+    },
+    {
+      "ref": "e552a627-b2cc-4589-87dc-0376bf1fb2dd",
+      "dependsOn": [
+        "39aab01b-8597-4df2-8931-c5a26e1a3bdd"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/sdrapkin/guid",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/sys@v0.34.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.34.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

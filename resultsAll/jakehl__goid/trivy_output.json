@@ -1,0 +1,128 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:15d5a7e8-efca-43f0-a126-7567beb94df7",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:32:31+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "55f453f4-3b15-4586-9b2c-4a8693af94ec",
+      "type": "application",
+      "name": "/home/user/SBOM/work/jakehl__goid",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "7640415f-783a-4ce7-b572-8630e8e6c31e",
+      "type": "application",
+      "name": "cmd/go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "c744fd73-351c-4ab7-a9fb-3d3c8c17d612",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jakehl/goid",
+      "type": "library",
+      "name": "github.com/jakehl/goid",
+      "purl": "pkg:golang/github.com/jakehl/goid",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/jakehl/goid"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jakehl/goid/cmd",
+      "type": "library",
+      "name": "github.com/jakehl/goid/cmd",
+      "purl": "pkg:golang/github.com/jakehl/goid/cmd",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/jakehl/goid/cmd"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "55f453f4-3b15-4586-9b2c-4a8693af94ec",
+      "dependsOn": [
+        "7640415f-783a-4ce7-b572-8630e8e6c31e",
+        "c744fd73-351c-4ab7-a9fb-3d3c8c17d612"
+      ]
+    },
+    {
+      "ref": "7640415f-783a-4ce7-b572-8630e8e6c31e",
+      "dependsOn": [
+        "pkg:golang/github.com/jakehl/goid/cmd"
+      ]
+    },
+    {
+      "ref": "c744fd73-351c-4ab7-a9fb-3d3c8c17d612",
+      "dependsOn": [
+        "pkg:golang/github.com/jakehl/goid"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/jakehl/goid",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/jakehl/goid/cmd",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,182 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:919f2b4a-d7f2-4004-a234-077d7593e28e",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:31:37+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "bd6eabf7-3ec9-4f41-8f4b-3c3ba0192b1d",
+      "type": "application",
+      "name": "/home/user/SBOM/work/shomali11__util",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "7c2aff31-3d78-482b-bf50-c30db21a7eda",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/davecgh/go-spew@v1.1.0",
+      "type": "library",
+      "name": "github.com/davecgh/go-spew",
+      "version": "v1.1.0",
+      "purl": "pkg:golang/github.com/davecgh/go-spew@v1.1.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/davecgh/go-spew@v1.1.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+      "type": "library",
+      "name": "github.com/pmezard/go-difflib",
+      "version": "v1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/pmezard/go-difflib@v1.0.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/shomali11/parallelizer@v0.0.0-20220717173222-a6776fbf40a9",
+      "type": "library",
+      "name": "github.com/shomali11/parallelizer",
+      "version": "v0.0.0-20220717173222-a6776fbf40a9",
+      "purl": "pkg:golang/github.com/shomali11/parallelizer@v0.0.0-20220717173222-a6776fbf40a9",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/shomali11/parallelizer@v0.0.0-20220717173222-a6776fbf40a9"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/shomali11/util",
+      "type": "library",
+      "name": "github.com/shomali11/util",
+      "purl": "pkg:golang/github.com/shomali11/util",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/shomali11/util"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/stretchr/testify@v1.2.1",
+      "type": "library",
+      "name": "github.com/stretchr/testify",
+      "version": "v1.2.1",
+      "purl": "pkg:golang/github.com/stretchr/testify@v1.2.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/stretchr/testify@v1.2.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "7c2aff31-3d78-482b-bf50-c30db21a7eda",
+      "dependsOn": [
+        "pkg:golang/github.com/shomali11/util"
+      ]
+    },
+    {
+      "ref": "bd6eabf7-3ec9-4f41-8f4b-3c3ba0192b1d",
+      "dependsOn": [
+        "7c2aff31-3d78-482b-bf50-c30db21a7eda"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/davecgh/go-spew@v1.1.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/shomali11/parallelizer@v0.0.0-20220717173222-a6776fbf40a9",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/shomali11/util",
+      "dependsOn": [
+        "pkg:golang/github.com/davecgh/go-spew@v1.1.0",
+        "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+        "pkg:golang/github.com/shomali11/parallelizer@v0.0.0-20220717173222-a6776fbf40a9",
+        "pkg:golang/github.com/stretchr/testify@v1.2.1"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/stretchr/testify@v1.2.1",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

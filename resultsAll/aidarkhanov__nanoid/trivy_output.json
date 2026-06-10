@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:75b8268f-9f81-4cf6-a7de-4825d289a1f2",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:32:43+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "5a488d48-c029-48ec-af4e-8167519801d1",
+      "type": "application",
+      "name": "/home/user/SBOM/work/aidarkhanov__nanoid",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "c1b49652-6d99-4674-a343-ece95c28dc19",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/aidarkhanov/nanoid/v2",
+      "type": "library",
+      "name": "github.com/aidarkhanov/nanoid/v2",
+      "purl": "pkg:golang/github.com/aidarkhanov/nanoid/v2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/aidarkhanov/nanoid/v2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "5a488d48-c029-48ec-af4e-8167519801d1",
+      "dependsOn": [
+        "c1b49652-6d99-4674-a343-ece95c28dc19"
+      ]
+    },
+    {
+      "ref": "c1b49652-6d99-4674-a343-ece95c28dc19",
+      "dependsOn": [
+        "pkg:golang/github.com/aidarkhanov/nanoid/v2"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/aidarkhanov/nanoid/v2",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
