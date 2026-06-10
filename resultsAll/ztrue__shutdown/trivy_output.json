@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:b03f3950-be82-43ed-af92-0ca4ab880a5b",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:28:06+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "0edc3b0e-8bac-4c67-8c2b-00b377d3440c",
+      "type": "application",
+      "name": "/home/user/SBOM/work/ztrue__shutdown",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "b95c55d6-90dc-416c-b0e6-334d9bc7dad9",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/ztrue/shutdown",
+      "type": "library",
+      "name": "github.com/ztrue/shutdown",
+      "purl": "pkg:golang/github.com/ztrue/shutdown",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/ztrue/shutdown"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "0edc3b0e-8bac-4c67-8c2b-00b377d3440c",
+      "dependsOn": [
+        "b95c55d6-90dc-416c-b0e6-334d9bc7dad9"
+      ]
+    },
+    {
+      "ref": "b95c55d6-90dc-416c-b0e6-334d9bc7dad9",
+      "dependsOn": [
+        "pkg:golang/github.com/ztrue/shutdown"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/ztrue/shutdown",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

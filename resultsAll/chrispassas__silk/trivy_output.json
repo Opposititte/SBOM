@@ -1,0 +1,131 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:bd84baf4-c792-4de7-ba39-a7619595ecb4",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:28:16+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "883cc902-4fec-48d0-a27f-7c614fa3c07d",
+      "type": "application",
+      "name": "/home/user/SBOM/work/chrispassas__silk",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "e24e05ae-aadc-4d77-8835-eb15f99c4028",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/chrispassas/silk",
+      "type": "library",
+      "name": "github.com/chrispassas/silk",
+      "purl": "pkg:golang/github.com/chrispassas/silk",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/chrispassas/silk"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/golang/snappy@v0.0.1",
+      "type": "library",
+      "name": "github.com/golang/snappy",
+      "version": "v0.0.1",
+      "purl": "pkg:golang/github.com/golang/snappy@v0.0.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/golang/snappy@v0.0.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/rasky/go-lzo@v0.0.0-20200203143853-96a758eda86e",
+      "type": "library",
+      "name": "github.com/rasky/go-lzo",
+      "version": "v0.0.0-20200203143853-96a758eda86e",
+      "purl": "pkg:golang/github.com/rasky/go-lzo@v0.0.0-20200203143853-96a758eda86e",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/rasky/go-lzo@v0.0.0-20200203143853-96a758eda86e"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "883cc902-4fec-48d0-a27f-7c614fa3c07d",
+      "dependsOn": [
+        "e24e05ae-aadc-4d77-8835-eb15f99c4028"
+      ]
+    },
+    {
+      "ref": "e24e05ae-aadc-4d77-8835-eb15f99c4028",
+      "dependsOn": [
+        "pkg:golang/github.com/chrispassas/silk"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/chrispassas/silk",
+      "dependsOn": [
+        "pkg:golang/github.com/golang/snappy@v0.0.1",
+        "pkg:golang/github.com/rasky/go-lzo@v0.0.0-20200203143853-96a758eda86e"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/golang/snappy@v0.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/rasky/go-lzo@v0.0.0-20200203143853-96a758eda86e",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
