@@ -1,0 +1,73 @@
+Cloning into '/home/user/SBOM/work/clubpay__ronykit'...
+go: downloading go1.25.8 (linux/amd64)
+go: -mod may only be set to readonly or vendor when in workspace mode, but it is set to "mod"
+	Remove the -mod flag to use the default readonly value, 
+	or set GOWORK=off to disable workspace mode.
+ERROR: 'go list -m all' failed
+go: -mod may only be set to readonly or vendor when in workspace mode, but it is set to "mod"
+	Remove the -mod flag to use the default readonly value, 
+	or set GOWORK=off to disable workspace mode.
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-10T03:47:49Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-10T03:47:50Z	INFO	Number of language-specific files	num=34
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/testenv
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/stub
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/ronyup
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/rony
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/kit
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/flow
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/x/testkit
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/x/telemetry
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/x/settings
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/x/rkit
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/x/ratelimit
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/x/p
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/x/i18n
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/x/di
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/x/datasource
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/x/cache
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/x/batch
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/x/apidoc
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/example/ex-11-mcp
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/example/ex-10-flow-codec
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/example/ex-09-mw
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/example/ex-08-echo
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/example/ex-06-counter-stream
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/example/ex-05-counter
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/example/ex-04-stubgen
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/example/ex-03-cluster
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/example/ex-02-rest
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/example/ex-01-rpc
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/std/gateways/silverhttp
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/std/gateways/mcp
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/std/gateways/fastws
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/std/gateways/fasthttp
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/std/clusters/rediscluster
+go list -deps command has failed for /home/user/SBOM/work/clubpay__ronykit/std/clusters/p2pcluster
+Manually parsing go.mod files. The resultant BOM would be incomplete.
+[90m3:47AM[0m [31mERR[0m [36merror=[0m[31m[1m"failed to collect vendored modules: not a go module"[0m[0m
+ERROR: cyclonedx-gomod failed
