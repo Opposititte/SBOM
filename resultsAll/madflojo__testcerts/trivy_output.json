@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:6966ed1f-0ef7-4875-b325-aff1e1238429",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:33:59+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "a2316b09-aeb9-4664-8fe9-d4db9a3ca11f",
+      "type": "application",
+      "name": "/home/user/SBOM/work/madflojo__testcerts",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "5e284016-17cd-4118-accc-ad4d65db5448",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/madflojo/testcerts",
+      "type": "library",
+      "name": "github.com/madflojo/testcerts",
+      "purl": "pkg:golang/github.com/madflojo/testcerts",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/madflojo/testcerts"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "5e284016-17cd-4118-accc-ad4d65db5448",
+      "dependsOn": [
+        "pkg:golang/github.com/madflojo/testcerts"
+      ]
+    },
+    {
+      "ref": "a2316b09-aeb9-4664-8fe9-d4db9a3ca11f",
+      "dependsOn": [
+        "5e284016-17cd-4118-accc-ad4d65db5448"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/madflojo/testcerts",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

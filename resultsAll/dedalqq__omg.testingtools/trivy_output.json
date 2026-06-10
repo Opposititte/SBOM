@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:2195ddfb-6791-49db-b53b-762af32831c9",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:33:31+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "5d39c8fa-6d9c-458a-87c4-1b34a5a66b67",
+      "type": "application",
+      "name": "/home/user/SBOM/work/dedalqq__omg.testingtools",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "59b82b31-8f28-4e68-b9ed-ad46ae72829b",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/dedalqq/omg.testingtools",
+      "type": "library",
+      "name": "github.com/dedalqq/omg.testingtools",
+      "purl": "pkg:golang/github.com/dedalqq/omg.testingtools",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/dedalqq/omg.testingtools"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "59b82b31-8f28-4e68-b9ed-ad46ae72829b",
+      "dependsOn": [
+        "pkg:golang/github.com/dedalqq/omg.testingtools"
+      ]
+    },
+    {
+      "ref": "5d39c8fa-6d9c-458a-87c4-1b34a5a66b67",
+      "dependsOn": [
+        "59b82b31-8f28-4e68-b9ed-ad46ae72829b"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/dedalqq/omg.testingtools",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

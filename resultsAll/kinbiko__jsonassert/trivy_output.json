@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:def5d870-66ae-40d1-aa8e-8f0e96e93041",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:32:48+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "e9fb9bd6-1913-4813-9fbf-10d6be9116a5",
+      "type": "application",
+      "name": "/home/user/SBOM/work/kinbiko__jsonassert",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "caea1da9-8558-4198-b762-888149a3f1e0",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/kinbiko/jsonassert",
+      "type": "library",
+      "name": "github.com/kinbiko/jsonassert",
+      "purl": "pkg:golang/github.com/kinbiko/jsonassert",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/kinbiko/jsonassert"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "caea1da9-8558-4198-b762-888149a3f1e0",
+      "dependsOn": [
+        "pkg:golang/github.com/kinbiko/jsonassert"
+      ]
+    },
+    {
+      "ref": "e9fb9bd6-1913-4813-9fbf-10d6be9116a5",
+      "dependsOn": [
+        "caea1da9-8558-4198-b762-888149a3f1e0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/kinbiko/jsonassert",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

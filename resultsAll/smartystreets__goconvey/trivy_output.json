@@ -1,0 +1,197 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:2fff2478-1ffd-4f99-913d-6f18efa7a0ae",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:31:03+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "b7c9dab2-cbd4-4273-9293-be9717b7c0a8",
+      "type": "application",
+      "name": "/home/user/SBOM/work/smartystreets__goconvey",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "832f5050-eeb3-4329-b3bb-0a4ce1d1e7c5",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gopherjs/gopherjs@v1.17.2",
+      "type": "library",
+      "name": "github.com/gopherjs/gopherjs",
+      "version": "v1.17.2",
+      "purl": "pkg:golang/github.com/gopherjs/gopherjs@v1.17.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gopherjs/gopherjs@v1.17.2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jtolds/gls@v4.20.0%2Bincompatible",
+      "type": "library",
+      "name": "github.com/jtolds/gls",
+      "version": "v4.20.0+incompatible",
+      "purl": "pkg:golang/github.com/jtolds/gls@v4.20.0%2Bincompatible",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/jtolds/gls@v4.20.0+incompatible"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/smarty/assertions@v1.15.1",
+      "type": "library",
+      "name": "github.com/smarty/assertions",
+      "version": "v1.15.1",
+      "purl": "pkg:golang/github.com/smarty/assertions@v1.15.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/smarty/assertions@v1.15.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/smartystreets/goconvey",
+      "type": "library",
+      "name": "github.com/smartystreets/goconvey",
+      "purl": "pkg:golang/github.com/smartystreets/goconvey",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/smartystreets/goconvey"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/mod@v0.15.0",
+      "type": "library",
+      "name": "golang.org/x/mod",
+      "version": "v0.15.0",
+      "purl": "pkg:golang/golang.org/x/mod@v0.15.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/mod@v0.15.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/tools@v0.18.0",
+      "type": "library",
+      "name": "golang.org/x/tools",
+      "version": "v0.18.0",
+      "purl": "pkg:golang/golang.org/x/tools@v0.18.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/tools@v0.18.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "832f5050-eeb3-4329-b3bb-0a4ce1d1e7c5",
+      "dependsOn": [
+        "pkg:golang/github.com/smartystreets/goconvey"
+      ]
+    },
+    {
+      "ref": "b7c9dab2-cbd4-4273-9293-be9717b7c0a8",
+      "dependsOn": [
+        "832f5050-eeb3-4329-b3bb-0a4ce1d1e7c5"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/gopherjs/gopherjs@v1.17.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/jtolds/gls@v4.20.0%2Bincompatible",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/smarty/assertions@v1.15.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/smartystreets/goconvey",
+      "dependsOn": [
+        "pkg:golang/github.com/gopherjs/gopherjs@v1.17.2",
+        "pkg:golang/github.com/jtolds/gls@v4.20.0%2Bincompatible",
+        "pkg:golang/github.com/smarty/assertions@v1.15.1",
+        "pkg:golang/golang.org/x/mod@v0.15.0",
+        "pkg:golang/golang.org/x/tools@v0.18.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/mod@v0.15.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/tools@v0.18.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
