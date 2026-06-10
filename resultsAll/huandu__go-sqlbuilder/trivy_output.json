@@ -1,0 +1,182 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:9892212d-8672-4c1d-97b0-0776b426783b",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:40:12+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "6b58849f-d92e-45ad-b6ac-00aea03875e8",
+      "type": "application",
+      "name": "/home/user/SBOM/work/huandu__go-sqlbuilder",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "3590a4ee-5f6f-400c-a1ed-c20af4709690",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+      "type": "library",
+      "name": "github.com/davecgh/go-spew",
+      "version": "v1.1.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/davecgh/go-spew@v1.1.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/huandu/go-assert@v1.1.6",
+      "type": "library",
+      "name": "github.com/huandu/go-assert",
+      "version": "v1.1.6",
+      "purl": "pkg:golang/github.com/huandu/go-assert@v1.1.6",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/huandu/go-assert@v1.1.6"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/huandu/go-clone@v1.7.3",
+      "type": "library",
+      "name": "github.com/huandu/go-clone",
+      "version": "v1.7.3",
+      "purl": "pkg:golang/github.com/huandu/go-clone@v1.7.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/huandu/go-clone@v1.7.3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/huandu/go-sqlbuilder",
+      "type": "library",
+      "name": "github.com/huandu/go-sqlbuilder",
+      "purl": "pkg:golang/github.com/huandu/go-sqlbuilder",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/huandu/go-sqlbuilder"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/huandu/xstrings@v1.4.0",
+      "type": "library",
+      "name": "github.com/huandu/xstrings",
+      "version": "v1.4.0",
+      "purl": "pkg:golang/github.com/huandu/xstrings@v1.4.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/huandu/xstrings@v1.4.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "3590a4ee-5f6f-400c-a1ed-c20af4709690",
+      "dependsOn": [
+        "pkg:golang/github.com/huandu/go-sqlbuilder"
+      ]
+    },
+    {
+      "ref": "6b58849f-d92e-45ad-b6ac-00aea03875e8",
+      "dependsOn": [
+        "3590a4ee-5f6f-400c-a1ed-c20af4709690"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/huandu/go-assert@v1.1.6",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/huandu/go-clone@v1.7.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/huandu/go-sqlbuilder",
+      "dependsOn": [
+        "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+        "pkg:golang/github.com/huandu/go-assert@v1.1.6",
+        "pkg:golang/github.com/huandu/go-clone@v1.7.3",
+        "pkg:golang/github.com/huandu/xstrings@v1.4.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/huandu/xstrings@v1.4.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
