@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:cd1e63db-83f5-4315-a803-a346043fa68b",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:57:39+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "0a77e5ea-2bb2-421a-b571-b358bfae478a",
+      "type": "application",
+      "name": "/home/user/SBOM/work/lane-c-wagner__go-password-validator",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "f98871b6-f53e-4bd7-8b29-7d9bd40bfeaa",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/wagslane/go-password-validator",
+      "type": "library",
+      "name": "github.com/wagslane/go-password-validator",
+      "purl": "pkg:golang/github.com/wagslane/go-password-validator",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/wagslane/go-password-validator"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "0a77e5ea-2bb2-421a-b571-b358bfae478a",
+      "dependsOn": [
+        "f98871b6-f53e-4bd7-8b29-7d9bd40bfeaa"
+      ]
+    },
+    {
+      "ref": "f98871b6-f53e-4bd7-8b29-7d9bd40bfeaa",
+      "dependsOn": [
+        "pkg:golang/github.com/wagslane/go-password-validator"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/wagslane/go-password-validator",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

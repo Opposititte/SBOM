@@ -1,0 +1,138 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:95a44cc8-6804-4849-bfd3-ae2eecbce43a",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:00:20+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "bf7b9ba7-91e3-4a99-8983-8cd893362269",
+      "type": "application",
+      "name": "/home/user/SBOM/work/zitadel__passwap",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "b939afa9-9710-4b54-b8c3-6ee0e123bcb1",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/zitadel/passwap",
+      "type": "library",
+      "name": "github.com/zitadel/passwap",
+      "purl": "pkg:golang/github.com/zitadel/passwap",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/zitadel/passwap"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/crypto@v0.52.0",
+      "type": "library",
+      "name": "golang.org/x/crypto",
+      "version": "v0.52.0",
+      "purl": "pkg:golang/golang.org/x/crypto@v0.52.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/crypto@v0.52.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.45.0",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.45.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/sys@v0.45.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sys@v0.45.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "b939afa9-9710-4b54-b8c3-6ee0e123bcb1",
+      "dependsOn": [
+        "pkg:golang/github.com/zitadel/passwap"
+      ]
+    },
+    {
+      "ref": "bf7b9ba7-91e3-4a99-8983-8cd893362269",
+      "dependsOn": [
+        "b939afa9-9710-4b54-b8c3-6ee0e123bcb1"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/zitadel/passwap",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/crypto@v0.52.0",
+        "pkg:golang/golang.org/x/sys@v0.45.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/crypto@v0.52.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.45.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

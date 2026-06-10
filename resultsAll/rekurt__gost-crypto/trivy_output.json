@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:8fd014b5-d265-40ca-8608-30997e991032",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:58:10+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "0335ee45-2195-4585-a6ee-93d3b8b9fa79",
+      "type": "application",
+      "name": "/home/user/SBOM/work/rekurt__gost-crypto",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "c61c63a9-c0eb-40e0-b98b-0dbcef6d9462",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/rekurt/gost-crypto",
+      "type": "library",
+      "name": "github.com/rekurt/gost-crypto",
+      "purl": "pkg:golang/github.com/rekurt/gost-crypto",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/rekurt/gost-crypto"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "0335ee45-2195-4585-a6ee-93d3b8b9fa79",
+      "dependsOn": [
+        "c61c63a9-c0eb-40e0-b98b-0dbcef6d9462"
+      ]
+    },
+    {
+      "ref": "c61c63a9-c0eb-40e0-b98b-0dbcef6d9462",
+      "dependsOn": [
+        "pkg:golang/github.com/rekurt/gost-crypto"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/rekurt/gost-crypto",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
