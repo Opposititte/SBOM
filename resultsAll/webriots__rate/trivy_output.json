@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:522233f9-a63e-4d79-ab66-c84049b3cd11",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:25:39+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "85690790-039b-4aa8-b721-bb4bc72f998e",
+      "type": "application",
+      "name": "/home/user/SBOM/work/webriots__rate",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "989c2156-7515-4a12-83df-b1502a65a9ff",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/webriots/rate",
+      "type": "library",
+      "name": "github.com/webriots/rate",
+      "purl": "pkg:golang/github.com/webriots/rate",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/webriots/rate"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "85690790-039b-4aa8-b721-bb4bc72f998e",
+      "dependsOn": [
+        "989c2156-7515-4a12-83df-b1502a65a9ff"
+      ]
+    },
+    {
+      "ref": "989c2156-7515-4a12-83df-b1502a65a9ff",
+      "dependsOn": [
+        "pkg:golang/github.com/webriots/rate"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/webriots/rate",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

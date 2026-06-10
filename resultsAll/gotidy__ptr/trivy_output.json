@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:3db93f1a-3f82-4682-b348-6c5891bfc595",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:25:35+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "f3ee5bb8-701f-4750-b5cf-bcb5ecdaf347",
+      "type": "application",
+      "name": "/home/user/SBOM/work/gotidy__ptr",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "2c8722aa-0c3e-4a30-a40e-8dc958585aab",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gotidy/ptr",
+      "type": "library",
+      "name": "github.com/gotidy/ptr",
+      "purl": "pkg:golang/github.com/gotidy/ptr",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gotidy/ptr"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "2c8722aa-0c3e-4a30-a40e-8dc958585aab",
+      "dependsOn": [
+        "pkg:golang/github.com/gotidy/ptr"
+      ]
+    },
+    {
+      "ref": "f3ee5bb8-701f-4750-b5cf-bcb5ecdaf347",
+      "dependsOn": [
+        "2c8722aa-0c3e-4a30-a40e-8dc958585aab"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/gotidy/ptr",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

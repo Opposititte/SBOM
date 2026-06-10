@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:cb4443c8-e474-46a9-a3ed-4239e1fffc12",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:23:42+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "79c33472-6a33-49f4-b82b-58b345c31c9b",
+      "type": "application",
+      "name": "/home/user/SBOM/work/VividCortex__multitick",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "48bae288-7458-4266-b97d-d309678b1d77",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/vividcortex/multitick",
+      "type": "library",
+      "name": "github.com/VividCortex/multitick",
+      "purl": "pkg:golang/github.com/vividcortex/multitick",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/VividCortex/multitick"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "48bae288-7458-4266-b97d-d309678b1d77",
+      "dependsOn": [
+        "pkg:golang/github.com/vividcortex/multitick"
+      ]
+    },
+    {
+      "ref": "79c33472-6a33-49f4-b82b-58b345c31c9b",
+      "dependsOn": [
+        "48bae288-7458-4266-b97d-d309678b1d77"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/vividcortex/multitick",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
