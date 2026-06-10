@@ -28,7 +28,7 @@ for (const [g] of GTS) { summary[g] = {}; for (const t of TOOLS) summary[g][t] =
 
 const out = [];
 out.push('# 全 awesome-go × 4ツール — 正解(GT) 別の結果表（名前一致）\n');
-out.push(`正解を all / imported の2通りに変えて評価。対象 = 両GTが非空の **${repos.length} リポジトリ**。`);
+out.push(`正解を all / imported の2通りに変えて評価。対象 = 両GTが非空の **${repos.length} リポジトリ**。まとめ表の各セルは「all / imported」の順。`);
 out.push('precision/recall/f1 は％。tp = パスが正解に含まれる数。\n');
 
 for (const [gname, gfile, cmd] of GTS) {
@@ -48,21 +48,15 @@ for (const [gname, gfile, cmd] of GTS) {
       const k = summary[gname][t]; k.p += P; k.r += R; k.f1 += F; k.n++;
     }
   }
-  // per-section summary
-  out.push(`\n### まとめ（正解 = ${gname}, ${repos.length}リポジトリ平均, ％）\n`);
-  out.push('| ツール | precision | recall | f1 |');
-  out.push('|--------|----------:|-------:|----:|');
-  for (const t of TOOLS) { const k = summary[gname][t]; out.push(`| ${t} | ${pct(k.p / k.n)} | ${pct(k.r / k.n)} | **${pct(k.f1 / k.n)}** |`); }
 }
 
-// final: the two summaries together
-out.push('\n\n---\n');
-out.push('# 最終まとめ — all と imported（並べて比較）\n');
-for (const [gname] of GTS) {
-  out.push(`\n## まとめ（正解 = ${gname}, ${repos.length}リポジトリ平均, ％）\n`);
-  out.push('| ツール | precision | recall | f1 |');
-  out.push('|--------|----------:|-------:|----:|');
-  for (const t of TOOLS) { const k = summary[gname][t]; out.push(`| ${t} | ${pct(k.p / k.n)} | ${pct(k.r / k.n)} | **${pct(k.f1 / k.n)}** |`); }
+// combined summary at the end (all / imported per cell), matching three_gt_6repos.md
+out.push(`\n## まとめ（${repos.length}リポジトリ平均, ％）\n`);
+out.push('| ツール | precision (all/imp) | recall (all/imp) | **f1 (all/imp)** |');
+out.push('|--------|--------------------:|-----------------:|-----------------:|');
+for (const t of TOOLS) {
+  const a = summary.all[t], i = summary.imported[t];
+  out.push(`| ${t} | ${pct(a.p / a.n)} / ${pct(i.p / i.n)} | ${pct(a.r / a.n)} / ${pct(i.r / i.n)} | **${pct(a.f1 / a.n)} / ${pct(i.f1 / i.n)}** |`);
 }
 
 fs.writeFileSync(path.join(RES, 'full_awesome_go.md'), out.join('\n') + '\n');
