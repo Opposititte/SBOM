@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:9a97cddc-2f13-4be1-9ff6-cac9f25799fe",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:55:23+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "f6f7527f-06f9-4958-9e93-b08120dc8ed5",
+      "type": "application",
+      "name": "/home/user/SBOM/work/jaredfolkins__badactor",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "fd3908c2-0f6f-4c6e-abe8-e8b116b71749",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jaredfolkins/badactor",
+      "type": "library",
+      "name": "github.com/jaredfolkins/badactor",
+      "purl": "pkg:golang/github.com/jaredfolkins/badactor",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/jaredfolkins/badactor"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "f6f7527f-06f9-4958-9e93-b08120dc8ed5",
+      "dependsOn": [
+        "fd3908c2-0f6f-4c6e-abe8-e8b116b71749"
+      ]
+    },
+    {
+      "ref": "fd3908c2-0f6f-4c6e-abe8-e8b116b71749",
+      "dependsOn": [
+        "pkg:golang/github.com/jaredfolkins/badactor"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/jaredfolkins/badactor",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

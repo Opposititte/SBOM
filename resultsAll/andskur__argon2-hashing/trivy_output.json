@@ -1,0 +1,131 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:5ec9f0bf-6545-445d-989f-6399e6669c13",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:55:19+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "29ec11e1-59f7-45f1-85b4-362611f8901e",
+      "type": "application",
+      "name": "/home/user/SBOM/work/andskur__argon2-hashing",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "a040e5a2-2ae3-4141-b230-8d0798dd3739",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/andskur/argon2-hashing",
+      "type": "library",
+      "name": "github.com/andskur/argon2-hashing",
+      "purl": "pkg:golang/github.com/andskur/argon2-hashing",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/andskur/argon2-hashing"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/crypto@v0.35.0",
+      "type": "library",
+      "name": "golang.org/x/crypto",
+      "version": "v0.35.0",
+      "purl": "pkg:golang/golang.org/x/crypto@v0.35.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/crypto@v0.35.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.30.0",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.30.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.30.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sys@v0.30.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "29ec11e1-59f7-45f1-85b4-362611f8901e",
+      "dependsOn": [
+        "a040e5a2-2ae3-4141-b230-8d0798dd3739"
+      ]
+    },
+    {
+      "ref": "a040e5a2-2ae3-4141-b230-8d0798dd3739",
+      "dependsOn": [
+        "pkg:golang/github.com/andskur/argon2-hashing"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/andskur/argon2-hashing",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/crypto@v0.35.0",
+        "pkg:golang/golang.org/x/sys@v0.30.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/crypto@v0.35.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.30.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

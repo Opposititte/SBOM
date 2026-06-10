@@ -1,0 +1,160 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:f72e017b-444c-4cff-9d88-708eeaf9e87f",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:54:19+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "a1a39c7d-7fd1-42e0-91ae-659100a9bbfb",
+      "type": "application",
+      "name": "/home/user/SBOM/work/keilerkonzept__topk",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "45607b23-3c57-417f-8363-f32de54d94de",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/google/go-cmp@v0.7.0",
+      "type": "library",
+      "name": "github.com/google/go-cmp",
+      "version": "v0.7.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/google/go-cmp@v0.7.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/google/go-cmp@v0.7.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/keilerkonzept/topk",
+      "type": "library",
+      "name": "github.com/keilerkonzept/topk",
+      "purl": "pkg:golang/github.com/keilerkonzept/topk",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/keilerkonzept/topk"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/oneofone/xxhash@v1.2.8",
+      "type": "library",
+      "name": "github.com/OneOfOne/xxhash",
+      "version": "v1.2.8",
+      "purl": "pkg:golang/github.com/oneofone/xxhash@v1.2.8",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/OneOfOne/xxhash@v1.2.8"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/segmentio/topk@v0.1.1",
+      "type": "library",
+      "name": "github.com/segmentio/topk",
+      "version": "v0.1.1",
+      "purl": "pkg:golang/github.com/segmentio/topk@v0.1.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/segmentio/topk@v0.1.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "45607b23-3c57-417f-8363-f32de54d94de",
+      "dependsOn": [
+        "pkg:golang/github.com/keilerkonzept/topk"
+      ]
+    },
+    {
+      "ref": "a1a39c7d-7fd1-42e0-91ae-659100a9bbfb",
+      "dependsOn": [
+        "45607b23-3c57-417f-8363-f32de54d94de"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/google/go-cmp@v0.7.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/keilerkonzept/topk",
+      "dependsOn": [
+        "pkg:golang/github.com/google/go-cmp@v0.7.0",
+        "pkg:golang/github.com/oneofone/xxhash@v1.2.8",
+        "pkg:golang/github.com/segmentio/topk@v0.1.1"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/oneofone/xxhash@v1.2.8",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/segmentio/topk@v0.1.1",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

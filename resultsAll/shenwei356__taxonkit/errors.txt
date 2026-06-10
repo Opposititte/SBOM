@@ -1,0 +1,57 @@
+Cloning into '/home/user/SBOM/work/shenwei356__taxonkit'...
+go: downloading github.com/cespare/xxhash/v2 v2.1.2
+go: downloading github.com/mattn/go-colorable v0.1.10
+go: downloading github.com/mitchellh/go-homedir v1.1.0
+go: downloading github.com/pkg/errors v0.9.1
+go: downloading github.com/shenwei356/bio v0.13.6
+go: downloading github.com/shenwei356/breader v0.3.2
+go: downloading github.com/shenwei356/go-logging v0.0.0-20171012171522-c6b9702d88ba
+go: downloading github.com/shenwei356/util v0.5.2
+go: downloading github.com/shenwei356/xopen v0.3.2
+go: downloading github.com/spf13/cobra v1.8.0
+go: downloading github.com/suggest-go/suggest v0.0.0-20210111224047-3b44145ad0b0
+go: downloading github.com/twotwotwo/sorts v0.0.0-20160814051341-bf5c1f2b8553
+go: downloading github.com/mattn/go-isatty v0.0.12
+go: downloading github.com/shenwei356/natsort v0.0.0-20190418160752-600d539c017d
+go: downloading github.com/dsnet/compress v0.0.1
+go: downloading github.com/klauspost/compress v1.18.0
+go: downloading github.com/klauspost/pgzip v1.2.6
+go: downloading github.com/ulikunitz/xz v0.5.14
+go: downloading github.com/spf13/pflag v1.0.5
+go: downloading golang.org/x/sys v0.6.0
+go: downloading github.com/alldroll/cdb v1.0.2
+go: downloading golang.org/x/sync v0.0.0-20200625203802-6e8e738ad208
+go: downloading github.com/edsrzf/mmap-go v1.0.0
+go: downloading github.com/snowballstem/snowball v2.0.0+incompatible
+go: downloading github.com/RoaringBitmap/roaring v0.5.5
+go: downloading github.com/tinylib/msgp v1.1.0
+go: downloading github.com/glycerine/go-unsnap-stream v0.0.0-20181221182339-f9677308dec2
+go: downloading github.com/golang/snappy v0.0.1
+go: downloading github.com/philhofer/fwd v1.0.0
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-10T01:54:08Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-10T01:54:08Z	INFO	Number of language-specific files	num=1
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
