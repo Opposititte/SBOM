@@ -1,0 +1,34 @@
+Cloning into '/home/user/SBOM/work/codemodus__catena'...
+go: downloading google.golang.org/grpc v1.14.0
+go: downloading golang.org/x/net v0.0.0-20180824152047-4bcd98cce591
+go: downloading github.com/golang/protobuf v1.2.0
+go: downloading golang.org/x/sys v0.0.0-20180824143301-4910a1d54f87
+go: downloading google.golang.org/genproto v0.0.0-20180817151627-c66870c02cf8
+go: downloading golang.org/x/text v0.3.0
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-10T03:50:58Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-10T03:50:58Z	INFO	Number of language-specific files	num=1
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m

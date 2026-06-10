@@ -1,0 +1,131 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:e4d34115-b616-4ce2-bd18-000d4c901d97",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:51:36+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "b214ffbf-8e3b-490f-b6d4-3e11aa848af8",
+      "type": "application",
+      "name": "/home/user/SBOM/work/unrolled__render",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "762c7f23-0221-407d-a31f-4681af731a4d",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/fsnotify/fsnotify@v1.10.0",
+      "type": "library",
+      "name": "github.com/fsnotify/fsnotify",
+      "version": "v1.10.0",
+      "purl": "pkg:golang/github.com/fsnotify/fsnotify@v1.10.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/fsnotify/fsnotify@v1.10.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/unrolled/render",
+      "type": "library",
+      "name": "github.com/unrolled/render",
+      "purl": "pkg:golang/github.com/unrolled/render",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/unrolled/render"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.43.0",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.43.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.43.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sys@v0.43.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "762c7f23-0221-407d-a31f-4681af731a4d",
+      "dependsOn": [
+        "pkg:golang/github.com/unrolled/render"
+      ]
+    },
+    {
+      "ref": "b214ffbf-8e3b-490f-b6d4-3e11aa848af8",
+      "dependsOn": [
+        "762c7f23-0221-407d-a31f-4681af731a4d"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/fsnotify/fsnotify@v1.10.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/unrolled/render",
+      "dependsOn": [
+        "pkg:golang/github.com/fsnotify/fsnotify@v1.10.0",
+        "pkg:golang/golang.org/x/sys@v0.43.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.43.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

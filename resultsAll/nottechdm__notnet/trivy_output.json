@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:3f2b8a92-d68f-4f84-93d0-4494d1c64bb5",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:49:26+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "edf8f485-a656-40e6-93db-51db980468b5",
+      "type": "application",
+      "name": "/home/user/SBOM/work/nottechdm__notnet",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "a4eb6197-50d7-41e7-9905-dc8cccf17673",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/nottechdm/notnet",
+      "type": "library",
+      "name": "github.com/nottechdm/notnet",
+      "purl": "pkg:golang/github.com/nottechdm/notnet",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/nottechdm/notnet"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "a4eb6197-50d7-41e7-9905-dc8cccf17673",
+      "dependsOn": [
+        "pkg:golang/github.com/nottechdm/notnet"
+      ]
+    },
+    {
+      "ref": "edf8f485-a656-40e6-93db-51db980468b5",
+      "dependsOn": [
+        "a4eb6197-50d7-41e7-9905-dc8cccf17673"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/nottechdm/notnet",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:615920f9-85d8-4dcd-9203-c48dca6c8c93",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:48:35+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "410e4a8b-e78c-4483-91fb-0a37967a2486",
+      "type": "application",
+      "name": "/home/user/SBOM/work/naughtygopher__webgo",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "1a45e190-b7cf-4427-802b-0c7a5b8e9125",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/naughtygopher/webgo/v7",
+      "type": "library",
+      "name": "github.com/naughtygopher/webgo/v7",
+      "purl": "pkg:golang/github.com/naughtygopher/webgo/v7",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/naughtygopher/webgo/v7"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "1a45e190-b7cf-4427-802b-0c7a5b8e9125",
+      "dependsOn": [
+        "pkg:golang/github.com/naughtygopher/webgo/v7"
+      ]
+    },
+    {
+      "ref": "410e4a8b-e78c-4483-91fb-0a37967a2486",
+      "dependsOn": [
+        "1a45e190-b7cf-4427-802b-0c7a5b8e9125"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/naughtygopher/webgo/v7",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
