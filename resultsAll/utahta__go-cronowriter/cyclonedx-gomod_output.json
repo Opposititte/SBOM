@@ -1,0 +1,118 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:36c6bb75-1b18-4aad-bc26-616ce4656a6a",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T00:43:22Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/utahta/go-cronowriter@v0.0.0-20201125085639-3d036dc1ce34?type=module",
+      "type": "application",
+      "name": "github.com/utahta/go-cronowriter",
+      "version": "v0.0.0-20201125085639-3d036dc1ce34",
+      "purl": "pkg:golang/github.com/utahta/go-cronowriter@v0.0.0-20201125085639-3d036dc1ce34?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/utahta/go-cronowriter",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/github.com/lestrrat-go/strftime@v0.0.0-20180220091553-9948d03c6207?type=module",
+      "type": "library",
+      "name": "github.com/lestrrat-go/strftime",
+      "version": "v0.0.0-20180220091553-9948d03c6207",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1dad4c4db17a6826d66ecdb484f992186a47fa9ac6620dedf3cb2687645e6ef3"
+        }
+      ],
+      "purl": "pkg:golang/github.com/lestrrat-go/strftime@v0.0.0-20180220091553-9948d03c6207?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/lestrrat-go/strftime",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/pkg/errors@v0.8.1-0.20180311214515-816c9085562c?type=module",
+      "type": "library",
+      "name": "github.com/pkg/errors",
+      "version": "v0.8.1-0.20180311214515-816c9085562c",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "499bcf54fb16136eb56e5f2ec50e928aaf84c4d998a26cf809353d13400b823e"
+        }
+      ],
+      "purl": "pkg:golang/github.com/pkg/errors@v0.8.1-0.20180311214515-816c9085562c?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/pkg/errors",
+          "type": "vcs"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/utahta/go-cronowriter@v0.0.0-20201125085639-3d036dc1ce34?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/lestrrat-go/strftime@v0.0.0-20180220091553-9948d03c6207?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/lestrrat-go/strftime@v0.0.0-20180220091553-9948d03c6207?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/pkg/errors@v0.8.1-0.20180311214515-816c9085562c?type=module"
+    }
+  ]
+}

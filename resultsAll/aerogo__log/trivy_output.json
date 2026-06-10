@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:cba12631-d048-4dbc-9fc1-2b8af35e5be8",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T00:44:17+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "eebe015b-8c9f-4183-947e-aa15902d020f",
+      "type": "application",
+      "name": "/home/user/SBOM/work/aerogo__log",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "9c566dd8-2ea5-4323-8b2b-ac3b639d308e",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/aerogo/log",
+      "type": "library",
+      "name": "github.com/aerogo/log",
+      "purl": "pkg:golang/github.com/aerogo/log",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/aerogo/log"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/akyoto/assert@v0.2.3",
+      "type": "library",
+      "name": "github.com/akyoto/assert",
+      "version": "v0.2.3",
+      "purl": "pkg:golang/github.com/akyoto/assert@v0.2.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/akyoto/assert@v0.2.3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "9c566dd8-2ea5-4323-8b2b-ac3b639d308e",
+      "dependsOn": [
+        "pkg:golang/github.com/aerogo/log"
+      ]
+    },
+    {
+      "ref": "eebe015b-8c9f-4183-947e-aa15902d020f",
+      "dependsOn": [
+        "9c566dd8-2ea5-4323-8b2b-ac3b639d308e"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/aerogo/log",
+      "dependsOn": [
+        "pkg:golang/github.com/akyoto/assert@v0.2.3"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/akyoto/assert@v0.2.3",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

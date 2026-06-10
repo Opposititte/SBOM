@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:64b5bd80-5a35-4dcb-81a9-67550b519330",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T00:42:29+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "7386e621-295b-4e85-a692-404599209578",
+      "type": "application",
+      "name": "/home/user/SBOM/work/ohler55__ojg",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "8db5ffac-c39d-4c36-8de7-9ee0eb6fdf5a",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/ohler55/ojg",
+      "type": "library",
+      "name": "github.com/ohler55/ojg",
+      "purl": "pkg:golang/github.com/ohler55/ojg",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/ohler55/ojg"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "7386e621-295b-4e85-a692-404599209578",
+      "dependsOn": [
+        "8db5ffac-c39d-4c36-8de7-9ee0eb6fdf5a"
+      ]
+    },
+    {
+      "ref": "8db5ffac-c39d-4c36-8de7-9ee0eb6fdf5a",
+      "dependsOn": [
+        "pkg:golang/github.com/ohler55/ojg"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/ohler55/ojg",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
