@@ -1,0 +1,82 @@
+Cloning into '/home/user/SBOM/work/balerter__balerter'...
+go: downloading go.uber.org/zap v1.21.0
+go: downloading github.com/go-chi/chi v1.5.4
+go: downloading github.com/yuin/gopher-lua v0.0.0-20210529063254-f4c35e4016d9
+go: downloading github.com/diamondburned/arikawa v1.3.14
+go: downloading github.com/xhit/go-simple-mail/v2 v2.11.0
+go: downloading github.com/martinlindhe/notify v0.0.0-20181008203735-20632c9a275a
+go: downloading github.com/slack-go/slack v0.11.0
+go: downloading golang.org/x/net v0.0.0-20220225172249-27dd8689420f
+go: downloading github.com/hashicorp/hcl/v2 v2.11.1
+go: downloading github.com/jackc/pgx/v4 v4.15.0
+go: downloading github.com/jmoiron/sqlx v1.3.4
+go: downloading github.com/yuin/gluamapper v0.0.0-20150323120927-d836955830e7
+go: downloading github.com/mattn/go-sqlite3 v1.14.12
+go: downloading github.com/go-sql-driver/mysql v1.6.0
+go: downloading github.com/ClickHouse/clickhouse-go v1.5.4
+go: downloading github.com/VictoriaMetrics/metrics v1.18.1
+go: downloading gonum.org/v1/plot v0.10.1
+go: downloading github.com/robfig/cron/v3 v3.0.1
+go: downloading github.com/lib/pq v1.10.4
+go: downloading github.com/aws/aws-sdk-go v1.43.18
+go: downloading github.com/mattn/go-isatty v0.0.14
+go: downloading github.com/mattn/go-colorable v0.1.9
+go: downloading go.uber.org/atomic v1.7.0
+go: downloading go.uber.org/multierr v1.6.0
+go: downloading github.com/toorop/go-dkim v0.0.0-20201103131630-e1cd1a0a5208
+go: downloading github.com/jackc/pgconn v1.11.0
+go: downloading github.com/jackc/pgproto3/v2 v2.2.0
+go: downloading github.com/jackc/puddle v1.2.1
+go: downloading github.com/gorilla/websocket v1.5.0
+go: downloading github.com/mitchellh/mapstructure v1.4.3
+go: downloading github.com/jackc/pgio v1.0.0
+go: downloading github.com/jackc/pgtype v1.10.0
+go: downloading github.com/valyala/histogram v1.2.0
+go: downloading golang.org/x/sys v0.0.0-20211216021012-1d35b9e2eb4e
+go: downloading golang.org/x/time v0.0.0-20200630173020-3af7569d3a1e
+go: downloading github.com/agext/levenshtein v1.2.1
+go: downloading github.com/apparentlymart/go-textseg/v13 v13.0.0
+go: downloading github.com/mitchellh/go-wordwrap v0.0.0-20150314170334-ad45545899c7
+go: downloading github.com/zclconf/go-cty v1.8.0
+go: downloading github.com/jackc/chunkreader/v2 v2.0.1
+go: downloading github.com/jackc/pgpassfile v1.0.0
+go: downloading github.com/jackc/pgservicefile v0.0.0-20200714003250-2b9c44734f2b
+go: downloading golang.org/x/crypto v0.0.0-20210711020723-a769d52b0f97
+go: downloading golang.org/x/text v0.3.7
+go: downloading golang.org/x/image v0.0.0-20211028202545-6944b10bf410
+go: downloading github.com/go-fonts/liberation v0.2.0
+go: downloading github.com/go-latex/latex v0.0.0-20210823091927-c0d11ff05a81
+go: downloading git.sr.ht/~sbinet/gg v0.3.1
+go: downloading github.com/go-pdf/fpdf v0.5.0
+go: downloading github.com/ajstarks/svgo v0.0.0-20211024235047-1546f124cd8b
+go: downloading github.com/jmespath/go-jmespath v0.4.0
+go: downloading github.com/gorilla/schema v1.2.0
+go: downloading github.com/valyala/fastrand v1.1.0
+go: downloading github.com/google/go-cmp v0.5.7
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-10T04:16:32Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-10T04:16:32Z	INFO	Number of language-specific files	num=1
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m

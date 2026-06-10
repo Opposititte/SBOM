@@ -1,0 +1,131 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:4d33287e-45b0-40a5-a7da-1c5a4c5043ee",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T04:15:21+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "c89512fd-371c-4f77-ab33-bdd646fc28dc",
+      "type": "application",
+      "name": "/home/user/SBOM/work/xuri__aurora",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "6655b8cb-64f1-4d50-a90a-aeeeb13c3ce6",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/beanstalkd/go-beanstalk@v0.1.0",
+      "type": "library",
+      "name": "github.com/beanstalkd/go-beanstalk",
+      "version": "v0.1.0",
+      "purl": "pkg:golang/github.com/beanstalkd/go-beanstalk@v0.1.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/beanstalkd/go-beanstalk@v0.1.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/burntsushi/toml@v0.4.1",
+      "type": "library",
+      "name": "github.com/BurntSushi/toml",
+      "version": "v0.4.1",
+      "purl": "pkg:golang/github.com/burntsushi/toml@v0.4.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/BurntSushi/toml@v0.4.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/xuri/aurora",
+      "type": "library",
+      "name": "github.com/xuri/aurora",
+      "purl": "pkg:golang/github.com/xuri/aurora",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/xuri/aurora"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "6655b8cb-64f1-4d50-a90a-aeeeb13c3ce6",
+      "dependsOn": [
+        "pkg:golang/github.com/xuri/aurora"
+      ]
+    },
+    {
+      "ref": "c89512fd-371c-4f77-ab33-bdd646fc28dc",
+      "dependsOn": [
+        "6655b8cb-64f1-4d50-a90a-aeeeb13c3ce6"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/beanstalkd/go-beanstalk@v0.1.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/burntsushi/toml@v0.4.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/xuri/aurora",
+      "dependsOn": [
+        "pkg:golang/github.com/beanstalkd/go-beanstalk@v0.1.0",
+        "pkg:golang/github.com/burntsushi/toml@v0.4.1"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}
