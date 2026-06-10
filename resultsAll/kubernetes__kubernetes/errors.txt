@@ -1,0 +1,81 @@
+Cloning into '/home/user/SBOM/work/kubernetes__kubernetes'...
+Updating files:  14% (4470/30456)Updating files:  15% (4569/30456)Updating files:  16% (4873/30456)Updating files:  17% (5178/30456)Updating files:  18% (5483/30456)Updating files:  19% (5787/30456)Updating files:  20% (6092/30456)Updating files:  21% (6396/30456)Updating files:  22% (6701/30456)Updating files:  23% (7005/30456)Updating files:  24% (7310/30456)Updating files:  25% (7614/30456)Updating files:  26% (7919/30456)Updating files:  27% (8224/30456)Updating files:  28% (8528/30456)Updating files:  29% (8833/30456)Updating files:  30% (9137/30456)Updating files:  31% (9442/30456)Updating files:  32% (9746/30456)Updating files:  33% (10051/30456)Updating files:  34% (10356/30456)Updating files:  34% (10428/30456)Updating files:  35% (10660/30456)Updating files:  36% (10965/30456)Updating files:  37% (11269/30456)Updating files:  38% (11574/30456)Updating files:  39% (11878/30456)Updating files:  40% (12183/30456)Updating files:  41% (12487/30456)Updating files:  42% (12792/30456)Updating files:  43% (13097/30456)Updating files:  44% (13401/30456)Updating files:  45% (13706/30456)Updating files:  46% (14010/30456)Updating files:  47% (14315/30456)Updating files:  48% (14619/30456)Updating files:  49% (14924/30456)Updating files:  50% (15228/30456)Updating files:  51% (15533/30456)Updating files:  52% (15838/30456)Updating files:  52% (15932/30456)Updating files:  53% (16142/30456)Updating files:  54% (16447/30456)Updating files:  55% (16751/30456)Updating files:  56% (17056/30456)Updating files:  57% (17360/30456)Updating files:  58% (17665/30456)Updating files:  59% (17970/30456)Updating files:  60% (18274/30456)Updating files:  61% (18579/30456)Updating files:  62% (18883/30456)Updating files:  63% (19188/30456)Updating files:  64% (19492/30456)Updating files:  65% (19797/30456)Updating files:  66% (20101/30456)Updating files:  67% (20406/30456)Updating files:  68% (20711/30456)Updating files:  69% (21015/30456)Updating files:  70% (21320/30456)Updating files:  71% (21624/30456)Updating files:  72% (21929/30456)Updating files:  73% (22233/30456)Updating files:  74% (22538/30456)Updating files:  75% (22842/30456)Updating files:  76% (23147/30456)Updating files:  77% (23452/30456)Updating files:  78% (23756/30456)Updating files:  79% (24061/30456)Updating files:  80% (24365/30456)Updating files:  81% (24670/30456)Updating files:  82% (24974/30456)Updating files:  83% (25279/30456)Updating files:  84% (25584/30456)Updating files:  85% (25888/30456)Updating files:  86% (26193/30456)Updating files:  87% (26497/30456)Updating files:  88% (26802/30456)Updating files:  89% (27106/30456)Updating files:  90% (27411/30456)Updating files:  91% (27715/30456)Updating files:  92% (28020/30456)Updating files:  93% (28325/30456)Updating files:  94% (28629/30456)Updating files:  95% (28934/30456)Updating files:  96% (29238/30456)Updating files:  97% (29543/30456)Updating files:  98% (29847/30456)Updating files:  99% (30152/30456)Updating files: 100% (30456/30456)Updating files: 100% (30456/30456), done.
+go: -mod may only be set to readonly or vendor when in workspace mode, but it is set to "mod"
+	Remove the -mod flag to use the default readonly value, 
+	or set GOWORK=off to disable workspace mode.
+ERROR: 'go list -m all' failed
+go: -mod may only be set to readonly or vendor when in workspace mode, but it is set to "mod"
+	Remove the -mod flag to use the default readonly value, 
+	or set GOWORK=off to disable workspace mode.
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-10T04:33:25Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-10T04:33:26Z	WARN	[pip] Unable to find python `site-packages` directory. License detection is skipped.	err="site-packages directory not found"
+2026-06-10T04:33:28Z	INFO	Number of language-specific files	num=40
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/hack/tools
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/hack/tools/instrumentation
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/hack/tools/golangci-lint
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/streaming
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/sample-controller
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/sample-cli-plugin
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/sample-apiserver
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/pod-security-admission
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/mount-utils
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/metrics
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/kubelet
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/kubectl
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/kube-scheduler
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/kube-proxy
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/kube-controller-manager
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/kube-aggregator
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/kms
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/externaljwt
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/endpointslice
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/dynamic-resource-allocation
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/csi-translation-lib
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/cri-streaming
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/cri-client
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/cri-api
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/controller-manager
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/component-helpers
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/component-base
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/code-generator
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/cluster-bootstrap
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/cloud-provider
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/client-go
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/cli-runtime
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/apiserver
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/apimachinery
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/apiextensions-apiserver
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/api
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/code-generator/examples
+go list -deps command has failed for /home/user/SBOM/work/kubernetes__kubernetes/staging/src/k8s.io/kms/internal/plugins/_mock
+Manually parsing go.mod files. The resultant BOM would be incomplete.
+[ 'Invalid purl pkg:golang/../../../' ]
+ERROR: cdxgen failed
+[90m4:33AM[0m [31mERR[0m [36merror=[0m[31m[1m"failed to collect vendored modules: listing vendored modules failed: command `/usr/local/go/bin/go mod vendor -v -e` failed: exit status 1"[0m[0m
+ERROR: cyclonedx-gomod failed

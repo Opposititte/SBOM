@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:fc47a25c-e460-4a8a-8b67-516609eb2cf7",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T04:30:37+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "bac42c89-e054-49a0-9e6e-b8fc30ad450f",
+      "type": "application",
+      "name": "/home/user/SBOM/work/Knuspii__kepfi",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "51ad5013-7f98-4d6f-8d9f-a545f1afcfcd",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/knuspii/kepfi",
+      "type": "library",
+      "name": "github.com/Knuspii/kepfi",
+      "purl": "pkg:golang/github.com/knuspii/kepfi",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/Knuspii/kepfi"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "51ad5013-7f98-4d6f-8d9f-a545f1afcfcd",
+      "dependsOn": [
+        "pkg:golang/github.com/knuspii/kepfi"
+      ]
+    },
+    {
+      "ref": "bac42c89-e054-49a0-9e6e-b8fc30ad450f",
+      "dependsOn": [
+        "51ad5013-7f98-4d6f-8d9f-a545f1afcfcd"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/knuspii/kepfi",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

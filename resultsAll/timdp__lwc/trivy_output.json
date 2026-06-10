@@ -1,0 +1,153 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:81161c61-a44f-4788-be94-669b73abbbed",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T04:36:37+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "b5108411-7beb-4fac-a886-ae60ddeac0e9",
+      "type": "application",
+      "name": "/home/user/SBOM/work/timdp__lwc",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "01d8abd6-10c4-443b-9661-7bf3131036e4",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/pborman/getopt@v0.0.0-20170112200414-7148bc3a4c30",
+      "type": "library",
+      "name": "github.com/pborman/getopt",
+      "version": "v0.0.0-20170112200414-7148bc3a4c30",
+      "purl": "pkg:golang/github.com/pborman/getopt@v0.0.0-20170112200414-7148bc3a4c30",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/pborman/getopt@v0.0.0-20170112200414-7148bc3a4c30"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/timdp/lwc",
+      "type": "library",
+      "name": "github.com/timdp/lwc",
+      "purl": "pkg:golang/github.com/timdp/lwc",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/timdp/lwc"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/crypto@v0.0.0-20180426230345-b49d69b5da94",
+      "type": "library",
+      "name": "golang.org/x/crypto",
+      "version": "v0.0.0-20180426230345-b49d69b5da94",
+      "purl": "pkg:golang/golang.org/x/crypto@v0.0.0-20180426230345-b49d69b5da94",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/crypto@v0.0.0-20180426230345-b49d69b5da94"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.0.0-20180425194835-bb9c189858d9",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.0.0-20180425194835-bb9c189858d9",
+      "purl": "pkg:golang/golang.org/x/sys@v0.0.0-20180425194835-bb9c189858d9",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sys@v0.0.0-20180425194835-bb9c189858d9"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "01d8abd6-10c4-443b-9661-7bf3131036e4",
+      "dependsOn": [
+        "pkg:golang/github.com/timdp/lwc"
+      ]
+    },
+    {
+      "ref": "b5108411-7beb-4fac-a886-ae60ddeac0e9",
+      "dependsOn": [
+        "01d8abd6-10c4-443b-9661-7bf3131036e4"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/pborman/getopt@v0.0.0-20170112200414-7148bc3a4c30",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/timdp/lwc",
+      "dependsOn": [
+        "pkg:golang/github.com/pborman/getopt@v0.0.0-20170112200414-7148bc3a4c30",
+        "pkg:golang/golang.org/x/crypto@v0.0.0-20180426230345-b49d69b5da94",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20180425194835-bb9c189858d9"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/crypto@v0.0.0-20180426230345-b49d69b5da94",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.0.0-20180425194835-bb9c189858d9",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

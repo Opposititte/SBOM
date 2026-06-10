@@ -1,0 +1,487 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:9b6813bc-ca03-4fbe-a955-10f051cc9b5f",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T04:36:35Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/ivanilves/lstags@v0.0.0-20230324063238-7a8f8d8f2141?type=module",
+      "type": "application",
+      "name": "github.com/ivanilves/lstags",
+      "version": "v0.0.0-20230324063238-7a8f8d8f2141",
+      "purl": "pkg:golang/github.com/ivanilves/lstags@v0.0.0-20230324063238-7a8f8d8f2141?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/ivanilves/lstags",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/github.com/Masterminds/goutils@v1.1.0?type=module",
+      "type": "library",
+      "name": "github.com/Masterminds/goutils",
+      "version": "v1.1.0",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/Masterminds/goutils@v1.1.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/Masterminds/goutils",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/Masterminds/semver/v3@v3.0.1?type=module",
+      "type": "library",
+      "name": "github.com/Masterminds/semver/v3",
+      "version": "v3.0.1",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/Masterminds/semver/v3@v3.0.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/Masterminds/semver",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/Masterminds/sprig/v3@v3.0.0?type=module",
+      "type": "library",
+      "name": "github.com/Masterminds/sprig/v3",
+      "version": "v3.0.0",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/Masterminds/sprig/v3@v3.0.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/Masterminds/sprig",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/Microsoft/go-winio@v0.4.14?type=module",
+      "type": "library",
+      "name": "github.com/Microsoft/go-winio",
+      "version": "v0.4.14",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/Microsoft/go-winio@v0.4.14?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/Microsoft/go-winio",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/docker/distribution@v2.6.2+incompatible?type=module",
+      "type": "library",
+      "name": "github.com/docker/distribution",
+      "version": "v2.6.2+incompatible",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/docker/distribution@v2.6.2+incompatible?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/docker/distribution",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/docker/docker@v1.13.1?type=module",
+      "type": "library",
+      "name": "github.com/docker/docker",
+      "version": "v1.13.1",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/docker/docker@v1.13.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/docker/docker",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/docker/go-connections@v0.4.0?type=module",
+      "type": "library",
+      "name": "github.com/docker/go-connections",
+      "version": "v0.4.0",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/docker/go-connections@v0.4.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/docker/go-connections",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/docker/go-units@v0.4.0?type=module",
+      "type": "library",
+      "name": "github.com/docker/go-units",
+      "version": "v0.4.0",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/docker/go-units@v0.4.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/docker/go-units",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/google/uuid@v1.1.1?type=module",
+      "type": "library",
+      "name": "github.com/google/uuid",
+      "version": "v1.1.1",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/google/uuid@v1.1.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/google/uuid",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/huandu/xstrings@v1.2.0?type=module",
+      "type": "library",
+      "name": "github.com/huandu/xstrings",
+      "version": "v1.2.0",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/huandu/xstrings@v1.2.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/huandu/xstrings",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/imdario/mergo@v0.3.8?type=module",
+      "type": "library",
+      "name": "github.com/imdario/mergo",
+      "version": "v0.3.8",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/imdario/mergo@v0.3.8?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/imdario/mergo",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jessevdk/go-flags@v1.4.0?type=module",
+      "type": "library",
+      "name": "github.com/jessevdk/go-flags",
+      "version": "v1.4.0",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/jessevdk/go-flags@v1.4.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/jessevdk/go-flags",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/konsorten/go-windows-terminal-sequences@v1.0.1?type=module",
+      "type": "library",
+      "name": "github.com/konsorten/go-windows-terminal-sequences",
+      "version": "v1.0.1",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/konsorten/go-windows-terminal-sequences@v1.0.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/konsorten/go-windows-terminal-sequences",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mitchellh/copystructure@v1.0.0?type=module",
+      "type": "library",
+      "name": "github.com/mitchellh/copystructure",
+      "version": "v1.0.0",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/mitchellh/copystructure@v1.0.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/mitchellh/copystructure",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mitchellh/reflectwalk@v1.0.1?type=module",
+      "type": "library",
+      "name": "github.com/mitchellh/reflectwalk",
+      "version": "v1.0.1",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/mitchellh/reflectwalk@v1.0.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/mitchellh/reflectwalk",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/moby/moby@v1.13.2-0.20170524085120-eef6495eddab?type=module",
+      "type": "library",
+      "name": "github.com/moby/moby",
+      "version": "v1.13.2-0.20170524085120-eef6495eddab",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/moby/moby@v1.13.2-0.20170524085120-eef6495eddab?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/moby/moby",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/pkg/errors@v0.8.1?type=module",
+      "type": "library",
+      "name": "github.com/pkg/errors",
+      "version": "v0.8.1",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/pkg/errors@v0.8.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/pkg/errors",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/sirupsen/logrus@v1.4.2?type=module",
+      "type": "library",
+      "name": "github.com/sirupsen/logrus",
+      "version": "v1.4.2",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/sirupsen/logrus@v1.4.2?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/sirupsen/logrus",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/spf13/cast@v1.3.0?type=module",
+      "type": "library",
+      "name": "github.com/spf13/cast",
+      "version": "v1.3.0",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/spf13/cast@v1.3.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/spf13/cast",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/crypto@v0.0.0-20191011191535-87dc89f01550?type=module",
+      "type": "library",
+      "name": "golang.org/x/crypto",
+      "version": "v0.0.0-20191011191535-87dc89f01550",
+      "scope": "required",
+      "purl": "pkg:golang/golang.org/x/crypto@v0.0.0-20191011191535-87dc89f01550?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/net@v0.0.0-20210405180319-a5a99cb37ef4?type=module",
+      "type": "library",
+      "name": "golang.org/x/net",
+      "version": "v0.0.0-20210405180319-a5a99cb37ef4",
+      "scope": "required",
+      "purl": "pkg:golang/golang.org/x/net@v0.0.0-20210405180319-a5a99cb37ef4?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.0.0-20210510120138-977fb7262007?type=module",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.0.0-20210510120138-977fb7262007",
+      "scope": "required",
+      "purl": "pkg:golang/golang.org/x/sys@v0.0.0-20210510120138-977fb7262007?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/gopkg.in/yaml.v2@v2.2.4?type=module",
+      "type": "library",
+      "name": "gopkg.in/yaml.v2",
+      "version": "v2.2.4",
+      "scope": "required",
+      "purl": "pkg:golang/gopkg.in/yaml.v2@v2.2.4?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/go-yaml/yaml",
+          "type": "vcs"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/ivanilves/lstags@v0.0.0-20230324063238-7a8f8d8f2141?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/Masterminds/sprig/v3@v3.0.0?type=module",
+        "pkg:golang/github.com/Microsoft/go-winio@v0.4.14?type=module",
+        "pkg:golang/github.com/docker/distribution@v2.6.2+incompatible?type=module",
+        "pkg:golang/github.com/docker/docker@v1.13.1?type=module",
+        "pkg:golang/github.com/docker/go-connections@v0.4.0?type=module",
+        "pkg:golang/github.com/docker/go-units@v0.4.0?type=module",
+        "pkg:golang/github.com/imdario/mergo@v0.3.8?type=module",
+        "pkg:golang/github.com/jessevdk/go-flags@v1.4.0?type=module",
+        "pkg:golang/github.com/mitchellh/reflectwalk@v1.0.1?type=module",
+        "pkg:golang/github.com/moby/moby@v1.13.2-0.20170524085120-eef6495eddab?type=module",
+        "pkg:golang/github.com/sirupsen/logrus@v1.4.2?type=module",
+        "pkg:golang/golang.org/x/crypto@v0.0.0-20191011191535-87dc89f01550?type=module",
+        "pkg:golang/golang.org/x/net@v0.0.0-20210405180319-a5a99cb37ef4?type=module",
+        "pkg:golang/gopkg.in/yaml.v2@v2.2.4?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/Masterminds/goutils@v1.1.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/Masterminds/semver/v3@v3.0.1?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/Masterminds/sprig/v3@v3.0.0?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/Masterminds/goutils@v1.1.0?type=module",
+        "pkg:golang/github.com/Masterminds/semver/v3@v3.0.1?type=module",
+        "pkg:golang/github.com/google/uuid@v1.1.1?type=module",
+        "pkg:golang/github.com/huandu/xstrings@v1.2.0?type=module",
+        "pkg:golang/github.com/imdario/mergo@v0.3.8?type=module",
+        "pkg:golang/github.com/mitchellh/copystructure@v1.0.0?type=module",
+        "pkg:golang/github.com/spf13/cast@v1.3.0?type=module",
+        "pkg:golang/golang.org/x/crypto@v0.0.0-20191011191535-87dc89f01550?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/Microsoft/go-winio@v0.4.14?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/pkg/errors@v0.8.1?type=module",
+        "pkg:golang/github.com/sirupsen/logrus@v1.4.2?type=module",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20210510120138-977fb7262007?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/docker/distribution@v2.6.2+incompatible?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/docker/docker@v1.13.1?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/docker/go-connections@v0.4.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/docker/go-units@v0.4.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/google/uuid@v1.1.1?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/huandu/xstrings@v1.2.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/imdario/mergo@v0.3.8?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/jessevdk/go-flags@v1.4.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/konsorten/go-windows-terminal-sequences@v1.0.1?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/mitchellh/copystructure@v1.0.0?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/mitchellh/reflectwalk@v1.0.1?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/mitchellh/reflectwalk@v1.0.1?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/moby/moby@v1.13.2-0.20170524085120-eef6495eddab?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/pkg/errors@v0.8.1?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/sirupsen/logrus@v1.4.2?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/konsorten/go-windows-terminal-sequences@v1.0.1?type=module",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20210510120138-977fb7262007?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/spf13/cast@v1.3.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/crypto@v0.0.0-20191011191535-87dc89f01550?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/net@v0.0.0-20210405180319-a5a99cb37ef4?type=module",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20210510120138-977fb7262007?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/net@v0.0.0-20210405180319-a5a99cb37ef4?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/sys@v0.0.0-20210510120138-977fb7262007?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.0.0-20210510120138-977fb7262007?type=module"
+    },
+    {
+      "ref": "pkg:golang/gopkg.in/yaml.v2@v2.2.4?type=module"
+    }
+  ]
+}

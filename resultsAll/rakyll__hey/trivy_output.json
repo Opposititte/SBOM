@@ -1,0 +1,146 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:5f7e00d5-7489-4660-848e-da6a11ed261e",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T04:25:39+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "abc4fd93-10ec-4d1e-b392-d5213fd0b394",
+      "type": "application",
+      "name": "/home/user/SBOM/work/rakyll__hey",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "c016631e-70eb-4384-b084-7e8403c19e0e",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/rakyll/hey",
+      "type": "library",
+      "name": "github.com/rakyll/hey",
+      "purl": "pkg:golang/github.com/rakyll/hey",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/rakyll/hey"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/net@v0.48.0",
+      "type": "library",
+      "name": "golang.org/x/net",
+      "version": "v0.48.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/net@v0.48.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/net@v0.48.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/text@v0.33.0",
+      "type": "library",
+      "name": "golang.org/x/text",
+      "version": "v0.33.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/text@v0.33.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/text@v0.33.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "abc4fd93-10ec-4d1e-b392-d5213fd0b394",
+      "dependsOn": [
+        "c016631e-70eb-4384-b084-7e8403c19e0e"
+      ]
+    },
+    {
+      "ref": "c016631e-70eb-4384-b084-7e8403c19e0e",
+      "dependsOn": [
+        "pkg:golang/github.com/rakyll/hey"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/rakyll/hey",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/net@v0.48.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/net@v0.48.0",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/text@v0.33.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/text@v0.33.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

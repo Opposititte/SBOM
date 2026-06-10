@@ -1,0 +1,88 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:843414e3-e81b-4da9-8535-e851f56ebaca",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T04:24:45+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "fb408c00-41db-4da3-bac0-65961f04d75f",
+      "type": "application",
+      "name": "/home/user/SBOM/work/sirnewton01__godbg",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "d10cb5b1-f765-463f-97ae-7f10544efa5f",
+      "type": "application",
+      "name": "bundles/org.eclipse.orion.client.core/pom.xml",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "pom"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:maven/org.eclipse.orion/org.eclipse.orion.client.core@2.0.0-SNAPSHOT",
+      "type": "library",
+      "group": "org.eclipse.orion",
+      "name": "org.eclipse.orion.client.core",
+      "version": "2.0.0-SNAPSHOT",
+      "purl": "pkg:maven/org.eclipse.orion/org.eclipse.orion.client.core@2.0.0-SNAPSHOT",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "org.eclipse.orion:org.eclipse.orion.client.core:2.0.0-SNAPSHOT::4b55c661"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pom"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "d10cb5b1-f765-463f-97ae-7f10544efa5f",
+      "dependsOn": [
+        "pkg:maven/org.eclipse.orion/org.eclipse.orion.client.core@2.0.0-SNAPSHOT"
+      ]
+    },
+    {
+      "ref": "fb408c00-41db-4da3-bac0-65961f04d75f",
+      "dependsOn": [
+        "d10cb5b1-f765-463f-97ae-7f10544efa5f"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.eclipse.orion/org.eclipse.orion.client.core@2.0.0-SNAPSHOT",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

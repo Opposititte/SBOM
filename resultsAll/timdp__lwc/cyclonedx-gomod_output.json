@@ -1,0 +1,130 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:01abfd28-64d9-4eda-b6d6-bb0556564f79",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T04:36:39Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/timdp/lwc@v0.0.0-20220726070542-3330928c9d82?type=module",
+      "type": "application",
+      "name": "github.com/timdp/lwc",
+      "version": "v0.0.0-20220726070542-3330928c9d82",
+      "purl": "pkg:golang/github.com/timdp/lwc@v0.0.0-20220726070542-3330928c9d82?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/timdp/lwc",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/github.com/pborman/getopt@v0.0.0-20170112200414-7148bc3a4c30?type=module",
+      "type": "library",
+      "name": "github.com/pborman/getopt",
+      "version": "v0.0.0-20170112200414-7148bc3a4c30",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0474f5fc32ac6031a45204368e631aa3355c764fac55fcf4fb5649ab8ce45a0c"
+        }
+      ],
+      "purl": "pkg:golang/github.com/pborman/getopt@v0.0.0-20170112200414-7148bc3a4c30?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/pborman/getopt",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/crypto@v0.0.0-20180426230345-b49d69b5da94?type=module",
+      "type": "library",
+      "name": "golang.org/x/crypto",
+      "version": "v0.0.0-20180426230345-b49d69b5da94",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "9b9c41a9f41d9f3bfa5ee57fa498b3acb3b05281b3ca7d49db8f5c03470a2f8a"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/crypto@v0.0.0-20180426230345-b49d69b5da94?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.0.0-20180425194835-bb9c189858d9?type=module",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.0.0-20180425194835-bb9c189858d9",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "fb059b8d4da5221c95b9fde5e6371230a382a24330c7578ffe5a555a4d4ec743"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/sys@v0.0.0-20180425194835-bb9c189858d9?goarch=amd64\u0026goos=linux\u0026type=module"
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/timdp/lwc@v0.0.0-20220726070542-3330928c9d82?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/pborman/getopt@v0.0.0-20170112200414-7148bc3a4c30?type=module",
+        "pkg:golang/golang.org/x/crypto@v0.0.0-20180426230345-b49d69b5da94?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/pborman/getopt@v0.0.0-20170112200414-7148bc3a4c30?type=module"
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/crypto@v0.0.0-20180426230345-b49d69b5da94?type=module"
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.0.0-20180425194835-bb9c189858d9?type=module"
+    }
+  ]
+}

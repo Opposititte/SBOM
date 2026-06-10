@@ -1,0 +1,42 @@
+Cloning into '/home/user/SBOM/work/kubenetworks__kubevpn'...
+Updating files:  28% (3255/11316)Updating files:  29% (3282/11316)Updating files:  30% (3395/11316)Updating files:  31% (3508/11316)Updating files:  32% (3622/11316)Updating files:  33% (3735/11316)Updating files:  34% (3848/11316)Updating files:  35% (3961/11316)Updating files:  36% (4074/11316)Updating files:  37% (4187/11316)Updating files:  38% (4301/11316)Updating files:  39% (4414/11316)Updating files:  40% (4527/11316)Updating files:  41% (4640/11316)Updating files:  42% (4753/11316)Updating files:  43% (4866/11316)Updating files:  44% (4980/11316)Updating files:  45% (5093/11316)Updating files:  46% (5206/11316)Updating files:  47% (5319/11316)Updating files:  48% (5432/11316)Updating files:  49% (5545/11316)Updating files:  50% (5658/11316)Updating files:  51% (5772/11316)Updating files:  52% (5885/11316)Updating files:  53% (5998/11316)Updating files:  54% (6111/11316)Updating files:  55% (6224/11316)Updating files:  56% (6337/11316)Updating files:  57% (6451/11316)Updating files:  58% (6564/11316)Updating files:  59% (6677/11316)Updating files:  60% (6790/11316)Updating files:  61% (6903/11316)Updating files:  61% (6925/11316)Updating files:  62% (7016/11316)Updating files:  63% (7130/11316)Updating files:  64% (7243/11316)Updating files:  65% (7356/11316)Updating files:  66% (7469/11316)Updating files:  67% (7582/11316)Updating files:  68% (7695/11316)Updating files:  69% (7809/11316)Updating files:  70% (7922/11316)Updating files:  71% (8035/11316)Updating files:  72% (8148/11316)Updating files:  73% (8261/11316)Updating files:  74% (8374/11316)Updating files:  75% (8487/11316)Updating files:  76% (8601/11316)Updating files:  77% (8714/11316)Updating files:  78% (8827/11316)Updating files:  79% (8940/11316)Updating files:  80% (9053/11316)Updating files:  81% (9166/11316)Updating files:  82% (9280/11316)Updating files:  83% (9393/11316)Updating files:  84% (9506/11316)Updating files:  85% (9619/11316)Updating files:  86% (9732/11316)Updating files:  87% (9845/11316)Updating files:  88% (9959/11316)Updating files:  89% (10072/11316)Updating files:  90% (10185/11316)Updating files:  91% (10298/11316)Updating files:  92% (10411/11316)Updating files:  93% (10524/11316)Updating files:  93% (10541/11316)Updating files:  94% (10638/11316)Updating files:  95% (10751/11316)Updating files:  96% (10864/11316)Updating files:  97% (10977/11316)Updating files:  98% (11090/11316)Updating files:  99% (11203/11316)Updating files: 100% (11316/11316)Updating files: 100% (11316/11316), done.
+go: -mod may only be set to readonly or vendor when in workspace mode, but it is set to "mod"
+	Remove the -mod flag to use the default readonly value, 
+	or set GOWORK=off to disable workspace mode.
+ERROR: 'go list -m all' failed
+go: -mod may only be set to readonly or vendor when in workspace mode, but it is set to "mod"
+	Remove the -mod flag to use the default readonly value, 
+	or set GOWORK=off to disable workspace mode.
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-10T04:34:58Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-10T04:35:01Z	WARN	[pip] Unable to find python `site-packages` directory. License detection is skipped.	err="site-packages directory not found"
+2026-06-10T04:35:01Z	INFO	Number of language-specific files	num=3
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
+go list -deps command has failed for /home/user/SBOM/work/kubenetworks__kubevpn
+go list -deps command has failed for /home/user/SBOM/work/kubenetworks__kubevpn/pkg/syncthing/auto
+Manually parsing go.mod files. The resultant BOM would be incomplete.
+[90m4:35AM[0m [31mERR[0m [36merror=[0m[31m[1m"failed to collect vendored modules: listing vendored modules failed: command `/usr/local/go/bin/go mod vendor -v -e` failed: exit status 1"[0m[0m
+ERROR: cyclonedx-gomod failed
