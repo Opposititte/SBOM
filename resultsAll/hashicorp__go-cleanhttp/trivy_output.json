@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:794093c2-d0bc-4bc2-b07d-0ddea23abd3e",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:35:00+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "049e9304-2e60-431c-a13b-d0235d71b017",
+      "type": "application",
+      "name": "/home/user/SBOM/work/hashicorp__go-cleanhttp",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "b573e147-7197-4f73-b045-7cccd191eec1",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/hashicorp/go-cleanhttp",
+      "type": "library",
+      "name": "github.com/hashicorp/go-cleanhttp",
+      "purl": "pkg:golang/github.com/hashicorp/go-cleanhttp",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/hashicorp/go-cleanhttp"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "049e9304-2e60-431c-a13b-d0235d71b017",
+      "dependsOn": [
+        "b573e147-7197-4f73-b045-7cccd191eec1"
+      ]
+    },
+    {
+      "ref": "b573e147-7197-4f73-b045-7cccd191eec1",
+      "dependsOn": [
+        "pkg:golang/github.com/hashicorp/go-cleanhttp"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/hashicorp/go-cleanhttp",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

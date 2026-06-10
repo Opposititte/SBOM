@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:2a42bf99-6d7a-47bd-a0cc-22e53182fc9c",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:34:53+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "1fb642fb-6616-41e6-b022-797b9e9097f5",
+      "type": "application",
+      "name": "/home/user/SBOM/work/opus-domini__fast-shot",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "07534623-96a0-4348-a7c6-54696019411f",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/opus-domini/fast-shot",
+      "type": "library",
+      "name": "github.com/opus-domini/fast-shot",
+      "purl": "pkg:golang/github.com/opus-domini/fast-shot",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/opus-domini/fast-shot"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "07534623-96a0-4348-a7c6-54696019411f",
+      "dependsOn": [
+        "pkg:golang/github.com/opus-domini/fast-shot"
+      ]
+    },
+    {
+      "ref": "1fb642fb-6616-41e6-b022-797b9e9097f5",
+      "dependsOn": [
+        "07534623-96a0-4348-a7c6-54696019411f"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/opus-domini/fast-shot",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

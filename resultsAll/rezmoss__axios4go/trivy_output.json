@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:6adb1461-f773-481a-8ecd-fb2694647949",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:34:29+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "f9e5afd3-0116-4e17-a24b-9b7243b08fb2",
+      "type": "application",
+      "name": "/home/user/SBOM/work/rezmoss__axios4go",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "650c9e85-0db6-412e-b7bd-3f4cb094d37a",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/rezmoss/axios4go",
+      "type": "library",
+      "name": "github.com/rezmoss/axios4go",
+      "purl": "pkg:golang/github.com/rezmoss/axios4go",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/rezmoss/axios4go"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "650c9e85-0db6-412e-b7bd-3f4cb094d37a",
+      "dependsOn": [
+        "pkg:golang/github.com/rezmoss/axios4go"
+      ]
+    },
+    {
+      "ref": "f9e5afd3-0116-4e17-a24b-9b7243b08fb2",
+      "dependsOn": [
+        "650c9e85-0db6-412e-b7bd-3f4cb094d37a"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/rezmoss/axios4go",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

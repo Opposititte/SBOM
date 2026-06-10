@@ -1,0 +1,153 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:1f9aa449-aaab-44af-aaa1-27dac9fff9a6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:33:13+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "7ed434e4-d60c-4b40-b02f-ded73dfa509b",
+      "type": "application",
+      "name": "/home/user/SBOM/work/gliderlabs__ssh",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "0592bb17-7581-4143-ac23-6094f86f41f3",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/anmitsu/go-shlex@v0.0.0-20200514113438-38f4b401e2be",
+      "type": "library",
+      "name": "github.com/anmitsu/go-shlex",
+      "version": "v0.0.0-20200514113438-38f4b401e2be",
+      "purl": "pkg:golang/github.com/anmitsu/go-shlex@v0.0.0-20200514113438-38f4b401e2be",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/anmitsu/go-shlex@v0.0.0-20200514113438-38f4b401e2be"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gliderlabs/ssh",
+      "type": "library",
+      "name": "github.com/gliderlabs/ssh",
+      "purl": "pkg:golang/github.com/gliderlabs/ssh",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gliderlabs/ssh"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/crypto@v0.31.0",
+      "type": "library",
+      "name": "golang.org/x/crypto",
+      "version": "v0.31.0",
+      "purl": "pkg:golang/golang.org/x/crypto@v0.31.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/crypto@v0.31.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.28.0",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.28.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.28.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sys@v0.28.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "0592bb17-7581-4143-ac23-6094f86f41f3",
+      "dependsOn": [
+        "pkg:golang/github.com/gliderlabs/ssh"
+      ]
+    },
+    {
+      "ref": "7ed434e4-d60c-4b40-b02f-ded73dfa509b",
+      "dependsOn": [
+        "0592bb17-7581-4143-ac23-6094f86f41f3"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/anmitsu/go-shlex@v0.0.0-20200514113438-38f4b401e2be",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/gliderlabs/ssh",
+      "dependsOn": [
+        "pkg:golang/github.com/anmitsu/go-shlex@v0.0.0-20200514113438-38f4b401e2be",
+        "pkg:golang/golang.org/x/crypto@v0.31.0",
+        "pkg:golang/golang.org/x/sys@v0.28.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/crypto@v0.31.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.28.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

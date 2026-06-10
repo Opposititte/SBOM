@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:6ce6703c-371c-4977-ae99-1250a4242bbc",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:34:25+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "ce3835ba-7b59-4db3-9f08-18a45b33968d",
+      "type": "application",
+      "name": "/home/user/SBOM/work/xfxdev__xtcp",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "6e48cc64-6994-4cbf-b87d-74d4e27850c1",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/xfxdev/xtcp",
+      "type": "library",
+      "name": "github.com/xfxdev/xtcp",
+      "purl": "pkg:golang/github.com/xfxdev/xtcp",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/xfxdev/xtcp"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "6e48cc64-6994-4cbf-b87d-74d4e27850c1",
+      "dependsOn": [
+        "pkg:golang/github.com/xfxdev/xtcp"
+      ]
+    },
+    {
+      "ref": "ce3835ba-7b59-4db3-9f08-18a45b33968d",
+      "dependsOn": [
+        "6e48cc64-6994-4cbf-b87d-74d4e27850c1"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/xfxdev/xtcp",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
