@@ -1,0 +1,74 @@
+Cloning into '/home/user/SBOM/work/us__den'...
+go: downloading go1.25.7 (linux/amd64)
+go: downloading github.com/go-chi/chi/v5 v5.2.5
+go: downloading golang.org/x/time v0.11.0
+go: downloading github.com/gorilla/websocket v1.5.3
+go: downloading github.com/knadh/koanf/parsers/yaml v1.1.0
+go: downloading github.com/go-chi/cors v1.2.2
+go: downloading github.com/knadh/koanf/providers/env v1.1.0
+go: downloading github.com/knadh/koanf/providers/file v1.2.1
+go: downloading github.com/knadh/koanf/v2 v2.3.2
+go: downloading github.com/docker/docker v28.3.2+incompatible
+go: downloading github.com/aws/aws-sdk-go-v2/config v1.32.10
+go: downloading github.com/aws/aws-sdk-go-v2/credentials v1.19.10
+go: downloading github.com/aws/aws-sdk-go-v2 v1.41.2
+go: downloading go.etcd.io/bbolt v1.4.3
+go: downloading github.com/aws/aws-sdk-go-v2/service/s3 v1.96.2
+go: downloading github.com/rs/xid v1.6.0
+go: downloading go.yaml.in/yaml/v3 v3.0.4
+go: downloading github.com/knadh/koanf/maps v0.1.2
+go: downloading github.com/fsnotify/fsnotify v1.9.0
+go: downloading github.com/go-viper/mapstructure/v2 v2.4.0
+go: downloading github.com/mitchellh/copystructure v1.2.0
+go: downloading github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.18.18
+go: downloading github.com/aws/aws-sdk-go-v2/internal/ini v1.8.4
+go: downloading github.com/aws/aws-sdk-go-v2/service/signin v1.0.6
+go: downloading github.com/aws/aws-sdk-go-v2/service/sso v1.30.11
+go: downloading github.com/aws/aws-sdk-go-v2/service/ssooidc v1.35.15
+go: downloading github.com/aws/aws-sdk-go-v2/service/sts v1.41.7
+go: downloading github.com/aws/smithy-go v1.24.1
+go: downloading golang.org/x/sys v0.35.0
+go: downloading github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.7.5
+go: downloading github.com/aws/aws-sdk-go-v2/internal/configsources v1.4.18
+go: downloading github.com/aws/aws-sdk-go-v2/internal/v4a v1.4.18
+go: downloading github.com/aws/aws-sdk-go-v2/service/internal/checksum v1.9.10
+go: downloading github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding v1.13.5
+go: downloading github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.13.18
+go: downloading github.com/aws/aws-sdk-go-v2/service/internal/s3shared v1.19.18
+go: downloading go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.61.0
+go: downloading go.opentelemetry.io/otel/trace v1.38.0
+go: downloading go.opentelemetry.io/otel v1.38.0
+go: downloading github.com/mitchellh/reflectwalk v1.0.2
+go: downloading github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.7.18
+go: downloading go.opentelemetry.io/otel/metric v1.38.0
+go: downloading github.com/gogo/protobuf v1.3.2
+go: downloading go.opentelemetry.io/auto/sdk v1.1.0
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-10T04:18:11Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-10T04:18:11Z	INFO	[bun] Run "bun install" to collect the license information of packages	dir="sdk/typescript/node_modules"
+2026-06-10T04:18:11Z	INFO	Suppressing dependencies for development and testing. To display them, try the '--include-dev-deps' flag.
+2026-06-10T04:18:11Z	INFO	Number of language-specific files	num=3
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m

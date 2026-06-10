@@ -1,0 +1,90 @@
+Cloning into '/home/user/SBOM/work/chrismckenzie__dropship'...
+go: cannot match "all": go.mod file not found in current directory or any parent directory; see 'go help modules'
+ERROR: 'go list -m all' failed
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+[0001] ERROR [31mfailed to run tasks: panic: runtime error: slice bounds out of range [3:1] at:
+goroutine 113 [running]:
+runtime/debug.Stack()
+	/home/runner/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.26.3.linux-amd64/src/runtime/debug/stack.go:26 +0x5e
+github.com/anchore/go-sync.Collect[...].func1.1()
+	/home/runner/go/pkg/mod/github.com/anchore/go-sync@v0.1.0/collector.go:38 +0xac
+panic({0x2d1b0e0?, 0x5b3f69cc5b8?})
+	/home/runner/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.26.3.linux-amd64/src/runtime/panic.go:860 +0x13a
+github.com/blakesmith/ar.(*Reader).octal(0x337a1a0?, {0x5b3f897b628?, 0x10?, 0x3c?})
+	/home/runner/go/pkg/mod/github.com/blakesmith/ar@v0.0.0-20190502131153-809d4375e1fb/reader.go:88 +0x77
+github.com/blakesmith/ar.(*Reader).readHeader(0x5b3f69c8fc0)
+	/home/runner/go/pkg/mod/github.com/blakesmith/ar@v0.0.0-20190502131153-809d4375e1fb/reader.go:118 +0x2a5
+github.com/blakesmith/ar.(*Reader).Next(0x5b3f69c8fc0)
+	/home/runner/go/pkg/mod/github.com/blakesmith/ar@v0.0.0-20190502131153-809d4375e1fb/reader.go:140 +0x35
+github.com/anchore/syft/syft/pkg/cataloger/debian.parseDebArchive({0x33b8ce0, 0x5b3f69e4ae0}, {0x7fee923b1bf0?, 0x10?}, 0x5b3f4629008?, {{{{{...}, {...}}, {0x5b3f4e0252c, 0x22}, {0x5d, ...}}, ...}, ...})
+	/home/runner/_work/syft/syft/syft/pkg/cataloger/debian/parse_deb_archive.go:37 +0x11a
+github.com/anchore/syft/syft/pkg/cataloger/generic.invokeParser({0x33b8ce0, 0x5b3f69e4ae0}, {0x33d3118, 0x5b3f552e140}, {{{{0x5b3f4e0252c, 0x22}, {0x0, 0x0}}, {0x5b3f4e0252c, 0x22}, ...}, ...}, ...)
+	/home/runner/_work/syft/syft/syft/pkg/cataloger/generic/cataloger.go:237 +0x464
+github.com/anchore/syft/syft/pkg/cataloger/generic.(*Cataloger).Catalog.func1({{{{{...}, {...}}, {0x5b3f4e0252c, 0x22}, {0x5d, {...}}}, {0x5b3f69e4a50}}, 0x335a330})
+	/home/runner/_work/syft/syft/syft/pkg/cataloger/generic/cataloger.go:206 +0x226
+github.com/anchore/go-sync.Collect[...].func1()
+	/home/runner/go/pkg/mod/github.com/anchore/go-sync@v0.1.0/collector.go:45 +0x133
+github.com/anchore/go-sync.(*errGroupExecutor).Go.func1()
+	/home/runner/go/pkg/mod/github.com/anchore/go-sync@v0.1.0/executor_errgroup.go:37 +0x83
+golang.org/x/sync/errgroup.(*Group).Go.func1()
+	/home/runner/go/pkg/mod/golang.org/x/sync@v0.20.0/errgroup/errgroup.go:93 +0x50
+created by golang.org/x/sync/errgroup.(*Group).Go in goroutine 67
+	/home/runner/go/pkg/mod/golang.org/x/sync@v0.20.0/errgroup/errgroup.go:78 +0x95
+
+panic: runtime error: slice bounds out of range [3:1] at:
+goroutine 115 [running]:
+runtime/debug.Stack()
+	/home/runner/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.26.3.linux-amd64/src/runtime/debug/stack.go:26 +0x5e
+github.com/anchore/go-sync.Collect[...].func1.1()
+	/home/runner/go/pkg/mod/github.com/anchore/go-sync@v0.1.0/collector.go:38 +0xac
+panic({0x2d1b0e0?, 0x5b3f69cc5d0?})
+	/home/runner/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.26.3.linux-amd64/src/runtime/panic.go:860 +0x13a
+github.com/blakesmith/ar.(*Reader).octal(0x337a1a0?, {0x5b3f897bda8?, 0x10?, 0x3c?})
+	/home/runner/go/pkg/mod/github.com/blakesmith/ar@v0.0.0-20190502131153-809d4375e1fb/reader.go:88 +0x77
+github.com/blakesmith/ar.(*Reader).readHeader(0x5b3f69c9100)
+	/home/runner/go/pkg/mod/github.com/blakesmith/ar@v0.0.0-20190502131153-809d4375e1fb/reader.go:118 +0x2a5
+github.com/blakesmith/ar.(*Reader).Next(0x5b3f69c9100)
+	/home/runner/go/pkg/mod/github.com/blakesmith/ar@v0.0.0-20190502131153-809d4375e1fb/reader.go:140 +0x35
+github.com/anchore/syft/syft/pkg/cataloger/debian.parseDebArchive({0x33b8ce0, 0x5b3f69e4ae0}, {0x7fee923b1bf0?, 0x10?}, 0x5b3f4629008?, {{{{{...}, {...}}, {0x5b3f4e027ac, 0x1c}, {0x5f, ...}}, ...}, ...})
+	/home/runner/_work/syft/syft/syft/pkg/cataloger/debian/parse_deb_archive.go:37 +0x11a
+github.com/anchore/syft/syft/pkg/cataloger/generic.invokeParser({0x33b8ce0, 0x5b3f69e4ae0}, {0x33d3118, 0x5b3f552e140}, {{{{0x5b3f4e027ac, 0x1c}, {0x0, 0x0}}, {0x5b3f4e027ac, 0x1c}, ...}, ...}, ...)
+	/home/runner/_work/syft/syft/syft/pkg/cataloger/generic/cataloger.go:237 +0x464
+github.com/anchore/syft/syft/pkg/cataloger/generic.(*Cataloger).Catalog.func1({{{{{...}, {...}}, {0x5b3f4e027ac, 0x1c}, {0x5f, {...}}}, {0x5b3f69e4ab0}}, 0x335a330})
+	/home/runner/_work/syft/syft/syft/pkg/cataloger/generic/cataloger.go:206 +0x226
+github.com/anchore/go-sync.Collect[...].func1()
+	/home/runner/go/pkg/mod/github.com/anchore/go-sync@v0.1.0/collector.go:45 +0x133
+github.com/anchore/go-sync.(*errGroupExecutor).Go.func1()
+	/home/runner/go/pkg/mod/github.com/anchore/go-sync@v0.1.0/executor_errgroup.go:37 +0x83
+golang.org/x/sync/errgroup.(*Group).Go.func1()
+	/home/runner/go/pkg/mod/golang.org/x/sync@v0.20.0/errgroup/errgroup.go:93 +0x50
+created by golang.org/x/sync/errgroup.(*Group).Go in goroutine 67
+	/home/runner/go/pkg/mod/golang.org/x/sync@v0.20.0/errgroup/errgroup.go:78 +0x95[0m
+ERROR: syft failed
+2026-06-10T04:19:38Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-10T04:19:38Z	INFO	Number of language-specific files	num=0
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
+[90m4:19AM[0m [31mERR[0m [36merror=[0m[31m[1m"failed to download modules: command `/usr/local/go/bin/go mod why -m -vendor github.com/CycloneDX/cyclonedx-go` failed: exit status 1"[0m[0m
+ERROR: cyclonedx-gomod failed
