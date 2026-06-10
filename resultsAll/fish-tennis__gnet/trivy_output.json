@@ -1,0 +1,189 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:5c6f8595-df6d-4eb4-9f4e-4ebf0985bdd1",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:27:35+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "cd05a7b9-9a4a-402a-ae94-219bd5b6afa0",
+      "type": "application",
+      "name": "/home/user/SBOM/work/fish-tennis__gnet",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "e61358b4-c3dc-412b-986e-1b1b422069fe",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/fish-tennis/gnet",
+      "type": "library",
+      "name": "github.com/fish-tennis/gnet",
+      "purl": "pkg:golang/github.com/fish-tennis/gnet",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/fish-tennis/gnet"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/golang/protobuf@v1.5.0",
+      "type": "library",
+      "name": "github.com/golang/protobuf",
+      "version": "v1.5.0",
+      "purl": "pkg:golang/github.com/golang/protobuf@v1.5.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/golang/protobuf@v1.5.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/google/go-cmp@v0.7.0",
+      "type": "library",
+      "name": "github.com/google/go-cmp",
+      "version": "v0.7.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/google/go-cmp@v0.7.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/google/go-cmp@v0.7.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gorilla/websocket@v1.5.3",
+      "type": "library",
+      "name": "github.com/gorilla/websocket",
+      "version": "v1.5.3",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-2-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/gorilla/websocket@v1.5.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gorilla/websocket@v1.5.3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/google.golang.org/protobuf@v1.36.10",
+      "type": "library",
+      "name": "google.golang.org/protobuf",
+      "version": "v1.36.10",
+      "purl": "pkg:golang/google.golang.org/protobuf@v1.36.10",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "google.golang.org/protobuf@v1.36.10"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "cd05a7b9-9a4a-402a-ae94-219bd5b6afa0",
+      "dependsOn": [
+        "e61358b4-c3dc-412b-986e-1b1b422069fe"
+      ]
+    },
+    {
+      "ref": "e61358b4-c3dc-412b-986e-1b1b422069fe",
+      "dependsOn": [
+        "pkg:golang/github.com/fish-tennis/gnet"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/fish-tennis/gnet",
+      "dependsOn": [
+        "pkg:golang/github.com/golang/protobuf@v1.5.0",
+        "pkg:golang/github.com/google/go-cmp@v0.7.0",
+        "pkg:golang/github.com/gorilla/websocket@v1.5.3",
+        "pkg:golang/google.golang.org/protobuf@v1.36.10"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/golang/protobuf@v1.5.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/google/go-cmp@v0.7.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/gorilla/websocket@v1.5.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/google.golang.org/protobuf@v1.36.10",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:f2df22f5-647d-48cb-8fcf-3438dd28062d",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:25:25+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "ced88620-dc23-499a-bdb6-681da231830d",
+      "type": "application",
+      "name": "/home/user/SBOM/work/cheng-zhongliang__event",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "ffd7ad89-6206-4023-8aa7-814d16faf4b6",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/cheng-zhongliang/event",
+      "type": "library",
+      "name": "github.com/cheng-zhongliang/event",
+      "purl": "pkg:golang/github.com/cheng-zhongliang/event",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/cheng-zhongliang/event"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "ced88620-dc23-499a-bdb6-681da231830d",
+      "dependsOn": [
+        "ffd7ad89-6206-4023-8aa7-814d16faf4b6"
+      ]
+    },
+    {
+      "ref": "ffd7ad89-6206-4023-8aa7-814d16faf4b6",
+      "dependsOn": [
+        "pkg:golang/github.com/cheng-zhongliang/event"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/cheng-zhongliang/event",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

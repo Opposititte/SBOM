@@ -1,0 +1,722 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:1b961c7c-8863-4b47-8732-7368a6a65a5c",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:25:52Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/fortio.org/fortio@v1.75.1?type=module",
+      "type": "application",
+      "name": "fortio.org/fortio",
+      "version": "v1.75.1",
+      "purl": "pkg:golang/fortio.org/fortio@v1.75.1?goarch=amd64\u0026goos=linux\u0026type=module"
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/fortio.org/cli@v1.12.3?type=module",
+      "type": "library",
+      "name": "fortio.org/cli",
+      "version": "v1.12.3",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3e8aa502090296a12ff59b63e072bf279e54a1d9d373767e2209e6d208327a2e"
+        }
+      ],
+      "purl": "pkg:golang/fortio.org/cli@v1.12.3?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/fortio.org/dflag@v1.9.3?type=module",
+      "type": "library",
+      "name": "fortio.org/dflag",
+      "version": "v1.9.3",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d44fdf94ab29275f07fd10babaac547fc175b7486da414bd5c5e68b53e224704"
+        }
+      ],
+      "purl": "pkg:golang/fortio.org/dflag@v1.9.3?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/fortio.org/duration@v1.0.4?type=module",
+      "type": "library",
+      "name": "fortio.org/duration",
+      "version": "v1.0.4",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4c1d3b9e0e14b0c64f0d1ba325191324870da8c4cb336f37ce86f5d276fd2b6e"
+        }
+      ],
+      "purl": "pkg:golang/fortio.org/duration@v1.0.4?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/fortio.org/log@v1.18.3?type=module",
+      "type": "library",
+      "name": "fortio.org/log",
+      "version": "v1.18.3",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "da4c04522b1eddf698e0ea2eb9e43fd6d0beef963660626325a5f6fc40a6bb82"
+        }
+      ],
+      "purl": "pkg:golang/fortio.org/log@v1.18.3?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/fortio.org/safecast@v1.2.0?type=module",
+      "type": "library",
+      "name": "fortio.org/safecast",
+      "version": "v1.2.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "72440935e9cc247c9ca8fb22fd0af30381145f959093277e8463b89b1b7f6bcc"
+        }
+      ],
+      "purl": "pkg:golang/fortio.org/safecast@v1.2.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/fortio.org/scli@v1.19.0?type=module",
+      "type": "library",
+      "name": "fortio.org/scli",
+      "version": "v1.19.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "de7af50730a629db3a32cecedf7b23334affcbd37864211e159ea40b323f8a2d"
+        }
+      ],
+      "purl": "pkg:golang/fortio.org/scli@v1.19.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/fortio.org/sets@v1.3.0?type=module",
+      "type": "library",
+      "name": "fortio.org/sets",
+      "version": "v1.3.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "52212d724fe774d3374e0e77989bb723b673d440fcf984902ed3ca4a377c2d31"
+        }
+      ],
+      "purl": "pkg:golang/fortio.org/sets@v1.3.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/fortio.org/struct2env@v0.4.2?type=module",
+      "type": "library",
+      "name": "fortio.org/struct2env",
+      "version": "v0.4.2",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5e1ec7952f6f7f665d46f45f9a81886ac3433bcb7acf7e8cef5deeb55383442a"
+        }
+      ],
+      "purl": "pkg:golang/fortio.org/struct2env@v0.4.2?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/fortio.org/terminal@v0.64.1?type=module",
+      "type": "library",
+      "name": "fortio.org/terminal",
+      "version": "v0.64.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1868353267ce6c76457e6ab870a5918ae082e56e5be988eaa77e6bbfbe9f8aa1"
+        }
+      ],
+      "purl": "pkg:golang/fortio.org/terminal@v0.64.1?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/fortio.org/version@v1.0.4?type=module",
+      "type": "library",
+      "name": "fortio.org/version",
+      "version": "v1.0.4",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "15650ca49fa155335ce1186fbce2736f4c5eb2b951986fdaf83e9b8db438fb95"
+        }
+      ],
+      "purl": "pkg:golang/fortio.org/version@v1.0.4?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/fsnotify/fsnotify@v1.8.0?type=module",
+      "type": "library",
+      "name": "github.com/fsnotify/fsnotify",
+      "version": "v1.8.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "740c2be900530592241bcae841a2631a87f4a69d04785fad355ed804fdc5ffc3"
+        }
+      ],
+      "purl": "pkg:golang/github.com/fsnotify/fsnotify@v1.8.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/fsnotify/fsnotify",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/golang/protobuf@v1.5.4?type=module",
+      "type": "library",
+      "name": "github.com/golang/protobuf",
+      "version": "v1.5.4",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8bb7892fca994e94845ce3d3c4d2a1012629327fbc7b943a01d9dd55ad5d59e9"
+        }
+      ],
+      "purl": "pkg:golang/github.com/golang/protobuf@v1.5.4?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/golang/protobuf",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/google/uuid@v1.6.0?type=module",
+      "type": "library",
+      "name": "github.com/google/uuid",
+      "version": "v1.6.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "348bda24330eb231c0f27d630212d2833ac0cf2d4782bfa136b6f9edefbde05d"
+        }
+      ],
+      "purl": "pkg:golang/github.com/google/uuid@v1.6.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/google/uuid",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jbuchbinder/gopnm@v0.0.0-20220507095634-e31f54490ce0?type=module",
+      "type": "library",
+      "name": "github.com/jbuchbinder/gopnm",
+      "version": "v0.0.0-20220507095634-e31f54490ce0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f46c30915cd49f5bd158043c191bbb50e6a833e1591a7bf0f3c0ec8f28aa7d77"
+        }
+      ],
+      "purl": "pkg:golang/github.com/jbuchbinder/gopnm@v0.0.0-20220507095634-e31f54490ce0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/jbuchbinder/gopnm",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jhump/protoreflect@v1.18.0?type=module",
+      "type": "library",
+      "name": "github.com/jhump/protoreflect",
+      "version": "v1.18.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4cecf431247fd09399e6410207fd2e7c69c2da376c819d76dd177f938679ff6c"
+        }
+      ],
+      "purl": "pkg:golang/github.com/jhump/protoreflect@v1.18.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/jhump/protoreflect",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jhump/protoreflect/v2@v2.0.0-beta.1?type=module",
+      "type": "library",
+      "name": "github.com/jhump/protoreflect/v2",
+      "version": "v2.0.0-beta.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0f0d6bb252bf568b5a50662cbf9dd7556213afee5108f5dfbef946accffe07ac"
+        }
+      ],
+      "purl": "pkg:golang/github.com/jhump/protoreflect/v2@v2.0.0-beta.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/jhump/protoreflect",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/kortschak/goroutine@v1.1.3?type=module",
+      "type": "library",
+      "name": "github.com/kortschak/goroutine",
+      "version": "v1.1.3",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "9042ef01f8bb8e9543edaf8c3d68e6231b90549558a3f4442da39e1896416fcf"
+        }
+      ],
+      "purl": "pkg:golang/github.com/kortschak/goroutine@v1.1.3?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/kortschak/goroutine",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/rivo/uniseg@v0.4.7?type=module",
+      "type": "library",
+      "name": "github.com/rivo/uniseg",
+      "version": "v0.4.7",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "59476f916f2e121ad87cb0b8673769236cedc4fd48e7cdbee3d39ce4cabae154"
+        }
+      ],
+      "purl": "pkg:golang/github.com/rivo/uniseg@v0.4.7?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/rivo/uniseg",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/crypto/x509roots/fallback@v0.0.0-20250406160420-959f8f3db0fb?type=module",
+      "type": "library",
+      "name": "golang.org/x/crypto/x509roots/fallback",
+      "version": "v0.0.0-20250406160420-959f8f3db0fb",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "22ed29fe494cd1233b6ad38d8a86bf6cf84b4bb7238678a9f7dc753881a26f08"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/crypto/x509roots/fallback@v0.0.0-20250406160420-959f8f3db0fb?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/image@v0.36.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/image",
+      "version": "v0.36.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "2249db7e6d5a7db82dc0f4e61e74b681333fe8f3d97c7fb3d8416e3a449bab07"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/image@v0.36.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/net@v0.52.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/net",
+      "version": "v0.52.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1defd33759747b89a647742a1cc4f65da6f7023dcbf6a8db8519bbf3fea3ad6d"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/net@v0.52.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.42.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.42.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a26addda7025c93e444917422d8766dfe7cc7cd144ffe45fe1b0c840899125ea"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/sys@v0.42.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/term@v0.41.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/term",
+      "version": "v0.41.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "40280fb28fd0dd14c9c764e1e1b0cba8c2f85ba88989a5c5ab6fdfb50175dd85"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/term@v0.41.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/text@v0.35.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/text",
+      "version": "v0.35.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "24e571eaf543168924a5aab5004a6d5732d3a437bd286a63e6d478fd7fb26cbf"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/text@v0.35.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20251202230838-ff82c1b0f217?type=module",
+      "type": "library",
+      "name": "google.golang.org/genproto/googleapis/rpc",
+      "version": "v0.0.0-20251202230838-ff82c1b0f217",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "811920fef4a9a6e490a038f1ca219f378529bff87f0d0988475d1953c761e16c"
+        }
+      ],
+      "purl": "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20251202230838-ff82c1b0f217?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/google.golang.org/grpc@v1.79.3?type=module",
+      "type": "library",
+      "name": "google.golang.org/grpc",
+      "version": "v1.79.3",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b326c011d44812dbdc0faf06c7b7669f08d92a5c9fb9ceb50f2a3da465d790a1"
+        }
+      ],
+      "purl": "pkg:golang/google.golang.org/grpc@v1.79.3?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/google.golang.org/protobuf@v1.36.11?type=module",
+      "type": "library",
+      "name": "google.golang.org/protobuf",
+      "version": "v1.36.11",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7d5e99c21368703c812cad1d8fe7e0f1e92d7157a0041b84a25a5b4d0c813551"
+        }
+      ],
+      "purl": "pkg:golang/google.golang.org/protobuf@v1.36.11?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/grol.io/grol@v0.101.0?type=module",
+      "type": "library",
+      "name": "grol.io/grol",
+      "version": "v0.101.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6a48519146553900a122806c22e4cbc0e2dd8dbfa561b41597942c7ba3759267"
+        }
+      ],
+      "purl": "pkg:golang/grol.io/grol@v0.101.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/fortio.org/fortio@v1.75.1?type=module",
+      "dependsOn": [
+        "pkg:golang/fortio.org/cli@v1.12.3?type=module",
+        "pkg:golang/fortio.org/dflag@v1.9.3?type=module",
+        "pkg:golang/fortio.org/duration@v1.0.4?type=module",
+        "pkg:golang/fortio.org/log@v1.18.3?type=module",
+        "pkg:golang/fortio.org/safecast@v1.2.0?type=module",
+        "pkg:golang/fortio.org/scli@v1.19.0?type=module",
+        "pkg:golang/fortio.org/sets@v1.3.0?type=module",
+        "pkg:golang/fortio.org/version@v1.0.4?type=module",
+        "pkg:golang/github.com/golang/protobuf@v1.5.4?type=module",
+        "pkg:golang/github.com/google/uuid@v1.6.0?type=module",
+        "pkg:golang/github.com/jhump/protoreflect@v1.18.0?type=module",
+        "pkg:golang/golang.org/x/net@v0.52.0?type=module",
+        "pkg:golang/google.golang.org/grpc@v1.79.3?type=module",
+        "pkg:golang/grol.io/grol@v0.101.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/fortio.org/cli@v1.12.3?type=module",
+      "dependsOn": [
+        "pkg:golang/fortio.org/duration@v1.0.4?type=module",
+        "pkg:golang/fortio.org/log@v1.18.3?type=module",
+        "pkg:golang/fortio.org/struct2env@v0.4.2?type=module",
+        "pkg:golang/fortio.org/version@v1.0.4?type=module",
+        "pkg:golang/github.com/kortschak/goroutine@v1.1.3?type=module",
+        "pkg:golang/golang.org/x/crypto/x509roots/fallback@v0.0.0-20250406160420-959f8f3db0fb?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/fortio.org/dflag@v1.9.3?type=module",
+      "dependsOn": [
+        "pkg:golang/fortio.org/duration@v1.0.4?type=module",
+        "pkg:golang/fortio.org/log@v1.18.3?type=module",
+        "pkg:golang/fortio.org/sets@v1.3.0?type=module",
+        "pkg:golang/fortio.org/struct2env@v0.4.2?type=module",
+        "pkg:golang/github.com/fsnotify/fsnotify@v1.8.0?type=module",
+        "pkg:golang/github.com/kortschak/goroutine@v1.1.3?type=module",
+        "pkg:golang/golang.org/x/sys@v0.42.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/fortio.org/duration@v1.0.4?type=module"
+    },
+    {
+      "ref": "pkg:golang/fortio.org/log@v1.18.3?type=module",
+      "dependsOn": [
+        "pkg:golang/fortio.org/struct2env@v0.4.2?type=module",
+        "pkg:golang/github.com/kortschak/goroutine@v1.1.3?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/fortio.org/safecast@v1.2.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/fortio.org/scli@v1.19.0?type=module",
+      "dependsOn": [
+        "pkg:golang/fortio.org/cli@v1.12.3?type=module",
+        "pkg:golang/fortio.org/dflag@v1.9.3?type=module",
+        "pkg:golang/fortio.org/duration@v1.0.4?type=module",
+        "pkg:golang/fortio.org/log@v1.18.3?type=module",
+        "pkg:golang/fortio.org/sets@v1.3.0?type=module",
+        "pkg:golang/fortio.org/struct2env@v0.4.2?type=module",
+        "pkg:golang/fortio.org/version@v1.0.4?type=module",
+        "pkg:golang/github.com/fsnotify/fsnotify@v1.8.0?type=module",
+        "pkg:golang/github.com/kortschak/goroutine@v1.1.3?type=module",
+        "pkg:golang/golang.org/x/crypto/x509roots/fallback@v0.0.0-20250406160420-959f8f3db0fb?type=module",
+        "pkg:golang/golang.org/x/sys@v0.42.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/fortio.org/sets@v1.3.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/fortio.org/struct2env@v0.4.2?type=module"
+    },
+    {
+      "ref": "pkg:golang/fortio.org/terminal@v0.64.1?type=module",
+      "dependsOn": [
+        "pkg:golang/fortio.org/cli@v1.12.3?type=module",
+        "pkg:golang/fortio.org/duration@v1.0.4?type=module",
+        "pkg:golang/fortio.org/log@v1.18.3?type=module",
+        "pkg:golang/fortio.org/safecast@v1.2.0?type=module",
+        "pkg:golang/fortio.org/struct2env@v0.4.2?type=module",
+        "pkg:golang/fortio.org/version@v1.0.4?type=module",
+        "pkg:golang/github.com/jbuchbinder/gopnm@v0.0.0-20220507095634-e31f54490ce0?type=module",
+        "pkg:golang/github.com/kortschak/goroutine@v1.1.3?type=module",
+        "pkg:golang/github.com/rivo/uniseg@v0.4.7?type=module",
+        "pkg:golang/golang.org/x/crypto/x509roots/fallback@v0.0.0-20250406160420-959f8f3db0fb?type=module",
+        "pkg:golang/golang.org/x/image@v0.36.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.42.0?type=module",
+        "pkg:golang/golang.org/x/term@v0.41.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/fortio.org/version@v1.0.4?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/fsnotify/fsnotify@v1.8.0?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/sys@v0.42.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/golang/protobuf@v1.5.4?type=module",
+      "dependsOn": [
+        "pkg:golang/google.golang.org/protobuf@v1.36.11?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/google/uuid@v1.6.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/jbuchbinder/gopnm@v0.0.0-20220507095634-e31f54490ce0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/jhump/protoreflect@v1.18.0?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/golang/protobuf@v1.5.4?type=module",
+        "pkg:golang/github.com/jhump/protoreflect/v2@v2.0.0-beta.1?type=module",
+        "pkg:golang/golang.org/x/net@v0.52.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.42.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.35.0?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20251202230838-ff82c1b0f217?type=module",
+        "pkg:golang/google.golang.org/grpc@v1.79.3?type=module",
+        "pkg:golang/google.golang.org/protobuf@v1.36.11?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/jhump/protoreflect/v2@v2.0.0-beta.1?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/golang/protobuf@v1.5.4?type=module",
+        "pkg:golang/github.com/jhump/protoreflect@v1.18.0?type=module",
+        "pkg:golang/golang.org/x/net@v0.52.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.42.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.35.0?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20251202230838-ff82c1b0f217?type=module",
+        "pkg:golang/google.golang.org/grpc@v1.79.3?type=module",
+        "pkg:golang/google.golang.org/protobuf@v1.36.11?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/kortschak/goroutine@v1.1.3?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/rivo/uniseg@v0.4.7?type=module"
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/crypto/x509roots/fallback@v0.0.0-20250406160420-959f8f3db0fb?type=module"
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/image@v0.36.0?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/text@v0.35.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/net@v0.52.0?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/sys@v0.42.0?type=module",
+        "pkg:golang/golang.org/x/term@v0.41.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.35.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.42.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/term@v0.41.0?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/sys@v0.42.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/text@v0.35.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20251202230838-ff82c1b0f217?type=module",
+      "dependsOn": [
+        "pkg:golang/google.golang.org/protobuf@v1.36.11?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/google.golang.org/grpc@v1.79.3?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/golang/protobuf@v1.5.4?type=module",
+        "pkg:golang/github.com/google/uuid@v1.6.0?type=module",
+        "pkg:golang/golang.org/x/net@v0.52.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.42.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.35.0?type=module",
+        "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20251202230838-ff82c1b0f217?type=module",
+        "pkg:golang/google.golang.org/protobuf@v1.36.11?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/google.golang.org/protobuf@v1.36.11?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/golang/protobuf@v1.5.4?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/grol.io/grol@v0.101.0?type=module",
+      "dependsOn": [
+        "pkg:golang/fortio.org/cli@v1.12.3?type=module",
+        "pkg:golang/fortio.org/duration@v1.0.4?type=module",
+        "pkg:golang/fortio.org/log@v1.18.3?type=module",
+        "pkg:golang/fortio.org/safecast@v1.2.0?type=module",
+        "pkg:golang/fortio.org/sets@v1.3.0?type=module",
+        "pkg:golang/fortio.org/struct2env@v0.4.2?type=module",
+        "pkg:golang/fortio.org/terminal@v0.64.1?type=module",
+        "pkg:golang/fortio.org/version@v1.0.4?type=module",
+        "pkg:golang/github.com/jbuchbinder/gopnm@v0.0.0-20220507095634-e31f54490ce0?type=module",
+        "pkg:golang/github.com/kortschak/goroutine@v1.1.3?type=module",
+        "pkg:golang/github.com/rivo/uniseg@v0.4.7?type=module",
+        "pkg:golang/golang.org/x/crypto/x509roots/fallback@v0.0.0-20250406160420-959f8f3db0fb?type=module",
+        "pkg:golang/golang.org/x/image@v0.36.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.42.0?type=module",
+        "pkg:golang/golang.org/x/term@v0.41.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.35.0?type=module"
+      ]
+    }
+  ]
+}

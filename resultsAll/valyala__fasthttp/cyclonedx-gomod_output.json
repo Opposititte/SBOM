@@ -1,0 +1,224 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:123111f9-e4de-4932-a0b7-2cb8de3f9335",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:25:41Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/valyala/fasthttp@v0.0.0-20260609093636-9df7942bcd0b?type=module",
+      "type": "application",
+      "name": "github.com/valyala/fasthttp",
+      "version": "v0.0.0-20260609093636-9df7942bcd0b",
+      "purl": "pkg:golang/github.com/valyala/fasthttp@v0.0.0-20260609093636-9df7942bcd0b?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/valyala/fasthttp",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/github.com/andybalholm/brotli@v1.2.1?type=module",
+      "type": "library",
+      "name": "github.com/andybalholm/brotli",
+      "version": "v1.2.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "47e7f9c4fdbce5502b243460a30adf6fd0ea2f5f3254ad202805bf17e7935aba"
+        }
+      ],
+      "purl": "pkg:golang/github.com/andybalholm/brotli@v1.2.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/andybalholm/brotli",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/klauspost/compress@v1.18.6?type=module",
+      "type": "library",
+      "name": "github.com/klauspost/compress",
+      "version": "v1.18.6",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "da3ba92e5030166f79f980d1f8dc03d8c11f14ef5de33e0fae39755d70e3b9aa"
+        }
+      ],
+      "purl": "pkg:golang/github.com/klauspost/compress@v1.18.6?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/klauspost/compress",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/valyala/bytebufferpool@v1.0.0?type=module",
+      "type": "library",
+      "name": "github.com/valyala/bytebufferpool",
+      "version": "v1.0.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1aa0394c2ff4d36d58fdbf451b83a2f4caf7abb5d8c7a2a59736b014885c74fc"
+        }
+      ],
+      "purl": "pkg:golang/github.com/valyala/bytebufferpool@v1.0.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/valyala/bytebufferpool",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/crypto@v0.53.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/crypto",
+      "version": "v0.53.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "419e0cba8f131d7e828b3376bcf3dde5f0461f2a20add2bd7c6e302cf154b2da"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/crypto@v0.53.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/net@v0.55.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/net",
+      "version": "v0.55.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6dcbf16899f77b553a227b055add4952ad5a4a39d1c4bcd3dabb43d8a7e40c5f"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/net@v0.55.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.46.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.46.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "9e849fd85aba17c0c1812f8bcac224c7bac8131a0d1c9b31380b4fa78aed857c"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/sys@v0.46.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/text@v0.38.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/text",
+      "version": "v0.38.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b179b0a3d0f03f738af4467b3ea01d6a8a121a8cdf97fddaebfc4971bccf4611"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/text@v0.38.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/valyala/fasthttp@v0.0.0-20260609093636-9df7942bcd0b?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/andybalholm/brotli@v1.2.1?type=module",
+        "pkg:golang/github.com/klauspost/compress@v1.18.6?type=module",
+        "pkg:golang/github.com/valyala/bytebufferpool@v1.0.0?type=module",
+        "pkg:golang/golang.org/x/crypto@v0.53.0?type=module",
+        "pkg:golang/golang.org/x/net@v0.55.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.46.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/andybalholm/brotli@v1.2.1?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/klauspost/compress@v1.18.6?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/valyala/bytebufferpool@v1.0.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/crypto@v0.53.0?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/net@v0.55.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.46.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.38.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/net@v0.55.0?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/crypto@v0.53.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.46.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.38.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.46.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/text@v0.38.0?type=module"
+    }
+  ]
+}

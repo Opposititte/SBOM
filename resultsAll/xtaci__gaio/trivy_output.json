@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:54717d89-cca5-43b3-bbfc-4b35583e9d1a",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:26:34+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "7ff118fe-aa30-4b20-9539-4d204b4a98db",
+      "type": "application",
+      "name": "/home/user/SBOM/work/xtaci__gaio",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "1226e64c-8684-4b25-9121-4d82c6c28ec6",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/xtaci/gaio",
+      "type": "library",
+      "name": "github.com/xtaci/gaio",
+      "purl": "pkg:golang/github.com/xtaci/gaio",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/xtaci/gaio"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.28.0",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.28.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.28.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sys@v0.28.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "1226e64c-8684-4b25-9121-4d82c6c28ec6",
+      "dependsOn": [
+        "pkg:golang/github.com/xtaci/gaio"
+      ]
+    },
+    {
+      "ref": "7ff118fe-aa30-4b20-9539-4d204b4a98db",
+      "dependsOn": [
+        "1226e64c-8684-4b25-9121-4d82c6c28ec6"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/xtaci/gaio",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/sys@v0.28.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.28.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

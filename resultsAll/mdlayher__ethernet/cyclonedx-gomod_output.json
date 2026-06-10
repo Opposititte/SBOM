@@ -1,0 +1,207 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:6aee4c46-a4c2-4c23-8af3-e34f8b86fcf5",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:25:23Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/mdlayher/ethernet@v0.0.0-20220221185849-529eae5b6118?type=module",
+      "type": "application",
+      "name": "github.com/mdlayher/ethernet",
+      "version": "v0.0.0-20220221185849-529eae5b6118",
+      "purl": "pkg:golang/github.com/mdlayher/ethernet@v0.0.0-20220221185849-529eae5b6118?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/mdlayher/ethernet",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/github.com/josharian/native@v1.0.0?type=module",
+      "type": "library",
+      "name": "github.com/josharian/native",
+      "version": "v1.0.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4ecfc4f3309212c1b5edd52abfb8e85c91726ee30b8d07d6134e2db013834f19"
+        }
+      ],
+      "purl": "pkg:golang/github.com/josharian/native@v1.0.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/josharian/native",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mdlayher/packet@v1.0.0?type=module",
+      "type": "library",
+      "name": "github.com/mdlayher/packet",
+      "version": "v1.0.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "22785925b75285062de9757618f8f95c7c4287339f84924e31bbe718098e7d0f"
+        }
+      ],
+      "purl": "pkg:golang/github.com/mdlayher/packet@v1.0.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/mdlayher/packet",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mdlayher/socket@v0.2.1?type=module",
+      "type": "library",
+      "name": "github.com/mdlayher/socket",
+      "version": "v0.2.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "17669a3b06f9dd5b0113e79b452f5b2ddef23ce7d850c0bc94e38374204363ac"
+        }
+      ],
+      "purl": "pkg:golang/github.com/mdlayher/socket@v0.2.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/mdlayher/socket",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/net@v0.0.0-20190603091049-60506f45cf65?type=module",
+      "type": "library",
+      "name": "golang.org/x/net",
+      "version": "v0.0.0-20190603091049-60506f45cf65",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "fab840cc4cd3ddfe09b6899f0b7ef5a81fb43a56b671a48a718ebd354059ad14"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/net@v0.0.0-20190603091049-60506f45cf65?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sync@v0.0.0-20210220032951-036812b2e83c?type=module",
+      "type": "library",
+      "name": "golang.org/x/sync",
+      "version": "v0.0.0-20210220032951-036812b2e83c",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e4ab25198c05a6484687e435e9bc0c3f770ea27b47f0539ea7bb4657ce98ed24"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/sync@v0.0.0-20210220032951-036812b2e83c?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.0.0-20220209214540-3681064d5158?type=module",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.0.0-20220209214540-3681064d5158",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ae6f821d2a4f1045b622c5d489bd5385a1c88ee055663c4d8122a604b15f0f87"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/sys@v0.0.0-20220209214540-3681064d5158?goarch=amd64\u0026goos=linux\u0026type=module"
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/mdlayher/ethernet@v0.0.0-20220221185849-529eae5b6118?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/mdlayher/packet@v1.0.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/josharian/native@v1.0.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/mdlayher/packet@v1.0.0?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/josharian/native@v1.0.0?type=module",
+        "pkg:golang/github.com/mdlayher/socket@v0.2.1?type=module",
+        "pkg:golang/golang.org/x/net@v0.0.0-20190603091049-60506f45cf65?type=module",
+        "pkg:golang/golang.org/x/sync@v0.0.0-20210220032951-036812b2e83c?type=module",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20220209214540-3681064d5158?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/mdlayher/socket@v0.2.1?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/net@v0.0.0-20190603091049-60506f45cf65?type=module",
+        "pkg:golang/golang.org/x/sync@v0.0.0-20210220032951-036812b2e83c?type=module",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20220209214540-3681064d5158?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/net@v0.0.0-20190603091049-60506f45cf65?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/sys@v0.0.0-20220209214540-3681064d5158?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sync@v0.0.0-20210220032951-036812b2e83c?type=module"
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.0.0-20220209214540-3681064d5158?type=module"
+    }
+  ]
+}

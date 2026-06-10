@@ -1,0 +1,220 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:34f8d7d6-ed0d-4a70-9768-2b60f6b19bdc",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:27:25Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/panjf2000/gnet/v2@v0.0.0-20260525024820-fd7ce4bef975?type=module",
+      "type": "application",
+      "name": "github.com/panjf2000/gnet/v2",
+      "version": "v0.0.0-20260525024820-fd7ce4bef975",
+      "purl": "pkg:golang/github.com/panjf2000/gnet/v2@v0.0.0-20260525024820-fd7ce4bef975?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/panjf2000/gnet",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/github.com/panjf2000/ants/v2@v2.12.1?type=module",
+      "type": "library",
+      "name": "github.com/panjf2000/ants/v2",
+      "version": "v2.12.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "056bd4db01e9c975b1861357b0607a2572c235bb21c8b775431be8026667bb5d"
+        }
+      ],
+      "purl": "pkg:golang/github.com/panjf2000/ants/v2@v2.12.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/panjf2000/ants",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/valyala/bytebufferpool@v1.0.0?type=module",
+      "type": "library",
+      "name": "github.com/valyala/bytebufferpool",
+      "version": "v1.0.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1aa0394c2ff4d36d58fdbf451b83a2f4caf7abb5d8c7a2a59736b014885c74fc"
+        }
+      ],
+      "purl": "pkg:golang/github.com/valyala/bytebufferpool@v1.0.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/valyala/bytebufferpool",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/go.uber.org/multierr@v1.11.0?type=module",
+      "type": "library",
+      "name": "go.uber.org/multierr",
+      "version": "v1.11.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6e55d72644b14927c1541942efaa71a9e3be2cddda0df2d0a3edf4f7126cb4ed"
+        }
+      ],
+      "purl": "pkg:golang/go.uber.org/multierr@v1.11.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/go.uber.org/zap@v1.28.0?type=module",
+      "type": "library",
+      "name": "go.uber.org/zap",
+      "version": "v1.28.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "219cda3f516fef7fd3fe904c2e4e15bad3e5dfab8d0be392521dc92c6dc5223a"
+        }
+      ],
+      "purl": "pkg:golang/go.uber.org/zap@v1.28.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sync@v0.11.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/sync",
+      "version": "v0.11.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "186cfcf9740fe05bd34eb8d93f334a4cc16d4971fcd110331bee608453e02bdc"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/sync@v0.11.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.30.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.30.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "423912c0fff7e9adb48c5616912b9ed58c17ccb9ac57919fabb122cbbd82d6e7"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/sys@v0.30.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/gopkg.in/natefinch/lumberjack.v2@v2.2.1?type=module",
+      "type": "library",
+      "name": "gopkg.in/natefinch/lumberjack.v2",
+      "version": "v2.2.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6c1465d5bd0e1fdb3f0ee3e1b97a4d97e56d09a257159e7fb841524fde71f737"
+        }
+      ],
+      "purl": "pkg:golang/gopkg.in/natefinch/lumberjack.v2@v2.2.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/natefinch/lumberjack",
+          "type": "vcs"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/panjf2000/gnet/v2@v0.0.0-20260525024820-fd7ce4bef975?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/panjf2000/ants/v2@v2.12.1?type=module",
+        "pkg:golang/github.com/valyala/bytebufferpool@v1.0.0?type=module",
+        "pkg:golang/go.uber.org/zap@v1.28.0?type=module",
+        "pkg:golang/golang.org/x/sync@v0.11.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.30.0?type=module",
+        "pkg:golang/gopkg.in/natefinch/lumberjack.v2@v2.2.1?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/panjf2000/ants/v2@v2.12.1?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/sync@v0.11.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/valyala/bytebufferpool@v1.0.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/go.uber.org/multierr@v1.11.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/go.uber.org/zap@v1.28.0?type=module",
+      "dependsOn": [
+        "pkg:golang/go.uber.org/multierr@v1.11.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sync@v0.11.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.30.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/gopkg.in/natefinch/lumberjack.v2@v2.2.1?type=module"
+    }
+  ]
+}
