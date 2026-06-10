@@ -1,0 +1,204 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:a911b349-aa32-4ba9-b196-c5f534009580",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T00:54:09+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "7d971cd5-5180-4c7f-a2dd-ce5f072a2060",
+      "type": "application",
+      "name": "/home/user/SBOM/work/mikestefanello__backlite",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "de1e7d32-5035-4530-9fba-62441db30240",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/andybalholm/cascadia@v1.3.3",
+      "type": "library",
+      "name": "github.com/andybalholm/cascadia",
+      "version": "v1.3.3",
+      "purl": "pkg:golang/github.com/andybalholm/cascadia@v1.3.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/andybalholm/cascadia@v1.3.3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/google/uuid@v1.6.0",
+      "type": "library",
+      "name": "github.com/google/uuid",
+      "version": "v1.6.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/google/uuid@v1.6.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/google/uuid@v1.6.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mattn/go-sqlite3@v1.14.28",
+      "type": "library",
+      "name": "github.com/mattn/go-sqlite3",
+      "version": "v1.14.28",
+      "purl": "pkg:golang/github.com/mattn/go-sqlite3@v1.14.28",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mattn/go-sqlite3@v1.14.28"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mikestefanello/backlite",
+      "type": "library",
+      "name": "github.com/mikestefanello/backlite",
+      "purl": "pkg:golang/github.com/mikestefanello/backlite",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mikestefanello/backlite"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/puerkitobio/goquery@v1.10.2",
+      "type": "library",
+      "name": "github.com/PuerkitoBio/goquery",
+      "version": "v1.10.2",
+      "purl": "pkg:golang/github.com/puerkitobio/goquery@v1.10.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/PuerkitoBio/goquery@v1.10.2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/net@v0.39.0",
+      "type": "library",
+      "name": "golang.org/x/net",
+      "version": "v0.39.0",
+      "purl": "pkg:golang/golang.org/x/net@v0.39.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/net@v0.39.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "7d971cd5-5180-4c7f-a2dd-ce5f072a2060",
+      "dependsOn": [
+        "de1e7d32-5035-4530-9fba-62441db30240"
+      ]
+    },
+    {
+      "ref": "de1e7d32-5035-4530-9fba-62441db30240",
+      "dependsOn": [
+        "pkg:golang/github.com/mikestefanello/backlite"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/andybalholm/cascadia@v1.3.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/google/uuid@v1.6.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/mattn/go-sqlite3@v1.14.28",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/mikestefanello/backlite",
+      "dependsOn": [
+        "pkg:golang/github.com/andybalholm/cascadia@v1.3.3",
+        "pkg:golang/github.com/google/uuid@v1.6.0",
+        "pkg:golang/github.com/mattn/go-sqlite3@v1.14.28",
+        "pkg:golang/github.com/puerkitobio/goquery@v1.10.2",
+        "pkg:golang/golang.org/x/net@v0.39.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/puerkitobio/goquery@v1.10.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/net@v0.39.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
