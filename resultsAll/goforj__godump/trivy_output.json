@@ -1,0 +1,128 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:e405c6da-cb60-460d-8309-e3e4c30e77fd",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:45:19+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "45489729-af26-4464-9d9e-16c0677c300a",
+      "type": "application",
+      "name": "/home/user/SBOM/work/goforj__godump",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "11831b32-5751-4150-977e-206aeadb2eac",
+      "type": "application",
+      "name": "examples/go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "5a2d4db4-6214-4549-964b-ba625842724d",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/goforj/godump",
+      "type": "library",
+      "name": "github.com/goforj/godump",
+      "purl": "pkg:golang/github.com/goforj/godump",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/goforj/godump"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/goforj/godump/examples",
+      "type": "library",
+      "name": "github.com/goforj/godump/examples",
+      "purl": "pkg:golang/github.com/goforj/godump/examples",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/goforj/godump/examples"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "11831b32-5751-4150-977e-206aeadb2eac",
+      "dependsOn": [
+        "pkg:golang/github.com/goforj/godump/examples"
+      ]
+    },
+    {
+      "ref": "45489729-af26-4464-9d9e-16c0677c300a",
+      "dependsOn": [
+        "11831b32-5751-4150-977e-206aeadb2eac",
+        "5a2d4db4-6214-4549-964b-ba625842724d"
+      ]
+    },
+    {
+      "ref": "5a2d4db4-6214-4549-964b-ba625842724d",
+      "dependsOn": [
+        "pkg:golang/github.com/goforj/godump"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/goforj/godump",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/goforj/godump/examples",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

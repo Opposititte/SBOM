@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:9ad5b8ae-fb44-4701-8986-f80b0c3fcd0c",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:43:48+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "d1d419be-7fbc-4f8b-80fd-84e15f7c5f8f",
+      "type": "application",
+      "name": "/home/user/SBOM/work/clbanning__mxj",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "afa95cc8-8244-4f1a-9c1a-d6430057800c",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/clbanning/mxj/v2",
+      "type": "library",
+      "name": "github.com/clbanning/mxj/v2",
+      "purl": "pkg:golang/github.com/clbanning/mxj/v2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/clbanning/mxj/v2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/google/go-cmp@v0.5.9",
+      "type": "library",
+      "name": "github.com/google/go-cmp",
+      "version": "v0.5.9",
+      "purl": "pkg:golang/github.com/google/go-cmp@v0.5.9",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/google/go-cmp@v0.5.9"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "afa95cc8-8244-4f1a-9c1a-d6430057800c",
+      "dependsOn": [
+        "pkg:golang/github.com/clbanning/mxj/v2"
+      ]
+    },
+    {
+      "ref": "d1d419be-7fbc-4f8b-80fd-84e15f7c5f8f",
+      "dependsOn": [
+        "afa95cc8-8244-4f1a-9c1a-d6430057800c"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/clbanning/mxj/v2",
+      "dependsOn": [
+        "pkg:golang/github.com/google/go-cmp@v0.5.9"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/google/go-cmp@v0.5.9",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

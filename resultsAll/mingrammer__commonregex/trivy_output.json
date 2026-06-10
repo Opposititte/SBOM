@@ -1,0 +1,167 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:5f745980-af29-4033-b2fa-be661784acc7",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:44:04+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "6ec00944-70c8-4ef5-a7ee-54cee6282a2e",
+      "type": "application",
+      "name": "/home/user/SBOM/work/mingrammer__commonregex",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "99fe4c8b-aec7-4959-86dd-13781bd70034",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+      "type": "library",
+      "name": "github.com/davecgh/go-spew",
+      "version": "v1.1.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/davecgh/go-spew@v1.1.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mingrammer/commonregex",
+      "type": "library",
+      "name": "github.com/mingrammer/commonregex",
+      "purl": "pkg:golang/github.com/mingrammer/commonregex",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mingrammer/commonregex"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+      "type": "library",
+      "name": "github.com/pmezard/go-difflib",
+      "version": "v1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/pmezard/go-difflib@v1.0.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/stretchr/testify@v1.2.2",
+      "type": "library",
+      "name": "github.com/stretchr/testify",
+      "version": "v1.2.2",
+      "purl": "pkg:golang/github.com/stretchr/testify@v1.2.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/stretchr/testify@v1.2.2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "6ec00944-70c8-4ef5-a7ee-54cee6282a2e",
+      "dependsOn": [
+        "99fe4c8b-aec7-4959-86dd-13781bd70034"
+      ]
+    },
+    {
+      "ref": "99fe4c8b-aec7-4959-86dd-13781bd70034",
+      "dependsOn": [
+        "pkg:golang/github.com/mingrammer/commonregex"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/mingrammer/commonregex",
+      "dependsOn": [
+        "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+        "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+        "pkg:golang/github.com/stretchr/testify@v1.2.2"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/stretchr/testify@v1.2.2",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
