@@ -1,0 +1,119 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:2101c20a-94b1-481c-98f4-70625da45451",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:53:56Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/go-ozzo/ozzo-routing/v2@v2.4.0?type=module",
+      "type": "application",
+      "name": "github.com/go-ozzo/ozzo-routing/v2",
+      "version": "v2.4.0",
+      "purl": "pkg:golang/github.com/go-ozzo/ozzo-routing/v2@v2.4.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/go-ozzo/ozzo-routing",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/github.com/golang-jwt/jwt@v3.2.2+incompatible?type=module",
+      "type": "library",
+      "name": "github.com/golang-jwt/jwt",
+      "version": "v3.2.2+incompatible",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "21f575d8af3100a02766a757573099f933a36e867691e2e0f357977d6dcefa86"
+        }
+      ],
+      "purl": "pkg:golang/github.com/golang-jwt/jwt@v3.2.2+incompatible?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/golang-jwt/jwt",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/golang/gddo@v0.0.0-20190904175337-72a348e765d2?type=module",
+      "type": "library",
+      "name": "github.com/golang/gddo",
+      "version": "v0.0.0-20190904175337-72a348e765d2",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c62b16aa388a11f7f607429f1581a90aa737337cdd4f3f8e1d01d1734f457989"
+        }
+      ],
+      "purl": "pkg:golang/github.com/golang/gddo@v0.0.0-20190904175337-72a348e765d2?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/golang/gddo",
+          "type": "vcs"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/go-ozzo/ozzo-routing/v2@v2.4.0?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/golang-jwt/jwt@v3.2.2+incompatible?type=module",
+        "pkg:golang/github.com/golang/gddo@v0.0.0-20190904175337-72a348e765d2?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/golang-jwt/jwt@v3.2.2+incompatible?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/golang/gddo@v0.0.0-20190904175337-72a348e765d2?type=module"
+    }
+  ]
+}

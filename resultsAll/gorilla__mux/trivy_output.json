@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:615f82a4-76d0-4c99-8bae-7a3d5ea5c004",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:53:37+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "8791c43a-3c9a-4aa8-9359-80561946a029",
+      "type": "application",
+      "name": "/home/user/SBOM/work/gorilla__mux",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "9ec66f37-4c49-4c7d-ba82-603a928c123b",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gorilla/mux",
+      "type": "library",
+      "name": "github.com/gorilla/mux",
+      "purl": "pkg:golang/github.com/gorilla/mux",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gorilla/mux"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "8791c43a-3c9a-4aa8-9359-80561946a029",
+      "dependsOn": [
+        "9ec66f37-4c49-4c7d-ba82-603a928c123b"
+      ]
+    },
+    {
+      "ref": "9ec66f37-4c49-4c7d-ba82-603a928c123b",
+      "dependsOn": [
+        "pkg:golang/github.com/gorilla/mux"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/gorilla/mux",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
