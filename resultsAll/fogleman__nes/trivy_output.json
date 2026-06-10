@@ -1,0 +1,153 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:202ee59c-220d-4e7c-8dc2-2b4c63a1a1d8",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T08:48:31+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "7a047ab5-033c-4b1a-9f11-e02d489558c5",
+      "type": "application",
+      "name": "/home/user/SBOM/work/fogleman__nes",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "d82bc129-c8cb-4cff-9557-7b157ba35ca4",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/fogleman/nes",
+      "type": "library",
+      "name": "github.com/fogleman/nes",
+      "purl": "pkg:golang/github.com/fogleman/nes",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/fogleman/nes"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/go-gl/gl@v0.0.0-20190320180904-bf2b1f2f34d7",
+      "type": "library",
+      "name": "github.com/go-gl/gl",
+      "version": "v0.0.0-20190320180904-bf2b1f2f34d7",
+      "purl": "pkg:golang/github.com/go-gl/gl@v0.0.0-20190320180904-bf2b1f2f34d7",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/go-gl/gl@v0.0.0-20190320180904-bf2b1f2f34d7"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/go-gl/glfw@v0.0.0-20200420212212-258d9bec320e",
+      "type": "library",
+      "name": "github.com/go-gl/glfw",
+      "version": "v0.0.0-20200420212212-258d9bec320e",
+      "purl": "pkg:golang/github.com/go-gl/glfw@v0.0.0-20200420212212-258d9bec320e",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/go-gl/glfw@v0.0.0-20200420212212-258d9bec320e"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gordonklaus/portaudio@v0.0.0-20180817120803-00e7307ccd93",
+      "type": "library",
+      "name": "github.com/gordonklaus/portaudio",
+      "version": "v0.0.0-20180817120803-00e7307ccd93",
+      "purl": "pkg:golang/github.com/gordonklaus/portaudio@v0.0.0-20180817120803-00e7307ccd93",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gordonklaus/portaudio@v0.0.0-20180817120803-00e7307ccd93"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "7a047ab5-033c-4b1a-9f11-e02d489558c5",
+      "dependsOn": [
+        "d82bc129-c8cb-4cff-9557-7b157ba35ca4"
+      ]
+    },
+    {
+      "ref": "d82bc129-c8cb-4cff-9557-7b157ba35ca4",
+      "dependsOn": [
+        "pkg:golang/github.com/fogleman/nes"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/fogleman/nes",
+      "dependsOn": [
+        "pkg:golang/github.com/go-gl/gl@v0.0.0-20190320180904-bf2b1f2f34d7",
+        "pkg:golang/github.com/go-gl/glfw@v0.0.0-20200420212212-258d9bec320e",
+        "pkg:golang/github.com/gordonklaus/portaudio@v0.0.0-20180817120803-00e7307ccd93"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/go-gl/gl@v0.0.0-20190320180904-bf2b1f2f34d7",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/go-gl/glfw@v0.0.0-20200420212212-258d9bec320e",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/gordonklaus/portaudio@v0.0.0-20180817120803-00e7307ccd93",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

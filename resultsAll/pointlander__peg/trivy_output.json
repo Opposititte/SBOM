@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:47c691dc-d4a5-43a5-b151-217944cef6cc",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T08:49:16+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "390b7ed7-82c4-4a99-b6ee-a28eec69138e",
+      "type": "application",
+      "name": "/home/user/SBOM/work/pointlander__peg",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "359d9d4b-5dd3-4483-b280-4439d6ed8108",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/pointlander/peg",
+      "type": "library",
+      "name": "github.com/pointlander/peg",
+      "purl": "pkg:golang/github.com/pointlander/peg",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/pointlander/peg"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "359d9d4b-5dd3-4483-b280-4439d6ed8108",
+      "dependsOn": [
+        "pkg:golang/github.com/pointlander/peg"
+      ]
+    },
+    {
+      "ref": "390b7ed7-82c4-4a99-b6ee-a28eec69138e",
+      "dependsOn": [
+        "359d9d4b-5dd3-4483-b280-4439d6ed8108"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/pointlander/peg",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
