@@ -1,0 +1,195 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:619c6222-8d55-4285-aa40-6694b3268e57",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:58:12+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "1fc85b5c-46e6-41cc-a358-9980dfdae8f5",
+      "type": "application",
+      "name": "/home/user/SBOM/work/andygrunwald__go-trending",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "856c2511-909c-43e5-ac82-725502bf0cbe",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "a505bd89-367c-45c4-a1c8-6f9527deb228",
+      "type": "application",
+      "name": "update-testdata/go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/andybalholm/cascadia@v1.3.3",
+      "type": "library",
+      "name": "github.com/andybalholm/cascadia",
+      "version": "v1.3.3",
+      "purl": "pkg:golang/github.com/andybalholm/cascadia@v1.3.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/andybalholm/cascadia@v1.3.3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/andygrunwald/go-trending",
+      "type": "library",
+      "name": "github.com/andygrunwald/go-trending",
+      "purl": "pkg:golang/github.com/andygrunwald/go-trending",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/andygrunwald/go-trending"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/andygrunwald/go-trending/update-testdata",
+      "type": "library",
+      "name": "github.com/andygrunwald/go-trending/update-testdata",
+      "purl": "pkg:golang/github.com/andygrunwald/go-trending/update-testdata",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/andygrunwald/go-trending/update-testdata"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/puerkitobio/goquery@v1.11.0",
+      "type": "library",
+      "name": "github.com/PuerkitoBio/goquery",
+      "version": "v1.11.0",
+      "purl": "pkg:golang/github.com/puerkitobio/goquery@v1.11.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/PuerkitoBio/goquery@v1.11.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/net@v0.50.0",
+      "type": "library",
+      "name": "golang.org/x/net",
+      "version": "v0.50.0",
+      "purl": "pkg:golang/golang.org/x/net@v0.50.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/net@v0.50.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "1fc85b5c-46e6-41cc-a358-9980dfdae8f5",
+      "dependsOn": [
+        "856c2511-909c-43e5-ac82-725502bf0cbe",
+        "a505bd89-367c-45c4-a1c8-6f9527deb228"
+      ]
+    },
+    {
+      "ref": "856c2511-909c-43e5-ac82-725502bf0cbe",
+      "dependsOn": [
+        "pkg:golang/github.com/andygrunwald/go-trending"
+      ]
+    },
+    {
+      "ref": "a505bd89-367c-45c4-a1c8-6f9527deb228",
+      "dependsOn": [
+        "pkg:golang/github.com/andygrunwald/go-trending/update-testdata"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/andybalholm/cascadia@v1.3.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/andygrunwald/go-trending",
+      "dependsOn": [
+        "pkg:golang/github.com/andybalholm/cascadia@v1.3.3",
+        "pkg:golang/github.com/puerkitobio/goquery@v1.11.0",
+        "pkg:golang/golang.org/x/net@v0.50.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/andygrunwald/go-trending/update-testdata",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/puerkitobio/goquery@v1.11.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/net@v0.50.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

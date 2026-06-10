@@ -1,0 +1,153 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:f90f161f-046a-4374-87c0-bd691e6ff1b9",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:57:02+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "a18bcfc1-c98f-4fbe-9bcb-4479bf9bbdb8",
+      "type": "application",
+      "name": "/home/user/SBOM/work/nstratos__go-myanimelist",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "536bffde-8831-4e65-a579-aa1a662c6f5a",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/cloud.google.com/go/compute/metadata@v0.3.0",
+      "type": "library",
+      "name": "cloud.google.com/go/compute/metadata",
+      "version": "v0.3.0",
+      "purl": "pkg:golang/cloud.google.com/go/compute/metadata@v0.3.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "cloud.google.com/go/compute/metadata@v0.3.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/google/go-cmp@v0.5.9",
+      "type": "library",
+      "name": "github.com/google/go-cmp",
+      "version": "v0.5.9",
+      "purl": "pkg:golang/github.com/google/go-cmp@v0.5.9",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/google/go-cmp@v0.5.9"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/nstratos/go-myanimelist",
+      "type": "library",
+      "name": "github.com/nstratos/go-myanimelist",
+      "purl": "pkg:golang/github.com/nstratos/go-myanimelist",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/nstratos/go-myanimelist"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/oauth2@v0.27.0",
+      "type": "library",
+      "name": "golang.org/x/oauth2",
+      "version": "v0.27.0",
+      "purl": "pkg:golang/golang.org/x/oauth2@v0.27.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/oauth2@v0.27.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "536bffde-8831-4e65-a579-aa1a662c6f5a",
+      "dependsOn": [
+        "pkg:golang/github.com/nstratos/go-myanimelist"
+      ]
+    },
+    {
+      "ref": "a18bcfc1-c98f-4fbe-9bcb-4479bf9bbdb8",
+      "dependsOn": [
+        "536bffde-8831-4e65-a579-aa1a662c6f5a"
+      ]
+    },
+    {
+      "ref": "pkg:golang/cloud.google.com/go/compute/metadata@v0.3.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/google/go-cmp@v0.5.9",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/nstratos/go-myanimelist",
+      "dependsOn": [
+        "pkg:golang/cloud.google.com/go/compute/metadata@v0.3.0",
+        "pkg:golang/github.com/google/go-cmp@v0.5.9",
+        "pkg:golang/golang.org/x/oauth2@v0.27.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/oauth2@v0.27.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

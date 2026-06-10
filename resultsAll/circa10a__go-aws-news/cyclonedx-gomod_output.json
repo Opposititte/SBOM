@@ -1,0 +1,928 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:2d4bf817-8483-41a1-ac78-c0deb21459cc",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:56:23Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/circa10a/go-aws-news@v1.11.1?type=module",
+      "type": "application",
+      "name": "github.com/circa10a/go-aws-news",
+      "version": "v1.11.1",
+      "purl": "pkg:golang/github.com/circa10a/go-aws-news@v1.11.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/circa10a/go-aws-news",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/github.com/aws/aws-lambda-go@v1.52.0?type=module",
+      "type": "library",
+      "name": "github.com/aws/aws-lambda-go",
+      "version": "v1.52.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e4d7e245a565f4569f508b762ddfc1bf6da44f7ef599f008fa5d4777eb55ed91"
+        }
+      ],
+      "purl": "pkg:golang/github.com/aws/aws-lambda-go@v1.52.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/aws/aws-lambda-go",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.41.1?type=module",
+      "type": "library",
+      "name": "github.com/aws/aws-sdk-go-v2",
+      "version": "v1.41.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0019721004420cb374df8361c65454499af897bd6687e4f928078687a71eae15"
+        }
+      ],
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.41.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/aws/aws-sdk-go-v2",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/config@v1.32.9?type=module",
+      "type": "library",
+      "name": "github.com/aws/aws-sdk-go-v2/config",
+      "version": "v1.32.9",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "92d75afe6b40c9d78e6ef257947cf21a92b5c5cb0b68fd7acdf50f0c6a16f740"
+        }
+      ],
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/config@v1.32.9?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/aws/aws-sdk-go-v2/config",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/credentials@v1.19.9?type=module",
+      "type": "library",
+      "name": "github.com/aws/aws-sdk-go-v2/credentials",
+      "version": "v1.19.9",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b16bd32accab32524612e8ff5a0af08a5a6827a5dad7e2a122919dcf0ee6314f"
+        }
+      ],
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/credentials@v1.19.9?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/aws/aws-sdk-go-v2/credentials",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/feature/ec2/imds@v1.18.17?type=module",
+      "type": "library",
+      "name": "github.com/aws/aws-sdk-go-v2/feature/ec2/imds",
+      "version": "v1.18.17",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "2341b257cc2262b3fc5e903bd20d4705c40ed49950c423135bd9e997951b0c76"
+        }
+      ],
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/feature/ec2/imds@v1.18.17?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/aws/aws-sdk-go-v2/feature/ec2/imds",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/configsources@v1.4.17?type=module",
+      "type": "library",
+      "name": "github.com/aws/aws-sdk-go-v2/internal/configsources",
+      "version": "v1.4.17",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c4e2c42cd286a76bec8ad78bb2f2cfc310be99898ee8e67c3d8822b8f27317c5"
+        }
+      ],
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/configsources@v1.4.17?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/aws/aws-sdk-go-v2/internal/configsources",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2@v2.7.17?type=module",
+      "type": "library",
+      "name": "github.com/aws/aws-sdk-go-v2/internal/endpoints/v2",
+      "version": "v2.7.17",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5962ea961efd88ee3cc8b923d6fdc8491362bfedca750a19e895b27dcb324229"
+        }
+      ],
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2@v2.7.17?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/aws/aws-sdk-go-v2/internal/endpoints",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/ini@v1.8.4?type=module",
+      "type": "library",
+      "name": "github.com/aws/aws-sdk-go-v2/internal/ini",
+      "version": "v1.8.4",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "58ab9ac5ffbe5ca5a51d6bbd1026cc9616bc58e1069b4394119aa6e0afc671f9"
+        }
+      ],
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/ini@v1.8.4?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/aws/aws-sdk-go-v2/internal/ini",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding@v1.13.4?type=module",
+      "type": "library",
+      "name": "github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding",
+      "version": "v1.13.4",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d2bc933447496f35021169155c45e8aa55d5ef627991e0b51af20b30eb83d341"
+        }
+      ],
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding@v1.13.4?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url@v1.13.17?type=module",
+      "type": "library",
+      "name": "github.com/aws/aws-sdk-go-v2/service/internal/presigned-url",
+      "version": "v1.13.17",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "46e352328a3333ca179602c6fe7e962da146a1e6bbfc275dac27c889203ec5d6"
+        }
+      ],
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url@v1.13.17?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/aws/aws-sdk-go-v2/service/internal/presigned-url",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/signin@v1.0.5?type=module",
+      "type": "library",
+      "name": "github.com/aws/aws-sdk-go-v2/service/signin",
+      "version": "v1.0.5",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "56b843bd089bfe2d25c6faf7cea954c0bc093f87e99a9c83f70606d6f7d2bbe6"
+        }
+      ],
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/signin@v1.0.5?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/aws/aws-sdk-go-v2/service/signin",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/ssm@v1.68.0?type=module",
+      "type": "library",
+      "name": "github.com/aws/aws-sdk-go-v2/service/ssm",
+      "version": "v1.68.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8cfd432262b529ee5aa10c1a38de0ee775bc6418b562699b63ce66f71c6193b7"
+        }
+      ],
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/ssm@v1.68.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/aws/aws-sdk-go-v2/service/ssm",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/sso@v1.30.10?type=module",
+      "type": "library",
+      "name": "github.com/aws/aws-sdk-go-v2/service/sso",
+      "version": "v1.30.10",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f954d16b00b8895639f294bf973a68d259e86bf498346178fc1ff7fd4e6ba3c6"
+        }
+      ],
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/sso@v1.30.10?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/aws/aws-sdk-go-v2/service/sso",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/ssooidc@v1.35.14?type=module",
+      "type": "library",
+      "name": "github.com/aws/aws-sdk-go-v2/service/ssooidc",
+      "version": "v1.35.14",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d236c97ae107970289f4f7d7b69485738305f962163917613759f7d084d91853"
+        }
+      ],
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/ssooidc@v1.35.14?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/aws/aws-sdk-go-v2/service/ssooidc",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/sts@v1.41.6?type=module",
+      "type": "library",
+      "name": "github.com/aws/aws-sdk-go-v2/service/sts",
+      "version": "v1.41.6",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e5f16347f4e848ecc1d8e43f5ea5a964198dbe63ffa49d633966251432538d14"
+        }
+      ],
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/sts@v1.41.6?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/aws/aws-sdk-go-v2/service/sts",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/aws/smithy-go@v1.24.1?type=module",
+      "type": "library",
+      "name": "github.com/aws/smithy-go",
+      "version": "v1.24.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "55bc9e35f998916a31315a465006d0ba690e0dc6267cc45f67cc90887df448ad"
+        }
+      ],
+      "purl": "pkg:golang/github.com/aws/smithy-go@v1.24.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/aws/smithy-go",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/cespare/xxhash/v2@v2.3.0?type=module",
+      "type": "library",
+      "name": "github.com/cespare/xxhash/v2",
+      "version": "v2.3.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "50bf35e7153d4aab059626f3ba08338d786883b6cbea85fd05b3599cbd9416fb"
+        }
+      ],
+      "purl": "pkg:golang/github.com/cespare/xxhash/v2@v2.3.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/cespare/xxhash",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/clipperhouse/displaywidth@v0.10.0?type=module",
+      "type": "library",
+      "name": "github.com/clipperhouse/displaywidth",
+      "version": "v0.10.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1a1046f16b9eaf18c541061eb9901e553bb2c6e5fe52b6a26460f81c943763c8"
+        }
+      ],
+      "purl": "pkg:golang/github.com/clipperhouse/displaywidth@v0.10.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/clipperhouse/displaywidth",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/clipperhouse/uax29/v2@v2.7.0?type=module",
+      "type": "library",
+      "name": "github.com/clipperhouse/uax29/v2",
+      "version": "v2.7.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "fa0b38a0167680f7d5aca3ed8706cccd664368014f1982bbd85d0d26fdafed59"
+        }
+      ],
+      "purl": "pkg:golang/github.com/clipperhouse/uax29/v2@v2.7.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/clipperhouse/uax29",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/fatih/color@v1.18.0?type=module",
+      "type": "library",
+      "name": "github.com/fatih/color",
+      "version": "v1.18.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4bc808365cdd43ce34ff8a5f03089cfd91347634041f7c0cf7855fa8b4d970e3"
+        }
+      ],
+      "purl": "pkg:golang/github.com/fatih/color@v1.18.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/fatih/color",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/go-resty/resty/v2@v2.17.2?type=module",
+      "type": "library",
+      "name": "github.com/go-resty/resty/v2",
+      "version": "v2.17.2",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1505b9a0761c22590236b303da59681927317072748248ec855dea7100321d09"
+        }
+      ],
+      "purl": "pkg:golang/github.com/go-resty/resty/v2@v2.17.2?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/go-resty/resty",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mattn/go-colorable@v0.1.14?type=module",
+      "type": "library",
+      "name": "github.com/mattn/go-colorable",
+      "version": "v0.1.14",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f40f4b1d2a85ffb7725555fa83453d7309bda46de43fd812cdcb883c73ec6881"
+        }
+      ],
+      "purl": "pkg:golang/github.com/mattn/go-colorable@v0.1.14?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/mattn/go-colorable",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mattn/go-isatty@v0.0.20?type=module",
+      "type": "library",
+      "name": "github.com/mattn/go-isatty",
+      "version": "v0.0.20",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c5f0f4883b842a70e4974deae258a607ebc7f86c4b12d2ff8dbe315494965846"
+        }
+      ],
+      "purl": "pkg:golang/github.com/mattn/go-isatty@v0.0.20?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/mattn/go-isatty",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mattn/go-runewidth@v0.0.20?type=module",
+      "type": "library",
+      "name": "github.com/mattn/go-runewidth",
+      "version": "v0.0.20",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "59c4f9d87f75654030cbcf8752474cdd31ccea05ea5ee2c98bd3b7ae371041a4"
+        }
+      ],
+      "purl": "pkg:golang/github.com/mattn/go-runewidth@v0.0.20?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/mattn/go-runewidth",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/olekukonko/cat@v0.0.0-20250911104152-50322a0618f6?type=module",
+      "type": "library",
+      "name": "github.com/olekukonko/cat",
+      "version": "v0.0.0-20250911104152-50322a0618f6",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ceb6cc1b2f585e921e4e71a3e04963a8c899b08704d3d9a617c5ec0f90183897"
+        }
+      ],
+      "purl": "pkg:golang/github.com/olekukonko/cat@v0.0.0-20250911104152-50322a0618f6?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/olekukonko/cat",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/olekukonko/errors@v1.2.0?type=module",
+      "type": "library",
+      "name": "github.com/olekukonko/errors",
+      "version": "v1.2.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d7465c9f819e579f6dfc41aa25cf1f523b454ff16e521e5b4cccd9d57c26091a"
+        }
+      ],
+      "purl": "pkg:golang/github.com/olekukonko/errors@v1.2.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/olekukonko/errors",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/olekukonko/ll@v0.1.6?type=module",
+      "type": "library",
+      "name": "github.com/olekukonko/ll",
+      "version": "v0.1.6",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "9465531cef90738426f9f71eff68769b9cbd2efa9a5be0c237bc56f61b14dee0"
+        }
+      ],
+      "purl": "pkg:golang/github.com/olekukonko/ll@v0.1.6?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/olekukonko/ll",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/olekukonko/tablewriter@v1.1.3?type=module",
+      "type": "library",
+      "name": "github.com/olekukonko/tablewriter",
+      "version": "v1.1.3",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5521e18215f1acfd091e5fb43672a277b5a812677dfeeaca4492f2b1bef49e70"
+        }
+      ],
+      "purl": "pkg:golang/github.com/olekukonko/tablewriter@v1.1.3?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/olekukonko/tablewriter",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/sirupsen/logrus@v1.9.4?type=module",
+      "type": "library",
+      "name": "github.com/sirupsen/logrus",
+      "version": "v1.9.4",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4ec644ee5d75cc508b66767eb5e1f8526a2ae4184421f2337d10d9d54cea976c"
+        }
+      ],
+      "purl": "pkg:golang/github.com/sirupsen/logrus@v1.9.4?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/sirupsen/logrus",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/net@v0.50.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/net",
+      "version": "v0.50.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b9c5a1f5e8821b20d1defb73b28d163108a79b60e7b7c70532e41af4adf727ad"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/net@v0.50.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.41.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.41.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "22f8fed82a7fca5ccb88453cf508566e5627384f737abb9db7d16d79cab60ba9"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/sys@v0.41.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/gopkg.in/yaml.v2@v2.4.0?type=module",
+      "type": "library",
+      "name": "gopkg.in/yaml.v2",
+      "version": "v2.4.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0fcc60c04098ec262fc7e6369f8b01cfddc99fd251bf1762cb2a3c0937ee29a6"
+        }
+      ],
+      "purl": "pkg:golang/gopkg.in/yaml.v2@v2.4.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/go-yaml/yaml",
+          "type": "vcs"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/circa10a/go-aws-news@v1.11.1?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/aws/aws-lambda-go@v1.52.0?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.41.1?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/config@v1.32.9?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/service/ssm@v1.68.0?type=module",
+        "pkg:golang/github.com/go-resty/resty/v2@v2.17.2?type=module",
+        "pkg:golang/github.com/olekukonko/tablewriter@v1.1.3?type=module",
+        "pkg:golang/github.com/sirupsen/logrus@v1.9.4?type=module",
+        "pkg:golang/gopkg.in/yaml.v2@v2.4.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/aws/aws-lambda-go@v1.52.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.41.1?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/aws/smithy-go@v1.24.1?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/config@v1.32.9?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.41.1?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/credentials@v1.19.9?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/feature/ec2/imds@v1.18.17?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/configsources@v1.4.17?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2@v2.7.17?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/ini@v1.8.4?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding@v1.13.4?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url@v1.13.17?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/service/signin@v1.0.5?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/service/sso@v1.30.10?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/service/ssooidc@v1.35.14?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/service/sts@v1.41.6?type=module",
+        "pkg:golang/github.com/aws/smithy-go@v1.24.1?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/credentials@v1.19.9?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.41.1?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/feature/ec2/imds@v1.18.17?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/configsources@v1.4.17?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2@v2.7.17?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding@v1.13.4?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url@v1.13.17?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/service/signin@v1.0.5?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/service/sso@v1.30.10?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/service/ssooidc@v1.35.14?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/service/sts@v1.41.6?type=module",
+        "pkg:golang/github.com/aws/smithy-go@v1.24.1?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/feature/ec2/imds@v1.18.17?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.41.1?type=module",
+        "pkg:golang/github.com/aws/smithy-go@v1.24.1?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/configsources@v1.4.17?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.41.1?type=module",
+        "pkg:golang/github.com/aws/smithy-go@v1.24.1?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2@v2.7.17?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.41.1?type=module",
+        "pkg:golang/github.com/aws/smithy-go@v1.24.1?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/ini@v1.8.4?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding@v1.13.4?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/aws/smithy-go@v1.24.1?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url@v1.13.17?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.41.1?type=module",
+        "pkg:golang/github.com/aws/smithy-go@v1.24.1?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/signin@v1.0.5?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.41.1?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/configsources@v1.4.17?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2@v2.7.17?type=module",
+        "pkg:golang/github.com/aws/smithy-go@v1.24.1?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/ssm@v1.68.0?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.41.1?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/configsources@v1.4.17?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2@v2.7.17?type=module",
+        "pkg:golang/github.com/aws/smithy-go@v1.24.1?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/sso@v1.30.10?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.41.1?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/configsources@v1.4.17?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2@v2.7.17?type=module",
+        "pkg:golang/github.com/aws/smithy-go@v1.24.1?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/ssooidc@v1.35.14?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.41.1?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/configsources@v1.4.17?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2@v2.7.17?type=module",
+        "pkg:golang/github.com/aws/smithy-go@v1.24.1?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/sts@v1.41.6?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.41.1?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/configsources@v1.4.17?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2@v2.7.17?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding@v1.13.4?type=module",
+        "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url@v1.13.17?type=module",
+        "pkg:golang/github.com/aws/smithy-go@v1.24.1?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/aws/smithy-go@v1.24.1?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/cespare/xxhash/v2@v2.3.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/clipperhouse/displaywidth@v0.10.0?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/clipperhouse/uax29/v2@v2.7.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/clipperhouse/uax29/v2@v2.7.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/fatih/color@v1.18.0?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/mattn/go-colorable@v0.1.14?type=module",
+        "pkg:golang/github.com/mattn/go-isatty@v0.0.20?type=module",
+        "pkg:golang/golang.org/x/sys@v0.41.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/go-resty/resty/v2@v2.17.2?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/net@v0.50.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/mattn/go-colorable@v0.1.14?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/mattn/go-isatty@v0.0.20?type=module",
+        "pkg:golang/golang.org/x/sys@v0.41.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/mattn/go-isatty@v0.0.20?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/sys@v0.41.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/mattn/go-runewidth@v0.0.20?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/clipperhouse/uax29/v2@v2.7.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/olekukonko/cat@v0.0.0-20250911104152-50322a0618f6?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/olekukonko/errors@v1.2.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/olekukonko/ll@v0.1.6?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/cespare/xxhash/v2@v2.3.0?type=module",
+        "pkg:golang/github.com/olekukonko/cat@v0.0.0-20250911104152-50322a0618f6?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/olekukonko/tablewriter@v1.1.3?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/clipperhouse/displaywidth@v0.10.0?type=module",
+        "pkg:golang/github.com/clipperhouse/uax29/v2@v2.7.0?type=module",
+        "pkg:golang/github.com/fatih/color@v1.18.0?type=module",
+        "pkg:golang/github.com/mattn/go-colorable@v0.1.14?type=module",
+        "pkg:golang/github.com/mattn/go-isatty@v0.0.20?type=module",
+        "pkg:golang/github.com/mattn/go-runewidth@v0.0.20?type=module",
+        "pkg:golang/github.com/olekukonko/cat@v0.0.0-20250911104152-50322a0618f6?type=module",
+        "pkg:golang/github.com/olekukonko/errors@v1.2.0?type=module",
+        "pkg:golang/github.com/olekukonko/ll@v0.1.6?type=module",
+        "pkg:golang/golang.org/x/sys@v0.41.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/sirupsen/logrus@v1.9.4?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/sys@v0.41.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/net@v0.50.0?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/sys@v0.41.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.41.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/gopkg.in/yaml.v2@v2.4.0?type=module"
+    }
+  ]
+}

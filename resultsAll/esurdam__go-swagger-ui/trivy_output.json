@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:2a1e2242-7220-4133-8e46-861cf1404c4f",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:57:56+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "c7312cb4-8066-44f6-b06d-6a3e0b4f8fa6",
+      "type": "application",
+      "name": "/home/user/SBOM/work/esurdam__go-swagger-ui",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "24224a3f-c8f3-48d0-8f05-610e837d0d92",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/elazarl/go-bindata-assetfs@v1.0.1",
+      "type": "library",
+      "name": "github.com/elazarl/go-bindata-assetfs",
+      "version": "v1.0.1",
+      "purl": "pkg:golang/github.com/elazarl/go-bindata-assetfs@v1.0.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/elazarl/go-bindata-assetfs@v1.0.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/esurdam/go-swagger-ui",
+      "type": "library",
+      "name": "github.com/esurdam/go-swagger-ui",
+      "purl": "pkg:golang/github.com/esurdam/go-swagger-ui",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/esurdam/go-swagger-ui"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "24224a3f-c8f3-48d0-8f05-610e837d0d92",
+      "dependsOn": [
+        "pkg:golang/github.com/esurdam/go-swagger-ui"
+      ]
+    },
+    {
+      "ref": "c7312cb4-8066-44f6-b06d-6a3e0b4f8fa6",
+      "dependsOn": [
+        "24224a3f-c8f3-48d0-8f05-610e837d0d92"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/elazarl/go-bindata-assetfs@v1.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/esurdam/go-swagger-ui",
+      "dependsOn": [
+        "pkg:golang/github.com/elazarl/go-bindata-assetfs@v1.0.1"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}
