@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:57afb764-73ce-4bee-81e2-e2bdc889dacd",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:14:15+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "6b985226-c1cc-40c4-922d-a35b3c6ecc1e",
+      "type": "application",
+      "name": "/home/user/SBOM/work/icza__bitio",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "f6ce8334-8fb6-47b5-b565-ed65320e6c64",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/icza/bitio",
+      "type": "library",
+      "name": "github.com/icza/bitio",
+      "purl": "pkg:golang/github.com/icza/bitio",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/icza/bitio"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/icza/mighty@v0.0.0-20180919140131-cfd07d671de6",
+      "type": "library",
+      "name": "github.com/icza/mighty",
+      "version": "v0.0.0-20180919140131-cfd07d671de6",
+      "purl": "pkg:golang/github.com/icza/mighty@v0.0.0-20180919140131-cfd07d671de6",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/icza/mighty@v0.0.0-20180919140131-cfd07d671de6"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "6b985226-c1cc-40c4-922d-a35b3c6ecc1e",
+      "dependsOn": [
+        "f6ce8334-8fb6-47b5-b565-ed65320e6c64"
+      ]
+    },
+    {
+      "ref": "f6ce8334-8fb6-47b5-b565-ed65320e6c64",
+      "dependsOn": [
+        "pkg:golang/github.com/icza/bitio"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/icza/bitio",
+      "dependsOn": [
+        "pkg:golang/github.com/icza/mighty@v0.0.0-20180919140131-cfd07d671de6"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/icza/mighty@v0.0.0-20180919140131-cfd07d671de6",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

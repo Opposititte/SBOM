@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:521db83e-f8ac-454e-a3ec-6227d7028b06",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:15:20+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "badcf5a2-31b6-4fd7-b3fe-f9941199cb24",
+      "type": "application",
+      "name": "/home/user/SBOM/work/cstockton__go-conv",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "29f738bf-e329-4eb0-8c81-05253ce95bf6",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/cstockton/go-conv",
+      "type": "library",
+      "name": "github.com/cstockton/go-conv",
+      "purl": "pkg:golang/github.com/cstockton/go-conv",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/cstockton/go-conv"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "29f738bf-e329-4eb0-8c81-05253ce95bf6",
+      "dependsOn": [
+        "pkg:golang/github.com/cstockton/go-conv"
+      ]
+    },
+    {
+      "ref": "badcf5a2-31b6-4fd7-b3fe-f9941199cb24",
+      "dependsOn": [
+        "29f738bf-e329-4eb0-8c81-05253ce95bf6"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/cstockton/go-conv",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:e8e45ce9-447c-441c-b477-32759fbeac60",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:14:05+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "b2970b3e-d367-40ee-82c6-0707a740425c",
+      "type": "application",
+      "name": "/home/user/SBOM/work/bobg__basexx",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "4c1db1c3-c929-43b9-af73-61f0557d6e9c",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/bobg/basexx/v2",
+      "type": "library",
+      "name": "github.com/bobg/basexx/v2",
+      "purl": "pkg:golang/github.com/bobg/basexx/v2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/bobg/basexx/v2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/bobg/errors@v1.1.0",
+      "type": "library",
+      "name": "github.com/bobg/errors",
+      "version": "v1.1.0",
+      "purl": "pkg:golang/github.com/bobg/errors@v1.1.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/bobg/errors@v1.1.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "4c1db1c3-c929-43b9-af73-61f0557d6e9c",
+      "dependsOn": [
+        "pkg:golang/github.com/bobg/basexx/v2"
+      ]
+    },
+    {
+      "ref": "b2970b3e-d367-40ee-82c6-0707a740425c",
+      "dependsOn": [
+        "4c1db1c3-c929-43b9-af73-61f0557d6e9c"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/bobg/basexx/v2",
+      "dependsOn": [
+        "pkg:golang/github.com/bobg/errors@v1.1.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/bobg/errors@v1.1.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

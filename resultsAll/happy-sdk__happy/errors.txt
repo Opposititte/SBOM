@@ -1,0 +1,60 @@
+Cloning into '/home/user/SBOM/work/happy-sdk__happy'...
+go: downloading go1.25.4 (linux/amd64)
+go: -mod may only be set to readonly or vendor when in workspace mode, but it is set to "mod"
+	Remove the -mod flag to use the default readonly value, 
+	or set GOWORK=off to disable workspace mode.
+ERROR: 'go list -m all' failed
+go: -mod may only be set to readonly or vendor when in workspace mode, but it is set to "mod"
+	Remove the -mod flag to use the default readonly value, 
+	or set GOWORK=off to disable workspace mode.
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-10T01:12:42Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-10T01:12:43Z	INFO	Number of language-specific files	num=23
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
+go list -deps command has failed for /home/user/SBOM/work/happy-sdk__happy
+go list -deps command has failed for /home/user/SBOM/work/happy-sdk__happy/tools/happyvet
+go list -deps command has failed for /home/user/SBOM/work/happy-sdk__happy/pkg/version
+go list -deps command has failed for /home/user/SBOM/work/happy-sdk__happy/pkg/vars
+go list -deps command has failed for /home/user/SBOM/work/happy-sdk__happy/pkg/tui
+go list -deps command has failed for /home/user/SBOM/work/happy-sdk__happy/pkg/settings
+go list -deps command has failed for /home/user/SBOM/work/happy-sdk__happy/pkg/options
+go list -deps command has failed for /home/user/SBOM/work/happy-sdk__happy/pkg/networking
+go list -deps command has failed for /home/user/SBOM/work/happy-sdk__happy/pkg/logging
+go list -deps command has failed for /home/user/SBOM/work/happy-sdk__happy/pkg/i18n
+go list -deps command has failed for /home/user/SBOM/work/happy-sdk__happy/pkg/fsutils
+go list -deps command has failed for /home/user/SBOM/work/happy-sdk__happy/pkg/bytesize
+go list -deps command has failed for /home/user/SBOM/work/happy-sdk__happy/pkg/branding
+go list -deps command has failed for /home/user/SBOM/work/happy-sdk__happy/pkg/bitutils
+go list -deps command has failed for /home/user/SBOM/work/happy-sdk__happy/pkg/strings/textfmt
+go list -deps command has failed for /home/user/SBOM/work/happy-sdk__happy/pkg/strings/slug
+go list -deps command has failed for /home/user/SBOM/work/happy-sdk__happy/pkg/strings/humanize
+go list -deps command has failed for /home/user/SBOM/work/happy-sdk__happy/pkg/strings/bexp
+go list -deps command has failed for /home/user/SBOM/work/happy-sdk__happy/pkg/scheduling/cron
+go list -deps command has failed for /home/user/SBOM/work/happy-sdk__happy/pkg/devel/testutils
+go list -deps command has failed for /home/user/SBOM/work/happy-sdk__happy/pkg/devel/goutils
+go list -deps command has failed for /home/user/SBOM/work/happy-sdk__happy/pkg/devel/bug
+go list -deps command has failed for /home/user/SBOM/work/happy-sdk__happy/pkg/logging/internal/bench
+Manually parsing go.mod files. The resultant BOM would be incomplete.

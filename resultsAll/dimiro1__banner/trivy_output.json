@@ -1,0 +1,175 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:ab6274e7-7523-4c0b-b23c-c25155a077bf",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:13:56+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "69f51fd3-b1e5-44f6-a983-e5b0dcdd815c",
+      "type": "application",
+      "name": "/home/user/SBOM/work/dimiro1__banner",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "1b06523c-8903-4f65-8d1c-ba3435997f2f",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/common-nighthawk/go-figure@v0.0.0-20200609044655-c4b36f998cf2",
+      "type": "library",
+      "name": "github.com/common-nighthawk/go-figure",
+      "version": "v0.0.0-20200609044655-c4b36f998cf2",
+      "purl": "pkg:golang/github.com/common-nighthawk/go-figure@v0.0.0-20200609044655-c4b36f998cf2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/common-nighthawk/go-figure@v0.0.0-20200609044655-c4b36f998cf2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/dimiro1/banner",
+      "type": "library",
+      "name": "github.com/dimiro1/banner",
+      "purl": "pkg:golang/github.com/dimiro1/banner",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/dimiro1/banner"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mattn/go-colorable@v0.1.4",
+      "type": "library",
+      "name": "github.com/mattn/go-colorable",
+      "version": "v0.1.4",
+      "purl": "pkg:golang/github.com/mattn/go-colorable@v0.1.4",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mattn/go-colorable@v0.1.4"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mattn/go-isatty@v0.0.10",
+      "type": "library",
+      "name": "github.com/mattn/go-isatty",
+      "version": "v0.0.10",
+      "purl": "pkg:golang/github.com/mattn/go-isatty@v0.0.10",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mattn/go-isatty@v0.0.10"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.0.0-20191008105621-543471e840be",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.0.0-20191008105621-543471e840be",
+      "purl": "pkg:golang/golang.org/x/sys@v0.0.0-20191008105621-543471e840be",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sys@v0.0.0-20191008105621-543471e840be"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "1b06523c-8903-4f65-8d1c-ba3435997f2f",
+      "dependsOn": [
+        "pkg:golang/github.com/dimiro1/banner"
+      ]
+    },
+    {
+      "ref": "69f51fd3-b1e5-44f6-a983-e5b0dcdd815c",
+      "dependsOn": [
+        "1b06523c-8903-4f65-8d1c-ba3435997f2f"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/common-nighthawk/go-figure@v0.0.0-20200609044655-c4b36f998cf2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/dimiro1/banner",
+      "dependsOn": [
+        "pkg:golang/github.com/common-nighthawk/go-figure@v0.0.0-20200609044655-c4b36f998cf2",
+        "pkg:golang/github.com/mattn/go-colorable@v0.1.4",
+        "pkg:golang/github.com/mattn/go-isatty@v0.0.10",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20191008105621-543471e840be"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/mattn/go-colorable@v0.1.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/mattn/go-isatty@v0.0.10",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.0.0-20191008105621-543471e840be",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
