@@ -1,0 +1,116 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:b7512175-e4fe-4ac1-a2dd-90e9154c6af5",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:07:16+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "53ff6d0b-b017-4cdc-8994-934bdd02f2c7",
+      "type": "application",
+      "name": "/home/user/SBOM/work/adlio__trello",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "e299d3ff-a53c-4b41-ab5f-ed51189d5991",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/adlio/trello",
+      "type": "library",
+      "name": "github.com/adlio/trello",
+      "purl": "pkg:golang/github.com/adlio/trello",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/adlio/trello"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/time@v0.10.0",
+      "type": "library",
+      "name": "golang.org/x/time",
+      "version": "v0.10.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/time@v0.10.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/time@v0.10.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "53ff6d0b-b017-4cdc-8994-934bdd02f2c7",
+      "dependsOn": [
+        "e299d3ff-a53c-4b41-ab5f-ed51189d5991"
+      ]
+    },
+    {
+      "ref": "e299d3ff-a53c-4b41-ab5f-ed51189d5991",
+      "dependsOn": [
+        "pkg:golang/github.com/adlio/trello"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/adlio/trello",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/time@v0.10.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/time@v0.10.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:3d910878-b7e3-4288-bc43-3d2ece77f3dd",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:05:58+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "6546b925-eb3f-474e-a21c-53a87e4dc2a1",
+      "type": "application",
+      "name": "/home/user/SBOM/work/rhnvrm__simples3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "122bb6f2-f4f3-4903-ac0e-7dab5e4430ce",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/rhnvrm/simples3",
+      "type": "library",
+      "name": "github.com/rhnvrm/simples3",
+      "purl": "pkg:golang/github.com/rhnvrm/simples3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/rhnvrm/simples3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "122bb6f2-f4f3-4903-ac0e-7dab5e4430ce",
+      "dependsOn": [
+        "pkg:golang/github.com/rhnvrm/simples3"
+      ]
+    },
+    {
+      "ref": "6546b925-eb3f-474e-a21c-53a87e4dc2a1",
+      "dependsOn": [
+        "122bb6f2-f4f3-4903-ac0e-7dab5e4430ce"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/rhnvrm/simples3",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,128 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:6dd08105-a9a5-4306-bfde-833f75274ee4",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:07:12+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "56b2032d-fb67-4530-aa75-ba869ddd1d1d",
+      "type": "application",
+      "name": "/home/user/SBOM/work/tirthpatell__threads-go",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "8f8d7e59-180c-4470-950d-15f294a43b67",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "bb6b7eeb-1143-44f4-8cf1-6c66358bfd2b",
+      "type": "application",
+      "name": "tests/integration/go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/tirthpatell/threads-go",
+      "type": "library",
+      "name": "github.com/tirthpatell/threads-go",
+      "purl": "pkg:golang/github.com/tirthpatell/threads-go",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/tirthpatell/threads-go"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/integration",
+      "type": "library",
+      "name": "integration",
+      "purl": "pkg:golang/integration",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "integration"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "56b2032d-fb67-4530-aa75-ba869ddd1d1d",
+      "dependsOn": [
+        "8f8d7e59-180c-4470-950d-15f294a43b67",
+        "bb6b7eeb-1143-44f4-8cf1-6c66358bfd2b"
+      ]
+    },
+    {
+      "ref": "8f8d7e59-180c-4470-950d-15f294a43b67",
+      "dependsOn": [
+        "pkg:golang/github.com/tirthpatell/threads-go"
+      ]
+    },
+    {
+      "ref": "bb6b7eeb-1143-44f4-8cf1-6c66358bfd2b",
+      "dependsOn": [
+        "pkg:golang/integration"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/tirthpatell/threads-go",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/integration",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
