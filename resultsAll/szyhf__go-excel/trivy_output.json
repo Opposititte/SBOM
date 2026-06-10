@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:41eeac1f-9df0-4535-8b2b-97aa0cf86496",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:04:51+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "352eabaa-e1cb-42ca-aa8d-02ba9d4686bc",
+      "type": "application",
+      "name": "/home/user/SBOM/work/szyhf__go-excel",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "03e9cb16-8c8b-491f-ba69-4de7b468186f",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/szyhf/go-convert@v1.0.0",
+      "type": "library",
+      "name": "github.com/szyhf/go-convert",
+      "version": "v1.0.0",
+      "purl": "pkg:golang/github.com/szyhf/go-convert@v1.0.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/szyhf/go-convert@v1.0.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/szyhf/go-excel",
+      "type": "library",
+      "name": "github.com/szyhf/go-excel",
+      "purl": "pkg:golang/github.com/szyhf/go-excel",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/szyhf/go-excel"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "03e9cb16-8c8b-491f-ba69-4de7b468186f",
+      "dependsOn": [
+        "pkg:golang/github.com/szyhf/go-excel"
+      ]
+    },
+    {
+      "ref": "352eabaa-e1cb-42ca-aa8d-02ba9d4686bc",
+      "dependsOn": [
+        "03e9cb16-8c8b-491f-ba69-4de7b468186f"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/szyhf/go-convert@v1.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/szyhf/go-excel",
+      "dependsOn": [
+        "pkg:golang/github.com/szyhf/go-convert@v1.0.0"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}

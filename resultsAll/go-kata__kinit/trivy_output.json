@@ -1,0 +1,131 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:13edd406-1385-4f69-8165-b88f12ffe42d",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:07:10+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "29be8b8d-503c-4933-9cab-fb29d3f18ce6",
+      "type": "application",
+      "name": "/home/user/SBOM/work/go-kata__kinit",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "2b153ee4-5ad7-416b-a67c-f8ee23f844e8",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/go-kata/kdone@v0.2.9",
+      "type": "library",
+      "name": "github.com/go-kata/kdone",
+      "version": "v0.2.9",
+      "purl": "pkg:golang/github.com/go-kata/kdone@v0.2.9",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/go-kata/kdone@v0.2.9"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/go-kata/kerror@v0.4.0",
+      "type": "library",
+      "name": "github.com/go-kata/kerror",
+      "version": "v0.4.0",
+      "purl": "pkg:golang/github.com/go-kata/kerror@v0.4.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/go-kata/kerror@v0.4.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/go-kata/kinit",
+      "type": "library",
+      "name": "github.com/go-kata/kinit",
+      "purl": "pkg:golang/github.com/go-kata/kinit",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/go-kata/kinit"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "29be8b8d-503c-4933-9cab-fb29d3f18ce6",
+      "dependsOn": [
+        "2b153ee4-5ad7-416b-a67c-f8ee23f844e8"
+      ]
+    },
+    {
+      "ref": "2b153ee4-5ad7-416b-a67c-f8ee23f844e8",
+      "dependsOn": [
+        "pkg:golang/github.com/go-kata/kinit"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/go-kata/kdone@v0.2.9",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/go-kata/kerror@v0.4.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/go-kata/kinit",
+      "dependsOn": [
+        "pkg:golang/github.com/go-kata/kdone@v0.2.9",
+        "pkg:golang/github.com/go-kata/kerror@v0.4.0"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}

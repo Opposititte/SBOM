@@ -1,0 +1,77 @@
+Cloning into '/home/user/SBOM/work/go-kod__kod'...
+go: downloading go.uber.org/mock v0.6.0
+go: downloading github.com/sony/gobreaker v1.0.0
+go: downloading google.golang.org/grpc v1.77.0
+go: downloading github.com/samber/lo v1.52.0
+go: downloading go.opentelemetry.io/otel v1.40.0
+go: downloading go.opentelemetry.io/otel/metric v1.40.0
+go: downloading github.com/shirou/gopsutil/v3 v3.24.5
+go: downloading github.com/creasty/defaults v1.8.0
+go: downloading github.com/dominikbraun/graph v0.23.0
+go: downloading github.com/knadh/koanf/parsers/json v1.0.0
+go: downloading github.com/knadh/koanf/parsers/toml/v2 v2.2.0
+go: downloading github.com/knadh/koanf/parsers/yaml v1.1.0
+go: downloading github.com/knadh/koanf/providers/env v1.1.0
+go: downloading github.com/knadh/koanf/providers/file v1.2.1
+go: downloading github.com/knadh/koanf/v2 v2.3.0
+go: downloading go.opentelemetry.io/otel/trace v1.40.0
+go: downloading github.com/avast/retry-go/v4 v4.7.0
+go: downloading github.com/go-playground/validator/v10 v10.30.0
+go: downloading github.com/fatih/color v1.18.0
+go: downloading github.com/stretchr/testify v1.11.1
+go: downloading github.com/fsnotify/fsnotify v1.9.0
+go: downloading github.com/spf13/cobra v1.10.2
+go: downloading golang.org/x/tools v0.39.0
+go: downloading golang.org/x/text v0.32.0
+go: downloading github.com/go-logr/logr v1.4.3
+go: downloading google.golang.org/genproto/googleapis/rpc v0.0.0-20251022142026-3a174f9686a8
+go: downloading github.com/pelletier/go-toml/v2 v2.2.4
+go: downloading go.yaml.in/yaml/v3 v3.0.4
+go: downloading github.com/knadh/koanf/maps v0.1.2
+go: downloading github.com/go-viper/mapstructure/v2 v2.4.0
+go: downloading github.com/mitchellh/copystructure v1.2.0
+go: downloading github.com/tklauser/go-sysconf v0.3.14
+go: downloading golang.org/x/sys v0.40.0
+go: downloading github.com/gabriel-vasile/mimetype v1.4.12
+go: downloading github.com/go-playground/universal-translator v0.18.1
+go: downloading github.com/leodido/go-urn v1.4.0
+go: downloading golang.org/x/crypto v0.46.0
+go: downloading github.com/spf13/pflag v1.0.9
+go: downloading github.com/go-logr/stdr v1.2.2
+go: downloading go.opentelemetry.io/auto/sdk v1.2.1
+go: downloading github.com/cespare/xxhash/v2 v2.3.0
+go: downloading google.golang.org/protobuf v1.36.10
+go: downloading golang.org/x/sync v0.19.0
+go: downloading github.com/mitchellh/reflectwalk v1.0.2
+go: downloading github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2
+go: downloading github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc
+go: downloading github.com/tklauser/numcpus v0.9.0
+go: downloading github.com/go-playground/locales v0.14.1
+go: downloading golang.org/x/mod v0.30.0
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-10T01:07:20Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-10T01:07:21Z	INFO	Number of language-specific files	num=2
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
