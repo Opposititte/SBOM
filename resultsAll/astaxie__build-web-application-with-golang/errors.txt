@@ -1,0 +1,33 @@
+Cloning into '/home/user/SBOM/work/astaxie__build-web-application-with-golang'...
+Updating files:  70% (2067/2938)Updating files:  71% (2086/2938)Updating files:  72% (2116/2938)Updating files:  73% (2145/2938)Updating files:  74% (2175/2938)Updating files:  75% (2204/2938)Updating files:  76% (2233/2938)Updating files:  77% (2263/2938)Updating files:  78% (2292/2938)Updating files:  79% (2322/2938)Updating files:  80% (2351/2938)Updating files:  81% (2380/2938)Updating files:  82% (2410/2938)Updating files:  83% (2439/2938)Updating files:  84% (2468/2938)Updating files:  85% (2498/2938)Updating files:  86% (2527/2938)Updating files:  87% (2557/2938)Updating files:  88% (2586/2938)Updating files:  89% (2615/2938)Updating files:  90% (2645/2938)Updating files:  91% (2674/2938)Updating files:  92% (2703/2938)Updating files:  93% (2733/2938)Updating files:  94% (2762/2938)Updating files:  95% (2792/2938)Updating files:  96% (2821/2938)Updating files:  97% (2850/2938)Updating files:  98% (2880/2938)Updating files:  99% (2909/2938)Updating files: 100% (2938/2938)Updating files: 100% (2938/2938), done.
+go: cannot match "all": go.mod file not found in current directory or any parent directory; see 'go help modules'
+ERROR: 'go list -m all' failed
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-10T09:05:23Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-10T09:05:23Z	INFO	Number of language-specific files	num=0
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
+[90m9:05AM[0m [31mERR[0m [36merror=[0m[31m[1m"failed to download modules: command `/usr/local/go/bin/go mod why -m -vendor github.com/CycloneDX/cyclonedx-go` failed: exit status 1"[0m[0m
+ERROR: cyclonedx-gomod failed

@@ -1,0 +1,57 @@
+Cloning into '/home/user/SBOM/work/golang__go'...
+Updating files:  28% (4511/15563)Updating files:  29% (4514/15563)Updating files:  30% (4669/15563)Updating files:  31% (4825/15563)Updating files:  32% (4981/15563)Updating files:  33% (5136/15563)Updating files:  34% (5292/15563)Updating files:  35% (5448/15563)Updating files:  36% (5603/15563)Updating files:  37% (5759/15563)Updating files:  38% (5914/15563)Updating files:  39% (6070/15563)Updating files:  40% (6226/15563)Updating files:  41% (6381/15563)Updating files:  42% (6537/15563)Updating files:  43% (6693/15563)Updating files:  44% (6848/15563)Updating files:  45% (7004/15563)Updating files:  46% (7159/15563)Updating files:  47% (7315/15563)Updating files:  48% (7471/15563)Updating files:  49% (7626/15563)Updating files:  50% (7782/15563)Updating files:  51% (7938/15563)Updating files:  52% (8093/15563)Updating files:  53% (8249/15563)Updating files:  54% (8405/15563)Updating files:  55% (8560/15563)Updating files:  56% (8716/15563)Updating files:  57% (8871/15563)Updating files:  58% (9027/15563)Updating files:  59% (9183/15563)Updating files:  60% (9338/15563)Updating files:  61% (9494/15563)Updating files:  62% (9650/15563)Updating files:  63% (9805/15563)Updating files:  64% (9961/15563)Updating files:  65% (10116/15563)Updating files:  66% (10272/15563)Updating files:  67% (10428/15563)Updating files:  68% (10583/15563)Updating files:  69% (10739/15563)Updating files:  70% (10895/15563)Updating files:  71% (11050/15563)Updating files:  72% (11206/15563)Updating files:  73% (11361/15563)Updating files:  74% (11517/15563)Updating files:  75% (11673/15563)Updating files:  76% (11828/15563)Updating files:  77% (11984/15563)Updating files:  78% (12140/15563)Updating files:  79% (12295/15563)Updating files:  80% (12451/15563)Updating files:  81% (12607/15563)Updating files:  82% (12762/15563)Updating files:  83% (12918/15563)Updating files:  84% (13073/15563)Updating files:  85% (13229/15563)Updating files:  86% (13385/15563)Updating files:  87% (13540/15563)Updating files:  88% (13696/15563)Updating files:  89% (13852/15563)Updating files:  90% (14007/15563)Updating files:  91% (14163/15563)Updating files:  91% (14279/15563)Updating files:  92% (14318/15563)Updating files:  93% (14474/15563)Updating files:  94% (14630/15563)Updating files:  95% (14785/15563)Updating files:  96% (14941/15563)Updating files:  97% (15097/15563)Updating files:  98% (15252/15563)Updating files:  99% (15408/15563)Updating files: 100% (15563/15563)Updating files: 100% (15563/15563), done.
+go: cannot match "all": go.mod file not found in current directory or any parent directory; see 'go help modules'
+ERROR: 'go list -m all' failed
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-10T09:05:07Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-10T09:05:08Z	INFO	[npm] Run "npm install" to collect the license information of packages	dir="src/cmd/vendor/golang.org/x/telemetry/node_modules"
+2026-06-10T09:05:08Z	INFO	Suppressing dependencies for development and testing. To display them, try the '--include-dev-deps' flag.
+2026-06-10T09:05:08Z	INFO	Number of language-specific files	num=24
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
+go list -deps command has failed for /home/user/SBOM/work/golang__go/src
+1. Check if the correct version of golang is installed. Try building the application using go build or make command to troubleshoot.
+2. If the application uses private go modules, ensure the environment variable GOPRIVATE is set with the comma-separated repo names.
+Ensure $HOME/.netrc file contains a valid username and password for the private repos.
+3. Alternatively, consider generating a post-build SBOM from the built binary using blint. Use the official container image and invoke cdxgen with the arguments `-t binary --lifecycle post-build`.
+go list -deps command has failed for /home/user/SBOM/work/golang__go/src/cmd
+1. Check if the correct version of golang is installed. Try building the application using go build or make command to troubleshoot.
+2. If the application uses private go modules, ensure the environment variable GOPRIVATE is set with the comma-separated repo names.
+Ensure $HOME/.netrc file contains a valid username and password for the private repos.
+3. Alternatively, consider generating a post-build SBOM from the built binary using blint. Use the official container image and invoke cdxgen with the arguments `-t binary --lifecycle post-build`.
+go list -deps command has failed for /home/user/SBOM/work/golang__go/src/simd/testdata/ip
+1. Check if the correct version of golang is installed. Try building the application using go build or make command to troubleshoot.
+2. If the application uses private go modules, ensure the environment variable GOPRIVATE is set with the comma-separated repo names.
+Ensure $HOME/.netrc file contains a valid username and password for the private repos.
+3. Alternatively, consider generating a post-build SBOM from the built binary using blint. Use the official container image and invoke cdxgen with the arguments `-t binary --lifecycle post-build`.
+go list -deps command has failed for /home/user/SBOM/work/golang__go/src/crypto/sha1/_asm
+go list -deps command has failed for /home/user/SBOM/work/golang__go/src/crypto/md5/_asm
+go list -deps command has failed for /home/user/SBOM/work/golang__go/src/cmd/objdump/testdata/testfilenum
+go list -deps command has failed for /home/user/SBOM/work/golang__go/src/crypto/internal/fips140/nistec/_asm
+go list -deps command has failed for /home/user/SBOM/work/golang__go/src/crypto/internal/fips140/bigmod/_asm
+go list -deps command has failed for /home/user/SBOM/work/golang__go/src/crypto/internal/fips140/edwards25519/field/_asm
+Manually parsing go.mod files. The resultant BOM would be incomplete.
+[90m9:05AM[0m [31mERR[0m [36merror=[0m[31m[1m"failed to download modules: command `/usr/local/go/bin/go mod why -m -vendor github.com/CycloneDX/cyclonedx-go` failed: exit status 1"[0m[0m
+ERROR: cyclonedx-gomod failed
