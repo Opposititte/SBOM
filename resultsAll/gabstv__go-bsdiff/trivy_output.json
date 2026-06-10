@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:461cc105-5e55-4814-8946-4ae1e5d48c39",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:14:13+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "b32a8494-5428-4320-802d-e167de9ad7f1",
+      "type": "application",
+      "name": "/home/user/SBOM/work/gabstv__go-bsdiff",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "44cdfba7-ae30-40d1-9ae9-87a69efc4845",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/dsnet/compress@v0.0.0-20171208185109-cc9eb1d7ad76",
+      "type": "library",
+      "name": "github.com/dsnet/compress",
+      "version": "v0.0.0-20171208185109-cc9eb1d7ad76",
+      "purl": "pkg:golang/github.com/dsnet/compress@v0.0.0-20171208185109-cc9eb1d7ad76",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/dsnet/compress@v0.0.0-20171208185109-cc9eb1d7ad76"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gabstv/go-bsdiff",
+      "type": "library",
+      "name": "github.com/gabstv/go-bsdiff",
+      "purl": "pkg:golang/github.com/gabstv/go-bsdiff",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gabstv/go-bsdiff"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "44cdfba7-ae30-40d1-9ae9-87a69efc4845",
+      "dependsOn": [
+        "pkg:golang/github.com/gabstv/go-bsdiff"
+      ]
+    },
+    {
+      "ref": "b32a8494-5428-4320-802d-e167de9ad7f1",
+      "dependsOn": [
+        "44cdfba7-ae30-40d1-9ae9-87a69efc4845"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/dsnet/compress@v0.0.0-20171208185109-cc9eb1d7ad76",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/gabstv/go-bsdiff",
+      "dependsOn": [
+        "pkg:golang/github.com/dsnet/compress@v0.0.0-20171208185109-cc9eb1d7ad76"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:7828fadd-6673-4924-a116-10f23a882f78",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:15:35+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "55d82d8e-6e05-4a6c-a4b7-da1e3a3c547d",
+      "type": "application",
+      "name": "/home/user/SBOM/work/mvmaasakkers__go-problemdetails",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "9edf9ea1-337e-4f52-a2fd-9918a73236ed",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mvmaasakkers/go-problemdetails",
+      "type": "library",
+      "name": "github.com/mvmaasakkers/go-problemdetails",
+      "purl": "pkg:golang/github.com/mvmaasakkers/go-problemdetails",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mvmaasakkers/go-problemdetails"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "55d82d8e-6e05-4a6c-a4b7-da1e3a3c547d",
+      "dependsOn": [
+        "9edf9ea1-337e-4f52-a2fd-9918a73236ed"
+      ]
+    },
+    {
+      "ref": "9edf9ea1-337e-4f52-a2fd-9918a73236ed",
+      "dependsOn": [
+        "pkg:golang/github.com/mvmaasakkers/go-problemdetails"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/mvmaasakkers/go-problemdetails",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

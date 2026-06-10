@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:60b39bf1-026b-4d43-b2da-d96d9d9cb73c",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:14:38+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "37eb775f-0587-4572-b39c-55e6bc893e14",
+      "type": "application",
+      "name": "/home/user/SBOM/work/mikekonan__go-countries",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "ed295104-2396-4613-a939-a2b8c5de4cc7",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mikekonan/go-countries",
+      "type": "library",
+      "name": "github.com/mikekonan/go-countries",
+      "purl": "pkg:golang/github.com/mikekonan/go-countries",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mikekonan/go-countries"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "37eb775f-0587-4572-b39c-55e6bc893e14",
+      "dependsOn": [
+        "ed295104-2396-4613-a939-a2b8c5de4cc7"
+      ]
+    },
+    {
+      "ref": "ed295104-2396-4613-a939-a2b8c5de4cc7",
+      "dependsOn": [
+        "pkg:golang/github.com/mikekonan/go-countries"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/mikekonan/go-countries",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

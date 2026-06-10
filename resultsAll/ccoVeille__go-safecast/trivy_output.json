@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:1e600efe-1f53-4f5a-9fe6-7bf126ac37c7",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:15:50+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "5654a2c4-f197-4245-94b0-8f13d487efa1",
+      "type": "application",
+      "name": "/home/user/SBOM/work/ccoVeille__go-safecast",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "eeb0e71b-896b-4978-83c8-8e3e0af9d661",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/ccoveille/go-safecast/v2",
+      "type": "library",
+      "name": "github.com/ccoveille/go-safecast/v2",
+      "purl": "pkg:golang/github.com/ccoveille/go-safecast/v2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/ccoveille/go-safecast/v2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "5654a2c4-f197-4245-94b0-8f13d487efa1",
+      "dependsOn": [
+        "eeb0e71b-896b-4978-83c8-8e3e0af9d661"
+      ]
+    },
+    {
+      "ref": "eeb0e71b-896b-4978-83c8-8e3e0af9d661",
+      "dependsOn": [
+        "pkg:golang/github.com/ccoveille/go-safecast/v2"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/ccoveille/go-safecast/v2",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
