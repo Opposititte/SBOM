@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:155587cd-c3da-4d33-b716-6c734f3d9d42",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:51:20+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "04f8fbcb-372b-42f9-aa63-ff5419506f6d",
+      "type": "application",
+      "name": "/home/user/SBOM/work/hmdsefi__gograph",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "0e7f9564-9da5-4d4f-90a8-d86f65cd6d18",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/hmdsefi/gograph",
+      "type": "library",
+      "name": "github.com/hmdsefi/gograph",
+      "purl": "pkg:golang/github.com/hmdsefi/gograph",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/hmdsefi/gograph"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "04f8fbcb-372b-42f9-aa63-ff5419506f6d",
+      "dependsOn": [
+        "0e7f9564-9da5-4d4f-90a8-d86f65cd6d18"
+      ]
+    },
+    {
+      "ref": "0e7f9564-9da5-4d4f-90a8-d86f65cd6d18",
+      "dependsOn": [
+        "pkg:golang/github.com/hmdsefi/gograph"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/hmdsefi/gograph",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

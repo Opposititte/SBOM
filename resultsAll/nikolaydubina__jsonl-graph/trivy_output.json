@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:1656d694-4479-4fa8-9c74-c3b9ee321fd7",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:52:55+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "0bce4922-093e-43f5-bca0-5a036c959941",
+      "type": "application",
+      "name": "/home/user/SBOM/work/nikolaydubina__jsonl-graph",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "e695e78b-3ab8-45a2-8843-770cf117ac73",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/nikolaydubina/jsonl-graph",
+      "type": "library",
+      "name": "github.com/nikolaydubina/jsonl-graph",
+      "purl": "pkg:golang/github.com/nikolaydubina/jsonl-graph",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/nikolaydubina/jsonl-graph"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/nikolaydubina/multiline-jsonl@v1.0.3",
+      "type": "library",
+      "name": "github.com/nikolaydubina/multiline-jsonl",
+      "version": "v1.0.3",
+      "purl": "pkg:golang/github.com/nikolaydubina/multiline-jsonl@v1.0.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/nikolaydubina/multiline-jsonl@v1.0.3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "0bce4922-093e-43f5-bca0-5a036c959941",
+      "dependsOn": [
+        "e695e78b-3ab8-45a2-8843-770cf117ac73"
+      ]
+    },
+    {
+      "ref": "e695e78b-3ab8-45a2-8843-770cf117ac73",
+      "dependsOn": [
+        "pkg:golang/github.com/nikolaydubina/jsonl-graph"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/nikolaydubina/jsonl-graph",
+      "dependsOn": [
+        "pkg:golang/github.com/nikolaydubina/multiline-jsonl@v1.0.3"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/nikolaydubina/multiline-jsonl@v1.0.3",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:59ae1548-d1c4-44fc-b77a-fcbc173a9a93",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:53:32+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "964c40b7-3d76-4f07-984c-789f56b481c4",
+      "type": "application",
+      "name": "/home/user/SBOM/work/claygod__PiHex",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "50087ee4-0a93-4a2a-b3c3-c0e3289671c1",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/claygod/pihex",
+      "type": "library",
+      "name": "github.com/claygod/PiHex",
+      "purl": "pkg:golang/github.com/claygod/pihex",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/claygod/PiHex"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "50087ee4-0a93-4a2a-b3c3-c0e3289671c1",
+      "dependsOn": [
+        "pkg:golang/github.com/claygod/pihex"
+      ]
+    },
+    {
+      "ref": "964c40b7-3d76-4f07-984c-789f56b481c4",
+      "dependsOn": [
+        "50087ee4-0a93-4a2a-b3c3-c0e3289671c1"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/claygod/pihex",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

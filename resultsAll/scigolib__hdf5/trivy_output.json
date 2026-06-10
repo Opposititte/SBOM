@@ -1,0 +1,209 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:e5fcb277-d44b-40c1-9d81-21744fda1428",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:52:15+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "dae00e60-7354-4389-80b0-46136c36af42",
+      "type": "application",
+      "name": "/home/user/SBOM/work/scigolib__hdf5",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "be5184dd-4656-4081-8c1a-cb27001dddb0",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+      "type": "library",
+      "name": "github.com/davecgh/go-spew",
+      "version": "v1.1.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/davecgh/go-spew@v1.1.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+      "type": "library",
+      "name": "github.com/pmezard/go-difflib",
+      "version": "v1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/pmezard/go-difflib@v1.0.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/scigolib/hdf5",
+      "type": "library",
+      "name": "github.com/scigolib/hdf5",
+      "purl": "pkg:golang/github.com/scigolib/hdf5",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/scigolib/hdf5"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/stretchr/testify@v1.11.1",
+      "type": "library",
+      "name": "github.com/stretchr/testify",
+      "version": "v1.11.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/stretchr/testify@v1.11.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/stretchr/testify@v1.11.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/gopkg.in/yaml.v3@v3.0.1",
+      "type": "library",
+      "name": "gopkg.in/yaml.v3",
+      "version": "v3.0.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        },
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:golang/gopkg.in/yaml.v3@v3.0.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "gopkg.in/yaml.v3@v3.0.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "be5184dd-4656-4081-8c1a-cb27001dddb0",
+      "dependsOn": [
+        "pkg:golang/github.com/scigolib/hdf5"
+      ]
+    },
+    {
+      "ref": "dae00e60-7354-4389-80b0-46136c36af42",
+      "dependsOn": [
+        "be5184dd-4656-4081-8c1a-cb27001dddb0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/scigolib/hdf5",
+      "dependsOn": [
+        "pkg:golang/github.com/stretchr/testify@v1.11.1"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/stretchr/testify@v1.11.1",
+      "dependsOn": [
+        "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+        "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+        "pkg:golang/gopkg.in/yaml.v3@v3.0.1"
+      ]
+    },
+    {
+      "ref": "pkg:golang/gopkg.in/yaml.v3@v3.0.1",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
