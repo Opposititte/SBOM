@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:d87b4884-753a-421b-befe-8a30200f5f92",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T04:03:55+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "f090cbf3-b941-4317-90ae-6aa80dc9e34e",
+      "type": "application",
+      "name": "/home/user/SBOM/work/roblaszczak__go-cleanarch",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "b43ff146-7fd5-4e66-a8c9-4cc11092f944",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/roblaszczak/go-cleanarch",
+      "type": "library",
+      "name": "github.com/roblaszczak/go-cleanarch",
+      "purl": "pkg:golang/github.com/roblaszczak/go-cleanarch",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/roblaszczak/go-cleanarch"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "b43ff146-7fd5-4e66-a8c9-4cc11092f944",
+      "dependsOn": [
+        "pkg:golang/github.com/roblaszczak/go-cleanarch"
+      ]
+    },
+    {
+      "ref": "f090cbf3-b941-4317-90ae-6aa80dc9e34e",
+      "dependsOn": [
+        "b43ff146-7fd5-4e66-a8c9-4cc11092f944"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/roblaszczak/go-cleanarch",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

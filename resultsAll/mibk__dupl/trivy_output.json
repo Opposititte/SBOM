@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:c60f8246-e39d-4765-9daa-cd9d40d39031",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T04:03:26+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "4dba0b4e-6c85-4489-b5cc-50c18e1b6b31",
+      "type": "application",
+      "name": "/home/user/SBOM/work/mibk__dupl",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "5ca4f2ed-d84a-49da-9d36-94d13443bcc5",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mibk/dupl",
+      "type": "library",
+      "name": "github.com/mibk/dupl",
+      "purl": "pkg:golang/github.com/mibk/dupl",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mibk/dupl"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "4dba0b4e-6c85-4489-b5cc-50c18e1b6b31",
+      "dependsOn": [
+        "5ca4f2ed-d84a-49da-9d36-94d13443bcc5"
+      ]
+    },
+    {
+      "ref": "5ca4f2ed-d84a-49da-9d36-94d13443bcc5",
+      "dependsOn": [
+        "pkg:golang/github.com/mibk/dupl"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/mibk/dupl",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

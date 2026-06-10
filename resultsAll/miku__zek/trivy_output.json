@@ -1,0 +1,153 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:dd35cc01-7c61-4e1c-83d4-5e6413a4130b",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:59:17+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "a4eaca3d-a146-4479-9d05-06420fd3af3d",
+      "type": "application",
+      "name": "/home/user/SBOM/work/miku__zek",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "c7c2fb69-43be-473d-a61e-a4770e6bc3b9",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/miku/zek",
+      "type": "library",
+      "name": "github.com/miku/zek",
+      "purl": "pkg:golang/github.com/miku/zek",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/miku/zek"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/sethgrid/pester@v1.2.0",
+      "type": "library",
+      "name": "github.com/sethgrid/pester",
+      "version": "v1.2.0",
+      "purl": "pkg:golang/github.com/sethgrid/pester@v1.2.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/sethgrid/pester@v1.2.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/net@v0.53.0",
+      "type": "library",
+      "name": "golang.org/x/net",
+      "version": "v0.53.0",
+      "purl": "pkg:golang/golang.org/x/net@v0.53.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/net@v0.53.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/text@v0.36.0",
+      "type": "library",
+      "name": "golang.org/x/text",
+      "version": "v0.36.0",
+      "purl": "pkg:golang/golang.org/x/text@v0.36.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/text@v0.36.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "a4eaca3d-a146-4479-9d05-06420fd3af3d",
+      "dependsOn": [
+        "c7c2fb69-43be-473d-a61e-a4770e6bc3b9"
+      ]
+    },
+    {
+      "ref": "c7c2fb69-43be-473d-a61e-a4770e6bc3b9",
+      "dependsOn": [
+        "pkg:golang/github.com/miku/zek"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/miku/zek",
+      "dependsOn": [
+        "pkg:golang/github.com/sethgrid/pester@v1.2.0",
+        "pkg:golang/golang.org/x/net@v0.53.0",
+        "pkg:golang/golang.org/x/text@v0.36.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/sethgrid/pester@v1.2.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/net@v0.53.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/text@v0.36.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

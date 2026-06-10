@@ -1,0 +1,131 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:e1851615-3512-41b2-b76d-82b12d057c1e",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:59:00+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "20a7cd7f-9a38-436b-83fa-807cd663a89f",
+      "type": "application",
+      "name": "/home/user/SBOM/work/shabbyrobe__xmlwriter",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "6f083e83-56bc-4011-9c86-8c153840851d",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/shabbyrobe/xmlwriter",
+      "type": "library",
+      "name": "github.com/shabbyrobe/xmlwriter",
+      "purl": "pkg:golang/github.com/shabbyrobe/xmlwriter",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/shabbyrobe/xmlwriter"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/text@v0.3.2",
+      "type": "library",
+      "name": "golang.org/x/text",
+      "version": "v0.3.2",
+      "purl": "pkg:golang/golang.org/x/text@v0.3.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/text@v0.3.2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/tools@v0.0.0-20180917221912-90fa682c2a6e",
+      "type": "library",
+      "name": "golang.org/x/tools",
+      "version": "v0.0.0-20180917221912-90fa682c2a6e",
+      "purl": "pkg:golang/golang.org/x/tools@v0.0.0-20180917221912-90fa682c2a6e",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/tools@v0.0.0-20180917221912-90fa682c2a6e"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "20a7cd7f-9a38-436b-83fa-807cd663a89f",
+      "dependsOn": [
+        "6f083e83-56bc-4011-9c86-8c153840851d"
+      ]
+    },
+    {
+      "ref": "6f083e83-56bc-4011-9c86-8c153840851d",
+      "dependsOn": [
+        "pkg:golang/github.com/shabbyrobe/xmlwriter"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/shabbyrobe/xmlwriter",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/text@v0.3.2",
+        "pkg:golang/golang.org/x/tools@v0.0.0-20180917221912-90fa682c2a6e"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/text@v0.3.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/tools@v0.0.0-20180917221912-90fa682c2a6e",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
