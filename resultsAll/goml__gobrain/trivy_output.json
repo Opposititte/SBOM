@@ -1,0 +1,151 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:6315a444-ca04-472b-bd5a-b7febfe47a2c",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T00:49:52+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "d755c69e-d304-4efb-a0ea-1f8b5deb23e7",
+      "type": "application",
+      "name": "/home/user/SBOM/work/goml__gobrain",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "706025b0-7300-4002-aaee-f586f07ade5e",
+      "type": "application",
+      "name": "examples/go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "c0dfc9e1-65f0-42bc-ad3d-12b1b5568025",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/goml/gobrain",
+      "type": "library",
+      "name": "github.com/goml/gobrain",
+      "purl": "pkg:golang/github.com/goml/gobrain",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/goml/gobrain"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/goml/gobrain/example",
+      "type": "library",
+      "name": "github.com/goml/gobrain/example",
+      "purl": "pkg:golang/github.com/goml/gobrain/example",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/goml/gobrain/example"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/goml/gobrain@v0.0.0-20200606141943-08de5fe3f708",
+      "type": "library",
+      "name": "github.com/goml/gobrain",
+      "version": "v0.0.0-20200606141943-08de5fe3f708",
+      "purl": "pkg:golang/github.com/goml/gobrain@v0.0.0-20200606141943-08de5fe3f708",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/goml/gobrain@v0.0.0-20200606141943-08de5fe3f708"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "706025b0-7300-4002-aaee-f586f07ade5e",
+      "dependsOn": [
+        "pkg:golang/github.com/goml/gobrain/example"
+      ]
+    },
+    {
+      "ref": "c0dfc9e1-65f0-42bc-ad3d-12b1b5568025",
+      "dependsOn": [
+        "pkg:golang/github.com/goml/gobrain"
+      ]
+    },
+    {
+      "ref": "d755c69e-d304-4efb-a0ea-1f8b5deb23e7",
+      "dependsOn": [
+        "706025b0-7300-4002-aaee-f586f07ade5e",
+        "c0dfc9e1-65f0-42bc-ad3d-12b1b5568025"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/goml/gobrain",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/goml/gobrain/example",
+      "dependsOn": [
+        "pkg:golang/github.com/goml/gobrain@v0.0.0-20200606141943-08de5fe3f708"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/goml/gobrain@v0.0.0-20200606141943-08de5fe3f708",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

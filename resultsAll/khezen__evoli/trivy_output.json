@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:6fc2cc0a-af3e-4c0e-a9d2-052e887363bc",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T00:49:25+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "80ea5baa-4f8a-4d7d-bac8-925f097433c0",
+      "type": "application",
+      "name": "/home/user/SBOM/work/khezen__evoli",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "8383099e-5cbf-4a1f-977e-884bfae79762",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/khezen/evoli",
+      "type": "library",
+      "name": "github.com/khezen/evoli",
+      "purl": "pkg:golang/github.com/khezen/evoli",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/khezen/evoli"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "80ea5baa-4f8a-4d7d-bac8-925f097433c0",
+      "dependsOn": [
+        "8383099e-5cbf-4a1f-977e-884bfae79762"
+      ]
+    },
+    {
+      "ref": "8383099e-5cbf-4a1f-977e-884bfae79762",
+      "dependsOn": [
+        "pkg:golang/github.com/khezen/evoli"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/khezen/evoli",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

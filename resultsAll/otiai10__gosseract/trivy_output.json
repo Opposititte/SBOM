@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:dcfb107c-5af6-4178-9f1b-171d25161029",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T00:52:23+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "f9c4269f-768f-4ecc-af16-e9a79378f2d8",
+      "type": "application",
+      "name": "/home/user/SBOM/work/otiai10__gosseract",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "25290c84-0cc5-4cb9-8b74-6b9e6ba25d61",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/otiai10/gosseract/v2",
+      "type": "library",
+      "name": "github.com/otiai10/gosseract/v2",
+      "purl": "pkg:golang/github.com/otiai10/gosseract/v2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/otiai10/gosseract/v2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/otiai10/mint@v1.6.3",
+      "type": "library",
+      "name": "github.com/otiai10/mint",
+      "version": "v1.6.3",
+      "purl": "pkg:golang/github.com/otiai10/mint@v1.6.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/otiai10/mint@v1.6.3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "25290c84-0cc5-4cb9-8b74-6b9e6ba25d61",
+      "dependsOn": [
+        "pkg:golang/github.com/otiai10/gosseract/v2"
+      ]
+    },
+    {
+      "ref": "f9c4269f-768f-4ecc-af16-e9a79378f2d8",
+      "dependsOn": [
+        "25290c84-0cc5-4cb9-8b74-6b9e6ba25d61"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/otiai10/gosseract/v2",
+      "dependsOn": [
+        "pkg:golang/github.com/otiai10/mint@v1.6.3"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/otiai10/mint@v1.6.3",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

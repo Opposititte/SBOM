@@ -1,0 +1,173 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:1356e7d0-0423-42fe-bdd1-37b781f7b63f",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T00:49:30+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "73615c6b-8fd4-45a8-99ec-240827fb021e",
+      "type": "application",
+      "name": "/home/user/SBOM/work/Fontinalis__fonet",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "41dc9cac-3651-41a3-864e-dbb29d151ece",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "f66ae8f1-a554-41e7-9e0c-50f2d4a27f38",
+      "type": "application",
+      "name": "examples/iris/go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/examples",
+      "type": "library",
+      "name": "examples",
+      "purl": "pkg:golang/examples",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "examples"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/fontinalis/fonet",
+      "type": "library",
+      "name": "github.com/Fontinalis/fonet",
+      "purl": "pkg:golang/github.com/fontinalis/fonet",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/Fontinalis/fonet"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/fontinalis/fonet@v0.0.0-20210601082414-1fd7135158c9",
+      "type": "library",
+      "name": "github.com/Fontinalis/fonet",
+      "version": "v0.0.0-20210601082414-1fd7135158c9",
+      "purl": "pkg:golang/github.com/fontinalis/fonet@v0.0.0-20210601082414-1fd7135158c9",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/Fontinalis/fonet@v0.0.0-20210601082414-1fd7135158c9"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gocarina/gocsv@v0.0.0-20210516172204-ca9e8a8ddea8",
+      "type": "library",
+      "name": "github.com/gocarina/gocsv",
+      "version": "v0.0.0-20210516172204-ca9e8a8ddea8",
+      "purl": "pkg:golang/github.com/gocarina/gocsv@v0.0.0-20210516172204-ca9e8a8ddea8",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gocarina/gocsv@v0.0.0-20210516172204-ca9e8a8ddea8"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "41dc9cac-3651-41a3-864e-dbb29d151ece",
+      "dependsOn": [
+        "pkg:golang/github.com/fontinalis/fonet"
+      ]
+    },
+    {
+      "ref": "73615c6b-8fd4-45a8-99ec-240827fb021e",
+      "dependsOn": [
+        "41dc9cac-3651-41a3-864e-dbb29d151ece",
+        "f66ae8f1-a554-41e7-9e0c-50f2d4a27f38"
+      ]
+    },
+    {
+      "ref": "f66ae8f1-a554-41e7-9e0c-50f2d4a27f38",
+      "dependsOn": [
+        "pkg:golang/examples"
+      ]
+    },
+    {
+      "ref": "pkg:golang/examples",
+      "dependsOn": [
+        "pkg:golang/github.com/fontinalis/fonet@v0.0.0-20210601082414-1fd7135158c9",
+        "pkg:golang/github.com/gocarina/gocsv@v0.0.0-20210516172204-ca9e8a8ddea8"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/fontinalis/fonet",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/fontinalis/fonet@v0.0.0-20210601082414-1fd7135158c9",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/gocarina/gocsv@v0.0.0-20210516172204-ca9e8a8ddea8",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

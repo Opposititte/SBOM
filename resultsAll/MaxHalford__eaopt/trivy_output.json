@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:e3df380e-e545-4182-a5bf-933c21e40e1f",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T00:49:21+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "100ef46b-2543-4b82-93f9-cfb16594303a",
+      "type": "application",
+      "name": "/home/user/SBOM/work/MaxHalford__eaopt",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "f3c5cdb9-a0d3-49be-b022-980e500d3b0d",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/maxhalford/eaopt",
+      "type": "library",
+      "name": "github.com/MaxHalford/eaopt",
+      "purl": "pkg:golang/github.com/maxhalford/eaopt",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/MaxHalford/eaopt"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sync@v0.0.0-20201020160332-67f06af15bc9",
+      "type": "library",
+      "name": "golang.org/x/sync",
+      "version": "v0.0.0-20201020160332-67f06af15bc9",
+      "purl": "pkg:golang/golang.org/x/sync@v0.0.0-20201020160332-67f06af15bc9",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sync@v0.0.0-20201020160332-67f06af15bc9"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "100ef46b-2543-4b82-93f9-cfb16594303a",
+      "dependsOn": [
+        "f3c5cdb9-a0d3-49be-b022-980e500d3b0d"
+      ]
+    },
+    {
+      "ref": "f3c5cdb9-a0d3-49be-b022-980e500d3b0d",
+      "dependsOn": [
+        "pkg:golang/github.com/maxhalford/eaopt"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/maxhalford/eaopt",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/sync@v0.0.0-20201020160332-67f06af15bc9"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sync@v0.0.0-20201020160332-67f06af15bc9",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
