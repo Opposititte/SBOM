@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:3e4548cb-92cb-4a0b-9e52-d6856eeadf4d",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:01:21+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "b2da3cbc-5f50-491b-afa4-14c6388d5513",
+      "type": "application",
+      "name": "/home/user/SBOM/work/vardius__message-bus",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "57841e6c-7f3f-4dcc-be7f-fd4452b2094c",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/vardius/message-bus",
+      "type": "library",
+      "name": "github.com/vardius/message-bus",
+      "purl": "pkg:golang/github.com/vardius/message-bus",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/vardius/message-bus"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "57841e6c-7f3f-4dcc-be7f-fd4452b2094c",
+      "dependsOn": [
+        "pkg:golang/github.com/vardius/message-bus"
+      ]
+    },
+    {
+      "ref": "b2da3cbc-5f50-491b-afa4-14c6388d5513",
+      "dependsOn": [
+        "57841e6c-7f3f-4dcc-be7f-fd4452b2094c"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/vardius/message-bus",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

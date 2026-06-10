@@ -1,0 +1,151 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:52c6ed34-0c84-49d2-97e9-37fb32326235",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:04:00+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "47282e77-3c56-4f66-acf6-6a98e678ef56",
+      "type": "application",
+      "name": "/home/user/SBOM/work/pebbe__zmq3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "66fd2e9d-6a05-48d3-bed3-e163f81414fb",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "a8507add-f5cf-4c64-9186-1476e21297b5",
+      "type": "application",
+      "name": "examples/go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/google/uuid@v1.2.0",
+      "type": "library",
+      "name": "github.com/google/uuid",
+      "version": "v1.2.0",
+      "purl": "pkg:golang/github.com/google/uuid@v1.2.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/google/uuid@v1.2.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/pebbe/zmq3",
+      "type": "library",
+      "name": "github.com/pebbe/zmq3",
+      "purl": "pkg:golang/github.com/pebbe/zmq3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/pebbe/zmq3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/pebbe/zmq3/examples",
+      "type": "library",
+      "name": "github.com/pebbe/zmq3/examples",
+      "purl": "pkg:golang/github.com/pebbe/zmq3/examples",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/pebbe/zmq3/examples"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "47282e77-3c56-4f66-acf6-6a98e678ef56",
+      "dependsOn": [
+        "66fd2e9d-6a05-48d3-bed3-e163f81414fb",
+        "a8507add-f5cf-4c64-9186-1476e21297b5"
+      ]
+    },
+    {
+      "ref": "66fd2e9d-6a05-48d3-bed3-e163f81414fb",
+      "dependsOn": [
+        "pkg:golang/github.com/pebbe/zmq3"
+      ]
+    },
+    {
+      "ref": "a8507add-f5cf-4c64-9186-1476e21297b5",
+      "dependsOn": [
+        "pkg:golang/github.com/pebbe/zmq3/examples"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/google/uuid@v1.2.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/pebbe/zmq3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/pebbe/zmq3/examples",
+      "dependsOn": [
+        "pkg:golang/github.com/google/uuid@v1.2.0"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}
