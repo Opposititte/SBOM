@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:cf250dfd-8eb8-4666-bf20-2ea0cc08fe8c",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:10:13+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "a983803d-4c82-4fd7-b850-b61205288911",
+      "type": "application",
+      "name": "/home/user/SBOM/work/biter777__countries",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "5a8c3137-a7a5-4fea-a1d8-ed45d25f78a5",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/biter777/countries",
+      "type": "library",
+      "name": "github.com/biter777/countries",
+      "purl": "pkg:golang/github.com/biter777/countries",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/biter777/countries"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "5a8c3137-a7a5-4fea-a1d8-ed45d25f78a5",
+      "dependsOn": [
+        "pkg:golang/github.com/biter777/countries"
+      ]
+    },
+    {
+      "ref": "a983803d-4c82-4fd7-b850-b61205288911",
+      "dependsOn": [
+        "5a8c3137-a7a5-4fea-a1d8-ed45d25f78a5"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/biter777/countries",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,204 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:be5504ac-128f-4efd-83a3-a6ebe4f8014e",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:07:46+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "06ec5ad6-ea29-40f3-a374-50590e49c305",
+      "type": "application",
+      "name": "/home/user/SBOM/work/go-playground__webhooks",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "c497fe81-d4d1-4941-9441-63508b57a3dd",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/davecgh/go-spew@v1.1.0",
+      "type": "library",
+      "name": "github.com/davecgh/go-spew",
+      "version": "v1.1.0",
+      "purl": "pkg:golang/github.com/davecgh/go-spew@v1.1.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/davecgh/go-spew@v1.1.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/go-playground/webhooks/v6",
+      "type": "library",
+      "name": "github.com/go-playground/webhooks/v6",
+      "purl": "pkg:golang/github.com/go-playground/webhooks/v6",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/go-playground/webhooks/v6"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gogits/go-gogs-client@v0.0.0-20200905025246-8bb8a50cb355",
+      "type": "library",
+      "name": "github.com/gogits/go-gogs-client",
+      "version": "v0.0.0-20200905025246-8bb8a50cb355",
+      "purl": "pkg:golang/github.com/gogits/go-gogs-client@v0.0.0-20200905025246-8bb8a50cb355",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gogits/go-gogs-client@v0.0.0-20200905025246-8bb8a50cb355"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+      "type": "library",
+      "name": "github.com/pmezard/go-difflib",
+      "version": "v1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/pmezard/go-difflib@v1.0.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/stretchr/testify@v1.6.1",
+      "type": "library",
+      "name": "github.com/stretchr/testify",
+      "version": "v1.6.1",
+      "purl": "pkg:golang/github.com/stretchr/testify@v1.6.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/stretchr/testify@v1.6.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/gopkg.in/yaml.v3@v3.0.0-20200313102051-9f266ea9e77c",
+      "type": "library",
+      "name": "gopkg.in/yaml.v3",
+      "version": "v3.0.0-20200313102051-9f266ea9e77c",
+      "purl": "pkg:golang/gopkg.in/yaml.v3@v3.0.0-20200313102051-9f266ea9e77c",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "gopkg.in/yaml.v3@v3.0.0-20200313102051-9f266ea9e77c"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "06ec5ad6-ea29-40f3-a374-50590e49c305",
+      "dependsOn": [
+        "c497fe81-d4d1-4941-9441-63508b57a3dd"
+      ]
+    },
+    {
+      "ref": "c497fe81-d4d1-4941-9441-63508b57a3dd",
+      "dependsOn": [
+        "pkg:golang/github.com/go-playground/webhooks/v6"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/davecgh/go-spew@v1.1.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/go-playground/webhooks/v6",
+      "dependsOn": [
+        "pkg:golang/github.com/davecgh/go-spew@v1.1.0",
+        "pkg:golang/github.com/gogits/go-gogs-client@v0.0.0-20200905025246-8bb8a50cb355",
+        "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+        "pkg:golang/github.com/stretchr/testify@v1.6.1",
+        "pkg:golang/gopkg.in/yaml.v3@v3.0.0-20200313102051-9f266ea9e77c"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/gogits/go-gogs-client@v0.0.0-20200905025246-8bb8a50cb355",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/stretchr/testify@v1.6.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/gopkg.in/yaml.v3@v3.0.0-20200313102051-9f266ea9e77c",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,38 @@
+Cloning into '/home/user/SBOM/work/jutkko__copy-pasta'...
+go: downloading gopkg.in/yaml.v2 v2.3.0
+go: downloading github.com/minio/minio-go v2.0.5-0.20170410063337-b07bdc006df8+incompatible
+go: downloading github.com/google/go-github v17.0.1-0.20180819205025-d7732128a00e+incompatible
+go: downloading golang.org/x/oauth2 v0.0.0-20180821212333-d2e6202438be
+go: downloading github.com/jutkko/cli v0.0.0-20170219122735-bd89e46a203f
+go: downloading golang.org/x/net v0.0.0-20200520004742-59133d7f0dd7
+go: downloading github.com/armon/go-radix v0.0.0-20160115234725-4239b77079c7
+go: downloading github.com/bgentry/speakeasy v0.0.0-20161015143505-675b82c74c0e
+go: downloading github.com/mattn/go-isatty v0.0.0-20170216235908-dda3de49cbfc
+go: downloading github.com/google/go-querystring v0.0.0-20170111101155-53e6ce116135
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-10T03:10:07Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-10T03:10:08Z	INFO	Number of language-specific files	num=7
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m

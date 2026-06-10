@@ -1,0 +1,71 @@
+Cloning into '/home/user/SBOM/work/miniscruff__changie'...
+go: downloading github.com/Masterminds/semver/v3 v3.4.0
+go: downloading github.com/invopop/jsonschema v0.13.0
+go: downloading github.com/spf13/cobra v1.10.2
+go: downloading github.com/Masterminds/sprig/v3 v3.3.0
+go: downloading github.com/charmbracelet/bubbletea v0.24.2
+go: downloading github.com/cqroot/prompt v0.9.3
+go: downloading github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51
+go: downloading gopkg.in/yaml.v3 v3.0.1
+go: downloading github.com/wk8/go-ordered-map/v2 v2.1.8
+go: downloading github.com/cpuguy83/go-md2man/v2 v2.0.6
+go: downloading github.com/spf13/pflag v1.0.9
+go: downloading go.yaml.in/yaml/v3 v3.0.4
+go: downloading dario.cat/mergo v1.0.1
+go: downloading github.com/Masterminds/goutils v1.1.1
+go: downloading github.com/google/uuid v1.6.0
+go: downloading github.com/huandu/xstrings v1.5.0
+go: downloading github.com/mitchellh/copystructure v1.2.0
+go: downloading github.com/shopspring/decimal v1.4.0
+go: downloading github.com/spf13/cast v1.7.0
+go: downloading golang.org/x/crypto v0.45.0
+go: downloading github.com/containerd/console v1.0.4-0.20230313162750-1ae8d489ac81
+go: downloading github.com/mattn/go-isatty v0.0.18
+go: downloading github.com/mattn/go-localereader v0.0.1
+go: downloading github.com/muesli/ansi v0.0.0-20211018074035-2e021307bc4b
+go: downloading github.com/muesli/cancelreader v0.2.2
+go: downloading github.com/muesli/reflow v0.3.0
+go: downloading github.com/muesli/termenv v0.15.2
+go: downloading golang.org/x/sync v0.18.0
+go: downloading golang.org/x/term v0.37.0
+go: downloading github.com/charmbracelet/bubbles v0.16.1
+go: downloading github.com/cqroot/multichoose v0.1.1
+go: downloading github.com/charmbracelet/lipgloss v0.9.1
+go: downloading github.com/russross/blackfriday/v2 v2.1.0
+go: downloading github.com/bahlo/generic-list-go v0.2.0
+go: downloading github.com/buger/jsonparser v1.1.2
+go: downloading github.com/mailru/easyjson v0.7.7
+go: downloading github.com/mitchellh/reflectwalk v1.0.2
+go: downloading golang.org/x/sys v0.38.0
+go: downloading github.com/mattn/go-runewidth v0.0.15
+go: downloading github.com/aymanbagabas/go-osc52/v2 v2.0.1
+go: downloading github.com/atotto/clipboard v0.1.4
+go: downloading github.com/rivo/uniseg v0.2.0
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-10T03:08:48Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-10T03:08:49Z	WARN	[pip] Unable to find python `site-packages` directory. License detection is skipped.	err="site-packages directory not found"
+2026-06-10T03:08:49Z	INFO	Number of language-specific files	num=2
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m

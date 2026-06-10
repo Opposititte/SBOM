@@ -1,0 +1,119 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:8427147d-7027-44cd-a0de-da6548b3e9f8",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:09:13Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/rubyist/circuitbreaker@v2.2.2?type=module",
+      "type": "application",
+      "name": "github.com/rubyist/circuitbreaker",
+      "version": "v2.2.2",
+      "purl": "pkg:golang/github.com/rubyist/circuitbreaker@v2.2.2?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/rubyist/circuitbreaker",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/github.com/cenkalti/backoff@v2.2.1+incompatible?type=module",
+      "type": "library",
+      "name": "github.com/cenkalti/backoff",
+      "version": "v2.2.1+incompatible",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b4da304fdf6ded435f94bc5f6184a5298b01a577447add373e0da0d7a4b0a30e"
+        }
+      ],
+      "purl": "pkg:golang/github.com/cenkalti/backoff@v2.2.1+incompatible?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/cenkalti/backoff",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/facebookgo/clock@v0.0.0-20150410010913-600d898af40a?type=module",
+      "type": "library",
+      "name": "github.com/facebookgo/clock",
+      "version": "v0.0.0-20150410010913-600d898af40a",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c83587092438d21f3cca287624070be8bb3f91591213c1850024c656730faeec"
+        }
+      ],
+      "purl": "pkg:golang/github.com/facebookgo/clock@v0.0.0-20150410010913-600d898af40a?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/facebookgo/clock",
+          "type": "vcs"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/rubyist/circuitbreaker@v2.2.2?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/cenkalti/backoff@v2.2.1+incompatible?type=module",
+        "pkg:golang/github.com/facebookgo/clock@v0.0.0-20150410010913-600d898af40a?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/cenkalti/backoff@v2.2.1+incompatible?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/facebookgo/clock@v0.0.0-20150410010913-600d898af40a?type=module"
+    }
+  ]
+}
