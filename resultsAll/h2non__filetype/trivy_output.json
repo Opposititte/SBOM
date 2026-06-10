@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:f2e009ae-0622-4312-bc03-de59d32ac077",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:12:38+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "af850f3a-c315-460a-bf97-9d900af9be76",
+      "type": "application",
+      "name": "/home/user/SBOM/work/h2non__filetype",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "969b5d73-0dc1-421d-b323-b798212597f5",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/h2non/filetype",
+      "type": "library",
+      "name": "github.com/h2non/filetype",
+      "purl": "pkg:golang/github.com/h2non/filetype",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/h2non/filetype"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "969b5d73-0dc1-421d-b323-b798212597f5",
+      "dependsOn": [
+        "pkg:golang/github.com/h2non/filetype"
+      ]
+    },
+    {
+      "ref": "af850f3a-c315-460a-bf97-9d900af9be76",
+      "dependsOn": [
+        "969b5d73-0dc1-421d-b323-b798212597f5"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/h2non/filetype",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

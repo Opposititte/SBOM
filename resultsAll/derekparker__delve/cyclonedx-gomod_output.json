@@ -1,0 +1,443 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:d01d4dea-0534-4976-aa64-4d2f8da7b644",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:11:39Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/go-delve/delve@v0.0.0-20260303234709-629570839de5?type=module",
+      "type": "application",
+      "name": "github.com/go-delve/delve",
+      "version": "v0.0.0-20260303234709-629570839de5",
+      "purl": "pkg:golang/github.com/go-delve/delve@v0.0.0-20260303234709-629570839de5?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/go-delve/delve",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/github.com/cilium/ebpf@v0.11.0?type=module",
+      "type": "library",
+      "name": "github.com/cilium/ebpf",
+      "version": "v0.11.0",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/cilium/ebpf@v0.11.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/cilium/ebpf",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/cosiner/argv@v0.1.0?type=module",
+      "type": "library",
+      "name": "github.com/cosiner/argv",
+      "version": "v0.1.0",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/cosiner/argv@v0.1.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/cosiner/argv",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/cpuguy83/go-md2man/v2@v2.0.6?type=module",
+      "type": "library",
+      "name": "github.com/cpuguy83/go-md2man/v2",
+      "version": "v2.0.6",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/cpuguy83/go-md2man/v2@v2.0.6?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/cpuguy83/go-md2man",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/derekparker/trie/v3@v3.2.0?type=module",
+      "type": "library",
+      "name": "github.com/derekparker/trie/v3",
+      "version": "v3.2.0",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/derekparker/trie/v3@v3.2.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/derekparker/trie",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/go-delve/liner@v1.2.3-0.20231231155935-4726ab1d7f62?type=module",
+      "type": "library",
+      "name": "github.com/go-delve/liner",
+      "version": "v1.2.3-0.20231231155935-4726ab1d7f62",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/go-delve/liner@v1.2.3-0.20231231155935-4726ab1d7f62?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/go-delve/liner",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/google/go-dap@v0.12.0?type=module",
+      "type": "library",
+      "name": "github.com/google/go-dap",
+      "version": "v0.12.0",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/google/go-dap@v0.12.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/google/go-dap",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/inconshreveable/mousetrap@v1.1.0?type=module",
+      "type": "library",
+      "name": "github.com/inconshreveable/mousetrap",
+      "version": "v1.1.0",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/inconshreveable/mousetrap@v1.1.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/inconshreveable/mousetrap",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mattn/go-colorable@v0.1.13?type=module",
+      "type": "library",
+      "name": "github.com/mattn/go-colorable",
+      "version": "v0.1.13",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/mattn/go-colorable@v0.1.13?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/mattn/go-colorable",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mattn/go-isatty@v0.0.20?type=module",
+      "type": "library",
+      "name": "github.com/mattn/go-isatty",
+      "version": "v0.0.20",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/mattn/go-isatty@v0.0.20?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/mattn/go-isatty",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mattn/go-runewidth@v0.0.13?type=module",
+      "type": "library",
+      "name": "github.com/mattn/go-runewidth",
+      "version": "v0.0.13",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/mattn/go-runewidth@v0.0.13?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/mattn/go-runewidth",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/rivo/uniseg@v0.2.0?type=module",
+      "type": "library",
+      "name": "github.com/rivo/uniseg",
+      "version": "v0.2.0",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/rivo/uniseg@v0.2.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/rivo/uniseg",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/russross/blackfriday/v2@v2.1.0?type=module",
+      "type": "library",
+      "name": "github.com/russross/blackfriday/v2",
+      "version": "v2.1.0",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/russross/blackfriday/v2@v2.1.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/russross/blackfriday",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/spf13/cobra@v1.10.2?type=module",
+      "type": "library",
+      "name": "github.com/spf13/cobra",
+      "version": "v1.10.2",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/spf13/cobra@v1.10.2?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/spf13/cobra",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/spf13/pflag@v1.0.9?type=module",
+      "type": "library",
+      "name": "github.com/spf13/pflag",
+      "version": "v1.0.9",
+      "scope": "required",
+      "purl": "pkg:golang/github.com/spf13/pflag@v1.0.9?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/spf13/pflag",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/go.starlark.net@v0.0.0-20231101134539-556fd59b42f6?type=module",
+      "type": "library",
+      "name": "go.starlark.net",
+      "version": "v0.0.0-20231101134539-556fd59b42f6",
+      "scope": "required",
+      "purl": "pkg:golang/go.starlark.net@v0.0.0-20231101134539-556fd59b42f6?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/go.yaml.in/yaml/v3@v3.0.4?type=module",
+      "type": "library",
+      "name": "go.yaml.in/yaml/v3",
+      "version": "v3.0.4",
+      "scope": "required",
+      "purl": "pkg:golang/go.yaml.in/yaml/v3@v3.0.4?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/arch@v0.11.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/arch",
+      "version": "v0.11.0",
+      "scope": "required",
+      "purl": "pkg:golang/golang.org/x/arch@v0.11.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/exp@v0.0.0-20230224173230-c95f2b4c22f2?type=module",
+      "type": "library",
+      "name": "golang.org/x/exp",
+      "version": "v0.0.0-20230224173230-c95f2b4c22f2",
+      "scope": "required",
+      "purl": "pkg:golang/golang.org/x/exp@v0.0.0-20230224173230-c95f2b4c22f2?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sync@v0.8.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/sync",
+      "version": "v0.8.0",
+      "scope": "required",
+      "purl": "pkg:golang/golang.org/x/sync@v0.8.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.26.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.26.0",
+      "scope": "required",
+      "purl": "pkg:golang/golang.org/x/sys@v0.26.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/telemetry@v0.0.0-20241106142447-58a1122356f5?type=module",
+      "type": "library",
+      "name": "golang.org/x/telemetry",
+      "version": "v0.0.0-20241106142447-58a1122356f5",
+      "scope": "required",
+      "purl": "pkg:golang/golang.org/x/telemetry@v0.0.0-20241106142447-58a1122356f5?goarch=amd64\u0026goos=linux\u0026type=module"
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/go-delve/delve@v0.0.0-20260303234709-629570839de5?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/cilium/ebpf@v0.11.0?type=module",
+        "pkg:golang/github.com/cosiner/argv@v0.1.0?type=module",
+        "pkg:golang/github.com/cpuguy83/go-md2man/v2@v2.0.6?type=module",
+        "pkg:golang/github.com/derekparker/trie/v3@v3.2.0?type=module",
+        "pkg:golang/github.com/go-delve/liner@v1.2.3-0.20231231155935-4726ab1d7f62?type=module",
+        "pkg:golang/github.com/google/go-dap@v0.12.0?type=module",
+        "pkg:golang/github.com/inconshreveable/mousetrap@v1.1.0?type=module",
+        "pkg:golang/github.com/mattn/go-colorable@v0.1.13?type=module",
+        "pkg:golang/github.com/mattn/go-isatty@v0.0.20?type=module",
+        "pkg:golang/github.com/mattn/go-runewidth@v0.0.13?type=module",
+        "pkg:golang/github.com/rivo/uniseg@v0.2.0?type=module",
+        "pkg:golang/github.com/russross/blackfriday/v2@v2.1.0?type=module",
+        "pkg:golang/github.com/spf13/cobra@v1.10.2?type=module",
+        "pkg:golang/github.com/spf13/pflag@v1.0.9?type=module",
+        "pkg:golang/go.starlark.net@v0.0.0-20231101134539-556fd59b42f6?type=module",
+        "pkg:golang/go.yaml.in/yaml/v3@v3.0.4?type=module",
+        "pkg:golang/golang.org/x/arch@v0.11.0?type=module",
+        "pkg:golang/golang.org/x/exp@v0.0.0-20230224173230-c95f2b4c22f2?type=module",
+        "pkg:golang/golang.org/x/sync@v0.8.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.26.0?type=module",
+        "pkg:golang/golang.org/x/telemetry@v0.0.0-20241106142447-58a1122356f5?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/cilium/ebpf@v0.11.0?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/exp@v0.0.0-20230224173230-c95f2b4c22f2?type=module",
+        "pkg:golang/golang.org/x/sys@v0.26.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/cosiner/argv@v0.1.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/cpuguy83/go-md2man/v2@v2.0.6?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/russross/blackfriday/v2@v2.1.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/derekparker/trie/v3@v3.2.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/go-delve/liner@v1.2.3-0.20231231155935-4726ab1d7f62?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/mattn/go-runewidth@v0.0.13?type=module",
+        "pkg:golang/golang.org/x/sys@v0.26.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/google/go-dap@v0.12.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/inconshreveable/mousetrap@v1.1.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/mattn/go-colorable@v0.1.13?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/mattn/go-isatty@v0.0.20?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/mattn/go-isatty@v0.0.20?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/sys@v0.26.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/mattn/go-runewidth@v0.0.13?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/rivo/uniseg@v0.2.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/rivo/uniseg@v0.2.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/russross/blackfriday/v2@v2.1.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/spf13/cobra@v1.10.2?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/cpuguy83/go-md2man/v2@v2.0.6?type=module",
+        "pkg:golang/github.com/inconshreveable/mousetrap@v1.1.0?type=module",
+        "pkg:golang/github.com/spf13/pflag@v1.0.9?type=module",
+        "pkg:golang/go.yaml.in/yaml/v3@v3.0.4?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/spf13/pflag@v1.0.9?type=module"
+    },
+    {
+      "ref": "pkg:golang/go.starlark.net@v0.0.0-20231101134539-556fd59b42f6?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/sys@v0.26.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/go.yaml.in/yaml/v3@v3.0.4?type=module"
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/arch@v0.11.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/exp@v0.0.0-20230224173230-c95f2b4c22f2?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/sys@v0.26.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sync@v0.8.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.26.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/telemetry@v0.0.0-20241106142447-58a1122356f5?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/sync@v0.8.0?type=module",
+        "pkg:golang/golang.org/x/sys@v0.26.0?type=module"
+      ]
+    }
+  ]
+}

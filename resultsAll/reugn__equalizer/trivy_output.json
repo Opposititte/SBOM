@@ -1,0 +1,151 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:e6e4b6c6-16d8-4415-81bc-0fe48bb9b08c",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:12:17+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "c200d8b8-7893-4bdd-b007-4b93308cd5de",
+      "type": "application",
+      "name": "/home/user/SBOM/work/reugn__equalizer",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "02e54e14-c271-44ca-802b-52f11e9bcaae",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "cc6ae81b-9230-48ab-991f-e1d6d884034b",
+      "type": "application",
+      "name": "benchmarks/go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/reugn/equalizer",
+      "type": "library",
+      "name": "github.com/reugn/equalizer",
+      "purl": "pkg:golang/github.com/reugn/equalizer",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/reugn/equalizer"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/reugn/equalizer/benchmarks",
+      "type": "library",
+      "name": "github.com/reugn/equalizer/benchmarks",
+      "purl": "pkg:golang/github.com/reugn/equalizer/benchmarks",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/reugn/equalizer/benchmarks"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/time@v0.5.0",
+      "type": "library",
+      "name": "golang.org/x/time",
+      "version": "v0.5.0",
+      "purl": "pkg:golang/golang.org/x/time@v0.5.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/time@v0.5.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "02e54e14-c271-44ca-802b-52f11e9bcaae",
+      "dependsOn": [
+        "pkg:golang/github.com/reugn/equalizer"
+      ]
+    },
+    {
+      "ref": "c200d8b8-7893-4bdd-b007-4b93308cd5de",
+      "dependsOn": [
+        "02e54e14-c271-44ca-802b-52f11e9bcaae",
+        "cc6ae81b-9230-48ab-991f-e1d6d884034b"
+      ]
+    },
+    {
+      "ref": "cc6ae81b-9230-48ab-991f-e1d6d884034b",
+      "dependsOn": [
+        "pkg:golang/github.com/reugn/equalizer/benchmarks"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/reugn/equalizer",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/reugn/equalizer/benchmarks",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/time@v0.5.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/time@v0.5.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

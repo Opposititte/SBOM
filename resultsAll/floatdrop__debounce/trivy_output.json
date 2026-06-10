@@ -1,0 +1,128 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:90b0f82d-a83d-4db4-a659-57ce9ee78108",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:11:28+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "08ce0932-e0cd-41e2-9866-97a6c4dfde86",
+      "type": "application",
+      "name": "/home/user/SBOM/work/floatdrop__debounce",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "405404d7-f699-4e50-b6bd-97b43ec17934",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "98bfab97-8dfd-4756-a057-e9eef1332bc4",
+      "type": "application",
+      "name": "v2/go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/floatdrop/debounce",
+      "type": "library",
+      "name": "github.com/floatdrop/debounce",
+      "purl": "pkg:golang/github.com/floatdrop/debounce",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/floatdrop/debounce"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/floatdrop/debounce/v2",
+      "type": "library",
+      "name": "github.com/floatdrop/debounce/v2",
+      "purl": "pkg:golang/github.com/floatdrop/debounce/v2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/floatdrop/debounce/v2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "08ce0932-e0cd-41e2-9866-97a6c4dfde86",
+      "dependsOn": [
+        "405404d7-f699-4e50-b6bd-97b43ec17934",
+        "98bfab97-8dfd-4756-a057-e9eef1332bc4"
+      ]
+    },
+    {
+      "ref": "405404d7-f699-4e50-b6bd-97b43ec17934",
+      "dependsOn": [
+        "pkg:golang/github.com/floatdrop/debounce"
+      ]
+    },
+    {
+      "ref": "98bfab97-8dfd-4756-a057-e9eef1332bc4",
+      "dependsOn": [
+        "pkg:golang/github.com/floatdrop/debounce/v2"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/floatdrop/debounce",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/floatdrop/debounce/v2",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

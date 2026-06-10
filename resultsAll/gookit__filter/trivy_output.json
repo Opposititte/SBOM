@@ -1,0 +1,175 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:a9917765-b9a9-4f20-8276-600e1c8eb902",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:12:46+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "a20b7e97-4c12-4abf-974c-1be87da35506",
+      "type": "application",
+      "name": "/home/user/SBOM/work/gookit__filter",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "d01a15b8-d357-42ef-9f0d-7c99f71440af",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gookit/filter",
+      "type": "library",
+      "name": "github.com/gookit/filter",
+      "purl": "pkg:golang/github.com/gookit/filter",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gookit/filter"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gookit/goutil@v0.7.6",
+      "type": "library",
+      "name": "github.com/gookit/goutil",
+      "version": "v0.7.6",
+      "purl": "pkg:golang/github.com/gookit/goutil@v0.7.6",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gookit/goutil@v0.7.6"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.30.0",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.30.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.30.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sys@v0.30.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/term@v0.29.0",
+      "type": "library",
+      "name": "golang.org/x/term",
+      "version": "v0.29.0",
+      "purl": "pkg:golang/golang.org/x/term@v0.29.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/term@v0.29.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/text@v0.22.0",
+      "type": "library",
+      "name": "golang.org/x/text",
+      "version": "v0.22.0",
+      "purl": "pkg:golang/golang.org/x/text@v0.22.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/text@v0.22.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "a20b7e97-4c12-4abf-974c-1be87da35506",
+      "dependsOn": [
+        "d01a15b8-d357-42ef-9f0d-7c99f71440af"
+      ]
+    },
+    {
+      "ref": "d01a15b8-d357-42ef-9f0d-7c99f71440af",
+      "dependsOn": [
+        "pkg:golang/github.com/gookit/filter"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/gookit/filter",
+      "dependsOn": [
+        "pkg:golang/github.com/gookit/goutil@v0.7.6",
+        "pkg:golang/golang.org/x/sys@v0.30.0",
+        "pkg:golang/golang.org/x/term@v0.29.0",
+        "pkg:golang/golang.org/x/text@v0.22.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/gookit/goutil@v0.7.6",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.30.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/term@v0.29.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/text@v0.22.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
