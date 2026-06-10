@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:e531c65b-0027-4aca-8c26-d11a84938ca1",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:53:40+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "7d6811ff-8d37-416a-a4aa-d9051a490fbb",
+      "type": "application",
+      "name": "/home/user/SBOM/work/jszwedko__go-circleci",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "26c031b5-706b-49d5-b308-5546739bb1dc",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jszwedko/go-circleci",
+      "type": "library",
+      "name": "github.com/jszwedko/go-circleci",
+      "purl": "pkg:golang/github.com/jszwedko/go-circleci",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/jszwedko/go-circleci"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "26c031b5-706b-49d5-b308-5546739bb1dc",
+      "dependsOn": [
+        "pkg:golang/github.com/jszwedko/go-circleci"
+      ]
+    },
+    {
+      "ref": "7d6811ff-8d37-416a-a4aa-d9051a490fbb",
+      "dependsOn": [
+        "26c031b5-706b-49d5-b308-5546739bb1dc"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/jszwedko/go-circleci",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

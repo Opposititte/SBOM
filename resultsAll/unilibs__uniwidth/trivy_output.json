@@ -1,0 +1,210 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:f97b32bf-839b-48be-8307-18a4c7de1ffd",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:49:29+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "f3b9671e-bc50-4933-b71f-0af3f0c6faa4",
+      "type": "application",
+      "name": "/home/user/SBOM/work/unilibs__uniwidth",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "8723aa25-ba76-4c55-9c57-17b8b744ee65",
+      "type": "application",
+      "name": "bench/go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "fac29052-740b-4690-84c7-fe99865152ab",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/clipperhouse/uax29/v2@v2.2.0",
+      "type": "library",
+      "name": "github.com/clipperhouse/uax29/v2",
+      "version": "v2.2.0",
+      "purl": "pkg:golang/github.com/clipperhouse/uax29/v2@v2.2.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/clipperhouse/uax29/v2@v2.2.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mattn/go-runewidth@v0.0.19",
+      "type": "library",
+      "name": "github.com/mattn/go-runewidth",
+      "version": "v0.0.19",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/mattn/go-runewidth@v0.0.19",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mattn/go-runewidth@v0.0.19"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/rivo/uniseg@v0.4.7",
+      "type": "library",
+      "name": "github.com/rivo/uniseg",
+      "version": "v0.4.7",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/rivo/uniseg@v0.4.7",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/rivo/uniseg@v0.4.7"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/unilibs/uniwidth",
+      "type": "library",
+      "name": "github.com/unilibs/uniwidth",
+      "purl": "pkg:golang/github.com/unilibs/uniwidth",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/unilibs/uniwidth"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/unilibs/uniwidth/bench",
+      "type": "library",
+      "name": "github.com/unilibs/uniwidth/bench",
+      "purl": "pkg:golang/github.com/unilibs/uniwidth/bench",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/unilibs/uniwidth/bench"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "8723aa25-ba76-4c55-9c57-17b8b744ee65",
+      "dependsOn": [
+        "pkg:golang/github.com/unilibs/uniwidth/bench"
+      ]
+    },
+    {
+      "ref": "f3b9671e-bc50-4933-b71f-0af3f0c6faa4",
+      "dependsOn": [
+        "8723aa25-ba76-4c55-9c57-17b8b744ee65",
+        "fac29052-740b-4690-84c7-fe99865152ab"
+      ]
+    },
+    {
+      "ref": "fac29052-740b-4690-84c7-fe99865152ab",
+      "dependsOn": [
+        "pkg:golang/github.com/unilibs/uniwidth"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/clipperhouse/uax29/v2@v2.2.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/mattn/go-runewidth@v0.0.19",
+      "dependsOn": [
+        "pkg:golang/github.com/clipperhouse/uax29/v2@v2.2.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/rivo/uniseg@v0.4.7",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/unilibs/uniwidth",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/unilibs/uniwidth/bench",
+      "dependsOn": [
+        "pkg:golang/github.com/mattn/go-runewidth@v0.0.19",
+        "pkg:golang/github.com/rivo/uniseg@v0.4.7"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}

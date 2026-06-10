@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:f0b59067-c7f3-4c5a-8f0e-10fc9970e619",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:55:02+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "af252721-dfea-45c5-8d00-cfdb196d32cb",
+      "type": "application",
+      "name": "/home/user/SBOM/work/huandu__facebook",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "1455d26b-f4f2-4d7a-9cb0-2723ff8c2747",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/huandu/facebook/v2",
+      "type": "library",
+      "name": "github.com/huandu/facebook/v2",
+      "purl": "pkg:golang/github.com/huandu/facebook/v2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/huandu/facebook/v2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "1455d26b-f4f2-4d7a-9cb0-2723ff8c2747",
+      "dependsOn": [
+        "pkg:golang/github.com/huandu/facebook/v2"
+      ]
+    },
+    {
+      "ref": "af252721-dfea-45c5-8d00-cfdb196d32cb",
+      "dependsOn": [
+        "1455d26b-f4f2-4d7a-9cb0-2723ff8c2747"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/huandu/facebook/v2",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

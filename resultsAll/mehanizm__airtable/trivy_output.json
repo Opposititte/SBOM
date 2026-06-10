@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:e5e7e0a9-243c-4127-a82a-9ac9beb2d2a9",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:49:39+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "8febd9df-9fc4-48fa-99ea-6484b787cc19",
+      "type": "application",
+      "name": "/home/user/SBOM/work/mehanizm__airtable",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "8933168c-fbb7-430c-89f4-1a0fa6584a2c",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mehanizm/airtable",
+      "type": "library",
+      "name": "github.com/mehanizm/airtable",
+      "purl": "pkg:golang/github.com/mehanizm/airtable",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mehanizm/airtable"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/time@v0.8.0",
+      "type": "library",
+      "name": "golang.org/x/time",
+      "version": "v0.8.0",
+      "purl": "pkg:golang/golang.org/x/time@v0.8.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/time@v0.8.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "8933168c-fbb7-430c-89f4-1a0fa6584a2c",
+      "dependsOn": [
+        "pkg:golang/github.com/mehanizm/airtable"
+      ]
+    },
+    {
+      "ref": "8febd9df-9fc4-48fa-99ea-6484b787cc19",
+      "dependsOn": [
+        "8933168c-fbb7-430c-89f4-1a0fa6584a2c"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/mehanizm/airtable",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/time@v0.8.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/time@v0.8.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
