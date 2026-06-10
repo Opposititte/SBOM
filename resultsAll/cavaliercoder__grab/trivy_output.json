@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:e2f3e6f0-4af0-4750-8af0-ae31b5e01302",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:29:56+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "a6ca7d7a-f571-4148-afd3-326968d71d9e",
+      "type": "application",
+      "name": "/home/user/SBOM/work/cavaliercoder__grab",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "76f3f488-f136-49de-8b75-795b4d411025",
+      "type": "application",
+      "name": "v3/go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/cavaliergopher/grab/v3",
+      "type": "library",
+      "name": "github.com/cavaliergopher/grab/v3",
+      "purl": "pkg:golang/github.com/cavaliergopher/grab/v3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/cavaliergopher/grab/v3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "76f3f488-f136-49de-8b75-795b4d411025",
+      "dependsOn": [
+        "pkg:golang/github.com/cavaliergopher/grab/v3"
+      ]
+    },
+    {
+      "ref": "a6ca7d7a-f571-4148-afd3-326968d71d9e",
+      "dependsOn": [
+        "76f3f488-f136-49de-8b75-795b4d411025"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/cavaliergopher/grab/v3",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

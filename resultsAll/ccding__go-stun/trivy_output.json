@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:0dfe6e3a-9cb2-41ea-aa55-10da6a7be60b",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:29:11+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "a4828011-b061-451d-b7fd-9c3a9361fde0",
+      "type": "application",
+      "name": "/home/user/SBOM/work/ccding__go-stun",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "508cc9cb-bf17-4a22-8109-f5fc9291ff5e",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/ccding/go-stun",
+      "type": "library",
+      "name": "github.com/ccding/go-stun",
+      "purl": "pkg:golang/github.com/ccding/go-stun",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/ccding/go-stun"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "508cc9cb-bf17-4a22-8109-f5fc9291ff5e",
+      "dependsOn": [
+        "pkg:golang/github.com/ccding/go-stun"
+      ]
+    },
+    {
+      "ref": "a4828011-b061-451d-b7fd-9c3a9361fde0",
+      "dependsOn": [
+        "508cc9cb-bf17-4a22-8109-f5fc9291ff5e"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/ccding/go-stun",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

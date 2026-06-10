@@ -1,0 +1,131 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:05aa73e9-d292-4c6a-8890-81fa26ed58c0",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:30:19+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "61b5305f-df5d-4c92-b0fa-6f6c047d4420",
+      "type": "application",
+      "name": "/home/user/SBOM/work/wzshiming__httpproxy",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "3a17799c-0e88-45d4-863a-9ab0008cd18c",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/wzshiming/httpproxy",
+      "type": "library",
+      "name": "github.com/wzshiming/httpproxy",
+      "purl": "pkg:golang/github.com/wzshiming/httpproxy",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/wzshiming/httpproxy"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/net@v0.38.0",
+      "type": "library",
+      "name": "golang.org/x/net",
+      "version": "v0.38.0",
+      "purl": "pkg:golang/golang.org/x/net@v0.38.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/net@v0.38.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/text@v0.23.0",
+      "type": "library",
+      "name": "golang.org/x/text",
+      "version": "v0.23.0",
+      "purl": "pkg:golang/golang.org/x/text@v0.23.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/text@v0.23.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "3a17799c-0e88-45d4-863a-9ab0008cd18c",
+      "dependsOn": [
+        "pkg:golang/github.com/wzshiming/httpproxy"
+      ]
+    },
+    {
+      "ref": "61b5305f-df5d-4c92-b0fa-6f6c047d4420",
+      "dependsOn": [
+        "3a17799c-0e88-45d4-863a-9ab0008cd18c"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/wzshiming/httpproxy",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/net@v0.38.0",
+        "pkg:golang/golang.org/x/text@v0.23.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/net@v0.38.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/text@v0.23.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

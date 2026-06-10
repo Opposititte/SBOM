@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:6619b13a-995f-425c-b2c3-86c16de15ee6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:31:35+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "68064df6-7815-4a68-91ec-92b83ea0edc7",
+      "type": "application",
+      "name": "/home/user/SBOM/work/jaisonerick__macwifi",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "750b0d88-00a7-47bb-9edc-0233731c3fff",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jaisonerick/macwifi",
+      "type": "library",
+      "name": "github.com/jaisonerick/macwifi",
+      "purl": "pkg:golang/github.com/jaisonerick/macwifi",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/jaisonerick/macwifi"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "68064df6-7815-4a68-91ec-92b83ea0edc7",
+      "dependsOn": [
+        "750b0d88-00a7-47bb-9edc-0233731c3fff"
+      ]
+    },
+    {
+      "ref": "750b0d88-00a7-47bb-9edc-0233731c3fff",
+      "dependsOn": [
+        "pkg:golang/github.com/jaisonerick/macwifi"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/jaisonerick/macwifi",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
