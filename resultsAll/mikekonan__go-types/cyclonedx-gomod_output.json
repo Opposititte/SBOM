@@ -1,0 +1,164 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:8efb20cb-1f71-4837-a2e1-9d279b0fdeae",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:16:25Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/mikekonan/go-types/v2@v2.0.34?type=module",
+      "type": "application",
+      "name": "github.com/mikekonan/go-types/v2",
+      "version": "v2.0.34",
+      "purl": "pkg:golang/github.com/mikekonan/go-types/v2@v2.0.34?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/mikekonan/go-types",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/github.com/golang/protobuf@v1.3.2?type=module",
+      "type": "library",
+      "name": "github.com/golang/protobuf",
+      "version": "v1.3.2",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ea7b0f63386ae6445e87a408988de4e6a5b33b83c46ef6c85b673049f47feb1b"
+        }
+      ],
+      "purl": "pkg:golang/github.com/golang/protobuf@v1.3.2?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/golang/protobuf",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/nyaruka/phonenumbers@v1.1.7?type=module",
+      "type": "library",
+      "name": "github.com/nyaruka/phonenumbers",
+      "version": "v1.1.7",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e54508f6113bf4a934772992aae5db31807b225343361beed9a3652699bd7adf"
+        }
+      ],
+      "purl": "pkg:golang/github.com/nyaruka/phonenumbers@v1.1.7?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/nyaruka/phonenumbers",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/text@v0.9.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/text",
+      "version": "v0.9.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "dac8c998ef1c0ef62f7ae5fded10cbb319725312e5f861e82f106245d1e59411"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/text@v0.9.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/gopkg.in/guregu/null.v4@v4.0.0?type=module",
+      "type": "library",
+      "name": "gopkg.in/guregu/null.v4",
+      "version": "v4.0.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d569b74b5584036236e8aabeeaf716fb0d20703a38e182980fb6081093470e38"
+        }
+      ],
+      "purl": "pkg:golang/gopkg.in/guregu/null.v4@v4.0.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/guregu/null",
+          "type": "vcs"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/mikekonan/go-types/v2@v2.0.34?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/nyaruka/phonenumbers@v1.1.7?type=module",
+        "pkg:golang/golang.org/x/text@v0.9.0?type=module",
+        "pkg:golang/gopkg.in/guregu/null.v4@v4.0.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/golang/protobuf@v1.3.2?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/nyaruka/phonenumbers@v1.1.7?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/golang/protobuf@v1.3.2?type=module",
+        "pkg:golang/golang.org/x/text@v0.9.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/text@v0.9.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/gopkg.in/guregu/null.v4@v4.0.0?type=module"
+    }
+  ]
+}

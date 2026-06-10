@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:837edc3c-ecc0-4731-b94d-a71b5c0118ae",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:16:36+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "ed8c6fd2-e45a-4ae0-ab31-c707fa7bac7f",
+      "type": "application",
+      "name": "/home/user/SBOM/work/VividCortex__godaemon",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "a956d56c-6a19-4c04-a53b-b2dc1f6c911a",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/vividcortex/godaemon",
+      "type": "library",
+      "name": "github.com/VividCortex/godaemon",
+      "purl": "pkg:golang/github.com/vividcortex/godaemon",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/VividCortex/godaemon"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "a956d56c-6a19-4c04-a53b-b2dc1f6c911a",
+      "dependsOn": [
+        "pkg:golang/github.com/vividcortex/godaemon"
+      ]
+    },
+    {
+      "ref": "ed8c6fd2-e45a-4ae0-ab31-c707fa7bac7f",
+      "dependsOn": [
+        "a956d56c-6a19-4c04-a53b-b2dc1f6c911a"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/vividcortex/godaemon",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

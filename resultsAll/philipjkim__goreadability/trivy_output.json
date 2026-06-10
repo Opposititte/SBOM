@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:8ae392de-691b-4364-a0c9-0916d4fc3724",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:17:26+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "09c65291-7a35-4eb2-845b-dc543d0cf441",
+      "type": "application",
+      "name": "/home/user/SBOM/work/philipjkim__goreadability",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "41e7ebf8-4853-49b8-8a41-995d585f0e35",
+      "type": "application",
+      "name": "vendor/github.com/andybalholm/cascadia/go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/andybalholm/cascadia",
+      "type": "library",
+      "name": "github.com/andybalholm/cascadia",
+      "purl": "pkg:golang/github.com/andybalholm/cascadia",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/andybalholm/cascadia"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/net@v0.0.0-20180218175443-cbe0f9307d01",
+      "type": "library",
+      "name": "golang.org/x/net",
+      "version": "v0.0.0-20180218175443-cbe0f9307d01",
+      "purl": "pkg:golang/golang.org/x/net@v0.0.0-20180218175443-cbe0f9307d01",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/net@v0.0.0-20180218175443-cbe0f9307d01"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "09c65291-7a35-4eb2-845b-dc543d0cf441",
+      "dependsOn": [
+        "41e7ebf8-4853-49b8-8a41-995d585f0e35"
+      ]
+    },
+    {
+      "ref": "41e7ebf8-4853-49b8-8a41-995d585f0e35",
+      "dependsOn": [
+        "pkg:golang/github.com/andybalholm/cascadia"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/andybalholm/cascadia",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/net@v0.0.0-20180218175443-cbe0f9307d01"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/net@v0.0.0-20180218175443-cbe0f9307d01",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
