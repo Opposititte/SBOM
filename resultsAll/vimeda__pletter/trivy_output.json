@@ -1,0 +1,175 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:0eb615cd-1d63-48a7-82a1-0c2a0b2e106d",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:07:00+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "805023c4-fba0-4cef-8483-fbe7fcb26ca1",
+      "type": "application",
+      "name": "/home/user/SBOM/work/vimeda__pletter",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "b0bd2230-27fd-4fdf-b49d-7bc229d28f2c",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/golang/protobuf@v1.5.3",
+      "type": "library",
+      "name": "github.com/golang/protobuf",
+      "version": "v1.5.3",
+      "purl": "pkg:golang/github.com/golang/protobuf@v1.5.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/golang/protobuf@v1.5.3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/google/go-cmp@v0.5.5",
+      "type": "library",
+      "name": "github.com/google/go-cmp",
+      "version": "v0.5.5",
+      "purl": "pkg:golang/github.com/google/go-cmp@v0.5.5",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/google/go-cmp@v0.5.5"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/vimeda/pletter",
+      "type": "library",
+      "name": "github.com/vimeda/pletter",
+      "purl": "pkg:golang/github.com/vimeda/pletter",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/vimeda/pletter"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/xerrors@v0.0.0-20191204190536-9bdfabe68543",
+      "type": "library",
+      "name": "golang.org/x/xerrors",
+      "version": "v0.0.0-20191204190536-9bdfabe68543",
+      "purl": "pkg:golang/golang.org/x/xerrors@v0.0.0-20191204190536-9bdfabe68543",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/xerrors@v0.0.0-20191204190536-9bdfabe68543"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/google.golang.org/protobuf@v1.30.0",
+      "type": "library",
+      "name": "google.golang.org/protobuf",
+      "version": "v1.30.0",
+      "purl": "pkg:golang/google.golang.org/protobuf@v1.30.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "google.golang.org/protobuf@v1.30.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "805023c4-fba0-4cef-8483-fbe7fcb26ca1",
+      "dependsOn": [
+        "b0bd2230-27fd-4fdf-b49d-7bc229d28f2c"
+      ]
+    },
+    {
+      "ref": "b0bd2230-27fd-4fdf-b49d-7bc229d28f2c",
+      "dependsOn": [
+        "pkg:golang/github.com/vimeda/pletter"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/golang/protobuf@v1.5.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/google/go-cmp@v0.5.5",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/vimeda/pletter",
+      "dependsOn": [
+        "pkg:golang/github.com/golang/protobuf@v1.5.3",
+        "pkg:golang/github.com/google/go-cmp@v0.5.5",
+        "pkg:golang/golang.org/x/xerrors@v0.0.0-20191204190536-9bdfabe68543",
+        "pkg:golang/google.golang.org/protobuf@v1.30.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/xerrors@v0.0.0-20191204190536-9bdfabe68543",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/google.golang.org/protobuf@v1.30.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
