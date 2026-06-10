@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:69e95e52-afb2-4277-90f1-34b3a635634c",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:55:00+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "2d2ccb2a-1df3-411d-a361-199c5b028d60",
+      "type": "application",
+      "name": "/home/user/SBOM/work/norunners__vert",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "d8c95e16-a383-47c2-93a5-a37cef125cef",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/norunners/vert",
+      "type": "library",
+      "name": "github.com/norunners/vert",
+      "purl": "pkg:golang/github.com/norunners/vert",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/norunners/vert"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "2d2ccb2a-1df3-411d-a361-199c5b028d60",
+      "dependsOn": [
+        "d8c95e16-a383-47c2-93a5-a37cef125cef"
+      ]
+    },
+    {
+      "ref": "d8c95e16-a383-47c2-93a5-a37cef125cef",
+      "dependsOn": [
+        "pkg:golang/github.com/norunners/vert"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/norunners/vert",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
