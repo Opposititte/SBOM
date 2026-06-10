@@ -1,0 +1,157 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:b64aaf0e-3c35-4f0d-9c63-15c0bf03d3df",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:43:34Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/antchfx/htmlquery@v0.0.0-20260524154251-bfb8bdf08b77?type=module",
+      "type": "application",
+      "name": "github.com/antchfx/htmlquery",
+      "version": "v0.0.0-20260524154251-bfb8bdf08b77",
+      "purl": "pkg:golang/github.com/antchfx/htmlquery@v0.0.0-20260524154251-bfb8bdf08b77?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/antchfx/htmlquery",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/github.com/antchfx/xpath@v1.3.6?type=module",
+      "type": "library",
+      "name": "github.com/antchfx/xpath",
+      "version": "v1.3.6",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b34cbe125451b5341d7c73fad3da85bb4f9ce9b8250efdb4a6a3958908e374f2"
+        }
+      ],
+      "purl": "pkg:golang/github.com/antchfx/xpath@v1.3.6?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/antchfx/xpath",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/golang/groupcache@v0.0.0-20210331224755-41bb18bfe9da?type=module",
+      "type": "library",
+      "name": "github.com/golang/groupcache",
+      "version": "v0.0.0-20210331224755-41bb18bfe9da",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a08e710aab02a39eb897c88d53e0f00797a9c66b1aa81fab8462f49b98ed62a1"
+        }
+      ],
+      "purl": "pkg:golang/github.com/golang/groupcache@v0.0.0-20210331224755-41bb18bfe9da?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/golang/groupcache",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/net@v0.33.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/net",
+      "version": "v0.33.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ef84981e557c0488072050bf2eb6243862302f5f5e4d85d0e7073a4c1b8edfa2"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/net@v0.33.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/text@v0.21.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/text",
+      "version": "v0.21.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "cf2400024af06a7790d3aeacb2947225a1bd54d8bf609d4d7f3706077859feaa"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/text@v0.21.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/antchfx/htmlquery@v0.0.0-20260524154251-bfb8bdf08b77?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/antchfx/xpath@v1.3.6?type=module",
+        "pkg:golang/github.com/golang/groupcache@v0.0.0-20210331224755-41bb18bfe9da?type=module",
+        "pkg:golang/golang.org/x/net@v0.33.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/antchfx/xpath@v1.3.6?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/golang/groupcache@v0.0.0-20210331224755-41bb18bfe9da?type=module"
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/net@v0.33.0?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/text@v0.21.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/text@v0.21.0?type=module"
+    }
+  ]
+}

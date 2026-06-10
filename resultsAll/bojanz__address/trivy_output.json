@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:117dcdc3-d651-4384-ae82-de659c0aab97",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:41:22+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "59535094-bc74-40b4-b3eb-08908feb2dbe",
+      "type": "application",
+      "name": "/home/user/SBOM/work/bojanz__address",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "9f15ec2b-ceec-4047-833b-cc6fbfd14472",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/bojanz/address",
+      "type": "library",
+      "name": "github.com/bojanz/address",
+      "purl": "pkg:golang/github.com/bojanz/address",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/bojanz/address"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "59535094-bc74-40b4-b3eb-08908feb2dbe",
+      "dependsOn": [
+        "9f15ec2b-ceec-4047-833b-cc6fbfd14472"
+      ]
+    },
+    {
+      "ref": "9f15ec2b-ceec-4047-833b-cc6fbfd14472",
+      "dependsOn": [
+        "pkg:golang/github.com/bojanz/address"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/bojanz/address",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

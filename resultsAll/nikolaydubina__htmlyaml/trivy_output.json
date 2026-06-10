@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:cd9cc850-146d-4c9b-9460-372a58a7cf1d",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:43:36+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "692e765c-3ba6-45c5-aa18-1c08ed2ae0df",
+      "type": "application",
+      "name": "/home/user/SBOM/work/nikolaydubina__htmlyaml",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "23a75198-f712-4970-a8d4-a300bbc28d11",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/nikolaydubina/htmlyaml",
+      "type": "library",
+      "name": "github.com/nikolaydubina/htmlyaml",
+      "purl": "pkg:golang/github.com/nikolaydubina/htmlyaml",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/nikolaydubina/htmlyaml"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "23a75198-f712-4970-a8d4-a300bbc28d11",
+      "dependsOn": [
+        "pkg:golang/github.com/nikolaydubina/htmlyaml"
+      ]
+    },
+    {
+      "ref": "692e765c-3ba6-45c5-aa18-1c08ed2ae0df",
+      "dependsOn": [
+        "23a75198-f712-4970-a8d4-a300bbc28d11"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/nikolaydubina/htmlyaml",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

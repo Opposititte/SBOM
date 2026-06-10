@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:9e9604ba-d28c-4200-9bd0-ca345292dc2d",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:42:54+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "48374048-8774-444e-a2f1-b564514ebb13",
+      "type": "application",
+      "name": "/home/user/SBOM/work/russross__blackfriday",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "43b68bfb-1e56-4212-89d3-34bc78ec73d1",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/russross/blackfriday",
+      "type": "library",
+      "name": "github.com/russross/blackfriday",
+      "purl": "pkg:golang/github.com/russross/blackfriday",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/russross/blackfriday"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "43b68bfb-1e56-4212-89d3-34bc78ec73d1",
+      "dependsOn": [
+        "pkg:golang/github.com/russross/blackfriday"
+      ]
+    },
+    {
+      "ref": "48374048-8774-444e-a2f1-b564514ebb13",
+      "dependsOn": [
+        "43b68bfb-1e56-4212-89d3-34bc78ec73d1"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/russross/blackfriday",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:f62c09f4-692c-466a-ba41-0ba17b970c19",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:42:50+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "012a01af-315b-4ddc-81c0-ed2bb71fbc47",
+      "type": "application",
+      "name": "/home/user/SBOM/work/CalebQ42__bbConvert",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "552a9491-89bc-4bee-b6b4-4a85ac53d200",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/calebq42/bbconvert",
+      "type": "library",
+      "name": "github.com/CalebQ42/bbConvert",
+      "purl": "pkg:golang/github.com/calebq42/bbconvert",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/CalebQ42/bbConvert"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/dlclark/regexp2@v1.11.5-0.20240806004527-5bbbed8ea10b",
+      "type": "library",
+      "name": "github.com/dlclark/regexp2",
+      "version": "v1.11.5-0.20240806004527-5bbbed8ea10b",
+      "purl": "pkg:golang/github.com/dlclark/regexp2@v1.11.5-0.20240806004527-5bbbed8ea10b",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/dlclark/regexp2@v1.11.5-0.20240806004527-5bbbed8ea10b"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "012a01af-315b-4ddc-81c0-ed2bb71fbc47",
+      "dependsOn": [
+        "552a9491-89bc-4bee-b6b4-4a85ac53d200"
+      ]
+    },
+    {
+      "ref": "552a9491-89bc-4bee-b6b4-4a85ac53d200",
+      "dependsOn": [
+        "pkg:golang/github.com/calebq42/bbconvert"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/calebq42/bbconvert",
+      "dependsOn": [
+        "pkg:golang/github.com/dlclark/regexp2@v1.11.5-0.20240806004527-5bbbed8ea10b"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/dlclark/regexp2@v1.11.5-0.20240806004527-5bbbed8ea10b",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
