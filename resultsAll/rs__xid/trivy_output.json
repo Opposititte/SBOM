@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:0b81c3e6-4bc4-468f-9f37-d1d8a2167007",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:33:30+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "c884ad6d-abf4-4dca-af51-20dacc20c499",
+      "type": "application",
+      "name": "/home/user/SBOM/work/rs__xid",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "d561e55a-7e24-4ba7-b025-455e4ad72ccb",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/rs/xid",
+      "type": "library",
+      "name": "github.com/rs/xid",
+      "purl": "pkg:golang/github.com/rs/xid",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/rs/xid"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "c884ad6d-abf4-4dca-af51-20dacc20c499",
+      "dependsOn": [
+        "d561e55a-7e24-4ba7-b025-455e4ad72ccb"
+      ]
+    },
+    {
+      "ref": "d561e55a-7e24-4ba7-b025-455e4ad72ccb",
+      "dependsOn": [
+        "pkg:golang/github.com/rs/xid"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/rs/xid",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

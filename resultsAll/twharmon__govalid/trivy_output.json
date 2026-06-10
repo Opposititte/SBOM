@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:c168040f-68ba-4bd3-b7f8-07d590285822",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:33:54+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "95720af1-bca8-4948-8e66-3372fefb7129",
+      "type": "application",
+      "name": "/home/user/SBOM/work/twharmon__govalid",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "bc72e61d-8739-4392-93b6-00af2205e268",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/twharmon/govalid",
+      "type": "library",
+      "name": "github.com/twharmon/govalid",
+      "purl": "pkg:golang/github.com/twharmon/govalid",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/twharmon/govalid"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "95720af1-bca8-4948-8e66-3372fefb7129",
+      "dependsOn": [
+        "bc72e61d-8739-4392-93b6-00af2205e268"
+      ]
+    },
+    {
+      "ref": "bc72e61d-8739-4392-93b6-00af2205e268",
+      "dependsOn": [
+        "pkg:golang/github.com/twharmon/govalid"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/twharmon/govalid",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
