@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:3fdb184d-bf0c-45b7-9f03-5b2080c1a7fd",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:18:36+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "a5768c96-0f94-4a75-bd56-955350deed95",
+      "type": "application",
+      "name": "/home/user/SBOM/work/aofei__sandid",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "12191634-9d41-46e0-805f-aadfd082a38f",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/aofei/sandid",
+      "type": "library",
+      "name": "github.com/aofei/sandid",
+      "purl": "pkg:golang/github.com/aofei/sandid",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/aofei/sandid"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "12191634-9d41-46e0-805f-aadfd082a38f",
+      "dependsOn": [
+        "pkg:golang/github.com/aofei/sandid"
+      ]
+    },
+    {
+      "ref": "a5768c96-0f94-4a75-bd56-955350deed95",
+      "dependsOn": [
+        "12191634-9d41-46e0-805f-aadfd082a38f"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/aofei/sandid",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:c2ce995f-86c2-4570-851d-3730c51896e1",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:18:44+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "0abcb458-a5bd-4623-badc-764824d8fee2",
+      "type": "application",
+      "name": "/home/user/SBOM/work/teris-io__shortid",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "93b0c396-8788-47ce-bf39-c3e4d259e388",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/teris-io/shortid",
+      "type": "library",
+      "name": "github.com/teris-io/shortid",
+      "purl": "pkg:golang/github.com/teris-io/shortid",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/teris-io/shortid"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "0abcb458-a5bd-4623-badc-764824d8fee2",
+      "dependsOn": [
+        "93b0c396-8788-47ce-bf39-c3e4d259e388"
+      ]
+    },
+    {
+      "ref": "93b0c396-8788-47ce-bf39-c3e4d259e388",
+      "dependsOn": [
+        "pkg:golang/github.com/teris-io/shortid"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/teris-io/shortid",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

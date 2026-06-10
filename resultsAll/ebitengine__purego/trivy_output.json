@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:cdb599eb-938b-4ed9-8512-4e0787d53fd5",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:18:32+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "be918b6c-82f2-409d-b188-49bc091b8956",
+      "type": "application",
+      "name": "/home/user/SBOM/work/ebitengine__purego",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "73657810-d6c6-4195-986f-0ab5f451ebef",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/ebitengine/purego",
+      "type": "library",
+      "name": "github.com/ebitengine/purego",
+      "purl": "pkg:golang/github.com/ebitengine/purego",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/ebitengine/purego"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "73657810-d6c6-4195-986f-0ab5f451ebef",
+      "dependsOn": [
+        "pkg:golang/github.com/ebitengine/purego"
+      ]
+    },
+    {
+      "ref": "be918b6c-82f2-409d-b188-49bc091b8956",
+      "dependsOn": [
+        "73657810-d6c6-4195-986f-0ab5f451ebef"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/ebitengine/purego",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

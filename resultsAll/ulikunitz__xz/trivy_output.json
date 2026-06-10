@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:453c9883-1437-4188-a98c-01ff949f439c",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:19:43+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "02ab1a69-6b8d-429d-aa08-e6afd9c5b479",
+      "type": "application",
+      "name": "/home/user/SBOM/work/ulikunitz__xz",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "b857ea25-387f-41e3-af99-8f6db4541b48",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/ulikunitz/xz",
+      "type": "library",
+      "name": "github.com/ulikunitz/xz",
+      "purl": "pkg:golang/github.com/ulikunitz/xz",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/ulikunitz/xz"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "02ab1a69-6b8d-429d-aa08-e6afd9c5b479",
+      "dependsOn": [
+        "b857ea25-387f-41e3-af99-8f6db4541b48"
+      ]
+    },
+    {
+      "ref": "b857ea25-387f-41e3-af99-8f6db4541b48",
+      "dependsOn": [
+        "pkg:golang/github.com/ulikunitz/xz"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/ulikunitz/xz",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

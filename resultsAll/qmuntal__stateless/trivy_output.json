@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:17425b47-e670-41f7-b705-a33e2b6f2861",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:19:12+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "baa68e5e-b9e6-4209-9f61-5ce6ef86f4f5",
+      "type": "application",
+      "name": "/home/user/SBOM/work/qmuntal__stateless",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "5c04280b-ce3d-41b7-baa6-1b52857a169c",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/qmuntal/stateless",
+      "type": "library",
+      "name": "github.com/qmuntal/stateless",
+      "purl": "pkg:golang/github.com/qmuntal/stateless",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/qmuntal/stateless"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "5c04280b-ce3d-41b7-baa6-1b52857a169c",
+      "dependsOn": [
+        "pkg:golang/github.com/qmuntal/stateless"
+      ]
+    },
+    {
+      "ref": "baa68e5e-b9e6-4209-9f61-5ce6ef86f4f5",
+      "dependsOn": [
+        "5c04280b-ce3d-41b7-baa6-1b52857a169c"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/qmuntal/stateless",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
