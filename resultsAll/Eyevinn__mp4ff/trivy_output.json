@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:2b03c1ae-19e8-4a3d-87dd-c670c2836ceb",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:38:07+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "c2d98949-6048-47ae-b083-ec779211f36b",
+      "type": "application",
+      "name": "/home/user/SBOM/work/Eyevinn__mp4ff",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "4384cfb5-8ca4-4f29-beab-efb901a3be70",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/eyevinn/mp4ff",
+      "type": "library",
+      "name": "github.com/Eyevinn/mp4ff",
+      "purl": "pkg:golang/github.com/eyevinn/mp4ff",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/Eyevinn/mp4ff"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/go-test/deep@v1.1.0",
+      "type": "library",
+      "name": "github.com/go-test/deep",
+      "version": "v1.1.0",
+      "purl": "pkg:golang/github.com/go-test/deep@v1.1.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/go-test/deep@v1.1.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "4384cfb5-8ca4-4f29-beab-efb901a3be70",
+      "dependsOn": [
+        "pkg:golang/github.com/eyevinn/mp4ff"
+      ]
+    },
+    {
+      "ref": "c2d98949-6048-47ae-b083-ec779211f36b",
+      "dependsOn": [
+        "4384cfb5-8ca4-4f29-beab-efb901a3be70"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/eyevinn/mp4ff",
+      "dependsOn": [
+        "pkg:golang/github.com/go-test/deep@v1.1.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/go-test/deep@v1.1.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:94eb8e05-73f0-40b0-9962-f960190368d8",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:37:54+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "8b99aa51-f90d-4271-9496-7e6648dc14d2",
+      "type": "application",
+      "name": "/home/user/SBOM/work/Eyevinn__hls-m3u8",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "02809d26-2da3-4081-8f13-9f6645cb3900",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/eyevinn/hls-m3u8",
+      "type": "library",
+      "name": "github.com/Eyevinn/hls-m3u8",
+      "purl": "pkg:golang/github.com/eyevinn/hls-m3u8",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/Eyevinn/hls-m3u8"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/matryer/is@v1.4.1",
+      "type": "library",
+      "name": "github.com/matryer/is",
+      "version": "v1.4.1",
+      "purl": "pkg:golang/github.com/matryer/is@v1.4.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/matryer/is@v1.4.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "02809d26-2da3-4081-8f13-9f6645cb3900",
+      "dependsOn": [
+        "pkg:golang/github.com/eyevinn/hls-m3u8"
+      ]
+    },
+    {
+      "ref": "8b99aa51-f90d-4271-9496-7e6648dc14d2",
+      "dependsOn": [
+        "02809d26-2da3-4081-8f13-9f6645cb3900"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/eyevinn/hls-m3u8",
+      "dependsOn": [
+        "pkg:golang/github.com/matryer/is@v1.4.1"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/matryer/is@v1.4.1",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

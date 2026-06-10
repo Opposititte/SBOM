@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:9360aa7e-7dc9-436e-913f-b9ba1d1ec846",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:37:59+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "f44fbb1c-1389-4ea1-b2d9-a116669b4ef3",
+      "type": "application",
+      "name": "/home/user/SBOM/work/alanzng__manifestor",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "e288f017-f6e1-4df4-aeb0-f045448a167c",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/datvietvac-techhub/manifestor",
+      "type": "library",
+      "name": "github.com/datvietvac-techhub/manifestor",
+      "purl": "pkg:golang/github.com/datvietvac-techhub/manifestor",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/datvietvac-techhub/manifestor"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "e288f017-f6e1-4df4-aeb0-f045448a167c",
+      "dependsOn": [
+        "pkg:golang/github.com/datvietvac-techhub/manifestor"
+      ]
+    },
+    {
+      "ref": "f44fbb1c-1389-4ea1-b2d9-a116669b4ef3",
+      "dependsOn": [
+        "e288f017-f6e1-4df4-aeb0-f045448a167c"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/datvietvac-techhub/manifestor",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

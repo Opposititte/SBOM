@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:b6171db2-f695-4096-b12f-1648c21c8b05",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:36:11+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "ceb40d9e-0859-4b69-8bb8-7dab1d279e89",
+      "type": "application",
+      "name": "/home/user/SBOM/work/Omibranch__gitty",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "e8e9231b-416e-4603-8805-aeaa0ebda4a1",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/omibranch/gitty/v2",
+      "type": "library",
+      "name": "github.com/Omibranch/gitty/v2",
+      "purl": "pkg:golang/github.com/omibranch/gitty/v2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/Omibranch/gitty/v2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "ceb40d9e-0859-4b69-8bb8-7dab1d279e89",
+      "dependsOn": [
+        "e8e9231b-416e-4603-8805-aeaa0ebda4a1"
+      ]
+    },
+    {
+      "ref": "e8e9231b-416e-4603-8805-aeaa0ebda4a1",
+      "dependsOn": [
+        "pkg:golang/github.com/omibranch/gitty/v2"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/omibranch/gitty/v2",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

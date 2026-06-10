@@ -1,0 +1,161 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:8618529e-32ee-4377-a03d-61d57d5054ce",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T03:37:24Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/asticode/go-astisub@v0.40.0?type=module",
+      "type": "application",
+      "name": "github.com/asticode/go-astisub",
+      "version": "v0.40.0",
+      "purl": "pkg:golang/github.com/asticode/go-astisub@v0.40.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/asticode/go-astisub",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/github.com/asticode/go-astikit@v0.20.0?type=module",
+      "type": "library",
+      "name": "github.com/asticode/go-astikit",
+      "version": "v0.20.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "fbb37e278138956c7640e91174e7fa0da7d624cbfa3b84517e00a5c10a24ac7f"
+        }
+      ],
+      "purl": "pkg:golang/github.com/asticode/go-astikit@v0.20.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/asticode/go-astikit",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/asticode/go-astits@v1.8.0?type=module",
+      "type": "library",
+      "name": "github.com/asticode/go-astits",
+      "version": "v1.8.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "adfe9a8a21a7fd086516334e3759f9a65a85dc5b34db95cb530890d0d07aa198"
+        }
+      ],
+      "purl": "pkg:golang/github.com/asticode/go-astits@v1.8.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/asticode/go-astits",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/net@v0.0.0-20200904194848-62affa334b73?type=module",
+      "type": "library",
+      "name": "golang.org/x/net",
+      "version": "v0.0.0-20200904194848-62affa334b73",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3177eff2b8595a615ea97dc635946c77abce2e86821e36045f7aa4468dd80540"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/net@v0.0.0-20200904194848-62affa334b73?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/text@v0.3.2?type=module",
+      "type": "library",
+      "name": "golang.org/x/text",
+      "version": "v0.3.2",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b56d9b9a206ac20263fd4a6ab42f04a571195583b0534c86e2259ba6b49501cb"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/text@v0.3.2?goarch=amd64\u0026goos=linux\u0026type=module"
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/asticode/go-astisub@v0.40.0?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/asticode/go-astikit@v0.20.0?type=module",
+        "pkg:golang/github.com/asticode/go-astits@v1.8.0?type=module",
+        "pkg:golang/golang.org/x/net@v0.0.0-20200904194848-62affa334b73?type=module",
+        "pkg:golang/golang.org/x/text@v0.3.2?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/asticode/go-astikit@v0.20.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/asticode/go-astits@v1.8.0?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/asticode/go-astikit@v0.20.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/net@v0.0.0-20200904194848-62affa334b73?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/text@v0.3.2?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/text@v0.3.2?type=module"
+    }
+  ]
+}
