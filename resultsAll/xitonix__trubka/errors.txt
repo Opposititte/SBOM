@@ -1,0 +1,69 @@
+Cloning into '/home/user/SBOM/work/xitonix__trubka'...
+go: downloading gopkg.in/alecthomas/kingpin.v2 v2.2.6
+go: downloading github.com/dustin/go-humanize v1.0.0
+go: downloading github.com/brianvoe/gofakeit/v4 v4.3.0
+go: downloading github.com/golang/protobuf v1.4.2
+go: downloading github.com/jhump/protoreflect v1.7.0
+go: downloading github.com/jedib0t/go-pretty v1.0.1-0.20200513162803-d24d83bda5d4
+go: downloading github.com/alecthomas/chroma v0.7.3
+go: downloading github.com/Shopify/sarama v1.27.2
+go: downloading github.com/araddon/dateparse v0.0.0-20200409225146-d820a6159ab1
+go: downloading github.com/kirsle/configdir v0.0.0-20170128060238-e45d2f54772f
+go: downloading github.com/peterbourgon/diskv v2.0.1+incompatible
+go: downloading github.com/rcrowley/go-metrics v0.0.0-20200313005456-10cdbea86bc0
+go: downloading github.com/xdg/scram v0.0.0-20180814205039-7eeb5667e42c
+go: downloading github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751
+go: downloading github.com/alecthomas/units v0.0.0-20190924025748-f65c72e2690d
+go: downloading google.golang.org/protobuf v1.25.0
+go: downloading github.com/go-openapi/strfmt v0.19.5
+go: downloading github.com/mattn/go-runewidth v0.0.9
+go: downloading github.com/dlclark/regexp2 v1.2.0
+go: downloading google.golang.org/genproto v0.0.0-20200724131911-43cab4749ae7
+go: downloading github.com/google/btree v1.0.0
+go: downloading github.com/xdg/stringprep v1.0.0
+go: downloading golang.org/x/crypto v0.0.0-20200820211705-5c72a883971a
+go: downloading github.com/eapache/go-resiliency v1.2.0
+go: downloading github.com/eapache/go-xerial-snappy v0.0.0-20180814174437-776d5712da21
+go: downloading github.com/eapache/queue v1.1.0
+go: downloading github.com/jcmturner/gofork v1.0.0
+go: downloading github.com/klauspost/compress v1.11.0
+go: downloading github.com/pierrec/lz4 v2.5.2+incompatible
+go: downloading golang.org/x/net v0.0.0-20200904194848-62affa334b73
+go: downloading gopkg.in/jcmturner/gokrb5.v7 v7.5.0
+go: downloading github.com/asaskevich/govalidator v0.0.0-20200428143746-21a406dcc535
+go: downloading github.com/mitchellh/mapstructure v1.3.3
+go: downloading github.com/go-openapi/errors v0.19.6
+go: downloading go.mongodb.org/mongo-driver v1.3.5
+go: downloading github.com/danwakefield/fnmatch v0.0.0-20160403171240-cbb64ac3d964
+go: downloading github.com/golang/snappy v0.0.1
+go: downloading gopkg.in/jcmturner/dnsutils.v1 v1.0.1
+go: downloading gopkg.in/jcmturner/rpc.v1 v1.1.0
+go: downloading gopkg.in/jcmturner/aescts.v1 v1.0.1
+go: downloading github.com/go-stack/stack v1.8.0
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-10T08:33:43Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-10T08:33:44Z	INFO	Number of language-specific files	num=1
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m

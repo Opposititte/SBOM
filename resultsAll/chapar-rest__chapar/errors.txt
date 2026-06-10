@@ -1,0 +1,69 @@
+Cloning into '/home/user/SBOM/work/chapar-rest__chapar'...
+go: downloading gioui.org v0.8.0
+go: downloading golang.org/x/sync v0.16.0
+go: downloading golang.org/x/text v0.27.0
+go: downloading golang.org/x/net v0.42.0
+go: downloading github.com/jhump/protoreflect v1.16.0
+go: downloading google.golang.org/grpc v1.73.0
+go: downloading github.com/PaesslerAG/gval v1.2.4
+go: downloading github.com/PaesslerAG/jsonpath v0.1.1
+go: downloading google.golang.org/protobuf v1.36.6
+go: downloading github.com/docker/docker v28.2.2+incompatible
+go: downloading github.com/docker/go-connections v0.5.0
+go: downloading gioui.org/x v0.8.1
+go: downloading github.com/alecthomas/chroma/v2 v2.19.0
+go: downloading github.com/flopp/go-findfont v0.1.0
+go: downloading github.com/oligo/gvcode v0.4.0
+go: downloading github.com/inkeliz/giosvg v0.0.0-20240821232107-3208d4350d55
+go: downloading github.com/oligo/gioview v0.8.2
+go: downloading golang.org/x/exp/shiny v0.0.0-20250711185948-6ae5c78190dc
+go: downloading github.com/go-text/typesetting v0.3.0
+go: downloading golang.org/x/exp v0.0.0-20240707233637-46b078467d37
+go: downloading golang.org/x/sys v0.34.0
+go: downloading golang.org/x/image v0.29.0
+go: downloading github.com/bufbuild/protocompile v0.10.0
+go: downloading github.com/go-openapi/jsonpointer v0.21.0
+go: downloading github.com/woodsbury/decimal128 v1.3.0
+go: downloading google.golang.org/genproto/googleapis/rpc v0.0.0-20250519155744-55703ea1f237
+go: downloading github.com/shopspring/decimal v1.3.1
+go: downloading github.com/pkg/errors v0.9.1
+go: downloading go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.61.0
+go: downloading go.opentelemetry.io/otel/trace v1.36.0
+go: downloading github.com/dlclark/regexp2 v1.11.5
+go: downloading gioui.org/shader v1.0.8
+go: downloading go.opentelemetry.io/otel v1.36.0
+go: downloading github.com/go-openapi/swag v0.23.0
+go: downloading github.com/mailru/easyjson v0.7.7
+go: downloading go.opentelemetry.io/otel/metric v1.36.0
+go: downloading github.com/rdleal/intervalst v1.4.1
+go: downloading github.com/gogo/protobuf v1.3.2
+go: downloading github.com/go-logr/logr v1.4.2
+go: downloading go.opentelemetry.io/auto/sdk v1.1.0
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-10T08:38:44Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-10T08:38:45Z	WARN	[pip] Unable to find python `site-packages` directory. License detection is skipped.	err="site-packages directory not found"
+2026-06-10T08:38:45Z	INFO	Number of language-specific files	num=2
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m

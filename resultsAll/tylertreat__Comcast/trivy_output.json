@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:2205779f-ecf9-4df0-a210-5a89a92aaaf2",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T08:39:03+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "fccc307a-16e8-4e59-b3a6-074b6581daab",
+      "type": "application",
+      "name": "/home/user/SBOM/work/tylertreat__Comcast",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "4c3ca427-55fe-4156-84a5-63d9577896eb",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/tylertreat/comcast",
+      "type": "library",
+      "name": "github.com/tylertreat/comcast",
+      "purl": "pkg:golang/github.com/tylertreat/comcast",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/tylertreat/comcast"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "4c3ca427-55fe-4156-84a5-63d9577896eb",
+      "dependsOn": [
+        "pkg:golang/github.com/tylertreat/comcast"
+      ]
+    },
+    {
+      "ref": "fccc307a-16e8-4e59-b3a6-074b6581daab",
+      "dependsOn": [
+        "4c3ca427-55fe-4156-84a5-63d9577896eb"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/tylertreat/comcast",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

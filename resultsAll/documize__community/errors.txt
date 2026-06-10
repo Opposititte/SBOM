@@ -1,0 +1,68 @@
+Cloning into '/home/user/SBOM/work/documize__community'...
+Updating files:  69% (1677/2398)Updating files:  70% (1679/2398)Updating files:  71% (1703/2398)Updating files:  72% (1727/2398)Updating files:  73% (1751/2398)Updating files:  74% (1775/2398)Updating files:  75% (1799/2398)Updating files:  76% (1823/2398)Updating files:  77% (1847/2398)Updating files:  78% (1871/2398)Updating files:  79% (1895/2398)Updating files:  80% (1919/2398)Updating files:  81% (1943/2398)Updating files:  82% (1967/2398)Updating files:  83% (1991/2398)Updating files:  84% (2015/2398)Updating files:  85% (2039/2398)Updating files:  86% (2063/2398)Updating files:  87% (2087/2398)Updating files:  88% (2111/2398)Updating files:  89% (2135/2398)Updating files:  90% (2159/2398)Updating files:  91% (2183/2398)Updating files:  92% (2207/2398)Updating files:  93% (2231/2398)Updating files:  94% (2255/2398)Updating files:  95% (2279/2398)Updating files:  96% (2303/2398)Updating files:  97% (2327/2398)Updating files:  98% (2351/2398)Updating files:  99% (2375/2398)Updating files: 100% (2398/2398)Updating files: 100% (2398/2398), done.
+go: downloading github.com/documize/blackfriday v2.0.0+incompatible
+go: downloading golang.org/x/net v0.21.0
+go: downloading github.com/documize/glick v0.0.0-20160503134043-a8ccbef88237
+go: downloading github.com/jmoiron/sqlx v1.3.5
+go: downloading github.com/gorilla/mux v1.8.1
+go: downloading github.com/documize/slug v1.1.1
+go: downloading golang.org/x/crypto v0.19.0
+go: downloading github.com/dgrijalva/jwt-go v3.2.0+incompatible
+go: downloading github.com/nu7hatch/gouuid v0.0.0-20131221200532-179d4d0c4d8d
+go: downloading gopkg.in/cas.v2 v2.2.2
+go: downloading github.com/go-ldap/ldap/v3 v3.4.6
+go: downloading github.com/shurcooL/sanitized_anchor_name v1.0.0
+go: downloading github.com/documize/html-diff v0.0.0-20160503140253-f61c192c7796
+go: downloading github.com/rainycape/unidecode v0.0.0-20150907023854-cb7f23ec59be
+go: downloading github.com/andygrunwald/go-jira v1.16.0
+go: downloading github.com/microcosm-cc/bluemonday v1.0.26
+go: downloading github.com/go-sql-driver/mysql v1.7.1
+go: downloading github.com/lib/pq v1.10.9
+go: downloading github.com/microsoft/go-mssqldb v1.6.0
+go: downloading github.com/codegangsta/negroni v1.0.0
+go: downloading github.com/gorilla/handlers v1.5.2
+go: downloading github.com/golang/glog v1.2.0
+go: downloading github.com/Azure/go-ntlmssp v0.0.0-20221128193559-754e69321358
+go: downloading github.com/go-asn1-ber/asn1-ber v1.5.5
+go: downloading github.com/google/uuid v1.3.1
+go: downloading github.com/mb0/diff v0.0.0-20131118162322-d8d9a906c24d
+go: downloading github.com/aymerick/douceur v0.2.0
+go: downloading github.com/fatih/structs v1.1.0
+go: downloading github.com/golang-jwt/jwt/v4 v4.5.0
+go: downloading github.com/google/go-querystring v1.1.0
+go: downloading github.com/trivago/tgo v1.0.7
+go: downloading github.com/felixge/httpsnoop v1.0.4
+go: downloading github.com/gorilla/css v1.0.1
+go: downloading github.com/golang-sql/civil v0.0.0-20220223132316-b832511892a9
+go: downloading github.com/golang-sql/sqlexp v0.1.0
+[0001] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0001]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-10T08:40:32Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-10T08:40:33Z	INFO	[npm] Run "npm install" to collect the license information of packages	dir="gui/node_modules"
+2026-06-10T08:40:34Z	INFO	Suppressing dependencies for development and testing. To display them, try the '--include-dev-deps' flag.
+2026-06-10T08:40:34Z	INFO	Number of language-specific files	num=3
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
+go list -deps command has failed for /home/user/SBOM/work/documize__community
+Manually parsing go.mod files. The resultant BOM would be incomplete.

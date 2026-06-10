@@ -1,0 +1,43 @@
+Cloning into '/home/user/SBOM/work/tsenart__vegeta'...
+go: downloading github.com/alecthomas/jsonschema v0.0.0-20220216202328-9eeeec9d044b
+go: downloading github.com/tsenart/go-tsz v0.0.0-20180814235614-0bd30b3df1c3
+go: downloading github.com/prometheus/client_golang v1.19.1
+go: downloading github.com/c2h5oh/datasize v0.0.0-20231215233829-aa82cc1e6500
+go: downloading github.com/influxdata/tdigest v0.0.1
+go: downloading github.com/mailru/easyjson v0.7.7
+go: downloading golang.org/x/net v0.27.0
+go: downloading github.com/iancoleman/orderedmap v0.3.0
+go: downloading github.com/prometheus/client_model v0.6.1
+go: downloading github.com/prometheus/common v0.55.0
+go: downloading github.com/prometheus/procfs v0.15.1
+go: downloading google.golang.org/protobuf v1.34.2
+go: downloading golang.org/x/sync v0.7.0
+go: downloading golang.org/x/sys v0.22.0
+go: downloading golang.org/x/text v0.16.0
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-10T08:35:28Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-10T08:35:29Z	INFO	Number of language-specific files	num=1
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
