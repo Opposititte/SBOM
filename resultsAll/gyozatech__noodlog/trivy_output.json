@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:160d4370-3dd1-415c-829a-591f94de3b3f",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T00:45:35+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "3719dd3e-684a-465e-82ba-5017f6f5b2c3",
+      "type": "application",
+      "name": "/home/user/SBOM/work/gyozatech__noodlog",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "648b523f-8108-47b2-aea4-61fe2b566eb5",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gyozatech/noodlog",
+      "type": "library",
+      "name": "github.com/gyozatech/noodlog",
+      "purl": "pkg:golang/github.com/gyozatech/noodlog",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gyozatech/noodlog"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "3719dd3e-684a-465e-82ba-5017f6f5b2c3",
+      "dependsOn": [
+        "648b523f-8108-47b2-aea4-61fe2b566eb5"
+      ]
+    },
+    {
+      "ref": "648b523f-8108-47b2-aea4-61fe2b566eb5",
+      "dependsOn": [
+        "pkg:golang/github.com/gyozatech/noodlog"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/gyozatech/noodlog",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

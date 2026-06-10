@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:fa670451-947a-46cc-9965-72650a4a4b3b",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T00:45:04+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "8cf28ad0-140a-495b-b673-3558600865ba",
+      "type": "application",
+      "name": "/home/user/SBOM/work/mbndr__logo",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "ed8c9930-30dd-4221-a9a6-341c48796b51",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mbndr/logo",
+      "type": "library",
+      "name": "github.com/mbndr/logo",
+      "purl": "pkg:golang/github.com/mbndr/logo",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mbndr/logo"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "8cf28ad0-140a-495b-b673-3558600865ba",
+      "dependsOn": [
+        "ed8c9930-30dd-4221-a9a6-341c48796b51"
+      ]
+    },
+    {
+      "ref": "ed8c9930-30dd-4221-a9a6-341c48796b51",
+      "dependsOn": [
+        "pkg:golang/github.com/mbndr/logo"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/mbndr/logo",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:53eeb32c-08d7-4fa4-9664-2c74845fd2ef",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T00:44:39+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "c670dbb0-54c0-4c14-a2c5-b11477a151c6",
+      "type": "application",
+      "name": "/home/user/SBOM/work/heartwilltell__log",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "6c757683-3011-4b69-bf47-4dea3fb47704",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/heartwilltell/log",
+      "type": "library",
+      "name": "github.com/heartwilltell/log",
+      "purl": "pkg:golang/github.com/heartwilltell/log",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/heartwilltell/log"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "6c757683-3011-4b69-bf47-4dea3fb47704",
+      "dependsOn": [
+        "pkg:golang/github.com/heartwilltell/log"
+      ]
+    },
+    {
+      "ref": "c670dbb0-54c0-4c14-a2c5-b11477a151c6",
+      "dependsOn": [
+        "6c757683-3011-4b69-bf47-4dea3fb47704"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/heartwilltell/log",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

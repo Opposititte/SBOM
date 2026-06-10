@@ -1,0 +1,190 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:19c2d255-c32d-4e85-aa45-13dd1b7f50bb",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T00:46:02+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "e927119a-0439-4b97-bc70-bb62983418a9",
+      "type": "application",
+      "name": "/home/user/SBOM/work/k0kubun__pp",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "2c561d70-80a1-4439-9675-b2758efb77c8",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/k0kubun/pp/v3",
+      "type": "library",
+      "name": "github.com/k0kubun/pp/v3",
+      "purl": "pkg:golang/github.com/k0kubun/pp/v3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/k0kubun/pp/v3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mattn/go-colorable@v0.1.15",
+      "type": "library",
+      "name": "github.com/mattn/go-colorable",
+      "version": "v0.1.15",
+      "purl": "pkg:golang/github.com/mattn/go-colorable@v0.1.15",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mattn/go-colorable@v0.1.15"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mattn/go-isatty@v0.0.20",
+      "type": "library",
+      "name": "github.com/mattn/go-isatty",
+      "version": "v0.0.20",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/mattn/go-isatty@v0.0.20",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mattn/go-isatty@v0.0.20"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.29.0",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.29.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.29.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sys@v0.29.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/text@v0.37.0",
+      "type": "library",
+      "name": "golang.org/x/text",
+      "version": "v0.37.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/text@v0.37.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/text@v0.37.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "2c561d70-80a1-4439-9675-b2758efb77c8",
+      "dependsOn": [
+        "pkg:golang/github.com/k0kubun/pp/v3"
+      ]
+    },
+    {
+      "ref": "e927119a-0439-4b97-bc70-bb62983418a9",
+      "dependsOn": [
+        "2c561d70-80a1-4439-9675-b2758efb77c8"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/k0kubun/pp/v3",
+      "dependsOn": [
+        "pkg:golang/github.com/mattn/go-colorable@v0.1.15",
+        "pkg:golang/github.com/mattn/go-isatty@v0.0.20",
+        "pkg:golang/golang.org/x/text@v0.37.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/mattn/go-colorable@v0.1.15",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/mattn/go-isatty@v0.0.20",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/sys@v0.29.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.29.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/text@v0.37.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

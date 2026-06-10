@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:20a4cec1-18f0-4a1b-9a5b-f71ffbf43dc8",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T00:44:59+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "14787084-27f0-4811-8867-9b3d9a0e53f2",
+      "type": "application",
+      "name": "/home/user/SBOM/work/azer__logger",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "336f979e-d110-4d65-abd2-cedc96727667",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/azer/is-terminal@v1.0.0",
+      "type": "library",
+      "name": "github.com/azer/is-terminal",
+      "version": "v1.0.0",
+      "purl": "pkg:golang/github.com/azer/is-terminal@v1.0.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/azer/is-terminal@v1.0.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/azer/logger",
+      "type": "library",
+      "name": "github.com/azer/logger",
+      "purl": "pkg:golang/github.com/azer/logger",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/azer/logger"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "14787084-27f0-4811-8867-9b3d9a0e53f2",
+      "dependsOn": [
+        "336f979e-d110-4d65-abd2-cedc96727667"
+      ]
+    },
+    {
+      "ref": "336f979e-d110-4d65-abd2-cedc96727667",
+      "dependsOn": [
+        "pkg:golang/github.com/azer/logger"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/azer/is-terminal@v1.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/azer/logger",
+      "dependsOn": [
+        "pkg:golang/github.com/azer/is-terminal@v1.0.0"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}

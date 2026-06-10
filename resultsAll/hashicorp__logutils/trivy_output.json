@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:765c8395-57a6-4454-9386-9bcc0eb18594",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T00:45:21+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "b70c4a19-a78a-4267-9957-80eb6b2a57a6",
+      "type": "application",
+      "name": "/home/user/SBOM/work/hashicorp__logutils",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "7479f568-7251-466f-a121-66ba30572248",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/hashicorp/logutils",
+      "type": "library",
+      "name": "github.com/hashicorp/logutils",
+      "purl": "pkg:golang/github.com/hashicorp/logutils",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/hashicorp/logutils"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "7479f568-7251-466f-a121-66ba30572248",
+      "dependsOn": [
+        "pkg:golang/github.com/hashicorp/logutils"
+      ]
+    },
+    {
+      "ref": "b70c4a19-a78a-4267-9957-80eb6b2a57a6",
+      "dependsOn": [
+        "7479f568-7251-466f-a121-66ba30572248"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/hashicorp/logutils",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

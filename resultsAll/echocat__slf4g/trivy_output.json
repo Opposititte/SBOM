@@ -1,0 +1,216 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:dcdc3789-3476-4731-a607-d3ddcf929de5",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T00:46:39+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "aa94012f-4d6c-4689-8c49-743d3b5e9d96",
+      "type": "application",
+      "name": "/home/user/SBOM/work/echocat__slf4g",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "4d20479e-7ceb-41bc-983f-abe3814674b5",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "9f1db56c-4668-4e36-9e25-85f909842a66",
+      "type": "application",
+      "name": "native/go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "c1001262-cec3-46e1-a881-e2e6702a2448",
+      "type": "application",
+      "name": "platform/windows/eventlog/go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "d6e1e5df-c904-4929-83b6-47a03d46c2f4",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.35.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.35.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sys@v0.35.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "fecf9351-1de1-4865-90b2-0757c91855e9",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.35.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.35.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sys@v0.35.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/echocat/slf4g",
+      "type": "library",
+      "name": "github.com/echocat/slf4g",
+      "purl": "pkg:golang/github.com/echocat/slf4g",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/echocat/slf4g"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/echocat/slf4g/native",
+      "type": "library",
+      "name": "github.com/echocat/slf4g/native",
+      "purl": "pkg:golang/github.com/echocat/slf4g/native",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/echocat/slf4g/native"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/echocat/slf4g/platform/windows/eventlog",
+      "type": "library",
+      "name": "github.com/echocat/slf4g/platform/windows/eventlog",
+      "purl": "pkg:golang/github.com/echocat/slf4g/platform/windows/eventlog",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/echocat/slf4g/platform/windows/eventlog"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "4d20479e-7ceb-41bc-983f-abe3814674b5",
+      "dependsOn": [
+        "pkg:golang/github.com/echocat/slf4g"
+      ]
+    },
+    {
+      "ref": "9f1db56c-4668-4e36-9e25-85f909842a66",
+      "dependsOn": [
+        "pkg:golang/github.com/echocat/slf4g/native"
+      ]
+    },
+    {
+      "ref": "aa94012f-4d6c-4689-8c49-743d3b5e9d96",
+      "dependsOn": [
+        "4d20479e-7ceb-41bc-983f-abe3814674b5",
+        "9f1db56c-4668-4e36-9e25-85f909842a66",
+        "c1001262-cec3-46e1-a881-e2e6702a2448"
+      ]
+    },
+    {
+      "ref": "c1001262-cec3-46e1-a881-e2e6702a2448",
+      "dependsOn": [
+        "pkg:golang/github.com/echocat/slf4g/platform/windows/eventlog"
+      ]
+    },
+    {
+      "ref": "d6e1e5df-c904-4929-83b6-47a03d46c2f4",
+      "dependsOn": []
+    },
+    {
+      "ref": "fecf9351-1de1-4865-90b2-0757c91855e9",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/echocat/slf4g",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/echocat/slf4g/native",
+      "dependsOn": [
+        "fecf9351-1de1-4865-90b2-0757c91855e9"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/echocat/slf4g/platform/windows/eventlog",
+      "dependsOn": [
+        "d6e1e5df-c904-4929-83b6-47a03d46c2f4"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}
