@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:0aca81d3-1a6d-416b-a171-bb52aa265321",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:49:27+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "7d197163-2c6f-4dce-9b90-0c687e9d48b9",
+      "type": "application",
+      "name": "/home/user/SBOM/work/seanhagen__bradleyterry",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "262f02e1-0b76-47a1-a4ae-6e2ecd0fdc26",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/seanhagen/bradleyterry",
+      "type": "library",
+      "name": "github.com/seanhagen/bradleyterry",
+      "purl": "pkg:golang/github.com/seanhagen/bradleyterry",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/seanhagen/bradleyterry"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "262f02e1-0b76-47a1-a4ae-6e2ecd0fdc26",
+      "dependsOn": [
+        "pkg:golang/github.com/seanhagen/bradleyterry"
+      ]
+    },
+    {
+      "ref": "7d197163-2c6f-4dce-9b90-0c687e9d48b9",
+      "dependsOn": [
+        "262f02e1-0b76-47a1-a4ae-6e2ecd0fdc26"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/seanhagen/bradleyterry",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

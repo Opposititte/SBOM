@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:2350b80c-b065-4df6-84d6-edc5604b1ba0",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:49:36Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/nikolaydubina/calendarheatmap@v0.0.0-20241111190213-178c02f0238c?type=module",
+      "type": "application",
+      "name": "github.com/nikolaydubina/calendarheatmap",
+      "version": "v0.0.0-20241111190213-178c02f0238c",
+      "purl": "pkg:golang/github.com/nikolaydubina/calendarheatmap@v0.0.0-20241111190213-178c02f0238c?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/nikolaydubina/calendarheatmap",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/golang.org/x/image@v0.22.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/image",
+      "version": "v0.22.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "52d2b9c8b5338a556b923300640677e035c6a4048df22f298fc83e3bec9dd748"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/image@v0.22.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/text@v0.20.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/text",
+      "version": "v0.20.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "80afcabf6a2d5fc833fb09fb4666f7bd3f7a670ba8c6742563e1e52558fb42e8"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/text@v0.20.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/nikolaydubina/calendarheatmap@v0.0.0-20241111190213-178c02f0238c?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/image@v0.22.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/image@v0.22.0?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/text@v0.20.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/text@v0.20.0?type=module"
+    }
+  ]
+}

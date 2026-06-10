@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:eb802ee4-da8b-4060-ab5e-629af2ca97cd",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:48:51+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "1a1b42f8-695f-43c3-b45b-b78f17159d9d",
+      "type": "application",
+      "name": "/home/user/SBOM/work/wzshiming__gotype",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "78bfe313-9d86-46ef-a39b-ae61bc6932b1",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/wzshiming/gotype",
+      "type": "library",
+      "name": "github.com/wzshiming/gotype",
+      "purl": "pkg:golang/github.com/wzshiming/gotype",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/wzshiming/gotype"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "1a1b42f8-695f-43c3-b45b-b78f17159d9d",
+      "dependsOn": [
+        "78bfe313-9d86-46ef-a39b-ae61bc6932b1"
+      ]
+    },
+    {
+      "ref": "78bfe313-9d86-46ef-a39b-ae61bc6932b1",
+      "dependsOn": [
+        "pkg:golang/github.com/wzshiming/gotype"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/wzshiming/gotype",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

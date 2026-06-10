@@ -1,0 +1,131 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:a774f4f9-22f0-4cbc-b14c-cdce5e0a2ad9",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:49:14+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "6893c399-eebf-44a6-a590-0faa8c318cb2",
+      "type": "application",
+      "name": "/home/user/SBOM/work/leaanthony__debme",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "f159f324-2b6b-4430-bdd0-1599f8b2afd2",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/leaanthony/debme",
+      "type": "library",
+      "name": "github.com/leaanthony/debme",
+      "purl": "pkg:golang/github.com/leaanthony/debme",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/leaanthony/debme"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/leaanthony/slicer@v1.5.0",
+      "type": "library",
+      "name": "github.com/leaanthony/slicer",
+      "version": "v1.5.0",
+      "purl": "pkg:golang/github.com/leaanthony/slicer@v1.5.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/leaanthony/slicer@v1.5.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/matryer/is@v1.4.0",
+      "type": "library",
+      "name": "github.com/matryer/is",
+      "version": "v1.4.0",
+      "purl": "pkg:golang/github.com/matryer/is@v1.4.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/matryer/is@v1.4.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "6893c399-eebf-44a6-a590-0faa8c318cb2",
+      "dependsOn": [
+        "f159f324-2b6b-4430-bdd0-1599f8b2afd2"
+      ]
+    },
+    {
+      "ref": "f159f324-2b6b-4430-bdd0-1599f8b2afd2",
+      "dependsOn": [
+        "pkg:golang/github.com/leaanthony/debme"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/leaanthony/debme",
+      "dependsOn": [
+        "pkg:golang/github.com/leaanthony/slicer@v1.5.0",
+        "pkg:golang/github.com/matryer/is@v1.4.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/leaanthony/slicer@v1.5.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/matryer/is@v1.4.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
