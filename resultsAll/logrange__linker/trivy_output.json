@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:98a47b6c-90db-4b08-a2f9-d3a30240837a",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:07:28+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "4563a39f-a696-4d16-a644-b49976557c2e",
+      "type": "application",
+      "name": "/home/user/SBOM/work/logrange__linker",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "bd8252f7-e867-4290-902a-3a385809d31b",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/logrange/linker",
+      "type": "library",
+      "name": "github.com/logrange/linker",
+      "purl": "pkg:golang/github.com/logrange/linker",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/logrange/linker"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "4563a39f-a696-4d16-a644-b49976557c2e",
+      "dependsOn": [
+        "bd8252f7-e867-4290-902a-3a385809d31b"
+      ]
+    },
+    {
+      "ref": "bd8252f7-e867-4290-902a-3a385809d31b",
+      "dependsOn": [
+        "pkg:golang/github.com/logrange/linker"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/logrange/linker",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

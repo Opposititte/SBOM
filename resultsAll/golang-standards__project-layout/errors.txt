@@ -1,0 +1,48 @@
+Cloning into '/home/user/SBOM/work/golang-standards__project-layout'...
+go: warning: "./..." matched no packages
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-10T01:09:53Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-10T01:09:53Z	INFO	Number of language-specific files	num=1
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
+Manually parsing go.mod files. The resultant BOM would be incomplete.
+panic: runtime error: index out of range [0] with length 0
+
+goroutine 1 [running]:
+github.com/CycloneDX/cyclonedx-gomod/pkg/generate/mod.generator.Generate({{{0xe5cb00, 0xc002e422e0}, 0x1, {0x0, 0x0}, {0xc000110200, 0x1, 0x1f4}, {0xc002e422f0, 0x1, ...}, ...}, ...})
+	/root/go/pkg/mod/github.com/!cyclone!d!x/cyclonedx-gomod@v1.10.0/pkg/generate/mod/generator.go:102 +0xb0c
+github.com/CycloneDX/cyclonedx-gomod/internal/cli/cmd/mod.Exec({{0x0}, {{0x7fff3c3f8336, 0x57}, {0xd5c12d, 0x3}, 0x1, 0x0}, {0x0, 0x0, 0x0, ...}, ...})
+	/root/go/pkg/mod/github.com/!cyclone!d!x/cyclonedx-gomod@v1.10.0/internal/cli/cmd/mod/mod.go:98 +0x317
+github.com/CycloneDX/cyclonedx-gomod/internal/cli/cmd/mod.New.func1({0x4?, 0x4?}, {0xc000036290?, 0x0?, 0xc9b320?})
+	/root/go/pkg/mod/github.com/!cyclone!d!x/cyclonedx-gomod@v1.10.0/internal/cli/cmd/mod/mod.go:69 +0xb8
+github.com/peterbourgon/ff/v3/ffcli.(*Command).Run(0xc000036260?, {0xe603e0?, 0x169c620?})
+	/root/go/pkg/mod/github.com/peterbourgon/ff/v3@v3.4.0/ffcli/command.go:153 +0x159
+github.com/peterbourgon/ff/v3/ffcli.(*Command).Run(0xc0000c8630?, {0xe603e0?, 0x169c620?})
+	/root/go/pkg/mod/github.com/peterbourgon/ff/v3@v3.4.0/ffcli/command.go:157 +0x105
+github.com/peterbourgon/ff/v3/ffcli.(*Command).ParseAndRun(0xc0000c8630, {0xe603e0, 0x169c620}, {0xc000036250?, 0xc000121ce0?, 0x41e5b4?})
+	/root/go/pkg/mod/github.com/peterbourgon/ff/v3@v3.4.0/ffcli/command.go:169 +0x49
+main.main()
+	/root/go/pkg/mod/github.com/!cyclone!d!x/cyclonedx-gomod@v1.10.0/cmd/cyclonedx-gomod/main.go:33 +0x6f
+ERROR: cyclonedx-gomod failed
