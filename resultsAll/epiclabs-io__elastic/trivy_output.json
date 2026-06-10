@@ -1,0 +1,153 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:7db981f5-cb38-4e68-85b2-23035126ce84",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:06:09+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "63de349d-c7e5-4cbd-aa03-039273cc3fb2",
+      "type": "application",
+      "name": "/home/user/SBOM/work/epiclabs-io__elastic",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "4a82205c-9ad9-4145-9c4a-e7a283a8c530",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/epiclabs-io/convert@v0.0.0-20200225195501-b49147ddae2f",
+      "type": "library",
+      "name": "github.com/epiclabs-io/convert",
+      "version": "v0.0.0-20200225195501-b49147ddae2f",
+      "purl": "pkg:golang/github.com/epiclabs-io/convert@v0.0.0-20200225195501-b49147ddae2f",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/epiclabs-io/convert@v0.0.0-20200225195501-b49147ddae2f"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/epiclabs-io/diff3@v0.0.0-20181217103619-05282cece609",
+      "type": "library",
+      "name": "github.com/epiclabs-io/diff3",
+      "version": "v0.0.0-20181217103619-05282cece609",
+      "purl": "pkg:golang/github.com/epiclabs-io/diff3@v0.0.0-20181217103619-05282cece609",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/epiclabs-io/diff3@v0.0.0-20181217103619-05282cece609"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/epiclabs-io/elastic",
+      "type": "library",
+      "name": "github.com/epiclabs-io/elastic",
+      "purl": "pkg:golang/github.com/epiclabs-io/elastic",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/epiclabs-io/elastic"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/epiclabs-io/ut@v0.0.0-20190416122157-8da7fe4b4947",
+      "type": "library",
+      "name": "github.com/epiclabs-io/ut",
+      "version": "v0.0.0-20190416122157-8da7fe4b4947",
+      "purl": "pkg:golang/github.com/epiclabs-io/ut@v0.0.0-20190416122157-8da7fe4b4947",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/epiclabs-io/ut@v0.0.0-20190416122157-8da7fe4b4947"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "4a82205c-9ad9-4145-9c4a-e7a283a8c530",
+      "dependsOn": [
+        "pkg:golang/github.com/epiclabs-io/elastic"
+      ]
+    },
+    {
+      "ref": "63de349d-c7e5-4cbd-aa03-039273cc3fb2",
+      "dependsOn": [
+        "4a82205c-9ad9-4145-9c4a-e7a283a8c530"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/epiclabs-io/convert@v0.0.0-20200225195501-b49147ddae2f",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/epiclabs-io/diff3@v0.0.0-20181217103619-05282cece609",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/epiclabs-io/elastic",
+      "dependsOn": [
+        "pkg:golang/github.com/epiclabs-io/convert@v0.0.0-20200225195501-b49147ddae2f",
+        "pkg:golang/github.com/epiclabs-io/diff3@v0.0.0-20181217103619-05282cece609",
+        "pkg:golang/github.com/epiclabs-io/ut@v0.0.0-20190416122157-8da7fe4b4947"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/epiclabs-io/ut@v0.0.0-20190416122157-8da7fe4b4947",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

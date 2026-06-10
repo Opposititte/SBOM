@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:16088977-f34b-4b11-b28b-a9632af5050a",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:03:18+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "92a84a2a-5333-4766-a129-4045d6ef6883",
+      "type": "application",
+      "name": "/home/user/SBOM/work/unrolled__secure",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "71b5e211-9dc0-4fae-bd9b-6aae566bcf9c",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/unrolled/secure",
+      "type": "library",
+      "name": "github.com/unrolled/secure",
+      "purl": "pkg:golang/github.com/unrolled/secure",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/unrolled/secure"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "71b5e211-9dc0-4fae-bd9b-6aae566bcf9c",
+      "dependsOn": [
+        "pkg:golang/github.com/unrolled/secure"
+      ]
+    },
+    {
+      "ref": "92a84a2a-5333-4766-a129-4045d6ef6883",
+      "dependsOn": [
+        "71b5e211-9dc0-4fae-bd9b-6aae566bcf9c"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/unrolled/secure",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

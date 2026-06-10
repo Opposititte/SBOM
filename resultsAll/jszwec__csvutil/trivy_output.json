@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:c90f9508-bf4c-431c-b9d2-eebd48425455",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:06:05+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "581e7702-108a-44af-95d4-eceb0cb68449",
+      "type": "application",
+      "name": "/home/user/SBOM/work/jszwec__csvutil",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "bf630c19-ee46-4cf9-93ab-3294b72363c1",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jszwec/csvutil",
+      "type": "library",
+      "name": "github.com/jszwec/csvutil",
+      "purl": "pkg:golang/github.com/jszwec/csvutil",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/jszwec/csvutil"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "581e7702-108a-44af-95d4-eceb0cb68449",
+      "dependsOn": [
+        "bf630c19-ee46-4cf9-93ab-3294b72363c1"
+      ]
+    },
+    {
+      "ref": "bf630c19-ee46-4cf9-93ab-3294b72363c1",
+      "dependsOn": [
+        "pkg:golang/github.com/jszwec/csvutil"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/jszwec/csvutil",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
