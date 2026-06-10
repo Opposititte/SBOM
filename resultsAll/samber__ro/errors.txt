@@ -1,0 +1,89 @@
+Cloning into '/home/user/SBOM/work/samber__ro'...
+go: -mod may only be set to readonly or vendor when in workspace mode, but it is set to "mod"
+	Remove the -mod flag to use the default readonly value, 
+	or set GOWORK=off to disable workspace mode.
+ERROR: 'go list -m all' failed
+go: -mod may only be set to readonly or vendor when in workspace mode, but it is set to "mod"
+	Remove the -mod flag to use the default readonly value, 
+	or set GOWORK=off to disable workspace mode.
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-10T02:21:20Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-10T02:21:20Z	INFO	[npm] Run "npm install" to collect the license information of packages	dir="docs/node_modules"
+2026-06-10T02:21:21Z	INFO	Suppressing dependencies for development and testing. To display them, try the '--include-dev-deps' flag.
+2026-06-10T02:21:21Z	INFO	Number of language-specific files	num=50
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
+go list -deps command has failed for /home/user/SBOM/work/samber__ro
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/ee
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/time
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/testify
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/template
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/strings
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/strconv
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/stdio
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/sort
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/signal
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/regexp
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/proc
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/iter
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/ics
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/hyperloglog
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/fsnotify
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/cron
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/bytes
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/examples/stock-price-enrichment
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/examples/sql-to-csv
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/examples/parallel-api-requests
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/examples/ics-to-csv
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/examples/ee-prometheus
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/examples/ee-otel-tracing
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/examples/ee-otel-metrics
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/examples/ee-otel-log
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/examples/distributed-websocket-gateway
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/examples/connectable
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/websocket/client
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/samber/psi
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/samber/hot
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/ratelimit/ulule
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/ratelimit/native
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/ozzo/ozzo-validation
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/observability/zerolog
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/observability/zap
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/observability/slog
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/observability/sentry
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/observability/logrus
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/observability/log
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/http/client
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/exp/simd
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/encoding/json
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/encoding/gob
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/encoding/csv
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/encoding/base64
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/ee/plugins/prometheus
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/ee/plugins/otel
+go list -deps command has failed for /home/user/SBOM/work/samber__ro/plugins/encoding/json/v2
+Manually parsing go.mod files. The resultant BOM would be incomplete.
+[ 'Invalid purl pkg:golang/../../' ]
+ERROR: cdxgen failed

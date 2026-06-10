@@ -1,0 +1,131 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:d123cba1-3387-4837-aa60-35e729594e1c",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:20:39Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/primetalk/goio@v0.0.0-20230629060116-790da306196e?type=module",
+      "type": "application",
+      "name": "github.com/primetalk/goio",
+      "version": "v0.0.0-20230629060116-790da306196e",
+      "purl": "pkg:golang/github.com/primetalk/goio@v0.0.0-20230629060116-790da306196e?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/primetalk/goio",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/github.com/pkg/errors@v0.9.1?type=module",
+      "type": "library",
+      "name": "github.com/pkg/errors",
+      "version": "v0.9.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "14404bc75cd2db5e28c298f2eeab017a2c5b51192e850030acae54c0b193c2de"
+        }
+      ],
+      "purl": "pkg:golang/github.com/pkg/errors@v0.9.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/pkg/errors",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/exp@v0.0.0-20221012211006-4de253d81b95?type=module",
+      "type": "library",
+      "name": "golang.org/x/exp",
+      "version": "v0.0.0-20221012211006-4de253d81b95",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b0176b5a9c6118375301836a6e004b011f942c03cf85f82770baf55f49725ad8"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/exp@v0.0.0-20221012211006-4de253d81b95?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sync@v0.0.0-20220722155255-886fb9371eb4?type=module",
+      "type": "library",
+      "name": "golang.org/x/sync",
+      "version": "v0.0.0-20220722155255-886fb9371eb4",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b9573c51951eeadaf8d1f1559d43f93a3faf7ae9d57b3a9897dcfb0d8c3dc73c"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/sync@v0.0.0-20220722155255-886fb9371eb4?goarch=amd64\u0026goos=linux\u0026type=module"
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/primetalk/goio@v0.0.0-20230629060116-790da306196e?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/pkg/errors@v0.9.1?type=module",
+        "pkg:golang/golang.org/x/exp@v0.0.0-20221012211006-4de253d81b95?type=module",
+        "pkg:golang/golang.org/x/sync@v0.0.0-20220722155255-886fb9371eb4?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/pkg/errors@v0.9.1?type=module"
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/exp@v0.0.0-20221012211006-4de253d81b95?type=module"
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sync@v0.0.0-20220722155255-886fb9371eb4?type=module"
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:0d6dfa8f-7e3a-455d-b6cc-d8cebb74a63c",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:19:44+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "1fd41953-4a34-435f-a20a-aead156d58a3",
+      "type": "application",
+      "name": "/home/user/SBOM/work/baalimago__wd-41",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "10ff1443-7f10-4bb0-8bd2-86473aa04ac4",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/baalimago/go_away_boilerplate@v1.33.0",
+      "type": "library",
+      "name": "github.com/baalimago/go_away_boilerplate",
+      "version": "v1.33.0",
+      "purl": "pkg:golang/github.com/baalimago/go_away_boilerplate@v1.33.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/baalimago/go_away_boilerplate@v1.33.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/baalimago/wd-41",
+      "type": "library",
+      "name": "github.com/baalimago/wd-41",
+      "purl": "pkg:golang/github.com/baalimago/wd-41",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/baalimago/wd-41"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/fsnotify/fsnotify@v1.7.0",
+      "type": "library",
+      "name": "github.com/fsnotify/fsnotify",
+      "version": "v1.7.0",
+      "purl": "pkg:golang/github.com/fsnotify/fsnotify@v1.7.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/fsnotify/fsnotify@v1.7.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/net@v0.28.0",
+      "type": "library",
+      "name": "golang.org/x/net",
+      "version": "v0.28.0",
+      "purl": "pkg:golang/golang.org/x/net@v0.28.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/net@v0.28.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.23.0",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.23.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.23.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sys@v0.23.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "10ff1443-7f10-4bb0-8bd2-86473aa04ac4",
+      "dependsOn": [
+        "pkg:golang/github.com/baalimago/wd-41"
+      ]
+    },
+    {
+      "ref": "1fd41953-4a34-435f-a20a-aead156d58a3",
+      "dependsOn": [
+        "10ff1443-7f10-4bb0-8bd2-86473aa04ac4"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/baalimago/go_away_boilerplate@v1.33.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/baalimago/wd-41",
+      "dependsOn": [
+        "pkg:golang/github.com/baalimago/go_away_boilerplate@v1.33.0",
+        "pkg:golang/github.com/fsnotify/fsnotify@v1.7.0",
+        "pkg:golang/golang.org/x/net@v0.28.0",
+        "pkg:golang/golang.org/x/sys@v0.23.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/fsnotify/fsnotify@v1.7.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/net@v0.28.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.23.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

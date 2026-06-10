@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:696b766c-a280-41bb-b96f-a55339168fd1",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:21:37+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "98d38ff2-2976-42e1-8eba-0e75bda97f11",
+      "type": "application",
+      "name": "/home/user/SBOM/work/coregx__signals",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "5f385061-da8b-467d-8b79-4086a4ebebd7",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/coregx/signals",
+      "type": "library",
+      "name": "github.com/coregx/signals",
+      "purl": "pkg:golang/github.com/coregx/signals",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/coregx/signals"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "5f385061-da8b-467d-8b79-4086a4ebebd7",
+      "dependsOn": [
+        "pkg:golang/github.com/coregx/signals"
+      ]
+    },
+    {
+      "ref": "98d38ff2-2976-42e1-8eba-0e75bda97f11",
+      "dependsOn": [
+        "5f385061-da8b-467d-8b79-4086a4ebebd7"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/coregx/signals",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
