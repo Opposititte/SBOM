@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:4ceaa2df-c4c1-4ae1-a472-ec2f5c3ea992",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:30:26+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "dac4ce27-86f9-4bc4-83af-c9c0f6e0b734",
+      "type": "application",
+      "name": "/home/user/SBOM/work/dnaeon__go-vcr",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "ea5fc4cb-1e62-4294-a8d9-2e8fb64e9c11",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/go.yaml.in/yaml/v4@v4.0.0-rc.5",
+      "type": "library",
+      "name": "go.yaml.in/yaml/v4",
+      "version": "v4.0.0-rc.5",
+      "purl": "pkg:golang/go.yaml.in/yaml/v4@v4.0.0-rc.5",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "go.yaml.in/yaml/v4@v4.0.0-rc.5"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/gopkg.in/dnaeon/go-vcr.v4",
+      "type": "library",
+      "name": "gopkg.in/dnaeon/go-vcr.v4",
+      "purl": "pkg:golang/gopkg.in/dnaeon/go-vcr.v4",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "gopkg.in/dnaeon/go-vcr.v4"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "dac4ce27-86f9-4bc4-83af-c9c0f6e0b734",
+      "dependsOn": [
+        "ea5fc4cb-1e62-4294-a8d9-2e8fb64e9c11"
+      ]
+    },
+    {
+      "ref": "ea5fc4cb-1e62-4294-a8d9-2e8fb64e9c11",
+      "dependsOn": [
+        "pkg:golang/gopkg.in/dnaeon/go-vcr.v4"
+      ]
+    },
+    {
+      "ref": "pkg:golang/go.yaml.in/yaml/v4@v4.0.0-rc.5",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/gopkg.in/dnaeon/go-vcr.v4",
+      "dependsOn": [
+        "pkg:golang/go.yaml.in/yaml/v4@v4.0.0-rc.5"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}

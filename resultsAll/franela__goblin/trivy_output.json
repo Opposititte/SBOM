@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:151c4ade-4431-4f93-ba2a-3d3e1762842a",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:30:30+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "fe02b577-8816-44b5-87a9-732ce52278de",
+      "type": "application",
+      "name": "/home/user/SBOM/work/franela__goblin",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "5252551c-0853-4132-b38f-ad623996c003",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/franela/goblin",
+      "type": "library",
+      "name": "github.com/franela/goblin",
+      "purl": "pkg:golang/github.com/franela/goblin",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/franela/goblin"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "5252551c-0853-4132-b38f-ad623996c003",
+      "dependsOn": [
+        "pkg:golang/github.com/franela/goblin"
+      ]
+    },
+    {
+      "ref": "fe02b577-8816-44b5-87a9-732ce52278de",
+      "dependsOn": [
+        "5252551c-0853-4132-b38f-ad623996c003"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/franela/goblin",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
