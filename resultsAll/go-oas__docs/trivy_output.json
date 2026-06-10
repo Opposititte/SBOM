@@ -1,0 +1,153 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:d7523f27-872e-4e4d-a8ff-453a9050001b",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T04:11:08+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "6fb3898c-c8f0-4646-b71a-8b04dd5aaba4",
+      "type": "application",
+      "name": "/home/user/SBOM/work/go-oas__docs",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "e5415a76-1d21-4c9c-963b-a8811f2e956c",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/go-oas/docs",
+      "type": "library",
+      "name": "github.com/go-oas/docs",
+      "purl": "pkg:golang/github.com/go-oas/docs",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/go-oas/docs"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/kr/pretty@v0.1.0",
+      "type": "library",
+      "name": "github.com/kr/pretty",
+      "version": "v0.1.0",
+      "purl": "pkg:golang/github.com/kr/pretty@v0.1.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/kr/pretty@v0.1.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/gopkg.in/check.v1@v1.0.0-20180628173108-788fd7840127",
+      "type": "library",
+      "name": "gopkg.in/check.v1",
+      "version": "v1.0.0-20180628173108-788fd7840127",
+      "purl": "pkg:golang/gopkg.in/check.v1@v1.0.0-20180628173108-788fd7840127",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "gopkg.in/check.v1@v1.0.0-20180628173108-788fd7840127"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/gopkg.in/yaml.v3@v3.0.0-20210107192922-496545a6307b",
+      "type": "library",
+      "name": "gopkg.in/yaml.v3",
+      "version": "v3.0.0-20210107192922-496545a6307b",
+      "purl": "pkg:golang/gopkg.in/yaml.v3@v3.0.0-20210107192922-496545a6307b",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "gopkg.in/yaml.v3@v3.0.0-20210107192922-496545a6307b"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "6fb3898c-c8f0-4646-b71a-8b04dd5aaba4",
+      "dependsOn": [
+        "e5415a76-1d21-4c9c-963b-a8811f2e956c"
+      ]
+    },
+    {
+      "ref": "e5415a76-1d21-4c9c-963b-a8811f2e956c",
+      "dependsOn": [
+        "pkg:golang/github.com/go-oas/docs"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/go-oas/docs",
+      "dependsOn": [
+        "pkg:golang/github.com/kr/pretty@v0.1.0",
+        "pkg:golang/gopkg.in/check.v1@v1.0.0-20180628173108-788fd7840127",
+        "pkg:golang/gopkg.in/yaml.v3@v3.0.0-20210107192922-496545a6307b"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/kr/pretty@v0.1.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/gopkg.in/check.v1@v1.0.0-20180628173108-788fd7840127",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/gopkg.in/yaml.v3@v3.0.0-20210107192922-496545a6307b",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
