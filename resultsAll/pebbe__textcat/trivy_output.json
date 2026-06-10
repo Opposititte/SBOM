@@ -1,0 +1,174 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:55222f73-eb24-48c7-aa17-90b259a1f5a6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:22:33+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "f50dbe39-179d-4099-8c02-b7a6c80f753f",
+      "type": "application",
+      "name": "/home/user/SBOM/work/pebbe__textcat",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "5e028142-a1ed-4a40-9db8-3f83b32d96cf",
+      "type": "library",
+      "name": "github.com/pebbe/util",
+      "version": "v0.9.0",
+      "purl": "pkg:golang/github.com/pebbe/util@v0.9.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/pebbe/util@v0.9.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "7bb37f1f-9ece-4991-9b94-32eb99261d4b",
+      "type": "application",
+      "name": "v2/go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "83e0e5d7-107e-4535-88db-3a59f23f037f",
+      "type": "library",
+      "name": "github.com/pebbe/util",
+      "version": "v0.9.0",
+      "purl": "pkg:golang/github.com/pebbe/util@v0.9.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/pebbe/util@v0.9.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "85e5f327-8b4e-4217-ba4e-c41cdacd8d06",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/pebbe/textcat",
+      "type": "library",
+      "name": "github.com/pebbe/textcat",
+      "purl": "pkg:golang/github.com/pebbe/textcat",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/pebbe/textcat"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/pebbe/textcat/v2",
+      "type": "library",
+      "name": "github.com/pebbe/textcat/v2",
+      "purl": "pkg:golang/github.com/pebbe/textcat/v2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/pebbe/textcat/v2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "5e028142-a1ed-4a40-9db8-3f83b32d96cf",
+      "dependsOn": []
+    },
+    {
+      "ref": "7bb37f1f-9ece-4991-9b94-32eb99261d4b",
+      "dependsOn": [
+        "pkg:golang/github.com/pebbe/textcat/v2"
+      ]
+    },
+    {
+      "ref": "83e0e5d7-107e-4535-88db-3a59f23f037f",
+      "dependsOn": []
+    },
+    {
+      "ref": "85e5f327-8b4e-4217-ba4e-c41cdacd8d06",
+      "dependsOn": [
+        "pkg:golang/github.com/pebbe/textcat"
+      ]
+    },
+    {
+      "ref": "f50dbe39-179d-4099-8c02-b7a6c80f753f",
+      "dependsOn": [
+        "7bb37f1f-9ece-4991-9b94-32eb99261d4b",
+        "85e5f327-8b4e-4217-ba4e-c41cdacd8d06"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/pebbe/textcat",
+      "dependsOn": [
+        "5e028142-a1ed-4a40-9db8-3f83b32d96cf"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/pebbe/textcat/v2",
+      "dependsOn": [
+        "83e0e5d7-107e-4535-88db-3a59f23f037f"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}

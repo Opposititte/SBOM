@@ -1,0 +1,215 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:f40db60d-d512-4de8-9f3f-018e23fcc279",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:22:27Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/osamingo/shamoji@v1.3.0?type=module",
+      "type": "application",
+      "name": "github.com/osamingo/shamoji",
+      "version": "v1.3.0",
+      "purl": "pkg:golang/github.com/osamingo/shamoji@v1.3.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/osamingo/shamoji",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/github.com/ikawaha/kagome-dict@v1.1.2?type=module",
+      "type": "library",
+      "name": "github.com/ikawaha/kagome-dict",
+      "version": "v1.1.2",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "549c63b0d3e5fddcc2776d36d897ba28b1e54815c9278bfac3330168aeb94865"
+        }
+      ],
+      "purl": "pkg:golang/github.com/ikawaha/kagome-dict@v1.1.2?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/ikawaha/kagome-dict",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/ikawaha/kagome-dict/uni@v1.2.1?type=module",
+      "type": "library",
+      "name": "github.com/ikawaha/kagome-dict/uni",
+      "version": "v1.2.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8488257bdeabab27e01f129184ecc2b46ad7bd1c2c1a00fa45e976f247836483"
+        }
+      ],
+      "purl": "pkg:golang/github.com/ikawaha/kagome-dict/uni@v1.2.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/ikawaha/kagome-dict/uni",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/ikawaha/kagome/v2@v2.10.1?type=module",
+      "type": "library",
+      "name": "github.com/ikawaha/kagome/v2",
+      "version": "v2.10.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0de733a0c8754f4ddacb4ba41b23112539f39e538bfc5827cfebd1369efb976a"
+        }
+      ],
+      "purl": "pkg:golang/github.com/ikawaha/kagome/v2@v2.10.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/ikawaha/kagome",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/irfansharif/cfilter@v0.1.1?type=module",
+      "type": "library",
+      "name": "github.com/irfansharif/cfilter",
+      "version": "v0.1.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8d406d25e95e2dcc17c3ef7aaf37eae83f733733b72dbaedf3560317994c33fa"
+        }
+      ],
+      "purl": "pkg:golang/github.com/irfansharif/cfilter@v0.1.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/irfansharif/cfilter",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sync@v0.12.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/sync",
+      "version": "v0.12.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3077390693ee0b7d2e264e7ded18bc4d5dc23597132eee81eb3e25272fa0e89c"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/sync@v0.12.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/text@v0.23.0?type=module",
+      "type": "library",
+      "name": "golang.org/x/text",
+      "version": "v0.23.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0fbd48edd52b958f955f48104a101384d187171675ddd18b04740b565d662656"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/text@v0.23.0?goarch=amd64\u0026goos=linux\u0026type=module"
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/osamingo/shamoji@v1.3.0?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/ikawaha/kagome-dict/uni@v1.2.1?type=module",
+        "pkg:golang/github.com/ikawaha/kagome/v2@v2.10.1?type=module",
+        "pkg:golang/github.com/irfansharif/cfilter@v0.1.1?type=module",
+        "pkg:golang/golang.org/x/sync@v0.12.0?type=module",
+        "pkg:golang/golang.org/x/text@v0.23.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/ikawaha/kagome-dict@v1.1.2?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/text@v0.23.0?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/ikawaha/kagome-dict/uni@v1.2.1?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/ikawaha/kagome-dict@v1.1.2?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/ikawaha/kagome/v2@v2.10.1?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/ikawaha/kagome-dict@v1.1.2?type=module",
+        "pkg:golang/github.com/ikawaha/kagome-dict/uni@v1.2.1?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/irfansharif/cfilter@v0.1.1?type=module"
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sync@v0.12.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/text@v0.23.0?type=module",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/sync@v0.12.0?type=module"
+      ]
+    }
+  ]
+}

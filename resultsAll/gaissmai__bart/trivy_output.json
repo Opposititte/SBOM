@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:cef5bf1c-643e-4b5c-8ab7-a78f7c438f34",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:23:47+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "fa858664-be02-43bc-9e98-b4e1cd7c5a36",
+      "type": "application",
+      "name": "/home/user/SBOM/work/gaissmai__bart",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "fde627b6-016a-466f-b384-55f16388a501",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gaissmai/bart",
+      "type": "library",
+      "name": "github.com/gaissmai/bart",
+      "purl": "pkg:golang/github.com/gaissmai/bart",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gaissmai/bart"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "fa858664-be02-43bc-9e98-b4e1cd7c5a36",
+      "dependsOn": [
+        "fde627b6-016a-466f-b384-55f16388a501"
+      ]
+    },
+    {
+      "ref": "fde627b6-016a-466f-b384-55f16388a501",
+      "dependsOn": [
+        "pkg:golang/github.com/gaissmai/bart"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/gaissmai/bart",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

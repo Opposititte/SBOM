@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:3535e89a-4bd9-4dbb-a6fb-8e5e84dd4def",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:24:33+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "7708f593-3fea-4042-8564-0dcef9b1318c",
+      "type": "application",
+      "name": "/home/user/SBOM/work/mdlayher__dhcp6",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "cbdd07be-7e23-4194-8b1a-0d85c0d15451",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mdlayher/dhcp6",
+      "type": "library",
+      "name": "github.com/mdlayher/dhcp6",
+      "purl": "pkg:golang/github.com/mdlayher/dhcp6",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mdlayher/dhcp6"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/net@v0.0.0-20190310074541-c10a0554eabf",
+      "type": "library",
+      "name": "golang.org/x/net",
+      "version": "v0.0.0-20190310074541-c10a0554eabf",
+      "purl": "pkg:golang/golang.org/x/net@v0.0.0-20190310074541-c10a0554eabf",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/net@v0.0.0-20190310074541-c10a0554eabf"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "7708f593-3fea-4042-8564-0dcef9b1318c",
+      "dependsOn": [
+        "cbdd07be-7e23-4194-8b1a-0d85c0d15451"
+      ]
+    },
+    {
+      "ref": "cbdd07be-7e23-4194-8b1a-0d85c0d15451",
+      "dependsOn": [
+        "pkg:golang/github.com/mdlayher/dhcp6"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/mdlayher/dhcp6",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/net@v0.0.0-20190310074541-c10a0554eabf"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/net@v0.0.0-20190310074541-c10a0554eabf",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

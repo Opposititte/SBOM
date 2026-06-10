@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:e6bd41ad-0c77-4f56-800f-ef74d0f98596",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:22:55+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "5519a3ee-a557-483f-a8c5-9b9e9e357f14",
+      "type": "application",
+      "name": "/home/user/SBOM/work/saleh-rahimzadeh__go-words",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "dd57334d-a6e1-4ba7-83a4-186de72dc4b4",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/saleh-rahimzadeh/go-words",
+      "type": "library",
+      "name": "github.com/saleh-rahimzadeh/go-words",
+      "purl": "pkg:golang/github.com/saleh-rahimzadeh/go-words",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/saleh-rahimzadeh/go-words"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "5519a3ee-a557-483f-a8c5-9b9e9e357f14",
+      "dependsOn": [
+        "dd57334d-a6e1-4ba7-83a4-186de72dc4b4"
+      ]
+    },
+    {
+      "ref": "dd57334d-a6e1-4ba7-83a4-186de72dc4b4",
+      "dependsOn": [
+        "pkg:golang/github.com/saleh-rahimzadeh/go-words"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/saleh-rahimzadeh/go-words",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
