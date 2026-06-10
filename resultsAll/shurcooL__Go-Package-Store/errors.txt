@@ -1,0 +1,74 @@
+Cloning into '/home/user/SBOM/work/shurcooL__Go-Package-Store'...
+go: finding module for package github.com/gregjones/httpcache
+go: finding module for package github.com/shurcooL/vcsstate
+go: finding module for package golang.org/x/tools/go/vcs
+go: finding module for package github.com/shurcooL/gofontwoff
+go: downloading github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79
+go: downloading golang.org/x/tools v0.45.0
+go: downloading golang.org/x/tools/go/vcs v0.1.0-deprecated
+go: downloading github.com/shurcooL/gofontwoff v0.0.0-20230909172842-a36d5fd8747a
+go: finding module for package github.com/gregjones/httpcache/diskcache
+go: finding module for package github.com/shurcooL/go/browser
+go: downloading github.com/shurcooL/go v0.0.0-20230706063926-5fe729b41b3a
+go: finding module for package github.com/shurcooL/go/ospath
+go: finding module for package github.com/shurcooL/httperror
+go: downloading github.com/shurcooL/httperror v0.0.0-20210906152555-9bb3cabb3d15
+go: finding module for package github.com/shurcooL/httpgzip
+go: downloading github.com/shurcooL/httpgzip v0.0.0-20230704072819-d1585fc322fa
+go: finding module for package golang.org/x/oauth2
+go: downloading golang.org/x/oauth2 v0.36.0
+go: finding module for package github.com/gopherjs/gopherjs/js
+go: downloading github.com/gopherjs/gopherjs v1.20.2
+go: finding module for package github.com/gopherjs/vecty
+go: downloading github.com/gopherjs/vecty v0.6.0
+go: finding module for package github.com/gopherjs/vecty/elem
+go: downloading github.com/shurcooL/vcsstate v0.0.0-20230710132625-f909c00bc4b6
+go: finding module for package github.com/gopherjs/vecty/event
+go: finding module for package github.com/gopherjs/vecty/prop
+go: finding module for package github.com/gopherjs/vecty/style
+go: finding module for package github.com/shurcooL/octicon
+go: finding module for package golang.org/x/net/html
+go: downloading golang.org/x/net v0.55.0
+go: downloading github.com/shurcooL/octicon v0.0.0-20230705024016-66bff059edb8
+go: finding module for package golang.org/x/net/html/atom
+go: finding module for package honnef.co/go/js/dom
+go: finding module for package github.com/dustin/go-humanize
+go: downloading github.com/dustin/go-humanize v1.0.1
+go: finding module for package github.com/google/go-github/github
+go: downloading honnef.co/go/js/dom v0.0.0-20250304181735-b5e52f05e89d
+go: finding module for package github.com/bradfitz/iter
+go: downloading github.com/google/go-github v17.0.0+incompatible
+go: finding module for package github.com/shurcooL/gostatus/status
+go: downloading github.com/bradfitz/iter v0.0.0-20191230175014-e8f45d346db8
+go: downloading github.com/shurcooL/gostatus v0.0.0-20250518160309-bc14c17aeb40
+go: toolchain upgrade needed to resolve golang.org/x/oauth2
+go: golang.org/x/oauth2@v0.36.0 requires go >= 1.25.0 (running go 1.24.7)
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-10T08:43:37Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-10T08:43:37Z	INFO	Number of language-specific files	num=1
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
+go list -deps command has failed for /home/user/SBOM/work/shurcooL__Go-Package-Store
+Manually parsing go.mod files. The resultant BOM would be incomplete.

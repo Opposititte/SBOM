@@ -1,0 +1,131 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:3e5018e8-8a21-4782-bc93-a68acbeff971",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T08:44:05+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "a0de8f56-eb83-4e9b-a8b7-572e8ec86de2",
+      "type": "application",
+      "name": "/home/user/SBOM/work/goccmack__gocc",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "f2c89982-da98-4245-8fd1-52b46378f904",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/goccmack/gocc",
+      "type": "library",
+      "name": "github.com/goccmack/gocc",
+      "purl": "pkg:golang/github.com/goccmack/gocc",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/goccmack/gocc"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/mod@v0.24.0",
+      "type": "library",
+      "name": "golang.org/x/mod",
+      "version": "v0.24.0",
+      "purl": "pkg:golang/golang.org/x/mod@v0.24.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/mod@v0.24.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/tools@v0.13.0",
+      "type": "library",
+      "name": "golang.org/x/tools",
+      "version": "v0.13.0",
+      "purl": "pkg:golang/golang.org/x/tools@v0.13.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/tools@v0.13.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "a0de8f56-eb83-4e9b-a8b7-572e8ec86de2",
+      "dependsOn": [
+        "f2c89982-da98-4245-8fd1-52b46378f904"
+      ]
+    },
+    {
+      "ref": "f2c89982-da98-4245-8fd1-52b46378f904",
+      "dependsOn": [
+        "pkg:golang/github.com/goccmack/gocc"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/goccmack/gocc",
+      "dependsOn": [
+        "pkg:golang/golang.org/x/mod@v0.24.0",
+        "pkg:golang/golang.org/x/tools@v0.13.0"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/mod@v0.24.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/tools@v0.13.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

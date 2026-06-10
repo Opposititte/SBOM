@@ -1,0 +1,62 @@
+Cloning into '/home/user/SBOM/work/Sioro-Neoku__go-peerflix'...
+go: downloading github.com/anacrolix/torrent v1.9.0
+go: downloading github.com/dustin/go-humanize v1.0.0
+go: downloading github.com/anacrolix/dht/v2 v2.2.1-0.20191103020011-1dba080fb358
+go: downloading github.com/anacrolix/go-libutp v1.0.2
+go: downloading github.com/anacrolix/log v0.3.1-0.20191001111012-13cede988bcd
+go: downloading github.com/anacrolix/missinggo v1.2.1
+go: downloading github.com/anacrolix/missinggo/perf v1.0.0
+go: downloading github.com/anacrolix/missinggo/v2 v2.2.1-0.20191103010835-12360f38ced0
+go: downloading github.com/anacrolix/sync v0.2.0
+go: downloading github.com/anacrolix/dht v0.0.0-20180412060941-24cbf25b72a4
+go: downloading github.com/anacrolix/upnp v0.1.1
+go: downloading github.com/google/btree v1.0.0
+go: downloading github.com/pkg/errors v0.8.1
+go: downloading golang.org/x/net v0.0.0-20190628185345-da137c7871d7
+go: downloading golang.org/x/time v0.0.0-20191024005414-555d28b269f0
+go: downloading golang.org/x/xerrors v0.0.0-20190717185122-a985d3407aa7
+go: downloading github.com/edsrzf/mmap-go v1.0.0
+go: downloading github.com/anacrolix/mmsg v1.0.0
+go: downloading github.com/huandu/xstrings v1.2.0
+go: downloading github.com/bradfitz/iter v0.0.0-20190303215204-33e6a9893b0c
+go: downloading github.com/RoaringBitmap/roaring v0.4.18
+go: downloading github.com/etcd-io/bbolt v1.3.3
+go: downloading github.com/mattn/go-sqlite3 v1.10.0
+go: downloading github.com/anacrolix/stm v0.1.0
+go: downloading github.com/willf/bloom v2.0.3+incompatible
+go: downloading golang.org/x/sys v0.0.0-20190910064555-bbd175535a8b
+go: downloading github.com/ryszard/goskiplist v0.0.0-20150312221310-2dfbae5fcf46
+go: downloading github.com/glycerine/go-unsnap-stream v0.0.0-20181221182339-f9677308dec2
+go: downloading github.com/tinylib/msgp v1.1.0
+go: downloading github.com/benbjohnson/immutable v0.2.0
+go: downloading github.com/spaolacci/murmur3 v1.1.0
+go: downloading github.com/willf/bitset v1.1.10
+go: downloading github.com/philhofer/fwd v1.0.0
+go: downloading github.com/golang/snappy v0.0.1
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-10T08:43:49Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-10T08:43:49Z	INFO	Number of language-specific files	num=1
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
