@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:6214bf95-50e7-4af1-8f5b-0f9e887dc346",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:18:13+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "03879d7d-dbc7-4744-a625-0171dd5ef5f3",
+      "type": "application",
+      "name": "/home/user/SBOM/work/pascaldekloe__metrics",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "98b2a9cb-8f2e-4296-a9c4-37aa4a886a74",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/pascaldekloe/metrics",
+      "type": "library",
+      "name": "github.com/pascaldekloe/metrics",
+      "purl": "pkg:golang/github.com/pascaldekloe/metrics",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/pascaldekloe/metrics"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "03879d7d-dbc7-4744-a625-0171dd5ef5f3",
+      "dependsOn": [
+        "98b2a9cb-8f2e-4296-a9c4-37aa4a886a74"
+      ]
+    },
+    {
+      "ref": "98b2a9cb-8f2e-4296-a9c4-37aa4a886a74",
+      "dependsOn": [
+        "pkg:golang/github.com/pascaldekloe/metrics"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/pascaldekloe/metrics",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

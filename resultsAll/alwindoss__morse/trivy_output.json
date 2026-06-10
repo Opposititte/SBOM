@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:6a9b73f5-e703-44d4-97a9-7ac1a4ba84c1",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:18:17+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "6a376f02-08e5-49ac-9cf7-1b64e95b8b80",
+      "type": "application",
+      "name": "/home/user/SBOM/work/alwindoss__morse",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "c452b448-936d-4378-a9e9-fc765cce397e",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/alwindoss/morse",
+      "type": "library",
+      "name": "github.com/alwindoss/morse",
+      "purl": "pkg:golang/github.com/alwindoss/morse",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/alwindoss/morse"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "6a376f02-08e5-49ac-9cf7-1b64e95b8b80",
+      "dependsOn": [
+        "c452b448-936d-4378-a9e9-fc765cce397e"
+      ]
+    },
+    {
+      "ref": "c452b448-936d-4378-a9e9-fc765cce397e",
+      "dependsOn": [
+        "pkg:golang/github.com/alwindoss/morse"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/alwindoss/morse",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
