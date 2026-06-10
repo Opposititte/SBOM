@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:0819fb92-3dac-44bb-881a-ece46347f4cd",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:37:53+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "e6df736c-3b17-48b6-ad90-dcf8d0d2c671",
+      "type": "application",
+      "name": "/home/user/SBOM/work/goxjs__glfw",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "f7ce16f6-b9f0-469f-bd48-f0fb134a22b7",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/go-gl/glfw/v3.3/glfw@v0.0.0-20260406072232-3ac4aa2bb164",
+      "type": "library",
+      "name": "github.com/go-gl/glfw/v3.3/glfw",
+      "version": "v0.0.0-20260406072232-3ac4aa2bb164",
+      "purl": "pkg:golang/github.com/go-gl/glfw/v3.3/glfw@v0.0.0-20260406072232-3ac4aa2bb164",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/go-gl/glfw/v3.3/glfw@v0.0.0-20260406072232-3ac4aa2bb164"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/goxjs/glfw",
+      "type": "library",
+      "name": "github.com/goxjs/glfw",
+      "purl": "pkg:golang/github.com/goxjs/glfw",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/goxjs/glfw"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "e6df736c-3b17-48b6-ad90-dcf8d0d2c671",
+      "dependsOn": [
+        "f7ce16f6-b9f0-469f-bd48-f0fb134a22b7"
+      ]
+    },
+    {
+      "ref": "f7ce16f6-b9f0-469f-bd48-f0fb134a22b7",
+      "dependsOn": [
+        "pkg:golang/github.com/goxjs/glfw"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/go-gl/glfw/v3.3/glfw@v0.0.0-20260406072232-3ac4aa2bb164",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/goxjs/glfw",
+      "dependsOn": [
+        "pkg:golang/github.com/go-gl/glfw/v3.3/glfw@v0.0.0-20260406072232-3ac4aa2bb164"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,291 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:d3678efd-1d05-4769-9c48-5e47c62fed25",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:36:18Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/gojek/heimdall/v7@v7.2.1?type=module",
+      "type": "application",
+      "name": "github.com/gojek/heimdall/v7",
+      "version": "v7.2.1",
+      "purl": "pkg:golang/github.com/gojek/heimdall/v7@v7.2.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/gojek/heimdall",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/github.com/DataDog/datadog-go@v3.7.1+incompatible?type=module",
+      "type": "library",
+      "name": "github.com/DataDog/datadog-go",
+      "version": "v3.7.1+incompatible",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1e603da8756b1c802aa52be809827e73aaacb74960a8484d5bafcac1f9076d2f"
+        }
+      ],
+      "purl": "pkg:golang/github.com/DataDog/datadog-go@v3.7.1+incompatible?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/DataDog/datadog-go",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/afex/hystrix-go@v0.0.0-20180502004556-fa1af6a1f4f5?type=module",
+      "type": "library",
+      "name": "github.com/afex/hystrix-go",
+      "version": "v0.0.0-20180502004556-fa1af6a1f4f5",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ac5c389c29fd88c5be55a8ec939d4db5821cc124e45ebf891ab31ddfa9130c9c"
+        }
+      ],
+      "purl": "pkg:golang/github.com/afex/hystrix-go@v0.0.0-20180502004556-fa1af6a1f4f5?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/afex/hystrix-go",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/cactus/go-statsd-client/statsd@v0.0.0-20200423205355-cb0885a1018c?type=module",
+      "type": "library",
+      "name": "github.com/cactus/go-statsd-client/statsd",
+      "version": "v0.0.0-20200423205355-cb0885a1018c",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1c8185d2bff9ebeedfb88670d95e22b04db630aeb1a715b1ec16d5f1d276f74c"
+        }
+      ],
+      "purl": "pkg:golang/github.com/cactus/go-statsd-client/statsd@v0.0.0-20200423205355-cb0885a1018c?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/cactus/go-statsd-client/statsd",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/davecgh/go-spew@v1.1.1?type=module",
+      "type": "library",
+      "name": "github.com/davecgh/go-spew",
+      "version": "v1.1.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "be3f63feed5baa7bc211f24ec1486d94e011aacdfeae41d8635de36164d4f7b7"
+        }
+      ],
+      "purl": "pkg:golang/github.com/davecgh/go-spew@v1.1.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/davecgh/go-spew",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/pkg/errors@v0.9.1?type=module",
+      "type": "library",
+      "name": "github.com/pkg/errors",
+      "version": "v0.9.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "14404bc75cd2db5e28c298f2eeab017a2c5b51192e850030acae54c0b193c2de"
+        }
+      ],
+      "purl": "pkg:golang/github.com/pkg/errors@v0.9.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/pkg/errors",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/pmezard/go-difflib@v1.0.0?type=module",
+      "type": "library",
+      "name": "github.com/pmezard/go-difflib",
+      "version": "v1.0.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e030700c4d0d1b24280476cb4183f04943e808c591e41133224fdfd6565b0103"
+        }
+      ],
+      "purl": "pkg:golang/github.com/pmezard/go-difflib@v1.0.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/pmezard/go-difflib",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/rcrowley/go-metrics@v0.0.0-20201227073835-cf1acfcdf475?type=module",
+      "type": "library",
+      "name": "github.com/rcrowley/go-metrics",
+      "version": "v0.0.0-20201227073835-cf1acfcdf475",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "37f1250bc1f7fb95e92734d24df2ec255fe6c7d43d83b93199c8697d9cb18333"
+        }
+      ],
+      "purl": "pkg:golang/github.com/rcrowley/go-metrics@v0.0.0-20201227073835-cf1acfcdf475?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/rcrowley/go-metrics",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/stretchr/objx@v0.5.2?type=module",
+      "type": "library",
+      "name": "github.com/stretchr/objx",
+      "version": "v0.5.2",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c6e31e27449da7964c457c7f6963ba459c5daf76de212906e7f1bf68846bde96"
+        }
+      ],
+      "purl": "pkg:golang/github.com/stretchr/objx@v0.5.2?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/stretchr/objx",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/stretchr/testify@v1.11.1?type=module",
+      "type": "library",
+      "name": "github.com/stretchr/testify",
+      "version": "v1.11.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "eecda2181ce9e44c11eff68866bf1aa39f9dadadf0890c8a8e316ebe054abbb5"
+        }
+      ],
+      "purl": "pkg:golang/github.com/stretchr/testify@v1.11.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/stretchr/testify",
+          "type": "vcs"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/gojek/heimdall/v7@v7.2.1?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/afex/hystrix-go@v0.0.0-20180502004556-fa1af6a1f4f5?type=module",
+        "pkg:golang/github.com/pkg/errors@v0.9.1?type=module",
+        "pkg:golang/github.com/stretchr/testify@v1.11.1?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/DataDog/datadog-go@v3.7.1+incompatible?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/afex/hystrix-go@v0.0.0-20180502004556-fa1af6a1f4f5?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/cactus/go-statsd-client/statsd@v0.0.0-20200423205355-cb0885a1018c?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/davecgh/go-spew@v1.1.1?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/pkg/errors@v0.9.1?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/pmezard/go-difflib@v1.0.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/rcrowley/go-metrics@v0.0.0-20201227073835-cf1acfcdf475?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/stretchr/objx@v0.5.2?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/davecgh/go-spew@v1.1.1?type=module",
+        "pkg:golang/github.com/pmezard/go-difflib@v1.0.0?type=module",
+        "pkg:golang/github.com/stretchr/testify@v1.11.1?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/stretchr/testify@v1.11.1?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/davecgh/go-spew@v1.1.1?type=module",
+        "pkg:golang/github.com/pmezard/go-difflib@v1.0.0?type=module",
+        "pkg:golang/github.com/stretchr/objx@v0.5.2?type=module"
+      ]
+    }
+  ]
+}

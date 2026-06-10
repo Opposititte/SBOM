@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:b691f8f3-01c3-4124-9e5e-9270355782b7",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:37:32+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "9a0b4257-bdcf-442b-91f9-0c5ec3eaf5e7",
+      "type": "application",
+      "name": "/home/user/SBOM/work/go-gl__gl",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "9c16f29a-675d-47f9-8b81-6c39dd98ef9e",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/go-gl/gl",
+      "type": "library",
+      "name": "github.com/go-gl/gl",
+      "purl": "pkg:golang/github.com/go-gl/gl",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/go-gl/gl"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "9a0b4257-bdcf-442b-91f9-0c5ec3eaf5e7",
+      "dependsOn": [
+        "9c16f29a-675d-47f9-8b81-6c39dd98ef9e"
+      ]
+    },
+    {
+      "ref": "9c16f29a-675d-47f9-8b81-6c39dd98ef9e",
+      "dependsOn": [
+        "pkg:golang/github.com/go-gl/gl"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/go-gl/gl",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
