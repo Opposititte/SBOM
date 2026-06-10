@@ -1,0 +1,175 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:b17bf8a9-b2c7-4027-8c1f-7c9669de0d87",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T00:47:43Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/xybor-x/xylog@v0.5.0?type=module",
+      "type": "application",
+      "name": "github.com/xybor-x/xylog",
+      "version": "v0.5.0",
+      "purl": "pkg:golang/github.com/xybor-x/xylog@v0.5.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/xybor-x/xylog",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/github.com/xybor-x/xycond@v1.0.0?type=module",
+      "type": "library",
+      "name": "github.com/xybor-x/xycond",
+      "version": "v1.0.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4498a9a60f21734fc77047ab250add747a24ee26995322c6ae337a3dba5ef2ef"
+        }
+      ],
+      "purl": "pkg:golang/github.com/xybor-x/xycond@v1.0.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/xybor-x/xycond",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/xybor-x/xyerror@v1.0.0?type=module",
+      "type": "library",
+      "name": "github.com/xybor-x/xyerror",
+      "version": "v1.0.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b45aa68be48e9cdad468bd450f3a79aabfc4774498d2d51f9b58a798532bb7b8"
+        }
+      ],
+      "purl": "pkg:golang/github.com/xybor-x/xyerror@v1.0.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/xybor-x/xyerror",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/xybor-x/xylock@v0.0.1?type=module",
+      "type": "library",
+      "name": "github.com/xybor-x/xylock",
+      "version": "v0.0.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "fcb85b25be96264516fb1138fdb069202efa04aadb8276b288877a2dda2ea94c"
+        }
+      ],
+      "purl": "pkg:golang/github.com/xybor-x/xylock@v0.0.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/xybor-x/xylock",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sync@v0.0.0-20220819030929-7fc1605a5dde?type=module",
+      "type": "library",
+      "name": "golang.org/x/sync",
+      "version": "v0.0.0-20220819030929-7fc1605a5dde",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7a37dd49e917303c432db46b24cc1493a2a748b67631c69409570828cf8dea37"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/sync@v0.0.0-20220819030929-7fc1605a5dde?goarch=amd64\u0026goos=linux\u0026type=module"
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/xybor-x/xylog@v0.5.0?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/xybor-x/xycond@v1.0.0?type=module",
+        "pkg:golang/github.com/xybor-x/xyerror@v1.0.0?type=module",
+        "pkg:golang/github.com/xybor-x/xylock@v0.0.1?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/xybor-x/xycond@v1.0.0?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/xybor-x/xyerror@v1.0.0?type=module",
+        "pkg:golang/github.com/xybor-x/xylock@v0.0.1?type=module",
+        "pkg:golang/golang.org/x/sync@v0.0.0-20220819030929-7fc1605a5dde?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/xybor-x/xyerror@v1.0.0?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/xybor-x/xycond@v1.0.0?type=module",
+        "pkg:golang/github.com/xybor-x/xylock@v0.0.1?type=module",
+        "pkg:golang/golang.org/x/sync@v0.0.0-20220819030929-7fc1605a5dde?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/xybor-x/xylock@v0.0.1?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/xybor-x/xycond@v1.0.0?type=module",
+        "pkg:golang/github.com/xybor-x/xyerror@v1.0.0?type=module",
+        "pkg:golang/golang.org/x/sync@v0.0.0-20220819030929-7fc1605a5dde?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sync@v0.0.0-20220819030929-7fc1605a5dde?type=module"
+    }
+  ]
+}

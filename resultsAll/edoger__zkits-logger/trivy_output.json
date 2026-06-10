@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:3fbebba2-553d-4846-9bd5-609164e01e0a",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T00:48:12+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "4edbe304-281f-434d-b6ff-a685d0a490d7",
+      "type": "application",
+      "name": "/home/user/SBOM/work/edoger__zkits-logger",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "0f1756e5-d59f-468d-a714-0d57f0e1d035",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/edoger/zkits-logger",
+      "type": "library",
+      "name": "github.com/edoger/zkits-logger",
+      "purl": "pkg:golang/github.com/edoger/zkits-logger",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/edoger/zkits-logger"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "0f1756e5-d59f-468d-a714-0d57f0e1d035",
+      "dependsOn": [
+        "pkg:golang/github.com/edoger/zkits-logger"
+      ]
+    },
+    {
+      "ref": "4edbe304-281f-434d-b6ff-a685d0a490d7",
+      "dependsOn": [
+        "0f1756e5-d59f-468d-a714-0d57f0e1d035"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/edoger/zkits-logger",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

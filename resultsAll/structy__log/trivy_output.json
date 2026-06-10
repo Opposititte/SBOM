@@ -1,0 +1,160 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:c7c710a2-82bc-4150-8887-9b32d974cc1a",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T00:47:20+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "8d37a891-0908-4655-bb87-0c104eb69b6f",
+      "type": "application",
+      "name": "/home/user/SBOM/work/structy__log",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "659c16fc-8b45-4792-8d4a-8f7e0f58af6b",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/certifi/gocertifi@v0.0.0-20210507211836-431795d63e8d",
+      "type": "library",
+      "name": "github.com/certifi/gocertifi",
+      "version": "v0.0.0-20210507211836-431795d63e8d",
+      "purl": "pkg:golang/github.com/certifi/gocertifi@v0.0.0-20210507211836-431795d63e8d",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/certifi/gocertifi@v0.0.0-20210507211836-431795d63e8d"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/getsentry/raven-go@v0.2.0",
+      "type": "library",
+      "name": "github.com/getsentry/raven-go",
+      "version": "v0.2.0",
+      "purl": "pkg:golang/github.com/getsentry/raven-go@v0.2.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/getsentry/raven-go@v0.2.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/pkg/errors@v0.9.1",
+      "type": "library",
+      "name": "github.com/pkg/errors",
+      "version": "v0.9.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-2-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/pkg/errors@v0.9.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/pkg/errors@v0.9.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/structy/log",
+      "type": "library",
+      "name": "github.com/structy/log",
+      "purl": "pkg:golang/github.com/structy/log",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/structy/log"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "659c16fc-8b45-4792-8d4a-8f7e0f58af6b",
+      "dependsOn": [
+        "pkg:golang/github.com/structy/log"
+      ]
+    },
+    {
+      "ref": "8d37a891-0908-4655-bb87-0c104eb69b6f",
+      "dependsOn": [
+        "659c16fc-8b45-4792-8d4a-8f7e0f58af6b"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/certifi/gocertifi@v0.0.0-20210507211836-431795d63e8d",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/getsentry/raven-go@v0.2.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/pkg/errors@v0.9.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/structy/log",
+      "dependsOn": [
+        "pkg:golang/github.com/certifi/gocertifi@v0.0.0-20210507211836-431795d63e8d",
+        "pkg:golang/github.com/getsentry/raven-go@v0.2.0",
+        "pkg:golang/github.com/pkg/errors@v0.9.1"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}

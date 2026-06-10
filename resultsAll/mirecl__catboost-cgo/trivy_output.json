@@ -1,0 +1,356 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:4d2c3aa1-6186-489e-9c57-7505ccab2071",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T00:49:02+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "aa0e9e5a-0557-48cd-b18e-dce0e1ac26d7",
+      "type": "application",
+      "name": "/home/user/SBOM/work/mirecl__catboost-cgo",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "47aad6f4-8fd3-49b1-98dd-dfc503b4d0f6",
+      "type": "application",
+      "name": "requirements.txt",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "beaabde9-d03f-4d4d-a07a-23b76a55ab7f",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+      "type": "library",
+      "name": "github.com/davecgh/go-spew",
+      "version": "v1.1.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/davecgh/go-spew@v1.1.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mirecl/catboost-cgo",
+      "type": "library",
+      "name": "github.com/mirecl/catboost-cgo",
+      "purl": "pkg:golang/github.com/mirecl/catboost-cgo",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mirecl/catboost-cgo"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+      "type": "library",
+      "name": "github.com/pmezard/go-difflib",
+      "version": "v1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/pmezard/go-difflib@v1.0.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/stretchr/testify@v1.11.1",
+      "type": "library",
+      "name": "github.com/stretchr/testify",
+      "version": "v1.11.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/stretchr/testify@v1.11.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/stretchr/testify@v1.11.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/gopkg.in/yaml.v3@v3.0.1",
+      "type": "library",
+      "name": "gopkg.in/yaml.v3",
+      "version": "v3.0.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        },
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:golang/gopkg.in/yaml.v3@v3.0.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "gopkg.in/yaml.v3@v3.0.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/black@25.11.0",
+      "type": "library",
+      "name": "black",
+      "version": "25.11.0",
+      "purl": "pkg:pypi/black@25.11.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/catboost@1.2.10",
+      "type": "library",
+      "name": "catboost",
+      "version": "1.2.10",
+      "purl": "pkg:pypi/catboost@1.2.10",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/numpy@1.26.4",
+      "type": "library",
+      "name": "numpy",
+      "version": "1.26.4",
+      "purl": "pkg:pypi/numpy@1.26.4",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/pandas@2.3.3",
+      "type": "library",
+      "name": "pandas",
+      "version": "2.3.3",
+      "purl": "pkg:pypi/pandas@2.3.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/ruff@0.15.6",
+      "type": "library",
+      "name": "ruff",
+      "version": "0.15.6",
+      "purl": "pkg:pypi/ruff@0.15.6",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/scikit-learn@1.5.2",
+      "type": "library",
+      "name": "scikit-learn",
+      "version": "1.5.2",
+      "purl": "pkg:pypi/scikit-learn@1.5.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/scikit-survival@0.23.1",
+      "type": "library",
+      "name": "scikit-survival",
+      "version": "0.23.1",
+      "purl": "pkg:pypi/scikit-survival@0.23.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "47aad6f4-8fd3-49b1-98dd-dfc503b4d0f6",
+      "dependsOn": [
+        "pkg:pypi/black@25.11.0",
+        "pkg:pypi/catboost@1.2.10",
+        "pkg:pypi/numpy@1.26.4",
+        "pkg:pypi/pandas@2.3.3",
+        "pkg:pypi/ruff@0.15.6",
+        "pkg:pypi/scikit-learn@1.5.2",
+        "pkg:pypi/scikit-survival@0.23.1"
+      ]
+    },
+    {
+      "ref": "aa0e9e5a-0557-48cd-b18e-dce0e1ac26d7",
+      "dependsOn": [
+        "47aad6f4-8fd3-49b1-98dd-dfc503b4d0f6",
+        "beaabde9-d03f-4d4d-a07a-23b76a55ab7f"
+      ]
+    },
+    {
+      "ref": "beaabde9-d03f-4d4d-a07a-23b76a55ab7f",
+      "dependsOn": [
+        "pkg:golang/github.com/mirecl/catboost-cgo"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/mirecl/catboost-cgo",
+      "dependsOn": [
+        "pkg:golang/github.com/stretchr/testify@v1.11.1"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/stretchr/testify@v1.11.1",
+      "dependsOn": [
+        "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+        "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+        "pkg:golang/gopkg.in/yaml.v3@v3.0.1"
+      ]
+    },
+    {
+      "ref": "pkg:golang/gopkg.in/yaml.v3@v3.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/black@25.11.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/catboost@1.2.10",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/numpy@1.26.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/pandas@2.3.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/ruff@0.15.6",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/scikit-learn@1.5.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/scikit-survival@0.23.1",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

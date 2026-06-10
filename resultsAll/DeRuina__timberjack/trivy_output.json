@@ -1,0 +1,138 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:52ee4707-ab01-4dfe-8050-d493a701377c",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T00:47:29+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "abce47cb-21b9-4eed-92de-a570741f29b2",
+      "type": "application",
+      "name": "/home/user/SBOM/work/DeRuina__timberjack",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "6c378132-9725-47a9-88eb-919c34f71d6d",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/deruina/timberjack",
+      "type": "library",
+      "name": "github.com/DeRuina/timberjack",
+      "purl": "pkg:golang/github.com/deruina/timberjack",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/DeRuina/timberjack"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/fortytw2/leaktest@v1.3.0",
+      "type": "library",
+      "name": "github.com/fortytw2/leaktest",
+      "version": "v1.3.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/fortytw2/leaktest@v1.3.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/fortytw2/leaktest@v1.3.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/klauspost/compress@v1.17.11",
+      "type": "library",
+      "name": "github.com/klauspost/compress",
+      "version": "v1.17.11",
+      "purl": "pkg:golang/github.com/klauspost/compress@v1.17.11",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/klauspost/compress@v1.17.11"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "6c378132-9725-47a9-88eb-919c34f71d6d",
+      "dependsOn": [
+        "pkg:golang/github.com/deruina/timberjack"
+      ]
+    },
+    {
+      "ref": "abce47cb-21b9-4eed-92de-a570741f29b2",
+      "dependsOn": [
+        "6c378132-9725-47a9-88eb-919c34f71d6d"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/deruina/timberjack",
+      "dependsOn": [
+        "pkg:golang/github.com/fortytw2/leaktest@v1.3.0",
+        "pkg:golang/github.com/klauspost/compress@v1.17.11"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/fortytw2/leaktest@v1.3.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/klauspost/compress@v1.17.11",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
