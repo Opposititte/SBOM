@@ -1,0 +1,48 @@
+Cloning into '/home/user/SBOM/work/jirenius__go-res'...
+go: downloading github.com/rs/xid v1.2.1
+go: downloading github.com/dgraph-io/badger v1.6.2
+go: downloading github.com/nats-io/nats.go v1.13.0
+go: downloading github.com/nats-io/nats-server/v2 v2.1.8
+go: downloading github.com/jirenius/keylock v1.0.0
+go: downloading github.com/jirenius/taskqueue v1.1.0
+go: downloading github.com/jirenius/timerqueue v1.0.0
+go: downloading github.com/dgraph-io/ristretto v0.0.2
+go: downloading github.com/dustin/go-humanize v1.0.0
+go: downloading github.com/golang/protobuf v1.4.0
+go: downloading github.com/pkg/errors v0.8.1
+go: downloading golang.org/x/net v0.0.0-20210226172049-e18ecbb05110
+go: downloading golang.org/x/sys v0.0.0-20201119102817-f84b799fce68
+go: downloading github.com/nats-io/nkeys v0.3.0
+go: downloading github.com/nats-io/nuid v1.0.1
+go: downloading github.com/AndreasBriese/bbloom v0.0.0-20190825152654-46b345b51c96
+go: downloading github.com/cespare/xxhash v1.1.0
+go: downloading github.com/nats-io/jwt v0.3.2
+go: downloading golang.org/x/crypto v0.0.0-20210314154223-e6e6c4f2bb5b
+go: downloading google.golang.org/protobuf v1.22.0
+[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+2026-06-10T00:58:35Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-06-10T00:58:35Z	INFO	Number of language-specific files	num=1
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   2 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
+|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
+|                        |            |                          | neration may read inherited environment variables. |
+|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m

@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:b60c1395-583b-4000-b79b-55e023e66194",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T00:59:41+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "ebb3919a-1640-4369-bfb1-22d5a0fe7415",
+      "type": "application",
+      "name": "/home/user/SBOM/work/alexsniffin__gosd",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "c230c858-b0ec-40b9-afc1-ab588c6fb75d",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/alexsniffin/gosd/v2",
+      "type": "library",
+      "name": "github.com/alexsniffin/gosd/v2",
+      "purl": "pkg:golang/github.com/alexsniffin/gosd/v2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/alexsniffin/gosd/v2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "c230c858-b0ec-40b9-afc1-ab588c6fb75d",
+      "dependsOn": [
+        "pkg:golang/github.com/alexsniffin/gosd/v2"
+      ]
+    },
+    {
+      "ref": "ebb3919a-1640-4369-bfb1-22d5a0fe7415",
+      "dependsOn": [
+        "c230c858-b0ec-40b9-afc1-ab588c6fb75d"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/alexsniffin/gosd/v2",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

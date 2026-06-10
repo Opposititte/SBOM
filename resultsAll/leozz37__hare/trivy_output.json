@@ -1,0 +1,175 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:b58f4e6b-f764-4504-b85d-c1211dfcfe3c",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T00:59:50+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "afbbcf76-f694-4f3e-b3e0-b14d783ead24",
+      "type": "application",
+      "name": "/home/user/SBOM/work/leozz37__hare",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "94223074-19df-4067-b9a0-0801cf964d51",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/fatih/color@v1.12.0",
+      "type": "library",
+      "name": "github.com/fatih/color",
+      "version": "v1.12.0",
+      "purl": "pkg:golang/github.com/fatih/color@v1.12.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/fatih/color@v1.12.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/leozz37/hare",
+      "type": "library",
+      "name": "github.com/leozz37/hare",
+      "purl": "pkg:golang/github.com/leozz37/hare",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/leozz37/hare"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mattn/go-colorable@v0.1.8",
+      "type": "library",
+      "name": "github.com/mattn/go-colorable",
+      "version": "v0.1.8",
+      "purl": "pkg:golang/github.com/mattn/go-colorable@v0.1.8",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mattn/go-colorable@v0.1.8"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/mattn/go-isatty@v0.0.12",
+      "type": "library",
+      "name": "github.com/mattn/go-isatty",
+      "version": "v0.0.12",
+      "purl": "pkg:golang/github.com/mattn/go-isatty@v0.0.12",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/mattn/go-isatty@v0.0.12"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.0.0-20200223170610-d5e6a3e2c0ae",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.0.0-20200223170610-d5e6a3e2c0ae",
+      "purl": "pkg:golang/golang.org/x/sys@v0.0.0-20200223170610-d5e6a3e2c0ae",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "golang.org/x/sys@v0.0.0-20200223170610-d5e6a3e2c0ae"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "94223074-19df-4067-b9a0-0801cf964d51",
+      "dependsOn": [
+        "pkg:golang/github.com/leozz37/hare"
+      ]
+    },
+    {
+      "ref": "afbbcf76-f694-4f3e-b3e0-b14d783ead24",
+      "dependsOn": [
+        "94223074-19df-4067-b9a0-0801cf964d51"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/fatih/color@v1.12.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/leozz37/hare",
+      "dependsOn": [
+        "pkg:golang/github.com/fatih/color@v1.12.0",
+        "pkg:golang/github.com/mattn/go-colorable@v0.1.8",
+        "pkg:golang/github.com/mattn/go-isatty@v0.0.12",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20200223170610-d5e6a3e2c0ae"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/mattn/go-colorable@v0.1.8",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/mattn/go-isatty@v0.0.12",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.0.0-20200223170610-d5e6a3e2c0ae",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
