@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:be78f6ce-3fee-4c37-8129-34df8e596c03",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:35:46+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "a1d0a66c-23cb-4d3c-b52e-7b96d6e1a12b",
+      "type": "application",
+      "name": "/home/user/SBOM/work/ozontech__testo",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "c21656be-3f53-45b5-9419-e8cedb926e9c",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/ozontech/testo",
+      "type": "library",
+      "name": "github.com/ozontech/testo",
+      "purl": "pkg:golang/github.com/ozontech/testo",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/ozontech/testo"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "a1d0a66c-23cb-4d3c-b52e-7b96d6e1a12b",
+      "dependsOn": [
+        "c21656be-3f53-45b5-9419-e8cedb926e9c"
+      ]
+    },
+    {
+      "ref": "c21656be-3f53-45b5-9419-e8cedb926e9c",
+      "dependsOn": [
+        "pkg:golang/github.com/ozontech/testo"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/ozontech/testo",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:5ee2e1da-d060-4a0b-838d-801fd78537f0",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T02:36:10+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "e777b38c-d02a-4c98-93ce-3c096de67d68",
+      "type": "application",
+      "name": "/home/user/SBOM/work/jgroeneveld__trial",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "449d2fbb-d0df-4be7-a804-f9032b615140",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jgroeneveld/schema@v1.0.0",
+      "type": "library",
+      "name": "github.com/jgroeneveld/schema",
+      "version": "v1.0.0",
+      "purl": "pkg:golang/github.com/jgroeneveld/schema@v1.0.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/jgroeneveld/schema@v1.0.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jgroeneveld/trial",
+      "type": "library",
+      "name": "github.com/jgroeneveld/trial",
+      "purl": "pkg:golang/github.com/jgroeneveld/trial",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/jgroeneveld/trial"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "449d2fbb-d0df-4be7-a804-f9032b615140",
+      "dependsOn": [
+        "pkg:golang/github.com/jgroeneveld/trial"
+      ]
+    },
+    {
+      "ref": "e777b38c-d02a-4c98-93ce-3c096de67d68",
+      "dependsOn": [
+        "449d2fbb-d0df-4be7-a804-f9032b615140"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/jgroeneveld/schema@v1.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/jgroeneveld/trial",
+      "dependsOn": [
+        "pkg:golang/github.com/jgroeneveld/schema@v1.0.0"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}
