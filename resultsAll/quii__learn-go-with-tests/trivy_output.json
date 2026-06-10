@@ -1,0 +1,160 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:bea3c88b-007a-4957-b94c-39ac90c6ffb1",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T09:07:56+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "d7354e79-f080-484d-a5d7-fe4cabb68dc4",
+      "type": "application",
+      "name": "/home/user/SBOM/work/quii__learn-go-with-tests",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "b9be7796-ac47-42ab-ab75-71c84f028016",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/approvals/go-approval-tests@v0.0.0-20211008131110-0c40b30e0000",
+      "type": "library",
+      "name": "github.com/approvals/go-approval-tests",
+      "version": "v0.0.0-20211008131110-0c40b30e0000",
+      "purl": "pkg:golang/github.com/approvals/go-approval-tests@v0.0.0-20211008131110-0c40b30e0000",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/approvals/go-approval-tests@v0.0.0-20211008131110-0c40b30e0000"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gomarkdown/markdown@v0.0.0-20240626202925-2eda941fd024",
+      "type": "library",
+      "name": "github.com/gomarkdown/markdown",
+      "version": "v0.0.0-20240626202925-2eda941fd024",
+      "purl": "pkg:golang/github.com/gomarkdown/markdown@v0.0.0-20240626202925-2eda941fd024",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gomarkdown/markdown@v0.0.0-20240626202925-2eda941fd024"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gorilla/websocket@v1.5.3",
+      "type": "library",
+      "name": "github.com/gorilla/websocket",
+      "version": "v1.5.3",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-2-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:golang/github.com/gorilla/websocket@v1.5.3",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/gorilla/websocket@v1.5.3"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/quii/learn-go-with-tests",
+      "type": "library",
+      "name": "github.com/quii/learn-go-with-tests",
+      "purl": "pkg:golang/github.com/quii/learn-go-with-tests",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/quii/learn-go-with-tests"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "b9be7796-ac47-42ab-ab75-71c84f028016",
+      "dependsOn": [
+        "pkg:golang/github.com/quii/learn-go-with-tests"
+      ]
+    },
+    {
+      "ref": "d7354e79-f080-484d-a5d7-fe4cabb68dc4",
+      "dependsOn": [
+        "b9be7796-ac47-42ab-ab75-71c84f028016"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/approvals/go-approval-tests@v0.0.0-20211008131110-0c40b30e0000",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/gomarkdown/markdown@v0.0.0-20240626202925-2eda941fd024",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/gorilla/websocket@v1.5.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/quii/learn-go-with-tests",
+      "dependsOn": [
+        "pkg:golang/github.com/approvals/go-approval-tests@v0.0.0-20211008131110-0c40b30e0000",
+        "pkg:golang/github.com/gomarkdown/markdown@v0.0.0-20240626202925-2eda941fd024",
+        "pkg:golang/github.com/gorilla/websocket@v1.5.3"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}
