@@ -1,0 +1,163 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:fb42045e-1de9-4a01-929d-aef7416b5328",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:46:54Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/seldonio/goven@v0.0.0-20220414095647-57c0f5d004c0?type=module",
+      "type": "application",
+      "name": "github.com/seldonio/goven",
+      "version": "v0.0.0-20220414095647-57c0f5d004c0",
+      "purl": "pkg:golang/github.com/seldonio/goven@v0.0.0-20220414095647-57c0f5d004c0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/seldonio/goven",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/github.com/iancoleman/strcase@v0.2.0?type=module",
+      "type": "library",
+      "name": "github.com/iancoleman/strcase",
+      "version": "v0.2.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d392384119c6a48d26dfb899411bac91787ec3bee6afa678d65c10cee1cbc16d"
+        }
+      ],
+      "purl": "pkg:golang/github.com/iancoleman/strcase@v0.2.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/iancoleman/strcase",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jinzhu/inflection@v1.0.0?type=module",
+      "type": "library",
+      "name": "github.com/jinzhu/inflection",
+      "version": "v1.0.0",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "2b7d7b16acee85673c62f4959453020946f7e8efd2f4c08a44323b42444a0ff1"
+        }
+      ],
+      "purl": "pkg:golang/github.com/jinzhu/inflection@v1.0.0?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/jinzhu/inflection",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/jinzhu/now@v1.1.4?type=module",
+      "type": "library",
+      "name": "github.com/jinzhu/now",
+      "version": "v1.1.4",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b479d1072d62e45d8387c040171a85cf12aaaaf7b35eb2f6396d539d7f8c95ab"
+        }
+      ],
+      "purl": "pkg:golang/github.com/jinzhu/now@v1.1.4?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/jinzhu/now",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/gorm.io/gorm@v1.22.4?type=module",
+      "type": "library",
+      "name": "gorm.io/gorm",
+      "version": "v1.22.4",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f1a3dcc84261634300b7c698e83739db83e7fa93b6f4afb276ef9efdc5d2a503"
+        }
+      ],
+      "purl": "pkg:golang/gorm.io/gorm@v1.22.4?goarch=amd64\u0026goos=linux\u0026type=module"
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/seldonio/goven@v0.0.0-20220414095647-57c0f5d004c0?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/iancoleman/strcase@v0.2.0?type=module",
+        "pkg:golang/gorm.io/gorm@v1.22.4?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/iancoleman/strcase@v0.2.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/jinzhu/inflection@v1.0.0?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/jinzhu/now@v1.1.4?type=module"
+    },
+    {
+      "ref": "pkg:golang/gorm.io/gorm@v1.22.4?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/jinzhu/inflection@v1.0.0?type=module",
+        "pkg:golang/github.com/jinzhu/now@v1.1.4?type=module"
+      ]
+    }
+  ]
+}

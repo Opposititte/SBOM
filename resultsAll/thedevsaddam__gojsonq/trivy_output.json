@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:84a5f894-0b9c-4b9c-850e-8e8c0918b191",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T01:46:45+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "ef1751fd-0070-46b6-8b15-c19ca3d2680c",
+      "type": "application",
+      "name": "/home/user/SBOM/work/thedevsaddam__gojsonq",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "e9ecd24f-dbea-4ac2-ae1f-afc79dc42f0e",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/thedevsaddam/gojsonq/v2",
+      "type": "library",
+      "name": "github.com/thedevsaddam/gojsonq/v2",
+      "purl": "pkg:golang/github.com/thedevsaddam/gojsonq/v2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/thedevsaddam/gojsonq/v2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "e9ecd24f-dbea-4ac2-ae1f-afc79dc42f0e",
+      "dependsOn": [
+        "pkg:golang/github.com/thedevsaddam/gojsonq/v2"
+      ]
+    },
+    {
+      "ref": "ef1751fd-0070-46b6-8b15-c19ca3d2680c",
+      "dependsOn": [
+        "e9ecd24f-dbea-4ac2-ae1f-afc79dc42f0e"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/thedevsaddam/gojsonq/v2",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
