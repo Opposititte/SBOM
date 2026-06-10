@@ -1,0 +1,124 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:9d966e79-6338-4a91-999c-0a48ea0b383b",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T09:00:25+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "7a7a249e-cd49-4e89-baae-be75d1a64934",
+      "type": "application",
+      "name": "/home/user/SBOM/work/atemerev__skynet",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "5b4c27d1-f2ab-4180-9d35-a5fd0ce3db02",
+      "type": "library",
+      "name": "",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "rust@0.1.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "cargo"
+        }
+      ]
+    },
+    {
+      "bom-ref": "7fa9dbd7-8f52-4676-bf60-4c68f9c63d91",
+      "type": "application",
+      "name": "dotnet-full/packages.config",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "nuget"
+        }
+      ]
+    },
+    {
+      "bom-ref": "de9fcee2-6141-4acd-a1d7-8172c9d3c6d7",
+      "type": "application",
+      "name": "rust-coroutine/Cargo.lock",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "cargo"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:nuget/System.Threading.Tasks.Dataflow@4.5.25",
+      "type": "library",
+      "name": "System.Threading.Tasks.Dataflow",
+      "version": "4.5.25",
+      "purl": "pkg:nuget/System.Threading.Tasks.Dataflow@4.5.25",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "nuget"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "5b4c27d1-f2ab-4180-9d35-a5fd0ce3db02",
+      "dependsOn": []
+    },
+    {
+      "ref": "7a7a249e-cd49-4e89-baae-be75d1a64934",
+      "dependsOn": [
+        "7fa9dbd7-8f52-4676-bf60-4c68f9c63d91",
+        "de9fcee2-6141-4acd-a1d7-8172c9d3c6d7"
+      ]
+    },
+    {
+      "ref": "7fa9dbd7-8f52-4676-bf60-4c68f9c63d91",
+      "dependsOn": [
+        "pkg:nuget/System.Threading.Tasks.Dataflow@4.5.25"
+      ]
+    },
+    {
+      "ref": "de9fcee2-6141-4acd-a1d7-8172c9d3c6d7",
+      "dependsOn": [
+        "5b4c27d1-f2ab-4180-9d35-a5fd0ce3db02"
+      ]
+    },
+    {
+      "ref": "pkg:nuget/System.Threading.Tasks.Dataflow@4.5.25",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

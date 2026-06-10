@@ -1,0 +1,86 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:f8647cad-bf51-4f99-8796-dcc91abf85ee",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-10T09:00:16+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "46766b41-fb2f-4a9c-8d42-e0db60927f94",
+      "type": "application",
+      "name": "/home/user/SBOM/work/feyeleanor__GoSpeed",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "e49ae1c2-8260-411e-8384-69a8be64a990",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/feyeleanor/gospeed",
+      "type": "library",
+      "name": "github.com/feyeleanor/GoSpeed",
+      "purl": "pkg:golang/github.com/feyeleanor/gospeed",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/feyeleanor/GoSpeed"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "46766b41-fb2f-4a9c-8d42-e0db60927f94",
+      "dependsOn": [
+        "e49ae1c2-8260-411e-8384-69a8be64a990"
+      ]
+    },
+    {
+      "ref": "e49ae1c2-8260-411e-8384-69a8be64a990",
+      "dependsOn": [
+        "pkg:golang/github.com/feyeleanor/gospeed"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/feyeleanor/gospeed",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
