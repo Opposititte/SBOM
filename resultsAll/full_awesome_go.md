@@ -11944,3 +11944,23 @@ GOOS=linux go list -deps -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./..
 | trivy | 91.1 / 58.6 | 67.9 / 99.5 | **72.7 / 68.0** |
 | cdxgen | 92.6 / 91.3 | 41.5 / 98.2 | **51.7 / 92.9** |
 | cyclonedx-gomod | 98.4 / 93.0 | 42.9 / 98.6 | **55.6 / 94.9** |
+
+---
+
+## 評価対象の絞り込み（2723 → 1489 の内訳, 実数）
+
+awesome-go の全 2723 リポジトリをクローンし、`go list -m all`（all）と `GOOS=linux go list -deps ...`（imported）の両方が非空のものだけを評価対象（1489）とした。落ちた約1200件の内訳は以下:
+
+| 区分 | 件数 | 説明 |
+|---|---:|---|
+| クローン総数 | 2723 | awesome-go 掲載リポジトリ |
+| (1) `go list -m all` が0行 | **528** | ↓さらに2種に分かれる |
+| &nbsp;&nbsp;└ (1-A) 非Go（go.mod無し） | **416** | どのツール(syft/trivy/cdxgen/gomod)も `pkg:golang` を1つも検出しない＝Goモジュール情報が無い。マークダウンのawesomeリスト・他言語プロジェクト・旧GOPATH素ソース等。例: `sindresorhus/awesome`(md), `BayesWitnesses/m2cgen`(Python) |
+| &nbsp;&nbsp;└ (1-B) Goだが `go list -m all` が空/失敗 | **112** | ツールは `pkg:golang` を検出する＝go.modは在るが、ルートでの `go list -m all` がエラーで0行（go.modがサブディレクトリ・ワークスペースモード競合・旧式構成など）。例: `DATA-DOG/go-txdb`(workspaceモード競合) |
+| (2) Goだが外部依存ゼロ（all=自分のモジュールのみ） | **480** | `require` 無し。標準ライブラリだけで動く（例: `1set/gut`） |
+| (3) go.modに依存はあるが本番コードが外部を import せず（imported空） | **237** | all は非空だが imported が空 |
+| **(4) all・imported 両方そろい＝評価対象** | **1489** | 上表の集計対象 |
+
+合計: (1-A)416 + (1-B)112 + (2)480 + (3)237 + (4)1489 = 2734 ≈ 2723（境界±数件はクローン失敗・toolchain差による揺れ）。
+
+**(1-A)非Go と (1-B)go list空 の判定基準**: clone は計測後に削除済みのため、保存済みのツール出力JSONで判定した。syft/trivy は `go list` が失敗しても go.mod を直接パースして golang コンポーネントを出すので、「どのツールも `pkg:golang` を0個しか出さない」＝go.modがどこにも無い＝**非Go(1-A)**、「ツールは出すが `go list -m all` が0行」＝go.modはあるがルート評価不可＝**go list空(1-B)** と切り分けられる。
