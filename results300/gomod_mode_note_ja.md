@@ -48,3 +48,34 @@ cyclonedx-gomod mod -json -output <out> <folder>
 > awesome-go はライブラリ主体のため `mod` を採用した。結果として gomod は全OS分の依存を報告し、
 > GOOS=linux 固定の imported 正解に対しては他OS専用依存（mousetrap 等）が見かけの false positive となる。
 > これは cdxgen に見られるテスト依存の過剰計上とは原因が異なる。
+
+## 8. 定量実証（40件サンプル, 別ブランチ `claude/gomod-app-vs-mod` の隔離実験）
+section 6 の選択 1 が妥当であることを実データで確認した。awesome-go から 40 件抽出（評価可 39 件）、
+新規クローンから GT-imported(linux)・GT-all・`app`・`mod` を同一クローンで生成（既存 resultsAll は不使用）。
+詳細データ: `claude/gomod-app-vs-mod` ブランチの `results_appmod/`（`appmod2.csv`, `app_vs_mod_ja.md`）。
+
+### 8-1. カバレッジ（app が動くか）
+| 種別 | 件数 | app 出力 | mod 出力 |
+|---|---:|---|---|
+| ライブラリ（main無し） | 17 | 不可 | 可 |
+| app 実行失敗（mainありエラー） | 4 | 不可 | 可 |
+| アプリ（root/cmd/* に本物のmain） | 18 | 可 | 可 |
+| **計** | **39** | **18/39 (46%)** | **39/39 (100%)** |
+→ app は main 必須でライブラリでは動かず、**カバレッジ 46%**。mod は **100%**。
+
+### 8-2. 精度（vs GT-imported(linux), マクロ平均）
+| 対象 | ツール | P | R | F1 |
+|---|---|---:|---:|---:|
+| **単一バイナリのアプリ(11件)** | **app** | **1.00** | **1.00** | **1.00** |
+| 〃 | mod | 0.94 | 1.00 | 0.97 |
+| app出力ありの全18件 | app | 0.94 | 0.77 | 0.81 |
+| 〃 | **mod** | 0.94 | 1.00 | **0.97** |
+
+- **単一バイナリのアプリでは app が満点(F1=1.00)** ＝ ビルド制約評価で他OS過剰報告を削り imported(linux) と完全一致。
+  例: mbtileserver(imp21/app21/mod22), cdule(34/34/34), flowbaker(176/**175**/193)。
+- **複数バイナリ repo では app の recall が落ちる(0.77)**。app＝1バイナリの依存、GT-imported＝`go list ./...`＝**リポジトリ全体**の import → **スコープ差**であり app の欠陥ではない（go-task, woodpecker, minikube 等）。
+
+### 8-3. 確定した使い分け
+1. **リポジトリ単位・GT=モジュール全体・ライブラリ主体の本研究 → `mod`**（カバレッジ100%・GT全体スコープと構造一致・F1=0.97 vs imported）。**本番1489件の選択は妥当。**
+2. **「1つの出荷バイナリの SBOM」が単位なら → `app`**（imported(linux) と完全一致 F1=1.00）。
+3. スコープ（1バイナリ vs モジュール全体）を GT に合わせるのが大前提。
