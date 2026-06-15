@@ -26,6 +26,9 @@ for line in "${ROWS[@]}"; do
   name="${line%%,*}"; url="${line#*,}"
   [ -f "$OUT/$name.done" ] && continue
   i=$((i+1))
+  # disk guard: if free < 4G, force-clean caches before cloning
+  freekb=$(df --output=avail / | tail -1)
+  if [ "$freekb" -lt 4194304 ]; then go clean -modcache >/dev/null 2>&1; rm -rf "$GOMODCACHE" /root/go/pkg/mod; mkdir -p "$GOMODCACHE"; fi
   d="$WORK/$name"; rm -rf "$d"
   if ! timeout 180 git clone --depth=1 "$url" "$d" >/dev/null 2>&1; then
     echo "$name,CLONE_FAIL,0,,,,,,,,,,,,,,,," >> "$CSV"; touch "$OUT/$name.done"; continue
@@ -61,7 +64,7 @@ for line in "${ROWS[@]}"; do
   touch "$OUT/$name.done"
   rm -rf "$d"
   # disk bound
-  if [ $((i % 40)) -eq 0 ]; then go clean -modcache >/dev/null 2>&1; rm -rf "$GOMODCACHE"; mkdir -p "$GOMODCACHE"; fi
+  if [ $((i % 10)) -eq 0 ]; then go clean -modcache >/dev/null 2>&1; rm -rf "$GOMODCACHE" /root/go/pkg/mod; mkdir -p "$GOMODCACHE"; fi
   # incremental push every 25
   if [ $((i % 25)) -eq 0 ]; then
     git add -A "$OUT" >/dev/null 2>&1
