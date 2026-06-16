@@ -56,6 +56,32 @@ syft/trivy は go.mod(＋trivyは go.sum)を**静的パース** → 出力は **
 - vs all: 深い推移グラフを取りこぼす（FN）→ recall 低（66-68）。
 - どちらにも最適化されず両方そこそこ低い（F1 ≈ 68-73）。（機構の詳細は `syft_mechanism_ja.md`）
 
+## Q2b. cdxgen が0出力する23件の共通点（100%同一バグ）
+本番1489で cdxgen が出力0だった **23件すべて**、errors.txt に同じクラッシュ署名:
+```
+Error: Invalid purl: "name" is a required field.
+  at getGoPkgComponent (utils.js:10571)
+  at parseGoModData  (utils.js:10721)
+  at parseGoModGraph (utils.js:10938)  ← go mod graph の解析中
+```
+- 内訳: **Invalid purl 系クラッシュ = 23/23**。timeout/OOM = 0、その他 = 0。
+- 意味: cdxgen は `go mod graph` から component を作る際、**purl を生成できないモジュールが1つでもあると例外を投げ、SBOM全体を破棄して0出力**になる（all-or-nothing の脆さ）。
+- 規模は無関係: 大(benthos imp498, milvus273)も小(raft10, vscode-go2, xgo1)も同じバグで落ちる。
+- gomod は同じ23件すべてで正常出力 → **Goネイティブの gomod は頑健、外部Nodeの cdxgen は単一の不正モジュールで全滅**。
+- これが Q3 の「cdxgen の失敗裾」の正体＝23件の F1=0 が cdxgen のマクロ平均を引き下げ、逆転を生んだ。
+
+## 表は「名前一致(パスのみ)」— purl(バージョン)一致との差
+Image 1 / full_awesome_go.md は **名前一致（モジュールパスのみ、バージョン無視）**。purl(パス＋バージョン)一致だと:
+| tool | imp 名前一致 | imp purl一致 | all 名前一致 | all purl一致 |
+|---|---:|---:|---:|---:|
+| syft | 68.0 | 65.8 | 72.8 | 70.5 |
+| trivy | 68.0 | 66.2 | 73.3 | 71.2 |
+| cdxgen | 92.9 | 91.4 | 52.1 | 51.0 |
+| cyclonedx-gomod | 94.9 | **94.8** | 56.1 | 56.0 |
+- syft/trivy/cdxgen は purl一致で 1〜2点下がる（バージョンを取り違える/欠落することがある）。
+- **gomod はほぼ不変(94.9→94.8)＝バージョンまで正確**。
+- 教授提示時は「**この表は名前一致。バージョンを含めると上表の通り微減（gomod除く）**」と注記すれば十分。
+
 ## Q6. 正解(GT)の定義でランキングが変わる（確定）
 | 正解 | 1位 | 2位 | 3位 | 4位 |
 |---|---|---|---|---|
