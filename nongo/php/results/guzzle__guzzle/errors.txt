@@ -1,0 +1,28 @@
+Cloning into '/home/user/SBOM/nongo/php/work/guzzle__guzzle'...
++------------------------+------------+--------------------------+----------------------------------------------------+
+|                                           SECURE MODE: Environment audit                                            |
+|                                                   1 high   3 low                                                    |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Category               | Severity   | Variable(s)              | Details                                            |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
+|                        |            |                          | ed during SBOM generation—including package manage |
+|                        |            |                          | r install hooks—will run with full system privileg |
+|                        |            |                          | es.                                                |
+|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
+|                        |            |                          | se a container or VM with a dedicated low-privileg |
+|                        |            |                          | e account.                                         |
++------------------------+------------+--------------------------+----------------------------------------------------+
+| Credential Exposure    | LOW        | CLAUDE_CODE_CHILD_SESSIO | Credential-like environment variables are set. Bui |
+|                        |            | N                        | ld tools or install scripts invoked during SBOM ge |
+|                        |            | CLAUDE_CODE_USER_EMAIL   | neration may read inherited environment variables. |
+|                        |            | CODESIGN_MCP_TOKEN       | Mitigation: Unset unneeded secrets when scanning u |
+|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
+|                        |            |                          |  credentials injected only for the step that needs |
+|                        |            |                          |  them.                                             |
++------------------------+------------+--------------------------+----------------------------------------------------+
+[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
+Generating composer.lock in /home/user/SBOM/nongo/php/work/guzzle__guzzle
+Generating composer.lock in /home/user/SBOM/nongo/php/work/guzzle__guzzle/vendor-bin/phpstan
+Generating composer.lock in /home/user/SBOM/nongo/php/work/guzzle__guzzle/vendor-bin/php-cs-fixer
+Generating composer.lock in /home/user/SBOM/nongo/php/work/guzzle__guzzle/vendor-bin/composer-normalize
