@@ -10,8 +10,24 @@
 **Python / PHP / JavaScript を各 2 件**、フォルダを**完全に分離**し、すべて **Linux** 上で実験した。
 
 ## 方法論（Go 研究と同じ思想）
-- **正解（Ground Truth）= その言語のネイティブな完全推移依存解決**（dev/test/ツール依存も含む。
-  Go の `go list -m all` に相当する「広い」集合）。
+
+### この実験の「正解」は Go の `-m all` 相当（imported ではない）
+正解は **ネイティブのパッケージマネージャが解決・インストールする完全な推移依存集合**
+（prod + dev + test + ツール依存、ピン留め）。Go の **`go list -m all`（ビルドグラフ全体）に対応**する。
+`go list -deps` 相当の「実際に import / コンパイルされる本番ランタイムのみ」（= **imported**）は**作っていない**。
+
+| 言語 | 正解の中身 | Go 対応 |
+|---|---|---|
+| JS | `package-lock.json` の全ツリー（prod+dev+推移、ピン留め） | `-m all` |
+| PHP | `composer.lock`（require+require-dev）+ `vendor-bin/*` ツール | `-m all` |
+| Python | `pip install --dry-run --report`（deps/extras/dependency-groups + requirements*.txt を全解決） | `-m all` |
+
+→ cdxgen が出す dev/test 依存は **正解側にも入っている**ため、`all` 正解では正しくマッチし
+precision を不当に下げない。逆に **imported（本番のみ）** を正解にすると、cdxgen は dev も出すので
+precision は下がる（将来の拡張候補）。
+
+### 詳細
+- **正解（Ground Truth）= その言語のネイティブな完全推移依存解決**（上記 `-m all` 相当）。
   - **JavaScript** → `package-lock.json`（npm の全ツリー。未コミットなら
     `npm install --package-lock-only` でコードを落とさず解決）。
   - **PHP** → `composer.lock`（require + require-dev）。さらに `vendor-bin/*/composer.json`
@@ -40,27 +56,39 @@
 | Python | psf/requests | なし | 依存指定が緩く requirements-dev.txt |
 | Python | pallets/flask | なし | requirements/*.txt をピン留めで同梱 |
 
-## 結果（name レベル P / R / F1、括弧内は version レベル F1）
+## 結果
 
-| 言語 | プロジェクト | GT数 | cdxgen数 | P | R | F1 | ver-F1 |
-|---|---|---:|---:|---:|---:|---:|---:|
-| JS | expressjs/express | 330 | 327 | 100.0 | 99.1 | **99.5** | 92.5 |
-| JS | axios/axios | 644 | 825 | 78.1 | 100.0 | **87.7** | 74.3 |
-| PHP | guzzle/guzzle | 89 | 89 | 100.0 | 100.0 | **100.0** | 98.9 |
-| PHP | Seldaek/monolog | 77 | **0** | 0.0 | 0.0 | **0.0** | 0.0 |
-| Python | pallets/flask | 75 | 81 | 92.6 | 100.0 | **96.2** | 71.8 |
-| Python | psf/requests | 47 | 10 | 100.0 | 21.3 | **35.1** | 17.5 |
+すべて **Precision / Recall / F1** を明記する。`name` = パッケージ名一致、`version` = 名前＋バージョン厳密一致。
 
-**言語ごとの micro 平均**
+### プロジェクト別（name レベル）
+| 言語 | プロジェクト | GT数 | cdxgen数 | Precision | Recall | F1 |
+|---|---|---:|---:|---:|---:|---:|
+| JS | expressjs/express | 330 | 327 | 100.0 | 99.1 | **99.5** |
+| JS | axios/axios | 644 | 825 | 78.1 | 100.0 | **87.7** |
+| PHP | guzzle/guzzle | 89 | 89 | 100.0 | 100.0 | **100.0** |
+| PHP | Seldaek/monolog | 77 | **0** | 0.0 | 0.0 | **0.0** |
+| Python | pallets/flask | 75 | 81 | 92.6 | 100.0 | **96.2** |
+| Python | psf/requests | 47 | 10 | 100.0 | 21.3 | **35.1** |
 
-| 言語 | name P | name R | name F1 | ver F1 |
-|---|---:|---:|---:|---:|
-| JavaScript | 84.3 | 99.7 | **91.3** | 80.0 |
-| PHP | 100.0 | 53.6 | **69.8** | 69.0 |
-| Python | 93.4 | 69.7 | **79.8** | 57.3 |
-| （参考）Go ※ | ~92–100 | ~42–45 | **~56–58** | ~57 |
+### プロジェクト別（version レベル：名前＋バージョン一致）
+| 言語 | プロジェクト | Precision | Recall | F1 |
+|---|---|---:|---:|---:|
+| JS | expressjs/express | 93.0 | 92.1 | **92.5** |
+| JS | axios/axios | 66.2 | 84.8 | **74.3** |
+| PHP | guzzle/guzzle | 98.9 | 98.9 | **98.9** |
+| PHP | Seldaek/monolog | 0.0 | 0.0 | **0.0** |
+| Python | pallets/flask | 69.1 | 74.7 | **71.8** |
+| Python | psf/requests | 50.0 | 10.6 | **17.5** |
 
-※ Go は cdxgen vs `go list -m all`（216 件 / 厳選 6 件）。
+### 言語ごとの micro 平均
+| 言語 | name P | name R | name F1 | ver P | ver R | ver F1 |
+|---|---:|---:|---:|---:|---:|---:|
+| JavaScript | 84.3 | 99.7 | **91.3** | 73.8 | 87.3 | 80.0 |
+| PHP | 100.0 | 53.6 | **69.8** | 98.9 | 53.0 | 69.0 |
+| Python | 93.4 | 69.7 | **79.8** | 67.0 | 50.0 | 57.3 |
+| （参考）Go ※ | ~92–100 | ~42–45 | **~56–58** | – | – | ~57 |
+
+※ Go は cdxgen vs `go list -m all`（216 件 / 厳選 6 件）。Precision はほぼ 100%（誤検出ゼロ）が特徴。
 
 ## 考察 — 「Go 以外だとどうなるか」
 
