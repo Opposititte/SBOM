@@ -20,15 +20,29 @@ for line in "${ROWS[@]}"; do
   [ -f "$DONE/$name" ] && continue
   i=$((i+1))
   freekb=$(df --output=avail / | tail -1); [ "$freekb" -lt 4194304 ] && { go clean -modcache >/dev/null 2>&1; rm -rf "$GOMODCACHE" /root/go/pkg/mod; mkdir -p "$GOMODCACHE"; }
-  d="$WORK/$name"; rm -rf "$d"
-  if ! timeout 180 git clone --depth=1 "$url" "$d" >/dev/null 2>&1; then
-    echo "$name,CLONE_FAIL" >> "$CSV"; touch "$DONE/$name"; continue
+  # --- Goモジュールプロキシ経由でソース取得（github cloneがegressポリシーで403のため）---
+  # 元の git clone と同等: 主モジュールのソースを取得して go list -deps -test を回す。
+  # 主モジュールパスは resultsAll の保存GT(gt_go_list.txt 先頭行)を使う。
+  gl="$ROOT/resultsAll/$name/gt_go_list.txt"
+  [ -f "$gl" ] || { echo "$name,NO_GT" >> "$CSV"; touch "$DONE/$name"; continue; }
+  mod=$(head -1 "$gl" | awk '{print $1}')
+  [ -z "$mod" ] && { echo "$name,NO_MOD" >> "$CSV"; touch "$DONE/$name"; continue; }
+  # Goプロキシのパスエスケープ: 大文字X -> !x
+  emod=$(printf '%s' "$mod" | sed -E 's/([A-Z])/!\L\1/g')
+  ver=$(curl -fsS --max-time 60 "https://proxy.golang.org/${emod}/@latest" 2>/dev/null \
+        | node -e 'let d="";process.stdin.on("data",c=>d+=c).on("end",()=>{try{process.stdout.write(JSON.parse(d).Version||"")}catch(e){}})')
+  [ -z "$ver" ] && { echo "$name,NO_VER" >> "$CSV"; touch "$DONE/$name"; continue; }
+  d="$WORK/$name"; rm -rf "$d"; mkdir -p "$d"
+  if ! curl -fsS --max-time 240 -o "$d/m.zip" "https://proxy.golang.org/${emod}/@v/${ver}.zip" 2>/dev/null; then
+    echo "$name,ZIP_FAIL" >> "$CSV"; touch "$DONE/$name"; rm -rf "$d"; continue
   fi
-  main=$(cd "$d" && timeout 120 go list -m 2>/dev/null | head -1 | awk '{print $1}')
+  (cd "$d" && unzip -q m.zip) 2>/dev/null || { echo "$name,UNZIP_FAIL" >> "$CSV"; touch "$DONE/$name"; rm -rf "$d"; continue; }
+  src="$d/${mod}@${ver}"   # zip内部は非エスケープの実パス
+  [ -d "$src" ] || { echo "$name,NODIR" >> "$CSV"; touch "$DONE/$name"; rm -rf "$d"; continue; }
   fd="$WORK/fresh_$name"; rm -rf "$fd"; mkdir -p "$fd"
   # imported+test を「パス バージョン」で生成（ここがバージョン対応の肝）
-  (cd "$d" && GOOS=linux timeout 180 go list -deps -test -e -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./... 2>/dev/null) \
-    | grep -v '^$' | grep -v "^$main \?$" | sort -u > "$fd/impT_ver.txt"
+  (cd "$src" && GOOS=linux GOFLAGS=-mod=mod timeout 300 go list -deps -test -e -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./... 2>/dev/null) \
+    | grep -v '^$' | grep -v "^$mod \?$" | sort -u > "$fd/impT_ver.txt"
   node "$OUT/compute_3gt_ver.js" "$name" "$fd" 2>/dev/null
   touch "$DONE/$name"
   rm -rf "$d" "$fd"
