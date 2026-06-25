@@ -29,11 +29,11 @@ for line in "${ROWS[@]}"; do
   [ -z "$mod" ] && { echo "$name,NO_MOD" >> "$CSV"; touch "$DONE/$name"; continue; }
   # Goプロキシのパスエスケープ: 大文字X -> !x
   emod=$(printf '%s' "$mod" | sed -E 's/([A-Z])/!\L\1/g')
-  ver=$(curl -fsS --max-time 60 "https://proxy.golang.org/${emod}/@latest" 2>/dev/null \
+  ver=$(curl -fsSL --max-time 60 "https://proxy.golang.org/${emod}/@latest" 2>/dev/null \
         | node -e 'let d="";process.stdin.on("data",c=>d+=c).on("end",()=>{try{process.stdout.write(JSON.parse(d).Version||"")}catch(e){}})')
   [ -z "$ver" ] && { echo "$name,NO_VER" >> "$CSV"; touch "$DONE/$name"; continue; }
   d="$WORK/$name"; rm -rf "$d"; mkdir -p "$d"
-  if ! curl -fsS --max-time 240 -o "$d/m.zip" "https://proxy.golang.org/${emod}/@v/${ver}.zip" 2>/dev/null; then
+  if ! curl -fsSL --max-time 240 -o "$d/m.zip" "https://proxy.golang.org/${emod}/@v/${ver}.zip" 2>/dev/null; then
     echo "$name,ZIP_FAIL" >> "$CSV"; touch "$DONE/$name"; rm -rf "$d"; continue
   fi
   (cd "$d" && unzip -q m.zip) 2>/dev/null || { echo "$name,UNZIP_FAIL" >> "$CSV"; touch "$DONE/$name"; rm -rf "$d"; continue; }
