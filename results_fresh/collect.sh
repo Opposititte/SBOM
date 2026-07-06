@@ -7,7 +7,9 @@ set -u
 ROOT=/home/user/SBOM
 OUT="$ROOT/results_fresh/data"; DONE="$OUT/.done"; WORK=/tmp/fresh_work
 export GOMODCACHE=/tmp/fresh_modcache
-export GOFLAGS=-mod=mod GOEXPERIMENT=jsonv2
+# 注: GOEXPERIMENT=jsonv2 は trivy の「ビルド」専用。ここ(実行時)で設定すると
+# 古い go 指定のrepoで `go list` が "unknown GOEXPERIMENT" で失敗するため設定しない。
+export GOFLAGS=-mod=mod
 mkdir -p "$OUT" "$DONE" "$WORK" "$GOMODCACHE"
 LIST="${1:-$ROOT/results3gt/repolist.csv}"
 LIMIT="${2:-100000}"
