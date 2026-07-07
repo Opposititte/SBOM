@@ -101,6 +101,27 @@ recall/F1 は「正解GTに少なくとも1件ある」repoのみで算出（imp
 両系統とも「**宣言（go.modファイル群 / go.sum）**」を報告し、正解の「**実import（go list -deps）**」とズレる。
 ズレ方が「スコープが横に広い（cdxgen＝ツリー全体）」か「粒度が縦に粗い（gomod＝未使用indirect）」かで異なる。バグではなく設計選択。
 
+## 2b. 有効評価repo数がツールで違う理由
+
+各ツールが一部repoで出力を出せず NA になるため。母数は「全ツール共通で成功した集合」ではなく各ツールの成功repo。
+
+| ツール | 有効 | 失敗(NA) | 失敗の主因（実測） |
+|---|---|---|---|
+| syft | 1486 | 0 | go.mod/go.sum をファイルとして読む（ビルド不要）ので堅牢。失敗なし |
+| trivy | 1477 | 9 | 主に巨大repo（anchore/syft, seaweedfs 等）でのタイムアウト |
+| cdxgen | 1442 | 44 | **ネストモジュールを再帰処理**するため、壊れた例モジュール（例 `storybook/_example`）の `go list -deps` 失敗で全体が中断 |
+| cyclonedx-gomod | 1436 | 50 | 内部で厳格な `go list -mod readonly -m all` を使い、go.sum不完全/解決不能なrepoで失敗 |
+
+## 2c. 既知の注意点（バグではないが解釈に影響）
+
+- **`replace` ディレクティブ**：GT(`go list -deps`)は元のimportパスを、cyclonedx-gomod等は差替先モジュールパスを報告する。
+  例 gossamer: GT `centrifuge/go-substrate-rpc-client` ⇔ gomod `timwu20/go-substrate-rpc-client`。
+  → 同一依存が **FN(元パス)＋FP(差替先)** の両方に計上される（対称ノイズ、全ツール共通の性質）。
+- **CSV列名 `fp_gosum_only` は残余バケツの誤称**。実体は「imported/impT/別OS/go.mod直接・間接 のどれでもない残余」で、
+  §2の通り go.sum残骸とネスト兄弟モジュールが混在（tool別に §2 参照）。
+- **マクロは空GT除外必須**：imported依存ゼロのrepoでツールが誤報告すると recall=0 と誤計上され過小評価になる。
+  §1 は除外済み（`macro_clean.js` / 修正後 `final_tables.js`）。`final_tables.js` のミクロ・TP/FP/FN は空GTの影響を受けない。
+
 ## 3. データ
 - `metrics_fresh.csv`：repo×tool ごとの name/version × all/imp/impT の TP/FP/FN ＋ FP原因バケツ。
 - 残余バケツの go.sum残骸 vs ネスト兄弟mod の分離は retain 95repo の go.sum 実照合による（生データ保持分）。

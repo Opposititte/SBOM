@@ -17,9 +17,10 @@ for (const c of rows) {
     const tp = +c[i], fp = +c[i + 1], fn = +c[i + 2];
     if (isNaN(tp)) continue;
     const C0 = C[t][m + '_' + g]; C0.tp += tp; C0.fp += fp; C0.fn += fn;
-    if (tp + fp + fn === 0) continue;
-    const p = tp / (tp + fp || 1), r = tp / (tp + fn || 1), f = 2 * p * r / ((p + r) || 1);
-    const A = M[t][m + '_' + g]; A.p.push(p); A.r.push(r); A.f.push(f);
+    // マクロは空GTを除外（recall過小評価を防ぐ。macro_clean.js と同一ロジック）
+    const A = M[t][m + '_' + g];
+    if (tp + fp > 0) A.p.push(tp / (tp + fp));
+    if (tp + fn > 0) { const p = tp + fp > 0 ? tp / (tp + fp) : 0, r = tp / (tp + fn); A.r.push(r); A.f.push(p + r > 0 ? 2 * p * r / (p + r) : 0); }
   }
 }
 const avg = a => a.length ? (100 * a.reduce((s, x) => s + x, 0) / a.length).toFixed(1) : '-';
