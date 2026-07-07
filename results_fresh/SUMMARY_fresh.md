@@ -105,6 +105,9 @@ recall/F1 は「正解GTに少なくとも1件ある」repoのみで算出（imp
   - FP源①：**go list -deps 失敗時の fallback**（`cli/index.js:5479-5491`）で **go mod graph 単独**＝module requirements graph で過剰報告（utils.js:10967）。
   - FP源②：**ネスト兄弟モジュール**（`for (const f of sortedGomodFiles)` :5451 でツリー全 go.mod 走査）。testifylint 超過12=`analyzer/testdata/src/go.mod`、gossamer=`scripts/`+`devnet/`。
   ＝「go list -deps だけ」ではなく **go list -deps（正）＋go mod graph（辺のみ・濾し済み）**。膨らむのは fallback とネスト時のみ。
+  - **完全一致⟺単一go.mod の相関（retain再クローン実測）**：単一go.mod→97%(69/71)完全一致、複数go.mod→83%(15/18)不一致。
+    例外：単一なのに不一致2件(go-etl,plik＝fallback等の別要因FP)、複数なのに一致3件(rk-grpc等＝ネストが vendor/build/test-fixtures でcdxgen除外[cli/index.js:5453-5459] か 部分集合)。
+    → 「複数go.modの時に主に起きる」は断言可、「単一なら必ず一致」は~97%（"ほぼ"付き）。
 - **cyclonedx-gomod**（`mod` モード。**一次証拠：cyclonedx-gomod v1.10.0 / commit ba940a6**）：
   - `pkg/generate/mod/generator.go:78` → `gomod.LoadModules(...)`
   - `internal/gomod/module.go:133` → `gocmd.ListModules`（=`go list -mod readonly -json -m all`, gocmd.go:83-84）
