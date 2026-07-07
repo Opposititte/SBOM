@@ -94,14 +94,15 @@ recall/F1 は「正解GTに少なくとも1件ある」repoのみで算出（imp
   実証：retain 89repo 中 **72repo(81%) で cdxgen==imported が完全一致**（blocky 128=128 等）。単一モジュールrepoでは正解と一致。
   差が出るのは**ネスト兄弟モジュール（examples/cmd/testdata/scripts の別go.mod）を持つrepoだけ**で、その nested 側の実importが余分FPになる。
   実証：testifylint 超過12が `analyzer/testdata/src/go.mod`、gossamer が `scripts/`+`devnet/`。cdxgenのF1<100(imported precision 90.3)の唯一の原因はこれ。
-- **cyclonedx-gomod**：内部で `go list -m all`（build list）を取り、**go.mod require 相当へ絞り込んだ集合**を出す。
-  実測（blocky）：出力188 ⊂ go.mod require 194（6件除外の部分集合）。go.sum(334)やbuild-list全体(334)は出さない。
-  そのため imported(128) に対する超過FP=60＝**go.mod require のうち実importしない indirect**。`go mod why` 剪定はせず、実import単位では絞らない。
-  ※ 対 syft との差の本質：**gomod は go.mod require どまり、syft は go.sum まで踏み込む**（blocky: syft 231 ⊂ go.sum 334）。
-  go.mod require(194) ⊊ go.sum(334) なので、syft の超過FP=103 > gomod の60。これが precision 差（imported で gomod≫syft）の源。
-  **一般性（retain 93repo 検証）**：cyclonedx-gomod ⊆ go.mod require が 94%(87/93) のrepoで成立、gomod件数/require件数 中央値0.94。
-  syft > require が 80%(74/93)。ほぼ全例で **gomod ≤ require < syft**。1repoでなく多repoで確認済み。
-  （安全な表現は「gomod ≈ require の**部分集合**」。gomodが強く絞るrepoもある例: pgxcli gomod64/require112。ただしrequire外=0で部分集合関係は保持。）
+- **cyclonedx-gomod**（`mod` モード。ソース `internal/gomod/module.go`, `filter.go` で確認）：
+  1. `go list -mod readonly -json -m all` で **build list**（blocky=335）を取得
+  2. **`go mod why -m -vendor`** で各モジュールを検査し、**「到達可能なもの」だけ残す**（"not needed" と test専用を除外）→ blocky 188
+  3. replace 解決
+  ＝「go.mod require そのまま」でも「build list そのまま」でもなく、**`go mod why` による到達可能性フィルタ**。結果が go.mod require(194) に近い(188)のは副産物。
+  - imported(128) に対する超過FP=60 は、`go mod why` の到達性が **imported（GOOS=linux・非test の go list -deps）より広い**（別OS/ビルドタグ跨ぎ等）ため。FP内訳の otherOS 14% と整合。
+  ※ 対 syft との差：**gomod は go mod why 到達可能集合どまり（≈require, blocky188）、syft は go.sum まで踏み込む（blocky231 ⊂ go.sum334）**。
+  実測件数の一般性（retain 93repo）：ほぼ全例で **gomod ≤ require < syft**（gomod⊆require 94%、syft>require 80%）。この「読む広さ」の差が imported precision 差（gomod≫syft）の源。
+  【訂正履歴】初期の「require/indirect をそのまま」「go mod why は使わない」は誤り。ソース確認で **go mod why を使う**が正。
 - **syft/trivy**：go.mod＋go.sum を読み、かつツリー内の別go.modも拾うため、**go.sum残骸とネスト兄弟モジュールの両方**が混入。
 
 ### 統一的理解
