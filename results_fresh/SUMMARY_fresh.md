@@ -94,7 +94,12 @@ recall/F1 は「正解GTに少なくとも1件ある」repoのみで算出（imp
   実証：retain 89repo 中 **72repo(81%) で cdxgen==imported が完全一致**（blocky 128=128 等）。単一モジュールrepoでは正解と一致。
   差が出るのは**ネスト兄弟モジュール（examples/cmd/testdata/scripts の別go.mod）を持つrepoだけ**で、その nested 側の実importが余分FPになる。
   実証：testifylint 超過12が `analyzer/testdata/src/go.mod`、gossamer が `scripts/`+`devnet/`。cdxgenのF1<100(imported precision 90.3)の唯一の原因はこれ。
-- **cyclonedx-gomod**（`mod` モード。ソース `internal/gomod/module.go`, `filter.go` で確認）：
+- **cyclonedx-gomod**（`mod` モード。**一次証拠：cyclonedx-gomod v1.10.0 / commit ba940a6**）：
+  - `pkg/generate/mod/generator.go:78` → `gomod.LoadModules(...)`
+  - `internal/gomod/module.go:133` → `gocmd.ListModules`（=`go list -mod readonly -json -m all`, gocmd.go:83-84）
+  - `internal/gomod/module.go:143` → `FilterModules`（`internal/gomod/filter.go:66` で `gocmd.ModWhy` 呼び出し）
+  - `internal/gocmd/gocmd.go:119-123` → `ModWhy` = **`go mod why -m -vendor`**
+  - filter.go:70-93 → go mod why が "not needed"(空) と test専用 を除外
   1. `go list -mod readonly -json -m all` で **build list**（blocky=335）を取得
   2. **`go mod why -m -vendor`** で各モジュールを検査し、**「到達可能なもの」だけ残す**（"not needed" と test専用を除外）→ blocky 188
   3. replace 解決
