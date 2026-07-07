@@ -90,9 +90,10 @@ recall/F1 は「正解GTに少なくとも1件ある」repoのみで算出（imp
 | trivy | 34,265 | 同上（go.sum残骸/ネスト/indirect/test の混在） |
 
 ### 機序（実証済み）
-- **cdxgen**：リポジトリツリー内の**全 go.mod/go.sum を再帰的に集約**。ルートモジュールだけを見る `go list -deps`（正解）に対し、
-  兄弟サブモジュール（例・CLI・testdata・scripts）の依存を余分に載せる。
-  実証：testifylint FP 11/11 が `analyzer/testdata/src/go.mod`、gossamer 11/11 が `scripts/`+`devnet/`、残余の92%がルートgo.sum外。
+- **cdxgen**：4ツールで唯一 **`go list -deps`（実import解析）をやっている**。ただしルートだけでなく**ツリー内の各モジュールに対して実行し union する**。
+  実証：retain 89repo 中 **72repo(81%) で cdxgen==imported が完全一致**（blocky 128=128 等）。単一モジュールrepoでは正解と一致。
+  差が出るのは**ネスト兄弟モジュール（examples/cmd/testdata/scripts の別go.mod）を持つrepoだけ**で、その nested 側の実importが余分FPになる。
+  実証：testifylint 超過12が `analyzer/testdata/src/go.mod`、gossamer が `scripts/`+`devnet/`。cdxgenのF1<100(imported precision 90.3)の唯一の原因はこれ。
 - **cyclonedx-gomod**：内部で `go list -m all`（build list）を取り、**go.mod require 相当へ絞り込んだ集合**を出す。
   実測（blocky）：出力188 ⊂ go.mod require 194（6件除外の部分集合）。go.sum(334)やbuild-list全体(334)は出さない。
   そのため imported(128) に対する超過FP=60＝**go.mod require のうち実importしない indirect**。`go mod why` 剪定はせず、実import単位では絞らない。
