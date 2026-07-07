@@ -34,6 +34,17 @@ for (const m of ['name', 'ver']) {
     console.log(`| ${t} | ${avg(g('all').p)} / ${avg(g('imported').p)} / ${avg(g('impT').p)} | ${avg(g('all').r)} / ${avg(g('imported').r)} / ${avg(g('impT').r)} | **${avg(g('all').f)} / ${avg(g('imported').f)} / ${avg(g('impT').f)}** |`);
   }
 }
+// ミクロ集計（プール合計から算出）
+for (const m of ['name', 'ver']) {
+  console.log(`\n## ${m === 'name' ? 'name一致' : 'version一致'} — micro (プール合計から算出) P / R / F1 (%)\n`);
+  console.log('| ツール | precision (all/imp/impT) | recall (all/imp/impT) | f1 (all/imp/impT) |');
+  console.log('|---|---|---|---|');
+  for (const t of tools) {
+    const mp = k => { const c = C[t][m + '_' + k]; const p = c.tp / (c.tp + c.fp || 1), r = c.tp / (c.tp + c.fn || 1), f = 2 * p * r / ((p + r) || 1); return [p, r, f].map(x => (100 * x).toFixed(1)); };
+    const a = mp('all'), i = mp('imported'), t2 = mp('impT');
+    console.log(`| ${t} | ${a[0]} / ${i[0]} / ${t2[0]} | ${a[1]} / ${i[1]} / ${t2[1]} | **${a[2]} / ${i[2]} / ${t2[2]}** |`);
+  }
+}
 for (const m of ['name', 'ver']) {
   console.log(`\n## ${m === 'name' ? 'name一致' : 'version一致'} — TP / FP / FN プール合計\n`);
   for (const g of ['all', 'imported', 'impT']) {
