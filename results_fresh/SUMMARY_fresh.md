@@ -4,17 +4,29 @@
 3つのGT（版付き）と syft/trivy/cdxgen/cyclonedx-gomod の4ツールを**同時に生成**。
 これによりGTとツール出力の生成時点が完全一致し、旧データにあった impT のバージョン時点アーティファクトを解消した。
 
-## 1. name一致 / version一致 × all/imported/impT（macro平均 F1, %）
+## 1. name一致 / version一致 × all/imported/impT（macro平均 precision / recall / F1, %）
 
-| ツール | name (all/imp/impT) | version (all/imp/impT) |
-|---|---|---|
-| syft | 68.4 / 67.5 / 78.7 | 67.6 / 66.8 / 77.9 |
-| trivy | 68.7 / 67.7 / 78.8 | 67.9 / 67.1 / 78.2 |
-| cdxgen | 50.3 / 91.8 / 81.1 | 49.8 / 91.4 / 80.7 |
-| cyclonedx-gomod | 54.3 / 95.1 / 82.9 | 54.2 / 95.0 / 82.8 |
+### name一致
 
-- **impT の name→version 落差が -0.1〜-0.8pt**（旧データは約-9pt）。同一時点収集で版一致が3GT全部で有効に。
+| ツール | precision (all/imp/impT) | recall (all/imp/impT) | F1 (all/imp/impT) |
+|---|---|---|---|
+| syft | 88.4 / 56.7 / 70.0 | 62.5 / 97.3 / 97.3 | 68.4 / 67.5 / 78.7 |
+| trivy | 87.8 / 58.7 / 72.3 | 63.6 / 97.3 / 97.2 | 68.7 / 67.7 / 78.8 |
+| cdxgen | 90.7 / 90.3 / 91.2 | 40.2 / 97.2 / 80.5 | 50.3 / 91.8 / 81.1 |
+| cyclonedx-gomod | 96.1 / 93.2 / 93.3 | 41.8 / 98.8 / 80.7 | 54.3 / 95.1 / 82.9 |
+
+### version一致
+
+| ツール | precision (all/imp/impT) | recall (all/imp/impT) | F1 (all/imp/impT) |
+|---|---|---|---|
+| syft | 87.1 / 56.0 / 69.2 | 62.0 / 97.2 / 97.2 | 67.6 / 66.8 / 77.9 |
+| trivy | 86.7 / 58.1 / 71.7 | 62.9 / 97.2 / 97.2 | 67.9 / 67.1 / 78.2 |
+| cdxgen | 89.8 / 89.7 / 90.6 | 39.8 / 97.2 / 80.4 | 49.8 / 91.4 / 80.7 |
+| cyclonedx-gomod | 96.0 / 93.1 / 93.3 | 41.8 / 98.7 / 80.7 | 54.2 / 95.0 / 82.8 |
+
+- **impT の name→version F1落差が -0.1〜-0.8pt**（旧データは約-9pt）。同一時点収集で版一致が3GT全部で有効に。
 - **優劣の逆転構造は健在**：all では syft/trivy 優位、imported では cdxgen/cyclonedx-gomod 優位。name/version で不変。
+- precision/recall 視点：**all** は precision高・recall低（未報告indirectがFN）。**imported** は recallほぼ100%で precision差が優劣を決める（syft/trivy 57〜59% vs cdxgen/gomod 90〜93%）。**impT** は両者中間。
 
 ## 2. なぜ imported でも F1=100 にならないか（原因分析）
 
