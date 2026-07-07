@@ -6,27 +6,31 @@
 
 ## 1. name一致 / version一致 × all/imported/impT（macro平均 precision / recall / F1, %）
 
+母数（有効評価repo数）: syft 1486 / trivy 1477 / cdxgen 1442 / cyclonedx-gomod 1436（対象リストは1489、CLONE_FAIL 2）。
+recall/F1 は「正解GTに少なくとも1件ある」repoのみで算出（imported依存ゼロのrepoは find-rate が定義できないため除外）。
+
 ### name一致
 
 | ツール | precision (all/imp/impT) | recall (all/imp/impT) | F1 (all/imp/impT) |
 |---|---|---|---|
-| syft | 88.4 / 56.7 / 70.0 | 62.5 / 97.3 / 97.3 | 68.4 / 67.5 / 78.7 |
-| trivy | 87.8 / 58.7 / 72.3 | 63.6 / 97.3 / 97.2 | 68.7 / 67.7 / 78.8 |
-| cdxgen | 90.7 / 90.3 / 91.2 | 40.2 / 97.2 / 80.5 | 50.3 / 91.8 / 81.1 |
-| cyclonedx-gomod | 96.1 / 93.2 / 93.3 | 41.8 / 98.8 / 80.7 | 54.3 / 95.1 / 82.9 |
+| syft | 88.4 / 56.7 / 70.0 | 65.6 / 99.9 / 99.9 | 71.7 / 69.3 / 80.8 |
+| trivy | 87.8 / 58.7 / 72.3 | 66.7 / 99.9 / 99.9 | 72.1 / 69.5 / 81.0 |
+| cdxgen | 90.7 / 90.3 / 91.2 | 42.1 / 99.8 / 82.6 | 52.7 / 94.2 / 83.3 |
+| cyclonedx-gomod | 96.1 / 93.2 / 93.3 | 43.5 / 99.2 / 81.1 | 56.4 / 95.5 / 83.2 |
 
 ### version一致
 
 | ツール | precision (all/imp/impT) | recall (all/imp/impT) | F1 (all/imp/impT) |
 |---|---|---|---|
-| syft | 87.1 / 56.0 / 69.2 | 62.0 / 97.2 / 97.2 | 67.6 / 66.8 / 77.9 |
-| trivy | 86.7 / 58.1 / 71.7 | 62.9 / 97.2 / 97.2 | 67.9 / 67.1 / 78.2 |
-| cdxgen | 89.8 / 89.7 / 90.6 | 39.8 / 97.2 / 80.4 | 49.8 / 91.4 / 80.7 |
-| cyclonedx-gomod | 96.0 / 93.1 / 93.3 | 41.8 / 98.7 / 80.7 | 54.2 / 95.0 / 82.8 |
+| syft | 87.1 / 56.0 / 69.2 | 65.0 / 99.8 / 99.8 | 70.9 / 68.6 / 80.1 |
+| trivy | 86.7 / 58.1 / 71.7 | 66.0 / 99.8 / 99.8 | 71.2 / 69.0 / 80.3 |
+| cdxgen | 89.8 / 89.7 / 90.6 | 41.7 / 99.8 / 82.5 | 52.2 / 93.8 / 82.8 |
+| cyclonedx-gomod | 96.0 / 93.1 / 93.3 | 43.5 / 99.1 / 81.0 | 56.4 / 95.4 / 83.2 |
 
 - **impT の name→version F1落差が -0.1〜-0.8pt**（旧データは約-9pt）。同一時点収集で版一致が3GT全部で有効に。
 - **優劣の逆転構造は健在**：all では syft/trivy 優位、imported では cdxgen/cyclonedx-gomod 優位。name/version で不変。
-- precision/recall 視点：**all** は precision高・recall低（未報告indirectがFN）。**imported** は recallほぼ100%で precision差が優劣を決める（syft/trivy 57〜59% vs cdxgen/gomod 90〜93%）。**impT** は両者中間。
+- precision/recall 視点：**all** は precision高・recall低（未報告indirectがFN）。**imported** は **recall ほぼ100%（99.2〜99.9%）**で、**precision差が優劣を決める**（syft/trivy 57〜59% vs cdxgen/gomod 90〜93%）。**impT** は両者中間。
+- （マクロ算出は `macro_clean.js`。空GT除外前の素の集計は `final_tables.js` にあるが、recallを過小評価するため §1 は clean 版を採用）
 
 ## 1b. ミクロ集計（プール合計から算出 P / R / F1, %）
 
@@ -73,8 +77,9 @@
 
 ## 2. なぜ imported でも F1=100 にならないか（原因分析）
 
-- **どのツールも recall はほぼ 100%（取りこぼしは僅少）**。F1<100 の主因は **FP（余分報告）＝precision低下**。
-  - recall: syft 99.7% / trivy 99.8% / cdxgen 99.8% / cyclonedx-gomod 98.9%
+- **どのツールも imported の recall はほぼ 100%（マクロ）＝取りこぼしは僅少**。F1<100 の主因は **FP（余分報告）＝precision低下**。
+  - imported マクロ recall: syft 99.9% / trivy 99.9% / cdxgen 99.8% / cyclonedx-gomod 99.2%
+  - imported マクロ precision: syft 56.7% / trivy 58.7% / cdxgen 90.3% / cyclonedx-gomod 93.2% ← ここの差が F1 と優劣を決める
 - **FPの正体はツールごとに異なる**（全1486プール＋retain95repoでの残余分離）：
 
 | ツール | imp_FP | 主因 |
