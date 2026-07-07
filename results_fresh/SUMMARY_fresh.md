@@ -93,8 +93,11 @@ recall/F1 は「正解GTに少なくとも1件ある」repoのみで算出（imp
 - **cdxgen**：リポジトリツリー内の**全 go.mod/go.sum を再帰的に集約**。ルートモジュールだけを見る `go list -deps`（正解）に対し、
   兄弟サブモジュール（例・CLI・testdata・scripts）の依存を余分に載せる。
   実証：testifylint FP 11/11 が `analyzer/testdata/src/go.mod`、gossamer 11/11 が `scripts/`+`devnet/`、残余の92%がルートgo.sum外。
-- **cyclonedx-gomod**：`mod` は go.mod の依存グラフ（indirect含む）をそのままSBOM化。Go1.17+ がグラフ完全性のため記録する
-  indirect のうち、このモジュールが実importしないものが全部FP。`go mod why` による剪定はしない。実証：blocky FP 60/60 が go.mod indirect。
+- **cyclonedx-gomod**：内部で `go list -m all`（build list）を取り、**go.mod require 相当へ絞り込んだ集合**を出す。
+  実測（blocky）：出力188 ⊂ go.mod require 194（6件除外の部分集合）。go.sum(334)やbuild-list全体(334)は出さない。
+  そのため imported(128) に対する超過FP=60＝**go.mod require のうち実importしない indirect**。`go mod why` 剪定はせず、実import単位では絞らない。
+  ※ 対 syft との差の本質：**gomod は go.mod require どまり、syft は go.sum まで踏み込む**（blocky: syft 231 ⊂ go.sum 334）。
+  go.mod require(194) ⊊ go.sum(334) なので、syft の超過FP=103 > gomod の60。これが precision 差（imported で gomod≫syft）の源。
 - **syft/trivy**：go.mod＋go.sum を読み、かつツリー内の別go.modも拾うため、**go.sum残骸とネスト兄弟モジュールの両方**が混入。
 
 ### 統一的理解
