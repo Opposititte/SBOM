@@ -90,10 +90,14 @@ recall/F1 は「正解GTに少なくとも1件ある」repoのみで算出（imp
 | trivy | 34,265 | 同上（go.sum残骸/ネスト/indirect/test の混在） |
 
 ### 機序（実証済み）
-- **cdxgen**：4ツールで唯一 **`go list -deps`（実import解析）をやっている**。ただしルートだけでなく**ツリー内の各モジュールに対して実行し union する**。
-  実証：retain 89repo 中 **72repo(81%) で cdxgen==imported が完全一致**（blocky 128=128 等）。単一モジュールrepoでは正解と一致。
-  差が出るのは**ネスト兄弟モジュール（examples/cmd/testdata/scripts の別go.mod）を持つrepoだけ**で、その nested 側の実importが余分FPになる。
-  実証：testifylint 超過12が `analyzer/testdata/src/go.mod`、gossamer が `scripts/`+`devnet/`。cdxgenのF1<100(imported precision 90.3)の唯一の原因はこれ。
+- **cdxgen**（一次証拠：**cdxgen v12.7.0**、`lib/cli/index.js`, `lib/helpers/utils.js`）：
+  - `cli/index.js:5466` → **`go list -deps -f '...' ./...`**＝「correct list of dependencies」（コンパイルグラフ＝実import）。これがコンポーネント一覧。
+  - `cli/index.js:5521` → **`go mod graph`**＝「construct the dependency tree」（親子の辺）。
+  - `utils.js:10879-10888` → **go mod graph は go list -deps の一覧で濾す**（両端がexistingPkgMapに無ければ辺ごと捨てる）→ **辺のみ追加、成分は足さない**。
+  - ゆえに **コンポーネント集合 ≈ go list -deps ≈ imported**。実証：retain 89repo 中 **72repo(81%) で cdxgen==imported 完全一致**（blocky 128=128）。
+  - FP源①：**go list -deps 失敗時の fallback**（`cli/index.js:5479-5491`）で **go mod graph 単独**＝module requirements graph で過剰報告（utils.js:10967）。
+  - FP源②：**ネスト兄弟モジュール**（`for (const f of sortedGomodFiles)` :5451 でツリー全 go.mod 走査）。testifylint 超過12=`analyzer/testdata/src/go.mod`、gossamer=`scripts/`+`devnet/`。
+  ＝「go list -deps だけ」ではなく **go list -deps（正）＋go mod graph（辺のみ・濾し済み）**。膨らむのは fallback とネスト時のみ。
 - **cyclonedx-gomod**（`mod` モード。**一次証拠：cyclonedx-gomod v1.10.0 / commit ba940a6**）：
   - `pkg/generate/mod/generator.go:78` → `gomod.LoadModules(...)`
   - `internal/gomod/module.go:133` → `gocmd.ListModules`（=`go list -mod readonly -json -m all`, gocmd.go:83-84）
