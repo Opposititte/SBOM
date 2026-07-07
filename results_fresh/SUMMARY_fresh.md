@@ -98,6 +98,9 @@ recall/F1 は「正解GTに少なくとも1件ある」repoのみで算出（imp
   そのため imported(128) に対する超過FP=60＝**go.mod require のうち実importしない indirect**。`go mod why` 剪定はせず、実import単位では絞らない。
   ※ 対 syft との差の本質：**gomod は go.mod require どまり、syft は go.sum まで踏み込む**（blocky: syft 231 ⊂ go.sum 334）。
   go.mod require(194) ⊊ go.sum(334) なので、syft の超過FP=103 > gomod の60。これが precision 差（imported で gomod≫syft）の源。
+  **一般性（retain 93repo 検証）**：cyclonedx-gomod ⊆ go.mod require が 94%(87/93) のrepoで成立、gomod件数/require件数 中央値0.94。
+  syft > require が 80%(74/93)。ほぼ全例で **gomod ≤ require < syft**。1repoでなく多repoで確認済み。
+  （安全な表現は「gomod ≈ require の**部分集合**」。gomodが強く絞るrepoもある例: pgxcli gomod64/require112。ただしrequire外=0で部分集合関係は保持。）
 - **syft/trivy**：go.mod＋go.sum を読み、かつツリー内の別go.modも拾うため、**go.sum残骸とネスト兄弟モジュールの両方**が混入。
 
 ### 統一的理解
