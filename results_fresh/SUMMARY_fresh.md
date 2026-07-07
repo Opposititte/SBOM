@@ -83,14 +83,14 @@ recall/F1 は「正解GTに少なくとも1件ある」repoのみで算出（imp
 - **統一的理解：precision 差＝各ツールが読む「源」の広さの差**。正解 imported＝`go list -deps`（ルート・GOOS=linux・非test の**コンパイルグラフ**）。各ツールの源がそれより広い分だけ過剰報告＝FPになる。
   - cyclonedx-gomod・cdxgen は**コンパイルグラフに近い源**（go mod why 到達性／go list -deps）→ precision 90〜93%。
   - syft・trivy は**go.sum（最広：build-list＋残骸）**→ precision 57〜59%。
-- **FPの正体はツールごとに異なる**（全1486プール＋retain93repoで残余を実照合分離）：
+- **FPの正体はツールごとに異なる**（各ツールの有効repoでプール。母数: cdxgen 1442, cyclonedx-gomod 1436, syft 1486, trivy 1477。残余の内訳は retain93repoで実照合分離）：
 
 | ツール | imp_FP | 主因（source確認済みの機序と整合） |
 |---|---|---|
-| cdxgen | 8,514 | **ネスト兄弟モジュール ~75%**（全go.mod走査）＋未使用indirect ~10%（go list -deps失敗時のgo mod graph fallback）＋test 6% |
-| cyclonedx-gomod | 6,514 | **未使用の go.mod indirect ~77%**＋**別OS ~14%**（`go mod why -m -vendor` 到達性が GOOS=linux・非test の go list -deps より広いため。実照合で別OS依存21%を確認） |
-| syft | 37,892 | go.sum残骸 ~34% ＋ ネスト兄弟mod ~34% ＋ 未使用indirect ~18% ＋ test ~10%（go.mod＋go.sum＋ツリー内go.modをファイル走査） |
-| trivy | 34,265 | 同上（go.sum残骸/ネスト/indirect/test の混在） |
+| cdxgen（1442repo） | 8,514 | **ネスト兄弟モジュール ~75%**（残余81%×93repo照合の~92%。全go.mod走査）＋未使用indirect ~10%（go list -deps失敗時のgo mod graph fallback）＋test 6% |
+| cyclonedx-gomod（1436repo） | 6,514 | **未使用の go.mod indirect ~77%**＋**別OS ~14%**（`go mod why -m -vendor` 到達性が GOOS=linux・非test の go list -deps より広いため） |
+| syft（1486repo） | 37,892 | go.sum残骸 ~34% ＋ ネスト兄弟mod ~34% ＋ 未使用indirect ~18% ＋ test ~10%（go.mod＋go.sum＋ツリー内go.modをファイル走査） |
+| trivy（1477repo） | 34,265 | 同上（go.sum残骸/ネスト/indirect/test の混在） |
 
 - **なぜどのツールも 100 に届かないか**：どれも「ルート・linux・非test の実import」を厳密には計算しないため。
   cdxgen は go list -deps を使うので最も近い（81%のrepoで完全一致）が、ネスト走査と fallback で外れる。
