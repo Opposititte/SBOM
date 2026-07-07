@@ -80,14 +80,21 @@ recall/F1 は「正解GTに少なくとも1件ある」repoのみで算出（imp
 - **どのツールも imported の recall はほぼ 100%（マクロ）＝取りこぼしは僅少**。F1<100 の主因は **FP（余分報告）＝precision低下**。
   - imported マクロ recall: syft 99.9% / trivy 99.9% / cdxgen 99.8% / cyclonedx-gomod 99.2%
   - imported マクロ precision: syft 56.7% / trivy 58.7% / cdxgen 90.3% / cyclonedx-gomod 93.2% ← ここの差が F1 と優劣を決める
-- **FPの正体はツールごとに異なる**（全1486プール＋retain95repoでの残余分離）：
+- **統一的理解：precision 差＝各ツールが読む「源」の広さの差**。正解 imported＝`go list -deps`（ルート・GOOS=linux・非test の**コンパイルグラフ**）。各ツールの源がそれより広い分だけ過剰報告＝FPになる。
+  - cyclonedx-gomod・cdxgen は**コンパイルグラフに近い源**（go mod why 到達性／go list -deps）→ precision 90〜93%。
+  - syft・trivy は**go.sum（最広：build-list＋残骸）**→ precision 57〜59%。
+- **FPの正体はツールごとに異なる**（全1486プール＋retain93repoで残余を実照合分離）：
 
-| ツール | imp_FP | 主因 |
+| ツール | imp_FP | 主因（source確認済みの機序と整合） |
 |---|---|---|
-| cdxgen | 8,514 | **ネスト兄弟モジュール ~75%**（examples/cmd/testdata/scripts の別go.modを再帰集約）＋未使用indirect 10% |
-| cyclonedx-gomod | 6,514 | **未使用の go.mod indirect ~77%**（`mod`はモジュールグラフを忠実に載せ剪定しない）＋別OS 14% |
-| syft | 37,892 | go.sum残骸 ~33% ＋ ネスト兄弟mod ~35% ＋ 未使用indirect 18% ＋ test 10% |
+| cdxgen | 8,514 | **ネスト兄弟モジュール ~75%**（全go.mod走査）＋未使用indirect ~10%（go list -deps失敗時のgo mod graph fallback）＋test 6% |
+| cyclonedx-gomod | 6,514 | **未使用の go.mod indirect ~77%**＋**別OS ~14%**（`go mod why -m -vendor` 到達性が GOOS=linux・非test の go list -deps より広いため。実照合で別OS依存21%を確認） |
+| syft | 37,892 | go.sum残骸 ~34% ＋ ネスト兄弟mod ~34% ＋ 未使用indirect ~18% ＋ test ~10%（go.mod＋go.sum＋ツリー内go.modをファイル走査） |
 | trivy | 34,265 | 同上（go.sum残骸/ネスト/indirect/test の混在） |
+
+- **なぜどのツールも 100 に届かないか**：どれも「ルート・linux・非test の実import」を厳密には計算しないため。
+  cdxgen は go list -deps を使うので最も近い（81%のrepoで完全一致）が、ネスト走査と fallback で外れる。
+  cyclonedx-gomod は go mod why 到達性が linux非test より広い。syft/trivy は go.sum で設計上さらに広い。加えて `replace` による僅かな recall 損（FN）。
 
 ### 機序（実証済み）
 - **cdxgen**（一次証拠：**cdxgen v12.7.0**、`lib/cli/index.js`, `lib/helpers/utils.js`）：
