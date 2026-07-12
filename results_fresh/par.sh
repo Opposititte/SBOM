@@ -3,9 +3,20 @@
 set -u
 ROOT=/home/user/SBOM; OUT="$ROOT/results_fresh"
 CSV="$OUT/metrics_sibling.csv"; PARTS="$OUT/parts"; LIST="$ROOT/results3gt/repolist.csv"
-P="${1:-4}"
-export GOMODCACHE=/tmp/sib_modcache
-mkdir -p "$PARTS" /tmp/sib_work "$GOMODCACHE"
+P="${1:-3}"
+export GOMODCACHE=/tmp/sib_modcache GOCACHE=/tmp/sib_gocache
+mkdir -p "$PARTS" /tmp/sib_work "$GOMODCACHE" "$GOCACHE"
+
+# ディスク番人: 空き<5Gで両キャッシュを掃除（40秒毎）。並列時のビルドキャッシュ爆発を防ぐ。
+( while true; do sleep 40
+    freekb=$(df --output=avail / | tail -1)
+    if [ "$freekb" -lt 5242880 ]; then
+      rm -rf "$GOCACHE" "$GOMODCACHE" /root/.cache/go-build /root/go/pkg/mod 2>/dev/null
+      mkdir -p "$GOCACHE" "$GOMODCACHE"
+    fi
+  done ) &
+JANITOR=$!
+trap 'kill $JANITOR 2>/dev/null' EXIT
 
 merge_csv() {
   for f in "$PARTS"/*.csv; do [ -e "$f" ] || continue

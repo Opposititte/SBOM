@@ -2,6 +2,7 @@
 # pw.sh <name> <url>  — 1 repoを処理し parts/<name>.csv に結果を書く（並列ワーカー）
 set -u
 name="$1"; url="$2"
+export GOMODCACHE=/tmp/sib_modcache GOCACHE=/tmp/sib_gocache
 OUT=/home/user/SBOM/results_fresh
 PARTS="$OUT/parts"; WORK=/tmp/sib_work
 mkdir -p "$PARTS"
