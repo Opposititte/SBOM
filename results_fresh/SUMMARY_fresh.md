@@ -149,6 +149,44 @@ recall/F1 は「正解GTに少なくとも1件ある」repoのみで算出（imp
 - **マクロは空GT除外必須**：imported依存ゼロのrepoでツールが誤報告すると recall=0 と誤計上され過小評価になる。
   §1 は除外済み（`macro_clean.js` / 修正後 `final_tables.js`）。`final_tables.js` のミクロ・TP/FP/FN は空GTの影響を受けない。
 
+## 2d. FP内訳の独立再検証（gosum実照合, 記録）
+
+`metrics_fresh.csv` から全repoのTP/FP/FN（§1c）とFPバケツ（下表）は完全再現する。
+残余バケツ（CSV列 `fp_gosum_only`）を `gosum.txt` で「go.sum内(残骸) vs go.sum外(＝ネスト兄弟/外部)」に
+分離した。分類ロジック: FPモジュール m を test(impTに在る)→他OS(win.txtに在る)→direct未使用→
+indirect未使用→残余、残余を gosum.txt に在れば「go.sum残骸」・無ければ「ネスト兄弟」。
+
+### 全repo（metrics_fresh.csv, imported基準・name）のFPバケツ%
+
+| ツール | imp_FP | test | 他OS | direct | indirect | 残余(go.sum残骸+兄弟) |
+|---|---:|---:|---:|---:|---:|---:|
+| syft | 37,892 | 10% | 2% | 1% | 18% | 68% |
+| trivy | 34,265 | 11% | 2% | 1% | 19% | 66% |
+| cdxgen | 8,514 | 6% | 1% | 2% | 10% | **81%** |
+| cyclonedx-gomod | 6,514 | 1% | 14% | 4% | 77% | 5% |
+
+### 残余バケツの gosum実照合分離（retain 95 repo, imported基準・name）
+
+| ツール | FP | test | 他OS | direct | indirect | 残余:go.sum内(残骸) | 残余:go.sum外(**兄弟**) | 兄弟が出たrepo |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| cdxgen | 247 | 2% | 0% | 10% | 4% | 7% | **77%** | 15/95 |
+| cyclonedx-gomod | 267 | 1% | 21% | 5% | 68% | 6% | **0%** | 0/95 |
+| syft | 2,229 | 9% | 2% | 2% | 15% | 35% | **37%** | 22/95 |
+| trivy | 1,960 | 10% | 3% | 2% | 17% | 30% | **39%** | 22/95 |
+
+- **cdxgen: FPの ~75-77% がネスト兄弟モジュール**（go.sum外＝ルートgo.sumに無い＝ツリー内の別go.mod由来）。
+  全repo残余81% × 95repo照合での兄弟比率(77/(77+7)=92%) ≈ **75%** で§2の主張と一致。
+- **cyclonedx-gomod: 兄弟 0/95**（ツリー走査しない機序と整合）。FPは未使用indirect+他OS。
+- **syft/trivy: 残余は go.sum残骸 ~34% と 兄弟 ~37% の半々**。
+- 再現: `results_fresh/data/` の retain 95repo に対し gosum.txt を突合（本節の分離スクリプトは同梱データで再実行可能）。
+
+### 全repo（1489）での兄弟分離 — 再収集中
+
+95repoは基盤として弱いため、全repoで gosum分離をやり直す再収集を実施
+（`metric_one.js` に残余のgosum分割2列を追加し全repoを再クローン再生成）。結果は
+`metrics_sibling.csv` に格納し本節を更新する。
+
 ## 3. データ
 - `metrics_fresh.csv`：repo×tool ごとの name/version × all/imp/impT の TP/FP/FN ＋ FP原因バケツ。
 - 残余バケツの go.sum残骸 vs ネスト兄弟mod の分離は retain 95repo の go.sum 実照合による（生データ保持分）。
+  全repo版は再収集して `metrics_sibling.csv` に記録（§2d 末尾）。
