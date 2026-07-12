@@ -1,0 +1,153 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:f315da48-54b6-45a4-9c91-ae0e39abab93",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-07-12T04:10:08+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "dev"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "ef49ec3d-1bba-4f3b-b469-55d0e5576a5f",
+      "type": "application",
+      "name": "/tmp/sib_work/32leaves__bel",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "77f9251e-7c19-4721-a66e-f9a7c55d7d98",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/32leaves/bel",
+      "type": "library",
+      "name": "github.com/32leaves/bel",
+      "purl": "pkg:golang/github.com/32leaves/bel",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/32leaves/bel"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/alecthomas/repr@v0.0.0-20181024024818-d37bc2a10ba1",
+      "type": "library",
+      "name": "github.com/alecthomas/repr",
+      "version": "v0.0.0-20181024024818-d37bc2a10ba1",
+      "purl": "pkg:golang/github.com/alecthomas/repr@v0.0.0-20181024024818-d37bc2a10ba1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/alecthomas/repr@v0.0.0-20181024024818-d37bc2a10ba1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/go-test/deep@v1.0.1",
+      "type": "library",
+      "name": "github.com/go-test/deep",
+      "version": "v1.0.1",
+      "purl": "pkg:golang/github.com/go-test/deep@v1.0.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/go-test/deep@v1.0.1"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/iancoleman/strcase@v0.0.0-20180726023541-3605ed457bf7",
+      "type": "library",
+      "name": "github.com/iancoleman/strcase",
+      "version": "v0.0.0-20180726023541-3605ed457bf7",
+      "purl": "pkg:golang/github.com/iancoleman/strcase@v0.0.0-20180726023541-3605ed457bf7",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/iancoleman/strcase@v0.0.0-20180726023541-3605ed457bf7"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "77f9251e-7c19-4721-a66e-f9a7c55d7d98",
+      "dependsOn": [
+        "pkg:golang/github.com/32leaves/bel"
+      ]
+    },
+    {
+      "ref": "ef49ec3d-1bba-4f3b-b469-55d0e5576a5f",
+      "dependsOn": [
+        "77f9251e-7c19-4721-a66e-f9a7c55d7d98"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/32leaves/bel",
+      "dependsOn": [
+        "pkg:golang/github.com/alecthomas/repr@v0.0.0-20181024024818-d37bc2a10ba1",
+        "pkg:golang/github.com/go-test/deep@v1.0.1",
+        "pkg:golang/github.com/iancoleman/strcase@v0.0.0-20180726023541-3605ed457bf7"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/alecthomas/repr@v0.0.0-20181024024818-d37bc2a10ba1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/go-test/deep@v1.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/iancoleman/strcase@v0.0.0-20180726023541-3605ed457bf7",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}

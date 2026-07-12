@@ -1,0 +1,139 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:f726adc8-f648-49c4-adca-f47a603d2b60",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-07-12T04:09:34Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.10.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "72f6ff308370413cd7f79f44fb08006e"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "e440f202e25b145e7f9297b8cf8066a2dad8d476"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "8881ece1db6d1c7631806d400480bc3922b64eb4275a110ede62e71ad4b4205b"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "2128d4333e548851c15eb94f086b33fbe01b46ee85d937a898ed4dbebb64579a112ab07e84660f1f54d75e2e47d29fc2"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "a3ff679dce665d24c6b4fcfa3d220810193eaa6cb841488bfa1fdbf5a23f129178acd79e431ad71aa90438b480aeb5b17bfb3520fea5130c9fd026d2f9792b8d"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/0xcafed00d/joystick@v0.0.0-20251013134346-bcb9018b38b3?type=module",
+      "type": "application",
+      "name": "github.com/0xcafed00d/joystick",
+      "version": "v0.0.0-20251013134346-bcb9018b38b3",
+      "purl": "pkg:golang/github.com/0xcafed00d/joystick@v0.0.0-20251013134346-bcb9018b38b3?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/0xcafed00d/joystick",
+          "type": "vcs"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:golang/github.com/mattn/go-runewidth@v0.0.9?type=module",
+      "type": "library",
+      "name": "github.com/mattn/go-runewidth",
+      "version": "v0.0.9",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "2e6f7de5fdeb7f176977a4d29ae5421d56ff421ba9b97958afcb0223f41d13ed"
+        }
+      ],
+      "purl": "pkg:golang/github.com/mattn/go-runewidth@v0.0.9?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/mattn/go-runewidth",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/nsf/termbox-go@v1.1.1?type=module",
+      "type": "library",
+      "name": "github.com/nsf/termbox-go",
+      "version": "v1.1.1",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "9e4b143cb09bef743ef83c1b61404482560144f672a1725dae3e4bf93923c996"
+        }
+      ],
+      "purl": "pkg:golang/github.com/nsf/termbox-go@v1.1.1?goarch=amd64\u0026goos=linux\u0026type=module",
+      "externalReferences": [
+        {
+          "url": "https://github.com/nsf/termbox-go",
+          "type": "vcs"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/golang.org/x/sys@v0.0.0-20220909162455-aba9fc2a8ff2?type=module",
+      "type": "library",
+      "name": "golang.org/x/sys",
+      "version": "v0.0.0-20220909162455-aba9fc2a8ff2",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c0cd64fe55dfa5ce47764249c96f4610ba5df0444676787cb0c18be86ceadc7a"
+        }
+      ],
+      "purl": "pkg:golang/golang.org/x/sys@v0.0.0-20220909162455-aba9fc2a8ff2?goarch=amd64\u0026goos=linux\u0026type=module"
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/0xcafed00d/joystick@v0.0.0-20251013134346-bcb9018b38b3?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/nsf/termbox-go@v1.1.1?type=module",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20220909162455-aba9fc2a8ff2?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/mattn/go-runewidth@v0.0.9?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/nsf/termbox-go@v1.1.1?type=module",
+      "dependsOn": [
+        "pkg:golang/github.com/mattn/go-runewidth@v0.0.9?type=module"
+      ]
+    },
+    {
+      "ref": "pkg:golang/golang.org/x/sys@v0.0.0-20220909162455-aba9fc2a8ff2?type=module"
+    }
+  ]
+}

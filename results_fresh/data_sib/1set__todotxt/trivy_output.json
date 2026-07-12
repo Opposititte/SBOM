@@ -1,0 +1,109 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:41217c76-8559-4eef-8532-a8fbe1cf801a",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-07-12T04:09:50+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "dev"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "773fa6dd-2bb1-44ae-981a-2fc2e1da2828",
+      "type": "application",
+      "name": "/tmp/sib_work/1set__todotxt",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "e8deb0b7-ee80-430f-acd3-8828cd7ded98",
+      "type": "application",
+      "name": "go.mod",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/1set/gut@v0.0.0-20201117175203-a82363231997",
+      "type": "library",
+      "name": "github.com/1set/gut",
+      "version": "v0.0.0-20201117175203-a82363231997",
+      "purl": "pkg:golang/github.com/1set/gut@v0.0.0-20201117175203-a82363231997",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/1set/gut@v0.0.0-20201117175203-a82363231997"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/1set/todotxt",
+      "type": "library",
+      "name": "github.com/1set/todotxt",
+      "purl": "pkg:golang/github.com/1set/todotxt",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "github.com/1set/todotxt"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "gomod"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "773fa6dd-2bb1-44ae-981a-2fc2e1da2828",
+      "dependsOn": [
+        "e8deb0b7-ee80-430f-acd3-8828cd7ded98"
+      ]
+    },
+    {
+      "ref": "e8deb0b7-ee80-430f-acd3-8828cd7ded98",
+      "dependsOn": [
+        "pkg:golang/github.com/1set/todotxt"
+      ]
+    },
+    {
+      "ref": "pkg:golang/github.com/1set/gut@v0.0.0-20201117175203-a82363231997",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:golang/github.com/1set/todotxt",
+      "dependsOn": [
+        "pkg:golang/github.com/1set/gut@v0.0.0-20201117175203-a82363231997"
+      ]
+    }
+  ],
+  "vulnerabilities": []
+}
