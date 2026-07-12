@@ -18,10 +18,20 @@ timeout $TO cyclonedx-gomod mod -json -output "$outdir/cyclonedx-gomod_output.js
 rm -rf /tmp/cdxgen-* /tmp/pip-* 2>/dev/null
 gmain=$(cd "$d" && timeout 120 go list -m 2>/dev/null | head -1 | awk '{print $1}')
 echo "$gmain" > "$outdir/main.txt"
-(cd "$d" && timeout $TO go mod download 2>/dev/null); :
+# go mod download をディスク監視付きで実行: 空き<1.5Gに落ちたら中断（巨大repoスキップ）
+( cd "$d" && timeout $TO go mod download 2>/dev/null ) &
+DL=$!
+while kill -0 $DL 2>/dev/null; do
+  f=$(df --output=avail / | tail -1)
+  if [ "$f" -lt 1572864 ]; then kill -9 $DL 2>/dev/null; pkill -9 -P $DL 2>/dev/null; echo "" > "$outdir/.diskskip"; break; fi
+  sleep 4
+done
+[ -f "$outdir/.diskskip" ] && { rm -rf "$d" "$outdir"; exit 0; }   # ディスク退避→このrepoは出力せずスキップ
 (cd "$d" && timeout $TO go list -m all 2>/dev/null) > "$outdir/gt_all.txt"
 (cd "$d" && GOOS=linux timeout $TO go list -deps -e -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./... 2>/dev/null) | grep -v '^$' | grep -v "^${gmain} \?$" | sort -u > "$outdir/gt_imported.txt"
 (cd "$d" && GOOS=linux timeout $TO go list -deps -test -e -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./... 2>/dev/null) | grep -v '^$' | grep -v "^${gmain} \?$" | sort -u > "$outdir/gt_impT.txt"
 (cd "$d" && GOOS=windows timeout $TO go list -deps -e -f '{{with .Module}}{{.Path}}{{end}}' ./... 2>/dev/null) | grep -v '^$' | grep -v "^${gmain}\$" | sort -u > "$outdir/win.txt"
+# GT(imported)が空なら評価不能→スキップ（出力しない）
+[ -s "$outdir/gt_imported.txt" ] || { rm -rf "$d" "$outdir"; exit 0; }
 node "$OUT/metric_one_sib.js" "$outdir"
 rm -rf "$d"
