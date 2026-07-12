@@ -40,7 +40,9 @@ while IFS=, read -r name url rest; do name="${name%%,*}"; [ -z "$name" ] && cont
   [ -f "$PARTS/$name.csv" ] && continue
   echo "$name $url" >> "$todo"
 done < "$LIST"
-echo "todo: $(wc -l < "$todo") repos, P=$P"
+# ランダム順に（途中経過が代表的になるよう。固定シードで再現可能）
+shuf --random-source=<(yes 42) "$todo" -o "$todo"
+echo "todo: $(wc -l < "$todo") repos, P=$P (shuffled)"
 
 # 定期マージ&push＆ディスク掃除
 ( while true; do sleep 150
