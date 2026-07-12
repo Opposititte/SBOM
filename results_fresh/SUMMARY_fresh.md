@@ -139,6 +139,21 @@ recall/F1 は「正解GTに少なくとも1件ある」repoのみで算出（imp
 | cdxgen | 1442 | 44 | **ネストモジュールを再帰処理**するため、壊れた例モジュール（例 `storybook/_example`）の `go list -deps` 失敗で全体が中断 |
 | cyclonedx-gomod | 1436 | 50 | 内部で厳格な `go list -mod readonly -m all` を使い、go.sum不完全/解決不能なrepoで失敗 |
 
+### 母数 1489 → syft有効 1486 の差3repo（実測で内訳確定）
+
+対象リストは **1489 repo**（`repolist.csv` の空行除く・ユニーク件数。`wc -l` は最終行に改行が無く1488と誤表示するので注意）。
+syftの有効評価は1486で、差の **3 repo** は以下（2026-07 に `git ls-remote` で実確認）：
+
+| repo | 実測 | 分類 |
+|---|---|---|
+| `go-authgate/authgate` | `could not read Username`（404/存在せず） | **真のCLONE_FAIL**（リポジトリ消滅/非公開化） |
+| `zhenghaoz/gorse` | 同上 404。プロジェクトは `gorse-io/gorse` へ移転、旧パス消滅 | **真のCLONE_FAIL** |
+| `zoomio/tagify` | HEAD取得成功（`3d6a68c…`）＝クローン可能 | **元収集の取りこぼし**（消滅ではない。再収集で拾える） |
+
+→ 正確には「**CLONE_FAIL 2（go-authgate, zhenghaoz）＋ 取りこぼし 1（zoomio）**」。
+恒久的に評価不能なのは消滅した2repoのみ。したがって**達成可能な母数の上限は 1489 − 2 = 1487**。
+（全数再収集版では zoomio を評価に含める。）
+
 ## 2c. 既知の注意点（バグではないが解釈に影響）
 
 - **`replace` ディレクティブ**：GT(`go list -deps`)は元のimportパスを、cyclonedx-gomod等は差替先モジュールパスを報告する。
