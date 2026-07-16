@@ -456,3 +456,203 @@ status: OK=評価済 / EMPTY_GT=Goだがimported依存ゼロ / CLONE_FAIL=取得
 | 449 | sirnewton01__godbg | https://github.com/sirnewton01/godbg | 46f41e62cb | 2018-07-09 |  | 0/0/0 | EMPTY_GT |
 | 450 | surullabs__lint | https://github.com/surullabs/lint | f90256a823 | 2017-10-03 |  | 0/0/0 | EMPTY_GT |
 | 451 | szyhf__go-gcache | https://github.com/szyhf/go-gcache | 08bafd4289 | 2025-05-26 | 1.18 | 1/0/0 | EMPTY_GT |
+| 452 | agilira__orpheus | https://github.com/agilira/orpheus | 394a9676ba | 2026-05-24 | 1.25.9 | 6/5/5 | OK |
+| 453 | alajmo__mani | https://github.com/alajmo/mani | ca8160952a | 2026-05-19 | 1.26.3 | 53/25/28 | OK |
+| 454 | alfiankan__crab-config-files-templating | https://github.com/alfiankan/crab-config-files-templating | 897d550033 | 2022-07-21 | 1.18 | 0/2/6 | OK |
+| 455 | alwindoss__morse | https://github.com/alwindoss/morse | 94455afe44 | 2022-08-30 | 1.17 | 1/0/0 | EMPTY_GT |
+| 456 | amimof__huego | https://github.com/amimof/huego | b5d5385f8a | 2023-06-30 | 1.13 | 13/0/6 | EMPTY_GT |
+| 457 | chrislusf__gleam | https://github.com/chrislusf/gleam | b5e191e634 | 2026-07-10 | 1.25.0 | 279/68/68 | OK |
+| 458 | chrislusf__seaweedfs | https://github.com/chrislusf/seaweedfs | 7f9e897e18 | 2026-02-08 | 1.24.9 | 1164/318/322 | OK |
+| 459 | circa10a__go-aws-news | https://github.com/circa10a/go-aws-news | 16ccb95337 | 2026-02-20 | 1.24.0 | 49/32/36 | OK |
+| 460 | claygod__Bxog | https://github.com/claygod/Bxog | 50694fc4cc | 2026-06-26 |  | 0/0/0 | EMPTY_GT |
+| 461 | cockroachdb__pebble | https://github.com/cockroachdb/pebble | 8fb150d913 | 2026-07-07 | 1.25.3 | 239/50/54 | OK |
+| 462 | codemodus__chain | https://github.com/codemodus/chain | bb99cd2071 | 2018-08-25 |  | 1/0/0 | EMPTY_GT |
+| 463 | coregx__signals | https://github.com/coregx/signals | b2656d88bb | 2026-07-15 | 1.25 | 1/0/0 | EMPTY_GT |
+| 464 | cosiner__argv | https://github.com/cosiner/argv | 86e3c68926 | 2020-04-16 | 1.13 | 1/0/0 | EMPTY_GT |
+| 465 | mengzhuo__cookiestxt | https://github.com/mengzhuo/cookiestxt | ee32a1d20f | 2026-01-12 | 1.20 | 1/0/0 | EMPTY_GT |
+| 466 | metacall__core | https://github.com/metacall/core | e6d7cc9ac0 | 2026-07-14 |  | 0/0/0 | EMPTY_GT |
+| 467 | mickep76__mapslice-json | https://github.com/mickep76/mapslice-json | 22c8edf578 | 2021-07-20 | 1.16 | 16/0/0 | EMPTY_GT |
+| 468 | minio__mc | https://github.com/minio/mc | 77f82e18b5 | 2025-11-06 | 1.24.0 | 542/101/105 | OK |
+| 469 | mkideal__cli | https://github.com/mkideal/cli | 53df0924b3 | 2023-03-06 | 1.13 | 24/8/12 | OK |
+| 470 | mlimaloureiro__golog | https://github.com/mlimaloureiro/golog | fcc04962f8 | 2016-07-03 |  | 0/0/0 | EMPTY_GT |
+| 471 | openziti-test-kitchen__zssh | https://github.com/openziti-test-kitchen/zssh | da691cf262 | 2026-02-06 | 1.25.3 | 362/107/107 | OK |
+| 472 | osamingo__checkdigit | https://github.com/osamingo/checkdigit | 5504ad3530 | 2025-03-28 | 1.24 | 1/0/0 | EMPTY_GT |
+| 473 | truemail-rb__truemail-go | https://github.com/truemail-rb/truemail-go | f1057bd058 | 2024-08-30 | 1.22 | 23/12/12 | OK |
+| 474 | two__tspool | https://github.com/two/tspool | 92bc4a518b | 2018-10-29 |  | 0/0/0 | EMPTY_GT |
+| 475 | viney-shih__go-lock | https://github.com/viney-shih/go-lock | 2f19fd8ce3 | 2022-06-18 | 1.16 | 8/1/5 | OK |
+| 476 | volodymyrprokopyuk__go-blockchain | https://github.com/volodymyrprokopyuk/go-blockchain | 3f6e941df1 | 2025-08-17 | 1.23.0 | 49/10/10 | OK |
+| 477 | aalpar__deheap | https://github.com/aalpar/deheap | 9b86833c8c | 2026-03-12 | 1.23 | 1/0/0 | EMPTY_GT |
+| 478 | adamluzsi__testcase | https://github.com/adamluzsi/testcase | bba2ad9d6b | 2026-07-04 | 1.18 | 1/0/0 | EMPTY_GT |
+| 479 | alexeyco__simpletable | https://github.com/alexeyco/simpletable | 74ab2ba3af | 2021-04-02 | 1.16 | 3/2/2 | OK |
+| 480 | andrewstuart__goq | https://github.com/andrewstuart/goq | 93e9224e0a | 2021-09-01 | 1.12 | 13/3/6 | OK |
+| 481 | andy2046__tik | https://github.com/andy2046/tik | c3ae55e618 | 2020-10-17 | 1.12 | 23/3/3 | OK |
+| 482 | ansd__lastpass-go | https://github.com/ansd/lastpass-go | 280cc13dd3 | 2022-09-10 | 1.12 | 35/1/10 | OK |
+| 483 | antchfx__xmlquery | https://github.com/antchfx/xmlquery | e79c9c9146 | 2026-03-21 | 1.14 | 15/4/4 | OK |
+| 484 | cloudwego__netpoll | https://github.com/cloudwego/netpoll | 4b4d4ce0df | 2026-06-29 | 1.20 | 13/3/3 | OK |
+| 485 | cmd-stream__cmd-stream-go | https://github.com/cmd-stream/cmd-stream-go | c4737bcb52 | 2026-05-07 | 1.24.1 | 12/7/7 | OK |
+| 486 | codingsince1985__checksum | https://github.com/codingsince1985/checksum | 7af627ac62 | 2023-02-16 | 1.20 | 7/2/3 | OK |
+| 487 | cybergarage__go-job | https://github.com/cybergarage/go-job | 426b91855e | 2026-03-19 | 1.25 | 138/48/48 | OK |
+| 488 | cyucelen__marker | https://github.com/cyucelen/marker | ec8d542c2d | 2022-06-28 | 1.12 | 11/4/8 | OK |
+| 489 | db47h__decimal | https://github.com/db47h/decimal | 4cdf299bc0 | 2022-07-17 | 1.14 | 1/0/0 | EMPTY_GT |
+| 490 | ddelizia__channelify | https://github.com/ddelizia/channelify | cc70777578 | 2020-10-06 | 1.15 | 11/0/0 | EMPTY_GT |
+| 491 | milosgajdos__go-estimate | https://github.com/milosgajdos/go-estimate | 3866350679 | 2025-01-19 | 1.22 | 53/13/17 | OK |
+| 492 | montanaflynn__stats | https://github.com/montanaflynn/stats | 4183becdcf | 2026-07-13 | 1.13 | 1/0/0 | EMPTY_GT |
+| 493 | moovweb__gvm | https://github.com/moovweb/gvm | dd652539fa | 2023-08-14 |  | 0/0/0 | EMPTY_GT |
+| 494 | msempere__golarm | https://github.com/msempere/golarm | bcbb8a387d | 2015-08-24 |  | 0/0/0 | EMPTY_GT |
+| 495 | msoap__shell2http | https://github.com/msoap/shell2http | 378e7516c7 | 2026-02-28 | 1.18 | 25/2/2 | OK |
+| 496 | pioz__faker | https://github.com/pioz/faker | bad7946682 | 2023-10-06 | 1.14 | 7/0/4 | EMPTY_GT |
+| 497 | pointlander__peg | https://github.com/pointlander/peg | 792d23c3bf | 2026-05-24 | 1.25 | 1/0/0 | EMPTY_GT |
+| 498 | rekurt__gost-crypto | https://github.com/rekurt/gost-crypto | af0b48e285 | 2026-04-10 | 1.22 | 1/0/0 | EMPTY_GT |
+| 499 | rfberaldo__sqlz | https://github.com/rfberaldo/sqlz | 3015f2d14b | 2026-07-08 | 1.24 | 25/0/13 | EMPTY_GT |
+| 500 | yl2chen__cidranger | https://github.com/yl2chen/cidranger | d1cb2c52f3 | 2021-09-27 | 1.13 | 8/0/4 | EMPTY_GT |
+| 501 | yuroyoro__goast-viewer | https://github.com/yuroyoro/goast-viewer | 3d08b047cb | 2019-05-31 | 1.12 | 1/0/0 | EMPTY_GT |
+| 502 | Aorioli__gcm | https://github.com/Aorioli/gcm | 984428cc79 | 2015-12-04 |  | 0/0/0 | EMPTY_GT |
+| 503 | HereMobilityDevelopers__mediary | https://github.com/HereMobilityDevelopers/mediary | cdaf26889b | 2020-06-24 | 1.14 | 10/0/4 | EMPTY_GT |
+| 504 | alioygur__gores | https://github.com/alioygur/gores | c087a622aa | 2021-01-01 | 1.15 | 1/0/0 | EMPTY_GT |
+| 505 | alpeb__go-finance | https://github.com/alpeb/go-finance | e4f601ef43 | 2021-12-02 | 1.17 | 1/0/0 | EMPTY_GT |
+| 506 | andlabs__ui | https://github.com/andlabs/ui | 70a69d6ae3 | 2020-06-10 |  | 0/0/0 | EMPTY_GT |
+| 507 | antst__go-apispec | https://github.com/antst/go-apispec | 63f249957e | 2026-06-24 | 1.25.0 | 17/4/9 | OK |
+| 508 | apache__calcite-avatica-go | https://github.com/apache/calcite-avatica-go | 6e6fead093 | 2026-06-01 | 1.25.0 | 33/12/12 | OK |
+| 509 | bitfield__uptimerobot | https://github.com/bitfield/uptimerobot | 9860c0d0e8 | 2023-04-22 | 1.13 | 247/16/17 | OK |
+| 510 | bmf-san__goblin | https://github.com/bmf-san/goblin | 1f031b49c5 | 2024-12-26 | 1.22.3 | 1/0/0 | EMPTY_GT |
+| 511 | codingsince1985__geo-golang | https://github.com/codingsince1985/geo-golang | 72ff6a749c | 2026-04-23 | 1.26.2 | 8/1/5 | OK |
+| 512 | corbym__gogiven | https://github.com/corbym/gogiven | 6b5ecef6bd | 2026-05-04 | 1.22 | 3/1/2 | OK |
+| 513 | coregx__fursy | https://github.com/coregx/fursy | 7e9b498f7c | 2026-03-05 | 1.25.0 | 3/2/2 | OK |
+| 514 | dghubble__gologin | https://github.com/dghubble/gologin | 630fafae08 | 2026-04-18 | 1.23.0 | 75/34/34 | OK |
+| 515 | dgraph-io__ristretto | https://github.com/dgraph-io/ristretto | 67cb59139a | 2026-07-15 | 1.24.0 | 11/3/8 | OK |
+| 516 | muir__reflectutils | https://github.com/muir/reflectutils | fea86d78ed | 2026-03-21 | 1.20 | 14/2/6 | OK |
+| 517 | murlokswarm__app | https://github.com/murlokswarm/app | 80decd8c0f | 2026-06-04 | 1.26.0 | 23/6/10 | OK |
+| 518 | nakagami__firebirdsql | https://github.com/nakagami/firebirdsql | 79cc1c6e1f | 2026-06-09 | 1.22.0 | 14/4/8 | OK |
+| 519 | phoenix-tui__phoenix | https://github.com/phoenix-tui/phoenix | 1b34fceb05 | 2026-03-05 | 1.25.1 | 15/9/9 | OK |
+| 520 | piaohao__godis | https://github.com/piaohao/godis | 72d439c918 | 2020-05-12 |  | 7/0/0 | EMPTY_GT |
+| 521 | pixie-labs__pixie | https://github.com/pixie-labs/pixie | 77e8d9e04a | 2026-06-22 | 1.24.6 | 648/261/263 | OK |
+| 522 | pkg__errors | https://github.com/pkg/errors | 87f8819acf | 2026-03-27 |  | 0/0/0 | EMPTY_GT |
+| 523 | samber__slog-formatter | https://github.com/samber/slog-formatter | d94259276f | 2026-07-01 | 1.22 | 19/4/10 | OK |
+| 524 | scaleway__scaleway-cli | https://github.com/scaleway/scaleway-cli | 10569d67bb | 2026-07-16 | 1.26.0 | 653/194/194 | OK |
+| 525 | skelterjohn__geom | https://github.com/skelterjohn/geom | 96f3e8a219 | 2018-01-03 |  | 0/0/0 | EMPTY_GT |
+| 526 | snwfdhmp__errlog | https://github.com/snwfdhmp/errlog | cdffd0ba9e | 2023-06-27 |  | 0/0/0 | EMPTY_GT |
+| 527 | AaronJan__Hunch | https://github.com/AaronJan/Hunch | ad9a3f5d95 | 2022-05-24 | 1.12 | 1/0/0 | EMPTY_GT |
+| 528 | SimonWaldherr__golang-benchmarks | https://github.com/SimonWaldherr/golang-benchmarks | 85351ed653 | 2026-07-05 | 1.25.11 | 75/0/19 | EMPTY_GT |
+| 529 | ankorstore__yokai | https://github.com/ankorstore/yokai | 09f538c2cf | 2026-07-16 |  | 0/0/0 | EMPTY_GT |
+| 530 | antonmedv__expr | https://github.com/antonmedv/expr | 4b31df3a2e | 2026-07-07 | 1.18 | 1/0/0 | EMPTY_GT |
+| 531 | arch-go__arch-go | https://github.com/arch-go/arch-go | 6cb436f84f | 2026-02-13 | 1.24.0 | 103/26/27 | OK |
+| 532 | arunsworld__nursery | https://github.com/arunsworld/nursery | ecfe7a688c | 2021-07-08 | 1.13 | 1/0/0 | EMPTY_GT |
+| 533 | asaskevich__EventBus | https://github.com/asaskevich/EventBus | 49d423059e | 2020-09-08 |  | 0/0/0 | EMPTY_GT |
+| 534 | couchbase__goforestdb | https://github.com/couchbase/goforestdb | 0b501227de | 2016-12-15 |  | 0/0/0 | EMPTY_GT |
+| 535 | cpmech__gosl | https://github.com/cpmech/gosl | d27f006f28 | 2025-12-30 | 1.17 | 1/0/0 | EMPTY_GT |
+| 536 | ctreminiom__go-atlassian | https://github.com/ctreminiom/go-atlassian | 1d195850a5 | 2026-07-16 | 1.23 | 14/11/11 | OK |
+| 537 | cucumber__godog | https://github.com/cucumber/godog | 545b1e9420 | 2026-07-15 | 1.18 | 24/12/12 | OK |
+| 538 | cyucelen__walker | https://github.com/cyucelen/walker | d65bd3d935 | 2023-02-17 | 1.18 | 46/3/20 | OK |
+| 539 | datastream__libsvm | https://github.com/datastream/libsvm | 9aff8e82d1 | 2016-05-09 |  | 0/0/0 | EMPTY_GT |
+| 540 | dnaeon__go-vcr | https://github.com/dnaeon/go-vcr | 2a9545bad4 | 2026-06-25 | 1.24 | 2/1/1 | OK |
+| 541 | dnnrly__wait-for | https://github.com/dnnrly/wait-for | 945ae16835 | 2023-02-02 | 1.14 | 67/10/22 | OK |
+| 542 | dunglas__mercure | https://github.com/dunglas/mercure | b997382f28 | 2026-07-13 | 1.26 | 84/28/34 | OK |
+| 543 | dvyukov__go-fuzz | https://github.com/dvyukov/go-fuzz | e577bee527 | 2024-09-24 |  | 0/0/0 | EMPTY_GT |
+| 544 | name5566__leaf | https://github.com/name5566/leaf | af71eb082c | 2022-10-21 |  | 0/0/0 | EMPTY_GT |
+| 545 | naughtygopher__errors | https://github.com/naughtygopher/errors | 0ab8955a65 | 2025-09-23 | 1.23.0 | 37/2/2 | OK |
+| 546 | naughtygopher__nibbler | https://github.com/naughtygopher/nibbler | a8599c1472 | 2025-12-11 | 1.23.1 | 7/0/4 | EMPTY_GT |
+| 547 | pomerium__pomerium | https://github.com/pomerium/pomerium | d5c380ad08 | 2026-07-15 | 1.26.3 | 821/308/335 | OK |
+| 548 | posener__cmd | https://github.com/posener/cmd | 74170b4e3d | 2020-09-27 | 1.13 | 13/5/9 | OK |
+| 549 | pressly__sup | https://github.com/pressly/sup | 17c751e8ca | 2022-01-21 | 1.13 | 13/5/5 | OK |
+| 550 | tchayen__triangolatte | https://github.com/tchayen/triangolatte | 8b66c3824e | 2021-08-04 |  | 0/0/0 | EMPTY_GT |
+| 551 | teris-io__log | https://github.com/teris-io/log | 040ae886f9 | 2017-12-04 |  | 0/0/0 | EMPTY_GT |
+| 552 | Allra-Fintech__mdv | https://github.com/Allra-Fintech/mdv | f8df54b876 | 2026-07-02 | 1.22 | 16/6/6 | OK |
+| 553 | EngoEngine__engo | https://github.com/EngoEngine/engo | 4d9de92353 | 2024-07-12 | 1.19 | 46/17/21 | OK |
+| 554 | augmentable-dev__tickgit | https://github.com/augmentable-dev/tickgit | 9d0b151997 | 2020-06-21 | 1.13 | 126/19/19 | OK |
+| 555 | avahidi__interpol | https://github.com/avahidi/interpol | 7fe3c8d671 | 2025-07-05 | 1.13 | 1/0/0 | EMPTY_GT |
+| 556 | aybabtme__portproxy | https://github.com/aybabtme/portproxy | 77db493954 | 2014-12-12 |  | 0/0/0 | EMPTY_GT |
+| 557 | aytechnet__decimal | https://github.com/aytechnet/decimal | 46839220f9 | 2026-06-02 | 1.13 | 1/0/0 | EMPTY_GT |
+| 558 | dakera-ai__dakera-go | https://github.com/dakera-ai/dakera-go | a618efbe25 | 2026-07-16 | 1.21 | 7/0/4 | EMPTY_GT |
+| 559 | daneharrigan__hipchat | https://github.com/daneharrigan/hipchat | 835dc87939 | 2017-05-12 |  | 0/0/0 | EMPTY_GT |
+| 560 | daveshanley__vacuum | https://github.com/daveshanley/vacuum | ed2f814753 | 2026-07-16 | 1.25.7 | 243/94/95 | OK |
+| 561 | drone__drone | https://github.com/drone/drone | a236695679 | 2026-07-15 | 1.26.4 | 802/217/222 | OK |
+| 562 | elastic__go-freelru | https://github.com/elastic/go-freelru | 3a0a715f33 | 2026-07-08 | 1.18 | 1/0/0 | EMPTY_GT |
+| 563 | elgopher__pi | https://github.com/elgopher/pi | 00f550e54e | 2025-10-21 | 1.24.2 | 43/10/14 | OK |
+| 564 | enetx__tg | https://github.com/enetx/tg | d5da81507c | 2026-06-16 | 1.25.0 | 12/7/7 | OK |
+| 565 | erni27__imcache | https://github.com/erni27/imcache | bb29b588b2 | 2024-12-14 | 1.18 | 1/0/0 | EMPTY_GT |
+| 566 | netresearch__go-cron | https://github.com/netresearch/go-cron | aaaf1d1551 | 2026-06-08 | 1.25 | 1/0/0 | EMPTY_GT |
+| 567 | neuronlabs__errors | https://github.com/neuronlabs/errors | 8a0fb4eedd | 2019-08-01 | 1.12 | 6/1/4 | OK |
+| 568 | nikolaydubina__fpdecimal | https://github.com/nikolaydubina/fpdecimal | 6b5d661b38 | 2026-06-07 | 1.21 | 1/0/0 | EMPTY_GT |
+| 569 | nikolaydubina__go-enum-encoding | https://github.com/nikolaydubina/go-enum-encoding | c749c3e5a8 | 2026-06-07 | 1.25 | 1/0/0 | EMPTY_GT |
+| 570 | primetalk__goio | https://github.com/primetalk/goio | 790da30619 | 2023-06-29 | 1.18 | 14/3/7 | OK |
+| 571 | qiniu__qmgo | https://github.com/qiniu/qmgo | e33480f020 | 2025-07-05 | 1.16 | 33/16/21 | OK |
+| 572 | qmuntal__opc | https://github.com/qmuntal/opc | 8cd781bb17 | 2023-12-01 | 1.13 | 5/0/4 | EMPTY_GT |
+| 573 | tylfin__dynatomic | https://github.com/tylfin/dynatomic | e805d58a9e | 2020-11-03 |  | 0/0/0 | EMPTY_GT |
+| 574 | ugorji__go | https://github.com/ugorji/go | 580b3cf57e | 2026-05-11 |  | 0/0/0 | EMPTY_GT |
+| 575 | wI2L__jsondiff | https://github.com/wI2L/jsondiff | cc662875ff | 2026-04-01 | 1.24 | 5/4/4 | OK |
+| 576 | wesovilabs__koazee | https://github.com/wesovilabs/koazee | b41b2b4240 | 2019-11-04 | 1.12 | 10/0/4 | EMPTY_GT |
+| 577 | MUlt1mate__protoc-gen-httpgo | https://github.com/MUlt1mate/protoc-gen-httpgo | 41cbb468b9 | 2026-04-22 | 1.22 | 11/2/3 | OK |
+| 578 | Masterminds__squirrel | https://github.com/Masterminds/squirrel | 1ded578453 | 2024-02-27 | 1.14 | 6/2/5 | OK |
+| 579 | PuerkitoBio__gocostmodel | https://github.com/PuerkitoBio/gocostmodel | 0638ffa735 | 2021-05-19 | 1.16 | 1/0/0 | EMPTY_GT |
+| 580 | atelpis__enflag | https://github.com/atelpis/enflag | 21602893cf | 2025-09-29 | 1.18 | 1/0/0 | EMPTY_GT |
+| 581 | beatlabs__harvester | https://github.com/beatlabs/harvester | f8c35d352d | 2026-07-01 | 1.26.1 | 0/20/24 | OK |
+| 582 | bitfield__script | https://github.com/bitfield/script | cf62146a25 | 2026-06-10 | 1.25.0 | 24/3/6 | OK |
+| 583 | bobg__htree | https://github.com/bobg/htree | b6cb52b842 | 2025-12-08 | 1.23 | 11/2/4 | OK |
+| 584 | daviddengcn__go-colortext | https://github.com/daviddengcn/go-colortext | dc4cd66b56 | 2020-03-29 | 1.14 | 4/0/1 | EMPTY_GT |
+| 585 | deatil__go-datebin | https://github.com/deatil/go-datebin | 112861d97c | 2026-06-20 | 1.25.0 | 1/0/0 | EMPTY_GT |
+| 586 | deatil__go-jwt | https://github.com/deatil/go-jwt | 93ab3e7ffc | 2026-07-14 | 1.25.0 | 6/2/2 | OK |
+| 587 | fergusstrange__embedded-postgres | https://github.com/fergusstrange/embedded-postgres | 490777eebf | 2026-03-18 | 1.18 | 13/2/7 | OK |
+| 588 | firasdarwish__ore | https://github.com/firasdarwish/ore | 95eeb1fc3a | 2026-03-07 | 1.22 | 7/4/4 | OK |
+| 589 | fish-tennis__gnet | https://github.com/fish-tennis/gnet | 5bc9931466 | 2026-07-16 | 1.26 | 5/2/2 | OK |
+| 590 | fortio__fortio | https://github.com/fortio/fortio | 45e1871081 | 2026-07-09 | 1.25.0 | 75/28/31 | OK |
+| 591 | go-kod__kod | https://github.com/go-kod/kod | 9dc222a525 | 2026-03-13 | 1.24.0 | 94/52/55 | OK |
+| 592 | go-playground__pure | https://github.com/go-playground/pure | c277882736 | 2023-07-13 | 1.18 | 4/3/3 | OK |
+| 593 | nkmr-jp__zl | https://github.com/nkmr-jp/zl | e74d40cf71 | 2026-04-03 | 1.26 | 18/7/10 | OK |
+| 594 | no-src__gofs | https://github.com/no-src/gofs | 6edaa74f38 | 2025-12-18 | 1.24.4 | 183/83/84 | OK |
+| 595 | rafaeljesus__parallel-fn | https://github.com/rafaeljesus/parallel-fn | ef08331b38 | 2018-01-01 |  | 0/0/0 | EMPTY_GT |
+| 596 | rafaeljesus__retry-go | https://github.com/rafaeljesus/retry-go | 5981a380a8 | 2017-12-14 |  | 0/0/0 | EMPTY_GT |
+| 597 | rbretecher__go-postman-collection | https://github.com/rbretecher/go-postman-collection | 093c43487f | 2022-09-20 | 1.16 | 10/0/4 | EMPTY_GT |
+| 598 | reaganiwadha__grapher | https://github.com/reaganiwadha/grapher | e314017681 | 2023-07-21 | 1.18 | 27/1/12 | OK |
+| 599 | roblillack__spot | https://github.com/roblillack/spot | c3aafeeacd | 2024-12-19 | 1.21 | 4/1/1 | OK |
+| 600 | z5labs__bedrock | https://github.com/z5labs/bedrock | ab02f729e1 | 2026-07-16 | 1.25.0 | 86/37/41 | OK |
+| 601 | zerosnake0__goctx | https://github.com/zerosnake0/goctx | 74eeded162 | 2020-11-24 | 1.15 | 9/1/6 | OK |
+| 602 | MonaxGT__gomalshare | https://github.com/MonaxGT/gomalshare | e9621fca15 | 2019-04-29 |  | 1/0/0 | EMPTY_GT |
+| 603 | PaddleHQ__go-aws-ssm | https://github.com/PaddleHQ/go-aws-ssm | d332b0bbfe | 2026-05-14 | 1.24 | 12/3/3 | OK |
+| 604 | amjadjibon__memsh | https://github.com/amjadjibon/memsh | 35b241fa04 | 2026-07-16 | 1.26 | 116/56/56 | OK |
+| 605 | axllent__mailpit | https://github.com/axllent/mailpit | 6a09f28d54 | 2026-07-09 | 1.25.0 | 88/55/55 | OK |
+| 606 | bcicen__ctop | https://github.com/bcicen/ctop | 59f00dd6aa | 2022-08-01 | 1.18 | 105/43/43 | OK |
+| 607 | bits-and-blooms__bloom | https://github.com/bits-and-blooms/bloom | 4f9e5176a1 | 2026-07-10 | 1.16 | 3/1/2 | OK |
+| 608 | bobg__combo | https://github.com/bobg/combo | ea5f32e452 | 2026-03-01 | 1.23 | 10/5/5 | OK |
+| 609 | chrislusf__vasto | https://github.com/chrislusf/vasto | e1f8a17682 | 2019-03-07 |  | 0/0/0 | EMPTY_GT |
+| 610 | desertbit__glue | https://github.com/desertbit/glue | 06de07e1e4 | 2019-06-19 |  | 0/0/0 | EMPTY_GT |
+| 611 | detectlanguage__detectlanguage-go | https://github.com/detectlanguage/detectlanguage-go | cea83d189c | 2025-08-20 | 1.13 | 7/0/4 | EMPTY_GT |
+| 612 | didi__gendry | https://github.com/didi/gendry | e6d8f5cfe4 | 2025-03-12 | 1.13 | 8/0/5 | EMPTY_GT |
+| 613 | diegomarangoni__typenv | https://github.com/diegomarangoni/typenv | 76ad151dad | 2025-04-02 | 1.18 | 7/0/4 | EMPTY_GT |
+| 614 | fxsjy__jieba | https://github.com/fxsjy/jieba | 67fa2e36e7 | 2020-02-15 |  | 0/0/0 | EMPTY_GT |
+| 615 | gabrie30__ghorg | https://github.com/gabrie30/ghorg | 0c87ad9e85 | 2026-07-12 | 1.26 | 0/53/53 | OK |
+| 616 | georgebuilds__anneal | https://github.com/georgebuilds/anneal | dfb2492cd0 | 2026-06-26 | 1.26.3 | 53/23/32 | OK |
+| 617 | getfider__fider | https://github.com/getfider/fider | b7f8f91665 | 2026-07-13 | 1.25.0 | 366/40/40 | OK |
+| 618 | gookit__validate | https://github.com/gookit/validate | b794bbbb7f | 2026-06-26 | 1.21 | 9/3/6 | OK |
+| 619 | gorilla__mux | https://github.com/gorilla/mux | db9d1d0073 | 2024-06-19 | 1.20 | 1/0/0 | EMPTY_GT |
+| 620 | hyperboloide__lk | https://github.com/hyperboloide/lk | b291812e32 | 2025-12-20 | 1.17 | 11/3/7 | OK |
+| 621 | relvacode__iso8601 | https://github.com/relvacode/iso8601 | 4ccd8a875d | 2025-09-12 | 1.13 | 1/0/0 | EMPTY_GT |
+| 622 | restic__restic | https://github.com/restic/restic | d4088aa09b | 2026-07-15 | 1.25.8 | 285/85/86 | OK |
+| 623 | rickb777__date | https://github.com/rickb777/date | 28fb6ebb48 | 2026-06-04 | 1.25.0 | 11/4/4 | OK |
+| 624 | rocketlaunchr__dbq | https://github.com/rocketlaunchr/dbq | edab5e1151 | 2021-02-23 | 1.12 | 78/5/7 | OK |
+| 625 | rotisserie__eris | https://github.com/rotisserie/eris | d09d47a03c | 2025-04-03 | 1.18 | 1/0/0 | EMPTY_GT |
+| 626 | rqlite__gorqlite | https://github.com/rqlite/gorqlite | 50d445fd0a | 2026-05-04 | 1.17 | 1/0/0 | EMPTY_GT |
+| 627 | AshvinBambhaniya__autopool | https://github.com/AshvinBambhaniya/autopool | 7ff44670ea | 2026-04-09 | 1.25.0 | 1/0/0 | EMPTY_GT |
+| 628 | MauriceGit__skiplist | https://github.com/MauriceGit/skiplist | 77f5c8d3e1 | 2021-11-06 |  | 0/0/0 | EMPTY_GT |
+| 629 | Pixboost__transformimgs | https://github.com/Pixboost/transformimgs | dd9df10283 | 2025-02-15 | 1.18 | 4/3/3 | OK |
+| 630 | asticode__go-astitodo | https://github.com/asticode/go-astitodo | 909b1757d8 | 2024-04-22 | 1.19 | 8/1/5 | OK |
+| 631 | biter777__countries | https://github.com/biter777/countries | 4fa48089b8 | 2024-05-30 | 1.13 | 1/0/0 | EMPTY_GT |
+| 632 | boot-go__boot | https://github.com/boot-go/boot | 76f9cc6ef2 | 2024-01-29 | 1.18 | 1/0/0 | EMPTY_GT |
+| 633 | brunomvsouza__ynab.go | https://github.com/brunomvsouza/ynab.go | 4ea314ff91 | 2026-07-13 | 1.19 | 8/0/5 | EMPTY_GT |
+| 634 | btnguyen2k__olaf | https://github.com/btnguyen2k/olaf | 10203e4f6c | 2019-04-10 |  | 0/0/0 | EMPTY_GT |
+| 635 | danieldk__go2vec | https://github.com/danieldk/go2vec | ee0e8720a8 | 2017-05-17 |  | 0/0/0 | EMPTY_GT |
+| 636 | disintegration__imaging | https://github.com/disintegration/imaging | d40f48ce0f | 2020-12-18 |  | 3/1/1 | OK |
+| 637 | distatus__battery | https://github.com/distatus/battery | 24c526632a | 2023-06-23 | 1.18 | 6/0/0 | EMPTY_GT |
+| 638 | donatj__mpo | https://github.com/donatj/mpo | b4e16608fc | 2026-07-14 | 1.26 | 3/1/1 | OK |
+| 639 | dundee__gdu | https://github.com/dundee/gdu | 1868609e0d | 2026-07-08 | 1.25.0 | 79/39/42 | OK |
+| 640 | eaigner__shield | https://github.com/eaigner/shield | 7e8e5f1f2c | 2013-04-15 |  | 0/0/0 | EMPTY_GT |
+| 641 | go-ego__gse | https://github.com/go-ego/gse | f8b89ec3ca | 2026-06-10 | 1.25 | 3/1/2 | OK |
+| 642 | go-external-config__vault | https://github.com/go-external-config/vault | 0a2d79592c | 2026-07-08 | 1.26 | 60/22/22 | OK |
+| 643 | go-playground__lars | https://github.com/go-playground/lars | 4dc376e72e | 2017-10-31 |  | 0/0/0 | EMPTY_GT |
+| 644 | jmcvetta__neoism | https://github.com/jmcvetta/neoism | fe83b5b656 | 2020-02-16 |  | 0/0/0 | EMPTY_GT |
+| 645 | jonchun__pathtype | https://github.com/jonchun/pathtype | 7f32b73f17 | 2021-08-12 | 1.16 | 1/0/0 | EMPTY_GT |
+| 646 | rjNemo__underscore | https://github.com/rjNemo/underscore | a29f64b700 | 2025-11-16 | 1.24.2 | 7/0/4 | EMPTY_GT |
+| 647 | robinjoseph08__redisqueue | https://github.com/robinjoseph08/redisqueue | 195b427f6d | 2020-10-15 | 1.12 | 41/2/6 | OK |
+| 648 | rubyist__circuitbreaker | https://github.com/rubyist/circuitbreaker | aa1899571b | 2024-05-15 | 1.21.6 | 4/2/3 | OK |
+| 649 | rulego__rulego | https://github.com/rulego/rulego | 06ea606ab6 | 2026-07-13 | 1.20 | 38/18/18 | OK |
+| 650 | safedep__vet | https://github.com/safedep/vet | 7517804791 | 2026-07-03 | 1.26.2 | 1133/437/437 | OK |
+| 651 | saivedant169__AegisFlow | https://github.com/saivedant169/AegisFlow | 21815608d1 | 2026-07-09 | 1.26.5 | 166/69/72 | OK |
