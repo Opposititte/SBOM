@@ -22,6 +22,10 @@ MHDR="repo,url,commit_sha,commit_date,main_module,go_version,status,n_imported,n
 
 log(){ echo "[$(date -u +%H:%M:%S)] $*" >> "$LOG"; }
 
+# 自分が死んだら配下のworker/procも道連れに（孤児化防止）
+cleanup(){ pkill -9 -P $$ 2>/dev/null; pkill -9 -f 'census/(worker|proc)\.sh' 2>/dev/null; }
+trap cleanup EXIT INT TERM
+
 merge(){
   for f in "$PARTS"/*.csv; do [ -e "$f" ] || continue; n=$(basename "$f" .csv)
     grep -q "^$n," "$CSV" 2>/dev/null || cat "$f" >> "$CSV"; done
@@ -34,12 +38,12 @@ push(){
   for r in 1 2 3 4; do git -C "$ROOT" push -u origin "$BRANCH" >/dev/null 2>&1 && return 0; sleep $((2**r)); done
 }
 diskclean(){
+  # 各バッチ境界で無条件パージ（モジュール本体＋DLされたtoolchain）。
+  # go list -deps はモジュールソースDLが不可避で単調増加するため、境界で必ずリセットして枠を一定に保つ。
+  rm -rf "$GOMODCACHE" "$GOCACHE" /root/go/pkg/mod /root/.cache/go-build /tmp/rm_work/* "$BASE"/data/* 2>/dev/null
+  mkdir -p "$GOMODCACHE" "$GOCACHE"
   local freekb; freekb=$(df --output=avail "$ROOT" | tail -1)
-  if [ "$freekb" -lt 5242880 ]; then
-    log "disk low (${freekb}kb) -> purge caches"
-    rm -rf "$GOMODCACHE" "$GOCACHE" /root/go/pkg/mod /root/.cache/go-build 2>/dev/null
-    mkdir -p "$GOMODCACHE" "$GOCACHE"
-  fi
+  log "diskclean done free=$(df -h "$ROOT"|tail -1|awk '{print $4}')"
 }
 
 # DONE = committed manifest に既にある repo（進捗の真実）
