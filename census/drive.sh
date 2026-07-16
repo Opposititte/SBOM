@@ -33,7 +33,7 @@ merge(){
     grep -q "^$n," "$MANIFEST" 2>/dev/null || cat "$f" >> "$MANIFEST"; done
 }
 push(){
-  git -C "$ROOT" add "$CSV" "$MANIFEST" census/tool_versions.txt census/proc.sh census/worker.sh census/drive.sh census/scorer.js census/repolist.csv .gitignore >/dev/null 2>&1
+  git -C "$ROOT" add "$CSV" "$MANIFEST" census/tool_versions.txt census/*.sh census/*.js census/*.md census/repolist.csv .gitignore >/dev/null 2>&1
   git -C "$ROOT" commit -q -m "census: $(( $(wc -l < "$MANIFEST") - 1 )) repos processed" >/dev/null 2>&1
   for r in 1 2 3 4; do git -C "$ROOT" push -u origin "$BRANCH" >/dev/null 2>&1 && return 0; sleep $((2**r)); done
 }
