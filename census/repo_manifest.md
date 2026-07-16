@@ -656,3 +656,27 @@ status: OK=評価済 / EMPTY_GT=Goだがimported依存ゼロ / CLONE_FAIL=取得
 | 649 | rulego__rulego | https://github.com/rulego/rulego | 06ea606ab6 | 2026-07-13 | 1.20 | 38/18/18 | OK |
 | 650 | safedep__vet | https://github.com/safedep/vet | 7517804791 | 2026-07-03 | 1.26.2 | 1133/437/437 | OK |
 | 651 | saivedant169__AegisFlow | https://github.com/saivedant169/AegisFlow | 21815608d1 | 2026-07-09 | 1.26.5 | 166/69/72 | OK |
+| 652 | Alejandro-M-P__git-courer | https://github.com/Alejandro-M-P/git-courer | 80c84a4944 | 2026-07-02 | 1.26 | 75/45/49 | OK |
+| 653 | Eun__go-hit | https://github.com/Eun/go-hit | e7519b776d | 2024-04-05 | 1.15 | 0/30/35 | OK |
+| 654 | GoogleCloudPlatform__gcloud-golang | https://github.com/GoogleCloudPlatform/gcloud-golang | 1b2f5afa0f | 2026-07-16 | 1.25.0 | 197/31/47 | OK |
+| 655 | PIMPfiction__govader_backend | https://github.com/PIMPfiction/govader_backend | d8ede28925 | 2024-02-26 | 1.18 | 32/12/16 | OK |
+| 656 | PaesslerAG__gval | https://github.com/PaesslerAG/gval | a769652e8e | 2025-08-04 | 1.15 | 3/1/2 | OK |
+| 657 | PerimeterX__envite | https://github.com/PerimeterX/envite | 90fe3b3866 | 2026-06-07 | 1.25.0 | 75/34/37 | OK |
+| 658 | Ullaakut__cameradar | https://github.com/Ullaakut/cameradar | d286b0f981 | 2026-07-15 | 1.25.10 | 176/76/80 | OK |
+| 659 | VividCortex__godaemon | https://github.com/VividCortex/godaemon | f8c5ec7b59 | 2021-04-26 | 1.12 | 1/0/0 | EMPTY_GT |
+| 660 | bluele__gcache | https://github.com/bluele/gcache | d8b7e051c5 | 2022-01-05 | 1.15 | 1/0/0 | EMPTY_GT |
+| 661 | caddyserver__caddy | https://github.com/caddyserver/caddy | 986753a7c6 | 2026-07-15 | 1.25.1 | 550/159/163 | OK |
+| 662 | ccbrown__api-fu | https://github.com/ccbrown/api-fu | b02009cb8d | 2024-08-29 | 1.18 | 29/11/15 | OK |
+| 663 | doors-dev__gox | https://github.com/doors-dev/gox | 8d7025146f | 2026-07-03 | 1.25.1 | 68/21/21 | OK |
+| 664 | duanckham__hands | https://github.com/duanckham/hands | bc83d5494b | 2025-08-26 | 1.23 | 16/0/4 | EMPTY_GT |
+| 665 | dukex__mixpanel | https://github.com/dukex/mixpanel | 4da2d60228 | 2026-01-27 | 1.18 | 1/0/0 | EMPTY_GT |
+| 666 | fogleman__ln | https://github.com/fogleman/ln | 12e6c6e744 | 2017-02-23 |  | 0/0/0 | EMPTY_GT |
+| 667 | fulldump__goconfig | https://github.com/fulldump/goconfig | 12809971ba | 2026-06-12 | 1.20 | 1/0/0 | EMPTY_GT |
+| 668 | go-playground__form | https://github.com/go-playground/form | 3079d9a89d | 2025-10-11 | 1.21 | 2/0/1 | EMPTY_GT |
+| 669 | gobeam__mongo-go-pagination | https://github.com/gobeam/mongo-go-pagination | f00183ba8c | 2022-08-09 | 1.13 | 56/12/12 | OK |
+| 670 | goccmack__gocc | https://github.com/goccmack/gocc | 05e1d8e93f | 2026-01-13 | 1.24 | 3/1/1 | OK |
+| 671 | mattn__go-colorable | https://github.com/mattn/go-colorable | 8bf39a204f | 2026-05-29 | 1.18 | 3/2/2 | OK |
+| 672 | root-gg__plik | https://github.com/root-gg/plik | 8dd88a8827 | 2026-07-07 | 1.26.1 | 0/113/113 | OK |
+| 673 | rsteube__carapace-spec | https://github.com/rsteube/carapace-spec | 0146365d8f | 2026-07-13 | 1.24 | 21/5/5 | OK |
+| 674 | sanbornm__go-selfupdate | https://github.com/sanbornm/go-selfupdate | e1c03e3d6a | 2023-07-14 | 1.15 | 2/1/1 | OK |
+| 675 | scigolib__hdf5 | https://github.com/scigolib/hdf5 | 8223748b68 | 2026-06-25 | 1.25 | 7/0/4 | EMPTY_GT |
