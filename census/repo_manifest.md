@@ -680,3 +680,52 @@ status: OK=評価済 / EMPTY_GT=Goだがimported依存ゼロ / CLONE_FAIL=取得
 | 673 | rsteube__carapace-spec | https://github.com/rsteube/carapace-spec | 0146365d8f | 2026-07-13 | 1.24 | 21/5/5 | OK |
 | 674 | sanbornm__go-selfupdate | https://github.com/sanbornm/go-selfupdate | e1c03e3d6a | 2023-07-14 | 1.15 | 2/1/1 | OK |
 | 675 | scigolib__hdf5 | https://github.com/scigolib/hdf5 | 8223748b68 | 2026-06-25 | 1.25 | 7/0/4 | EMPTY_GT |
+| 676 | Breeze0806__go-etl | https://github.com/Breeze0806/go-etl | fda85ca65f | 2026-06-10 | 1.20 | 104/54/54 | OK |
+| 677 | Colin4k1024__Aetheris | https://github.com/Colin4k1024/Aetheris | 2ff3e77a18 | 2026-07-06 | 1.26.1 | 268/124/124 | OK |
+| 678 | GuilhermeCaruso__bellt | https://github.com/GuilhermeCaruso/bellt | 5d28019f58 | 2022-07-18 | 1.12 | 1/0/0 | EMPTY_GT |
+| 679 | GuilhermeCaruso__mooncake | https://github.com/GuilhermeCaruso/mooncake | dda32b02e9 | 2022-09-18 | 1.18 | 11/4/4 | OK |
+| 680 | JohannesKaufmann__html-to-markdown | https://github.com/JohannesKaufmann/html-to-markdown | 290df46a27 | 2026-06-07 | 1.25.0 | 30/15/15 | OK |
+| 681 | Knuspii__CrunchyCleaner | https://github.com/Knuspii/CrunchyCleaner | 169977e3c2 | 2026-07-08 | 1.25.0 | 16/3/3 | OK |
+| 682 | cabify__gotoprom | https://github.com/cabify/gotoprom | 41afc5d4ea | 2024-10-09 | 1.12 | 49/10/15 | OK |
+| 683 | calpa__urusai | https://github.com/calpa/urusai | 3a20adde2d | 2026-06-09 | 1.22 | 1/0/0 | EMPTY_GT |
+| 684 | cenkalti__rain | https://github.com/cenkalti/rain | 6278afa24e | 2026-07-13 | 1.25.0 | 71/41/47 | OK |
+| 685 | emvi__null | https://github.com/emvi/null | cb6d3fd36a | 2021-11-09 | 1.17 | 1/0/0 | EMPTY_GT |
+| 686 | faabiosr__cachego | https://github.com/faabiosr/cachego | 859aca6d08 | 2025-04-01 | 1.21 | 32/16/17 | OK |
+| 687 | failsafe-go__failsafe-go | https://github.com/failsafe-go/failsafe-go | baf3dc71cb | 2026-06-02 | 1.21 | 44/12/12 | OK |
+| 688 | formancehq__ledger | https://github.com/formancehq/ledger | 0695abcaf9 | 2026-07-09 | 1.26.0 | 392/202/222 | OK |
+| 689 | garethgeorge__backrest | https://github.com/garethgeorge/backrest | 626156cd8e | 2026-07-12 | 1.26 | 131/44/50 | OK |
+| 690 | getveil__veil | https://github.com/getveil/veil | 793dd08507 | 2026-05-21 | 1.26.2 | 60/25/25 | OK |
+| 691 | lampctl__go-sse | https://github.com/lampctl/go-sse | ed577125a5 | 2025-04-18 | 1.18 | 1/0/0 | EMPTY_GT |
+| 692 | lib4u__fake-useragent | https://github.com/lib4u/fake-useragent | 1ea74507b2 | 2026-02-16 | 1.23.4 | 6/1/1 | OK |
+| 693 | megaease__easegress | https://github.com/megaease/easegress | 3bdb1923a2 | 2026-07-01 | 1.26.0 | 770/320/348 | OK |
+| 694 | muesli__smartcrop | https://github.com/muesli/smartcrop | f1935b108c | 2023-03-16 | 1.12 | 13/2/2 | OK |
+| 695 | roblaszczak__go-cleanarch | https://github.com/roblaszczak/go-cleanarch | 03b96056c4 | 2021-11-08 | 1.11 | 1/0/0 | EMPTY_GT |
+| 696 | rocketlaunchr__igo | https://github.com/rocketlaunchr/igo | 5a545e806e | 2020-04-06 |  | 0/0/0 | EMPTY_GT |
+| 697 | roylee0704__gron | https://github.com/roylee0704/gron | e78485adab | 2016-06-21 |  | 0/0/0 | EMPTY_GT |
+| 698 | samuelcouch__clarifai | https://github.com/samuelcouch/clarifai |  |  |  | 0/0/0 | CLONE_FAIL |
+| 699 | schollz__croc | https://github.com/schollz/croc | 859da3fd0a | 2026-07-12 | 1.25.0 | 49/25/29 | OK |
+| 700 | schuyler__neural-go | https://github.com/schuyler/neural-go | cc57accbc7 | 2013-10-18 |  | 0/0/0 | EMPTY_GT |
+| 701 | FiloSottile__age | https://github.com/FiloSottile/age | 706dfc1e79 | 2026-03-20 | 1.24.0 | 18/6/9 | OK |
+| 702 | Netflix__chaosmonkey | https://github.com/Netflix/chaosmonkey | eaa28fb761 | 2024-10-03 | 1.19 | 38/22/22 | OK |
+| 703 | NicoNex__echotron | https://github.com/NicoNex/echotron | ea90870cd5 | 2026-07-07 | 1.19 | 18/1/1 | OK |
+| 704 | RichardKnop__jsonhal | https://github.com/RichardKnop/jsonhal | 9ef775cfa6 | 2018-11-01 |  | 5/1/4 | OK |
+| 705 | RoaringBitmap__roaring | https://github.com/RoaringBitmap/roaring | 44559cd5c0 | 2026-07-13 | 1.24.0 | 20/2/7 | OK |
+| 706 | charmbracelet__wish | https://github.com/charmbracelet/wish | 8b65ba4d62 | 2026-05-28 | 1.25.9 | 81/43/45 | OK |
+| 707 | chenmingyong0423__go-mongox | https://github.com/chenmingyong0423/go-mongox | 19c38d7c2e | 2026-06-30 | 1.19 | 25/9/13 | OK |
+| 708 | chrismckenzie__dropship | https://github.com/chrismckenzie/dropship | 083ea56a84 | 2018-07-25 |  | 0/0/0 | EMPTY_GT |
+| 709 | gambol99__go-marathon | https://github.com/gambol99/go-marathon | 94e7bcb625 | 2020-01-16 |  | 0/0/0 | EMPTY_GT |
+| 710 | gansidui__gotcp | https://github.com/gansidui/gotcp | 7a5bfb3286 | 2017-04-18 |  | 0/0/0 | EMPTY_GT |
+| 711 | git-time-metric__gtm | https://github.com/git-time-metric/gtm | 019de991bf | 2019-08-02 |  | 0/0/0 | EMPTY_GT |
+| 712 | gobuffalo__validate | https://github.com/gobuffalo/validate | 715c163ea3 | 2022-09-26 | 1.16 | 9/2/6 | OK |
+| 713 | gotranspile__cxgo | https://github.com/gotranspile/cxgo | e682671cd3 | 2025-03-16 | 1.20 | 23/12/15 | OK |
+| 714 | gulien__orbit | https://github.com/gulien/orbit | 2fd5fb2060 | 2021-01-18 |  | 0/0/0 | EMPTY_GT |
+| 715 | mvrilo__go-redoc | https://github.com/mvrilo/go-redoc | 3a15e2c085 | 2025-02-09 | 1.17 | 7/0/4 | EMPTY_GT |
+| 716 | o1egl__govatar | https://github.com/o1egl/govatar | 31618c34a7 | 2022-07-29 | 1.16 | 13/4/8 | OK |
+| 717 | patrikeh__go-deep | https://github.com/patrikeh/go-deep | a2775168ab | 2023-04-27 | 1.13 | 4/0/3 | EMPTY_GT |
+| 718 | rubenv__sql-migrate | https://github.com/rubenv/sql-migrate | 66d85c159f | 2026-07-14 | 1.25.0 | 72/30/34 | OK |
+| 719 | rulego__streamsql | https://github.com/rulego/streamsql | a323fe7a73 | 2026-07-14 | 1.18 | 8/1/5 | OK |
+| 720 | sadlil__go-trigger | https://github.com/sadlil/go-trigger | cfc3d83007 | 2017-03-28 |  | 0/0/0 | EMPTY_GT |
+| 721 | sanathp__statusok | https://github.com/sanathp/statusok | da193355ee | 2020-01-31 |  | 0/0/0 | EMPTY_GT |
+| 722 | seborama__govcr | https://github.com/seborama/govcr | bb8afa156d | 2026-04-25 | 1.25.0 | 34/16/28 | OK |
+| 723 | sethgrid__pester | https://github.com/sethgrid/pester | 32a1beba19 | 2022-02-09 | 1.14 | 1/0/0 | EMPTY_GT |
+| 724 | sgreben__piecewiselinear | https://github.com/sgreben/piecewiselinear | 2e5d3add2f | 2023-12-10 | 1.15 | 1/0/0 | EMPTY_GT |
