@@ -2358,3 +2358,463 @@
 | yassinebenaid__bunster | trivy | 5/0/5 | 66.7 | 5/0/0 | 100.0 | 5/0/0 | 100.0 | 66.7/100.0/100.0 |
 | yassinebenaid__bunster | cdxgen | 5/0/5 | 66.7 | 5/0/0 | 100.0 | 5/0/0 | 100.0 | 66.7/100.0/100.0 |
 | yassinebenaid__bunster | cyclonedx-gomod | 5/0/5 | 66.7 | 5/0/0 | 100.0 | 5/0/0 | 100.0 | 66.7/100.0/100.0 |
+| Humpheh__goboy | syft | 17/0/11 | 75.6 | 8/9/0 | 64.0 | 12/5/0 | 82.8 | 75.6/64.0/82.8 |
+| Humpheh__goboy | trivy | 16/0/12 | 72.7 | 8/8/0 | 66.7 | 12/4/0 | 85.7 | 72.7/66.7/85.7 |
+| Humpheh__goboy | cdxgen | 8/0/20 | 44.4 | 8/0/0 | 100.0 | 8/0/4 | 80.0 | 44.4/100.0/80.0 |
+| Humpheh__goboy | cyclonedx-gomod | 12/0/16 | 60.0 | 8/4/0 | 80.0 | 8/4/4 | 66.7 | 60.0/80.0/66.7 |
+| a8m__go-lang-cheat-sheet | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| achannarasappa__ticker | syft | 267/0/99 | 84.4 | 37/230/0 | 24.3 | 48/219/0 | 30.5 | 84.4/24.3/30.5 |
+| achannarasappa__ticker | trivy | 229/0/137 | 77.0 | 37/192/0 | 27.8 | 48/181/0 | 34.7 | 77.0/27.8/34.7 |
+| achannarasappa__ticker | cdxgen | 37/0/329 | 18.4 | 37/0/0 | 100.0 | 37/0/11 | 87.1 | 18.4/100.0/87.1 |
+| achannarasappa__ticker | cyclonedx-gomod | 222/0/144 | 75.5 | 37/185/0 | 28.6 | 42/180/6 | 31.1 | 75.5/28.6/31.1 |
+| adrianmo__go-nmea | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| akrennmair__gopcap | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| andygrunwald__go-trending | syft | 3/1/11 | 33.3 | 3/1/0 | 85.7 | 3/1/0 | 85.7 | 33.3/85.7/85.7 |
+| andygrunwald__go-trending | trivy | 3/1/11 | 33.3 | 3/1/0 | 85.7 | 3/1/0 | 85.7 | 33.3/85.7/85.7 |
+| andygrunwald__go-trending | cdxgen | 3/0/11 | 35.3 | 3/0/0 | 100.0 | 3/0/0 | 100.0 | 35.3/100.0/100.0 |
+| andygrunwald__go-trending | cyclonedx-gomod | 3/0/11 | 35.3 | 3/0/0 | 100.0 | 3/0/0 | 100.0 | 35.3/100.0/100.0 |
+| antham__gommit | syft | 59/0/12 | 90.8 | 37/22/0 | 77.1 | 42/17/0 | 83.2 | 90.8/77.1/83.2 |
+| antham__gommit | trivy | 44/0/27 | 76.5 | 37/7/0 | 91.4 | 42/2/0 | 97.7 | 76.5/91.4/97.7 |
+| antham__gommit | cdxgen | 37/0/34 | 68.5 | 37/0/0 | 100.0 | 37/0/5 | 93.7 | 68.5/100.0/93.7 |
+| antham__gommit | cyclonedx-gomod | 39/0/32 | 70.9 | 37/2/0 | 97.4 | 37/2/5 | 91.4 | 70.9/97.4/91.4 |
+| appleboy__drone-jenkins | syft | 12/0/3 | 88.9 | 7/5/0 | 73.7 | 11/1/0 | 95.7 | 88.9/73.7/95.7 |
+| appleboy__drone-jenkins | trivy | 11/0/4 | 84.6 | 7/4/0 | 77.8 | 11/0/0 | 100.0 | 84.6/77.8/100.0 |
+| appleboy__drone-jenkins | cdxgen | 7/0/8 | 63.6 | 7/0/0 | 100.0 | 7/0/4 | 77.8 | 63.6/100.0/77.8 |
+| appleboy__drone-jenkins | cyclonedx-gomod | 7/0/8 | 63.6 | 7/0/0 | 100.0 | 7/0/4 | 77.8 | 63.6/100.0/77.8 |
+| appleboy__easyssh-proxy | syft | 10/1/4 | 80.0 | 3/8/0 | 42.9 | 7/4/0 | 77.8 | 80.0/42.9/77.8 |
+| appleboy__easyssh-proxy | trivy | 8/1/6 | 69.6 | 3/6/0 | 50.0 | 7/2/0 | 87.5 | 69.6/50.0/87.5 |
+| appleboy__easyssh-proxy | cdxgen | 3/0/11 | 35.3 | 3/0/0 | 100.0 | 3/0/4 | 60.0 | 35.3/100.0/60.0 |
+| appleboy__easyssh-proxy | cyclonedx-gomod | 4/0/10 | 44.4 | 3/1/0 | 85.7 | 3/1/4 | 54.5 | 44.4/85.7/54.5 |
+| arthurkushman__buildsqlx | syft | 8/0/4 | 80.0 | 3/5/0 | 54.5 | 7/1/0 | 93.3 | 80.0/54.5/93.3 |
+| arthurkushman__buildsqlx | trivy | 7/0/5 | 73.7 | 3/4/0 | 60.0 | 7/0/0 | 100.0 | 73.7/60.0/100.0 |
+| arthurkushman__buildsqlx | cdxgen | 3/0/9 | 40.0 | 3/0/0 | 100.0 | 3/0/4 | 60.0 | 40.0/100.0/60.0 |
+| arthurkushman__buildsqlx | cyclonedx-gomod | 3/0/9 | 40.0 | 3/0/0 | 100.0 | 3/0/4 | 60.0 | 40.0/100.0/60.0 |
+| digitalcrab__browscap_go | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| dikhan__terraform-provider-openapi | syft | 107/2/114 | 64.8 | 65/44/0 | 74.7 | 74/35/0 | 80.9 | 62.0/73.9/80.0 |
+| dikhan__terraform-provider-openapi | trivy | 186/77/35 | 76.9 | 65/198/0 | 39.6 | 74/189/0 | 43.9 | 64.7/34.9/38.7 |
+| dikhan__terraform-provider-openapi | cdxgen | 79/0/142 | 52.7 | 65/14/0 | 90.3 | 68/11/6 | 88.9 | 50.3/89.0/87.7 |
+| dikhan__terraform-provider-openapi | cyclonedx-gomod | 66/0/155 | 46.0 | 65/1/0 | 99.2 | 65/1/9 | 92.9 | 46.0/99.2/92.9 |
+| dixonwille__wmenu | syft | 12/0/1 | 96.0 | 4/8/0 | 50.0 | 8/4/0 | 80.0 | 96.0/50.0/80.0 |
+| dixonwille__wmenu | trivy | 13/0/0 | 100.0 | 4/9/0 | 47.1 | 8/5/0 | 76.2 | 100.0/47.1/76.2 |
+| dixonwille__wmenu | cdxgen | 4/0/9 | 47.1 | 4/0/0 | 100.0 | 4/0/4 | 66.7 | 47.1/100.0/66.7 |
+| dixonwille__wmenu | cyclonedx-gomod | 4/0/9 | 47.1 | 4/0/0 | 100.0 | 4/0/4 | 66.7 | 47.1/100.0/66.7 |
+| ghostiam__binstruct | syft | 3/0/1 | 85.7 | 1/2/0 | 50.0 | 3/0/0 | 100.0 | 85.7/50.0/100.0 |
+| ghostiam__binstruct | trivy | 3/0/1 | 85.7 | 1/2/0 | 50.0 | 3/0/0 | 100.0 | 85.7/50.0/100.0 |
+| ghostiam__binstruct | cdxgen | 1/0/3 | 40.0 | 1/0/0 | 100.0 | 1/0/2 | 50.0 | 40.0/100.0/50.0 |
+| ghostiam__binstruct | cyclonedx-gomod | 1/0/3 | 40.0 | 1/0/0 | 100.0 | 1/0/2 | 50.0 | 40.0/100.0/50.0 |
+| goiot__devices | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| james-bowman__sparse | syft | 2/0/20 | 16.7 | 1/1/0 | 66.7 | 2/0/0 | 100.0 | 16.7/66.7/100.0 |
+| james-bowman__sparse | trivy | 22/0/0 | 100.0 | 1/21/0 | 8.7 | 2/20/0 | 16.7 | 100.0/8.7/16.7 |
+| james-bowman__sparse | cdxgen | 1/0/21 | 8.7 | 1/0/0 | 100.0 | 1/0/1 | 66.7 | 8.7/100.0/66.7 |
+| james-bowman__sparse | cyclonedx-gomod | 1/0/21 | 8.7 | 1/0/0 | 100.0 | 1/0/1 | 66.7 | 8.7/100.0/66.7 |
+| janpfeifer__gonb | syft | 47/0/11 | 89.5 | 31/16/0 | 79.5 | 35/12/0 | 85.4 | 89.5/79.5/85.4 |
+| janpfeifer__gonb | trivy | 40/0/18 | 81.6 | 31/9/0 | 87.3 | 35/5/0 | 93.3 | 81.6/87.3/93.3 |
+| janpfeifer__gonb | cdxgen | 31/0/27 | 69.7 | 31/0/0 | 100.0 | 31/0/4 | 93.9 | 69.7/100.0/93.9 |
+| janpfeifer__gonb | cyclonedx-gomod | 34/0/24 | 73.9 | 31/3/0 | 95.4 | 31/3/4 | 89.9 | 73.9/95.4/89.9 |
+| jfrog__froggit-go | syft | 64/0/60 | 68.1 | 39/25/0 | 75.7 | 43/21/0 | 80.4 | 68.1/75.7/80.4 |
+| jfrog__froggit-go | trivy | 44/0/80 | 52.4 | 39/5/0 | 94.0 | 43/1/0 | 98.9 | 52.4/94.0/98.9 |
+| jfrog__froggit-go | cdxgen | 39/0/85 | 47.9 | 39/0/0 | 100.0 | 39/0/4 | 95.1 | 47.9/100.0/95.1 |
+| jfrog__froggit-go | cyclonedx-gomod | 40/0/84 | 48.8 | 39/1/0 | 98.7 | 39/1/4 | 94.0 | 48.8/98.7/94.0 |
+| thoas__go-funk | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| tidwall__sjson | syft | 3/0/0 | 100.0 | 3/0/0 | 100.0 | 3/0/0 | 100.0 | 100.0/100.0/100.0 |
+| tidwall__sjson | trivy | 3/0/0 | 100.0 | 3/0/0 | 100.0 | 3/0/0 | 100.0 | 100.0/100.0/100.0 |
+| tidwall__sjson | cdxgen | 3/0/0 | 100.0 | 3/0/0 | 100.0 | 3/0/0 | 100.0 | 100.0/100.0/100.0 |
+| tidwall__sjson | cyclonedx-gomod | 3/0/0 | 100.0 | 3/0/0 | 100.0 | 3/0/0 | 100.0 | 100.0/100.0/100.0 |
+| tiendc__autowire | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| yazgazan__jaydiff | syft | 8/0/0 | 100.0 | 8/0/0 | 100.0 | 8/0/0 | 100.0 | 100.0/100.0/100.0 |
+| yazgazan__jaydiff | trivy | 8/0/0 | 100.0 | 8/0/0 | 100.0 | 8/0/0 | 100.0 | 100.0/100.0/100.0 |
+| yazgazan__jaydiff | cdxgen | 8/0/0 | 100.0 | 8/0/0 | 100.0 | 8/0/0 | 100.0 | 100.0/100.0/100.0 |
+| yazgazan__jaydiff | cyclonedx-gomod | 8/0/0 | 100.0 | 8/0/0 | 100.0 | 8/0/0 | 100.0 | 100.0/100.0/100.0 |
+| youthlin__stream | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| z7zmey__php-parser | syft | 6/0/0 | 100.0 | 2/4/0 | 50.0 | 5/1/0 | 90.9 | 100.0/50.0/90.9 |
+| z7zmey__php-parser | trivy | 6/0/0 | 100.0 | 2/4/0 | 50.0 | 5/1/0 | 90.9 | 100.0/50.0/90.9 |
+| z7zmey__php-parser | cdxgen | 2/0/4 | 50.0 | 2/0/0 | 100.0 | 2/0/3 | 57.1 | 50.0/100.0/57.1 |
+| z7zmey__php-parser | cyclonedx-gomod | 2/0/4 | 50.0 | 2/0/0 | 100.0 | 2/0/3 | 57.1 | 50.0/100.0/57.1 |
+| zach-klippenstein__goregen | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| agext__uuid | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| alvii147__gloop | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| appleboy__gofight | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| atemerev__skynet | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| auyer__steganography | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| aymerick__douceur | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| bradleyjkemp__cupaloy | syft | 5/0/1 | 90.9 | 2/3/0 | 57.1 | 5/0/0 | 100.0 | 90.9/57.1/100.0 |
+| bradleyjkemp__cupaloy | trivy | 6/1/0 | 92.3 | 2/5/0 | 44.4 | 5/2/0 | 83.3 | 92.3/44.4/83.3 |
+| bradleyjkemp__cupaloy | cdxgen | 2/0/4 | 50.0 | 2/0/0 | 100.0 | 2/0/3 | 57.1 | 50.0/100.0/57.1 |
+| bradleyjkemp__cupaloy | cyclonedx-gomod | 2/0/4 | 50.0 | 2/0/0 | 100.0 | 2/0/3 | 57.1 | 50.0/100.0/57.1 |
+| consbio__mbtileserver | syft | 27/0/8 | 87.1 | 21/6/0 | 87.5 | 21/6/0 | 87.5 | 87.1/87.5/87.5 |
+| consbio__mbtileserver | trivy | 22/0/13 | 77.2 | 21/1/0 | 97.7 | 21/1/0 | 97.7 | 77.2/97.7/97.7 |
+| consbio__mbtileserver | cdxgen | 21/0/14 | 75.0 | 21/0/0 | 100.0 | 21/0/0 | 100.0 | 75.0/100.0/100.0 |
+| consbio__mbtileserver | cyclonedx-gomod | 22/0/13 | 77.2 | 21/1/0 | 97.7 | 21/1/0 | 97.7 | 77.2/97.7/97.7 |
+| containrrr__shoutrrr | syft | 53/0/11 | 90.6 | 28/25/0 | 69.1 | 29/24/0 | 70.7 | 90.6/69.1/70.7 |
+| containrrr__shoutrrr | trivy | 33/0/31 | 68.0 | 28/5/0 | 91.8 | 29/4/0 | 93.5 | 68.0/91.8/93.5 |
+| containrrr__shoutrrr | cdxgen | 33/0/31 | 68.0 | 28/5/0 | 91.8 | 29/4/0 | 93.5 | 68.0/91.8/93.5 |
+| containrrr__shoutrrr | cyclonedx-gomod | 31/0/33 | 65.3 | 28/3/0 | 94.9 | 28/3/1 | 93.3 | 65.3/94.9/93.3 |
+| dgruber__drmaa | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| doors-dev__doors | syft | 21/0/25 | 62.7 | 16/5/0 | 86.5 | 16/5/0 | 86.5 | 62.7/86.5/86.5 |
+| doors-dev__doors | trivy | 16/0/30 | 51.6 | 16/0/0 | 100.0 | 16/0/0 | 100.0 | 51.6/100.0/100.0 |
+| doors-dev__doors | cdxgen | 16/0/30 | 51.6 | 16/0/0 | 100.0 | 16/0/0 | 100.0 | 51.6/100.0/100.0 |
+| doors-dev__doors | cyclonedx-gomod | 16/0/30 | 51.6 | 16/0/0 | 100.0 | 16/0/0 | 100.0 | 51.6/100.0/100.0 |
+| dotchain__dot | syft | 8/1/5 | 72.7 | 4/5/0 | 61.5 | 7/2/1 | 82.4 | 72.7/61.5/82.4 |
+| dotchain__dot | trivy | 12/1/1 | 92.3 | 4/9/0 | 47.1 | 7/6/1 | 66.7 | 92.3/47.1/66.7 |
+| dotchain__dot | cdxgen | 4/0/9 | 47.1 | 4/0/0 | 100.0 | 4/0/4 | 66.7 | 47.1/100.0/66.7 |
+| dotchain__dot | cyclonedx-gomod | NA | | NA | | NA | | |
+| dragonflyoss__Dragonfly2 | syft | 265/0/346 | 60.5 | 193/72/0 | 84.3 | 198/67/0 | 85.5 | 60.5/84.3/85.5 |
+| dragonflyoss__Dragonfly2 | trivy | 219/0/392 | 52.8 | 193/26/0 | 93.7 | 198/21/0 | 95.0 | 52.8/93.7/95.0 |
+| dragonflyoss__Dragonfly2 | cdxgen | 193/0/418 | 48.0 | 193/0/0 | 100.0 | 193/0/5 | 98.7 | 48.0/100.0/98.7 |
+| dragonflyoss__Dragonfly2 | cyclonedx-gomod | 211/0/400 | 51.3 | 193/18/0 | 95.5 | 193/18/5 | 94.4 | 51.3/95.5/94.4 |
+| dustinblackman__gomodrun | syft | 34/412/9 | 13.9 | 6/440/0 | 2.7 | 15/431/0 | 6.5 | 8.9/2.6/6.4 |
+| dustinblackman__gomodrun | trivy | 32/414/11 | 13.1 | 6/440/0 | 2.7 | 15/431/0 | 6.5 | 8.1/2.6/6.4 |
+| dustinblackman__gomodrun | cdxgen | 32/413/11 | 13.1 | 6/439/0 | 2.7 | 15/430/0 | 6.5 | 8.1/2.6/6.4 |
+| dustinblackman__gomodrun | cyclonedx-gomod | 7/0/36 | 28.0 | 6/1/0 | 92.3 | 6/1/9 | 54.5 | 28.0/92.3/54.5 |
+| fiam__gounidecode | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| hashicorp__mdns | syft | 6/0/6 | 66.7 | 3/3/0 | 66.7 | 3/3/0 | 66.7 | 66.7/66.7/66.7 |
+| hashicorp__mdns | trivy | 6/0/6 | 66.7 | 3/3/0 | 66.7 | 3/3/0 | 66.7 | 66.7/66.7/66.7 |
+| hashicorp__mdns | cdxgen | 3/0/9 | 40.0 | 3/0/0 | 100.0 | 3/0/0 | 100.0 | 40.0/100.0/100.0 |
+| hashicorp__mdns | cyclonedx-gomod | 6/0/6 | 66.7 | 3/3/0 | 66.7 | 3/3/0 | 66.7 | 66.7/66.7/66.7 |
+| isbm__textwrap | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| joomcode__errorx | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| joshmedeski__sesh | syft | 42/0/10 | 89.4 | 36/6/0 | 92.3 | 36/6/0 | 92.3 | 89.4/92.3/92.3 |
+| joshmedeski__sesh | trivy | 37/0/15 | 83.1 | 36/1/0 | 98.6 | 36/1/0 | 98.6 | 83.1/98.6/98.6 |
+| joshmedeski__sesh | cdxgen | 36/0/16 | 81.8 | 36/0/0 | 100.0 | 36/0/0 | 100.0 | 81.8/100.0/100.0 |
+| joshmedeski__sesh | cyclonedx-gomod | 36/0/16 | 81.8 | 35/1/1 | 97.2 | 35/1/1 | 97.2 | 81.8/97.2/97.2 |
+| kak-tus__ami | syft | 25/0/8 | 86.2 | 3/22/0 | 21.4 | 10/15/0 | 57.1 | 86.2/21.4/57.1 |
+| kak-tus__ami | trivy | 33/0/0 | 100.0 | 3/30/0 | 16.7 | 10/23/0 | 46.5 | 100.0/16.7/46.5 |
+| kak-tus__ami | cdxgen | 3/0/30 | 16.7 | 3/0/0 | 100.0 | 3/0/7 | 46.2 | 16.7/100.0/46.2 |
+| kak-tus__ami | cyclonedx-gomod | 3/0/30 | 16.7 | 3/0/0 | 100.0 | 3/0/7 | 46.2 | 16.7/100.0/46.2 |
+| lf-edge__ekuiper | syft | 436/3/487 | 64.0 | 150/289/1 | 50.8 | 154/285/1 | 51.9 | 62.8/49.6/50.6 |
+| lf-edge__ekuiper | trivy | 413/3/510 | 61.7 | 150/266/1 | 52.9 | 154/262/1 | 53.9 | 61.1/51.9/52.9 |
+| lf-edge__ekuiper | cdxgen | 416/2/507 | 62.0 | 151/267/0 | 53.1 | 155/263/0 | 54.1 | 61.3/52.4/53.4 |
+| lf-edge__ekuiper | cyclonedx-gomod | 398/1/525 | 60.2 | 150/249/1 | 54.5 | 150/249/5 | 54.2 | 59.9/54.2/53.8 |
+| tomwright__dasel | syft | 50/0/15 | 87.0 | 33/17/0 | 79.5 | 33/17/0 | 79.5 | 87.0/79.5/79.5 |
+| tomwright__dasel | trivy | 39/0/26 | 75.0 | 33/6/0 | 91.7 | 33/6/0 | 91.7 | 75.0/91.7/91.7 |
+| tomwright__dasel | cdxgen | 33/0/32 | 67.3 | 33/0/0 | 100.0 | 33/0/0 | 100.0 | 67.3/100.0/100.0 |
+| tomwright__dasel | cyclonedx-gomod | 37/0/28 | 72.5 | 32/5/1 | 91.4 | 32/5/1 | 91.4 | 72.5/91.4/91.4 |
+| tucnak__telebot | syft | 34/0/152 | 30.9 | 20/14/0 | 74.1 | 23/11/0 | 80.7 | 30.9/74.1/80.7 |
+| tucnak__telebot | trivy | 186/0/0 | 100.0 | 20/166/0 | 19.4 | 23/163/0 | 22.0 | 100.0/19.4/22.0 |
+| tucnak__telebot | cdxgen | 20/0/166 | 19.4 | 20/0/0 | 100.0 | 20/0/3 | 93.0 | 19.4/100.0/93.0 |
+| tucnak__telebot | cyclonedx-gomod | 21/0/165 | 20.3 | 19/2/1 | 92.7 | 19/2/4 | 86.4 | 20.3/92.7/86.4 |
+| zhenjl__porter2 | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| zoumo__goset | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| alesr__templator | syft | 6/0/4 | 75.0 | 1/5/0 | 28.6 | 5/1/0 | 90.9 | 75.0/28.6/90.9 |
+| alesr__templator | trivy | 5/0/5 | 66.7 | 1/4/0 | 33.3 | 5/0/0 | 100.0 | 66.7/33.3/100.0 |
+| alesr__templator | cdxgen | 1/0/9 | 18.2 | 1/0/0 | 100.0 | 1/0/4 | 33.3 | 18.2/100.0/33.3 |
+| alesr__templator | cyclonedx-gomod | 1/0/9 | 18.2 | 1/0/0 | 100.0 | 1/0/4 | 33.3 | 18.2/100.0/33.3 |
+| antchfx__htmlquery | syft | 4/0/10 | 44.4 | 4/0/0 | 100.0 | 4/0/0 | 100.0 | 44.4/100.0/100.0 |
+| antchfx__htmlquery | trivy | 14/0/0 | 100.0 | 4/10/0 | 44.4 | 4/10/0 | 44.4 | 100.0/44.4/44.4 |
+| antchfx__htmlquery | cdxgen | 4/0/10 | 44.4 | 4/0/0 | 100.0 | 4/0/0 | 100.0 | 44.4/100.0/100.0 |
+| antchfx__htmlquery | cyclonedx-gomod | 4/0/10 | 44.4 | 4/0/0 | 100.0 | 4/0/0 | 100.0 | 44.4/100.0/100.0 |
+| apex__log | syft | 44/0/4 | 95.7 | 18/26/0 | 58.1 | 23/21/0 | 68.7 | 95.7/58.1/68.7 |
+| apex__log | trivy | 48/0/0 | 100.0 | 18/30/0 | 54.5 | 23/25/0 | 64.8 | 100.0/54.5/64.8 |
+| apex__log | cdxgen | 18/0/30 | 54.5 | 18/0/0 | 100.0 | 18/0/5 | 87.8 | 54.5/100.0/87.8 |
+| apex__log | cyclonedx-gomod | 19/0/29 | 56.7 | 18/1/0 | 97.3 | 18/1/5 | 85.7 | 56.7/97.3/85.7 |
+| appleboy__drone-line | syft | 40/0/19 | 80.8 | 32/8/0 | 88.9 | 36/4/0 | 94.7 | 80.8/88.9/94.7 |
+| appleboy__drone-line | trivy | 59/0/0 | 100.0 | 32/27/0 | 70.3 | 36/23/0 | 75.8 | 100.0/70.3/75.8 |
+| appleboy__drone-line | cdxgen | 32/0/27 | 70.3 | 32/0/0 | 100.0 | 32/0/4 | 94.1 | 70.3/100.0/94.1 |
+| appleboy__drone-line | cyclonedx-gomod | 32/0/27 | 70.3 | 32/0/0 | 100.0 | 32/0/4 | 94.1 | 70.3/100.0/94.1 |
+| arthurkiller__rollingWriter | syft | 4/0/1 | 88.9 | 1/3/0 | 40.0 | 4/0/0 | 100.0 | 88.9/40.0/100.0 |
+| arthurkiller__rollingWriter | trivy | 5/0/0 | 100.0 | 1/4/0 | 33.3 | 4/1/0 | 88.9 | 100.0/33.3/88.9 |
+| arthurkiller__rollingWriter | cdxgen | 1/0/4 | 33.3 | 1/0/0 | 100.0 | 1/0/3 | 40.0 | 33.3/100.0/40.0 |
+| arthurkiller__rollingWriter | cyclonedx-gomod | 1/0/4 | 33.3 | 1/0/0 | 100.0 | 1/0/3 | 40.0 | 33.3/100.0/40.0 |
+| asty-org__asty | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| asynkron__protoactor-go | syft | 138/19/81 | 73.4 | 107/50/0 | 81.1 | 109/48/0 | 82.0 | 60.8/65.0/65.9 |
+| asynkron__protoactor-go | trivy | 118/64/101 | 58.9 | 107/75/0 | 74.0 | 109/73/0 | 74.9 | 48.9/61.1/61.9 |
+| asynkron__protoactor-go | cdxgen | 118/19/101 | 66.3 | 107/30/0 | 87.7 | 109/28/0 | 88.6 | 54.2/70.2/71.0 |
+| asynkron__protoactor-go | cyclonedx-gomod | 108/0/111 | 66.1 | 107/1/0 | 99.5 | 107/1/2 | 98.6 | 66.1/99.5/98.6 |
+| aymanhs__nanotdb | syft | 2/0/0 | 100.0 | 2/0/0 | 100.0 | 2/0/0 | 100.0 | 100.0/100.0/100.0 |
+| aymanhs__nanotdb | trivy | 2/0/0 | 100.0 | 2/0/0 | 100.0 | 2/0/0 | 100.0 | 100.0/100.0/100.0 |
+| aymanhs__nanotdb | cdxgen | 2/0/0 | 100.0 | 2/0/0 | 100.0 | 2/0/0 | 100.0 | 100.0/100.0/100.0 |
+| aymanhs__nanotdb | cyclonedx-gomod | 2/0/0 | 100.0 | 2/0/0 | 100.0 | 2/0/0 | 100.0 | 100.0/100.0/100.0 |
+| bengadbois__pewpew | syft | 30/0/8 | 88.2 | 19/11/0 | 77.6 | 19/11/0 | 77.6 | 88.2/77.6/77.6 |
+| bengadbois__pewpew | trivy | 21/0/17 | 71.2 | 19/2/0 | 95.0 | 19/2/0 | 95.0 | 71.2/95.0/95.0 |
+| bengadbois__pewpew | cdxgen | 19/0/19 | 66.7 | 19/0/0 | 100.0 | 19/0/0 | 100.0 | 66.7/100.0/100.0 |
+| bengadbois__pewpew | cyclonedx-gomod | 20/0/18 | 69.0 | 19/1/0 | 97.4 | 19/1/0 | 97.4 | 69.0/97.4/97.4 |
+| bogem__id3v2 | syft | 1/1/1 | 50.0 | 1/1/0 | 66.7 | 1/1/0 | 66.7 | 40.0/50.0/50.0 |
+| bogem__id3v2 | trivy | 2/9/0 | 30.8 | 1/10/0 | 16.7 | 1/10/0 | 16.7 | 26.7/14.3/14.3 |
+| bogem__id3v2 | cdxgen | 1/0/1 | 66.7 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 50.0/66.7/66.7 |
+| bogem__id3v2 | cyclonedx-gomod | 1/0/1 | 66.7 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 66.7/100.0/100.0 |
+| dimuska139__rawg-sdk-go | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| echocat__slf4g | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| edwingeng__doublejump | syft | 1/1/0 | 66.7 | 1/1/0 | 66.7 | 1/1/0 | 66.7 | 50.0/50.0/50.0 |
+| edwingeng__doublejump | trivy | 1/1/0 | 66.7 | 1/1/0 | 66.7 | 1/1/0 | 66.7 | 50.0/50.0/50.0 |
+| edwingeng__doublejump | cdxgen | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 66.7/66.7/66.7 |
+| edwingeng__doublejump | cyclonedx-gomod | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 100.0/100.0/100.0 |
+| eko__gocache | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| elgs__gojq | syft | 1/0/4 | 33.3 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 33.3/100.0/100.0 |
+| elgs__gojq | trivy | 5/0/0 | 100.0 | 1/4/0 | 33.3 | 1/4/0 | 33.3 | 100.0/33.3/33.3 |
+| elgs__gojq | cdxgen | 1/0/4 | 33.3 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 33.3/100.0/100.0 |
+| elgs__gojq | cyclonedx-gomod | 1/0/4 | 33.3 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 33.3/100.0/100.0 |
+| embano1__memlog | syft | 4/0/3 | 72.7 | 1/3/0 | 40.0 | 4/0/0 | 100.0 | 72.7/40.0/100.0 |
+| embano1__memlog | trivy | 4/0/3 | 72.7 | 1/3/0 | 40.0 | 4/0/0 | 100.0 | 72.7/40.0/100.0 |
+| embano1__memlog | cdxgen | 1/0/6 | 25.0 | 1/0/0 | 100.0 | 1/0/3 | 40.0 | 25.0/100.0/40.0 |
+| embano1__memlog | cyclonedx-gomod | 1/0/6 | 25.0 | 1/0/0 | 100.0 | 1/0/3 | 40.0 | 25.0/100.0/40.0 |
+| esurdam__go-swagger-ui | syft | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 100.0/100.0/100.0 |
+| esurdam__go-swagger-ui | trivy | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 100.0/100.0/100.0 |
+| esurdam__go-swagger-ui | cdxgen | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 100.0/100.0/100.0 |
+| esurdam__go-swagger-ui | cyclonedx-gomod | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 100.0/100.0/100.0 |
+| hypebeast__go-osc | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| kamilsk__retry | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| kilgaloon__leprechaun | syft | 35/0/1 | 98.6 | 18/17/0 | 67.9 | 21/14/0 | 75.0 | 98.6/67.9/75.0 |
+| kilgaloon__leprechaun | trivy | 36/0/0 | 100.0 | 18/18/0 | 66.7 | 21/15/0 | 73.7 | 100.0/66.7/73.7 |
+| kilgaloon__leprechaun | cdxgen | 18/0/18 | 66.7 | 18/0/0 | 100.0 | 18/0/3 | 92.3 | 66.7/100.0/92.3 |
+| kilgaloon__leprechaun | cyclonedx-gomod | 18/0/18 | 66.7 | 18/0/0 | 100.0 | 18/0/3 | 92.3 | 66.7/100.0/92.3 |
+| kubernetes__kubernetes | syft | 0/466/0 | 0.0 | 195/271/0 | 59.0 | 195/271/0 | 59.0 | 0.0/56.3/56.3 |
+| kubernetes__kubernetes | trivy | 0/429/0 | 0.0 | 195/234/0 | 62.5 | 195/234/0 | 62.5 | 0.0/60.7/60.7 |
+| kubernetes__kubernetes | cdxgen | 0/220/0 | 0.0 | 195/25/0 | 94.0 | 195/25/0 | 94.0 | 0.0/78.5/78.5 |
+| kubernetes__kubernetes | cyclonedx-gomod | NA | | NA | | NA | | |
+| lxn__walk | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| s0rg__grid | syft | 6/0/6 | 66.7 | 6/0/0 | 100.0 | 6/0/0 | 100.0 | 66.7/100.0/100.0 |
+| s0rg__grid | trivy | 6/0/6 | 66.7 | 6/0/0 | 100.0 | 6/0/0 | 100.0 | 66.7/100.0/100.0 |
+| s0rg__grid | cdxgen | 6/0/6 | 66.7 | 6/0/0 | 100.0 | 6/0/0 | 100.0 | 66.7/100.0/100.0 |
+| s0rg__grid | cyclonedx-gomod | 6/0/6 | 66.7 | 6/0/0 | 100.0 | 6/0/0 | 100.0 | 66.7/100.0/100.0 |
+| tylertreat__Comcast | syft | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 0.0/0.0/0.0 |
+| tylertreat__Comcast | trivy | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 100.0/100.0/100.0 |
+| tylertreat__Comcast | cdxgen | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 0.0/0.0/0.0 |
+| tylertreat__Comcast | cyclonedx-gomod | NA | | NA | | NA | | |
+| ubgo__lock | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| alixaxel__pagerank | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| ardanlabs__service | syft | 0/68/0 | 0.0 | 63/5/0 | 96.2 | 64/4/0 | 97.0 | 0.0/96.2/97.0 |
+| ardanlabs__service | trivy | 0/68/0 | 0.0 | 63/5/0 | 96.2 | 64/4/0 | 97.0 | 0.0/96.2/97.0 |
+| ardanlabs__service | cdxgen | 0/68/0 | 0.0 | 63/5/0 | 96.2 | 64/4/0 | 97.0 | 0.0/96.2/97.0 |
+| ardanlabs__service | cyclonedx-gomod | 0/67/0 | 0.0 | 63/4/0 | 96.9 | 63/4/1 | 96.2 | 0.0/96.9/96.2 |
+| bebop__poly | syft | 17/0/5 | 87.2 | 7/10/0 | 58.3 | 13/4/0 | 86.7 | 87.2/58.3/86.7 |
+| bebop__poly | trivy | 14/0/8 | 77.8 | 7/7/0 | 66.7 | 13/1/0 | 96.3 | 77.8/66.7/96.3 |
+| bebop__poly | cdxgen | 7/0/15 | 48.3 | 7/0/0 | 100.0 | 7/0/6 | 70.0 | 48.3/100.0/70.0 |
+| bebop__poly | cyclonedx-gomod | 7/0/15 | 48.3 | 7/0/0 | 100.0 | 7/0/6 | 70.0 | 48.3/100.0/70.0 |
+| beefsack__go-astar | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| bobg__go-generics | syft | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 100.0/100.0/100.0 |
+| bobg__go-generics | trivy | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 100.0/100.0/100.0 |
+| bobg__go-generics | cdxgen | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 100.0/100.0/100.0 |
+| bobg__go-generics | cyclonedx-gomod | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 100.0/100.0/100.0 |
+| bytedance__sonic | syft | 26/0/10 | 83.9 | 6/20/0 | 37.5 | 10/16/0 | 55.6 | 79.4/30.3/48.6 |
+| bytedance__sonic | trivy | 31/0/5 | 92.5 | 6/25/0 | 32.4 | 10/21/0 | 48.8 | 87.0/30.8/46.5 |
+| bytedance__sonic | cdxgen | 5/0/31 | 24.4 | 5/0/1 | 90.9 | 5/0/5 | 66.7 | 24.4/90.9/66.7 |
+| bytedance__sonic | cyclonedx-gomod | 11/0/25 | 46.8 | 6/5/0 | 70.6 | 6/5/4 | 57.1 | 46.8/70.6/57.1 |
+| caarlos0__env | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| cheng-zhongliang__event | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| emirpasic__gods | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| endeveit__enca | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| enriquebris__goconcurrentqueue | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| essentialkaos__branca | syft | 6/0/7 | 63.2 | 2/4/0 | 50.0 | 6/0/0 | 100.0 | 63.2/50.0/100.0 |
+| essentialkaos__branca | trivy | 6/0/7 | 63.2 | 2/4/0 | 50.0 | 6/0/0 | 100.0 | 63.2/50.0/100.0 |
+| essentialkaos__branca | cdxgen | 2/0/11 | 26.7 | 2/0/0 | 100.0 | 2/0/4 | 50.0 | 26.7/100.0/50.0 |
+| essentialkaos__branca | cyclonedx-gomod | 2/0/11 | 26.7 | 2/0/0 | 100.0 | 2/0/4 | 50.0 | 26.7/100.0/50.0 |
+| ethereum__go-ethereum | syft | 189/1/120 | 75.8 | 148/42/0 | 87.6 | 156/34/0 | 90.2 | 75.8/87.6/90.2 |
+| ethereum__go-ethereum | trivy | 163/1/146 | 68.9 | 148/16/0 | 94.9 | 156/8/0 | 97.5 | 68.9/94.9/97.5 |
+| ethereum__go-ethereum | cdxgen | 148/0/161 | 64.8 | 148/0/0 | 100.0 | 148/0/8 | 97.4 | 64.8/100.0/97.4 |
+| ethereum__go-ethereum | cyclonedx-gomod | 159/0/150 | 67.9 | 148/11/0 | 96.4 | 152/7/4 | 96.5 | 67.9/96.4/96.5 |
+| go-critic__go-critic | syft | 19/2/5 | 84.4 | 19/2/0 | 95.0 | 19/2/0 | 95.0 | 84.4/95.0/95.0 |
+| go-critic__go-critic | trivy | 22/9/2 | 80.0 | 19/12/0 | 76.0 | 19/12/0 | 76.0 | 60.3/65.5/65.5 |
+| go-critic__go-critic | cdxgen | 19/2/5 | 84.4 | 19/2/0 | 95.0 | 19/2/0 | 95.0 | 84.4/95.0/95.0 |
+| go-critic__go-critic | cyclonedx-gomod | 19/0/5 | 88.4 | 19/0/0 | 100.0 | 19/0/0 | 100.0 | 88.4/100.0/100.0 |
+| goodsign__libtextcat | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| jfcg__yell | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| kitabisa__teler-waf | syft | 249/93/359 | 52.4 | 164/178/0 | 64.8 | 167/175/0 | 65.6 | 49.2/61.7/62.4 |
+| kitabisa__teler-waf | trivy | 199/67/409 | 45.5 | 164/102/0 | 76.3 | 167/99/0 | 77.1 | 42.1/72.4/73.2 |
+| kitabisa__teler-waf | cdxgen | 182/56/426 | 43.0 | 164/74/0 | 81.6 | 164/74/3 | 81.0 | 39.7/77.7/77.2 |
+| kitabisa__teler-waf | cyclonedx-gomod | 176/0/432 | 44.9 | 164/12/0 | 96.5 | 164/12/3 | 95.6 | 44.9/96.5/95.6 |
+| luraproject__lura | syft | 44/0/17 | 83.8 | 26/18/0 | 74.3 | 26/18/0 | 74.3 | 83.8/74.3/74.3 |
+| luraproject__lura | trivy | 37/0/24 | 75.5 | 26/11/0 | 82.5 | 26/11/0 | 82.5 | 75.5/82.5/82.5 |
+| luraproject__lura | cdxgen | 26/0/35 | 59.8 | 26/0/0 | 100.0 | 26/0/0 | 100.0 | 59.8/100.0/100.0 |
+| luraproject__lura | cyclonedx-gomod | 37/0/24 | 75.5 | 26/11/0 | 82.5 | 26/11/0 | 82.5 | 75.5/82.5/82.5 |
+| mariomac__gostream | syft | 0/5/0 | 0.0 | 1/4/0 | 33.3 | 5/0/0 | 100.0 | 0.0/33.3/100.0 |
+| mariomac__gostream | trivy | 0/5/0 | 0.0 | 1/4/0 | 33.3 | 5/0/0 | 100.0 | 0.0/33.3/100.0 |
+| mariomac__gostream | cdxgen | 0/5/0 | 0.0 | 1/4/0 | 33.3 | 5/0/0 | 100.0 | 0.0/33.3/100.0 |
+| mariomac__gostream | cyclonedx-gomod | 0/1/0 | 0.0 | 1/0/0 | 100.0 | 1/0/4 | 33.3 | 0.0/100.0/33.3 |
+| miniscruff__changie | syft | 54/0/8 | 93.1 | 43/11/0 | 88.7 | 43/11/0 | 88.7 | 93.1/88.7/88.7 |
+| miniscruff__changie | trivy | 46/0/16 | 85.2 | 43/3/0 | 96.6 | 43/3/0 | 96.6 | 85.2/96.6/96.6 |
+| miniscruff__changie | cdxgen | 43/0/19 | 81.9 | 43/0/0 | 100.0 | 43/0/0 | 100.0 | 81.9/100.0/100.0 |
+| miniscruff__changie | cyclonedx-gomod | 45/0/17 | 84.1 | 43/2/0 | 97.7 | 43/2/0 | 97.7 | 84.1/97.7/97.7 |
+| natefinch__lumberjack | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| nicksnyder__go-i18n | syft | 4/0/3 | 72.7 | 3/1/0 | 85.7 | 3/1/0 | 85.7 | 72.7/85.7/85.7 |
+| nicksnyder__go-i18n | trivy | 4/0/3 | 72.7 | 3/1/0 | 85.7 | 3/1/0 | 85.7 | 72.7/85.7/85.7 |
+| nicksnyder__go-i18n | cdxgen | 3/0/4 | 60.0 | 3/0/0 | 100.0 | 3/0/0 | 100.0 | 60.0/100.0/100.0 |
+| nicksnyder__go-i18n | cyclonedx-gomod | 3/0/4 | 60.0 | 3/0/0 | 100.0 | 3/0/0 | 100.0 | 60.0/100.0/100.0 |
+| osamingo__shamoji | syft | 7/0/2 | 87.5 | 6/1/0 | 92.3 | 6/1/0 | 92.3 | 87.5/92.3/92.3 |
+| osamingo__shamoji | trivy | 6/0/3 | 80.0 | 6/0/0 | 100.0 | 6/0/0 | 100.0 | 80.0/100.0/100.0 |
+| osamingo__shamoji | cdxgen | 6/0/3 | 80.0 | 6/0/0 | 100.0 | 6/0/0 | 100.0 | 80.0/100.0/100.0 |
+| osamingo__shamoji | cyclonedx-gomod | 6/0/3 | 80.0 | 6/0/0 | 100.0 | 6/0/0 | 100.0 | 80.0/100.0/100.0 |
+| unionj-cloud__go-doudou | syft | 324/1/432 | 59.9 | 259/66/0 | 88.7 | 265/60/0 | 89.8 | 59.9/88.7/89.8 |
+| unionj-cloud__go-doudou | trivy | 277/1/479 | 53.6 | 259/19/0 | 96.5 | 265/13/0 | 97.6 | 53.6/96.5/97.6 |
+| unionj-cloud__go-doudou | cdxgen | 277/0/479 | 53.6 | 259/18/0 | 96.6 | 265/12/0 | 97.8 | 53.6/96.6/97.8 |
+| unionj-cloud__go-doudou | cyclonedx-gomod | 270/0/486 | 52.6 | 259/11/0 | 97.9 | 262/8/3 | 97.9 | 52.6/97.9/97.9 |
+| uptrace__bun | syft | 17/127/5 | 20.5 | 9/135/0 | 11.8 | 13/131/0 | 16.6 | 19.4/11.1/15.7 |
+| uptrace__bun | trivy | 17/102/5 | 24.1 | 9/110/0 | 14.1 | 13/106/0 | 19.7 | 23.4/13.6/19.1 |
+| uptrace__bun | cdxgen | 11/61/11 | 23.4 | 9/63/0 | 22.2 | 11/61/2 | 25.9 | 23.4/22.2/25.9 |
+| uptrace__bun | cyclonedx-gomod | 9/0/13 | 58.1 | 9/0/0 | 100.0 | 9/0/4 | 81.8 | 58.1/100.0/81.8 |
+| anatol__booster | syft | 46/0/19 | 82.9 | 38/8/0 | 90.5 | 38/8/0 | 90.5 | 82.9/90.5/90.5 |
+| anatol__booster | trivy | 42/0/23 | 78.5 | 38/4/0 | 95.0 | 38/4/0 | 95.0 | 78.5/95.0/95.0 |
+| anatol__booster | cdxgen | 38/0/27 | 73.8 | 38/0/0 | 100.0 | 38/0/0 | 100.0 | 73.8/100.0/100.0 |
+| anatol__booster | cyclonedx-gomod | 42/0/23 | 78.5 | 38/4/0 | 95.0 | 38/4/0 | 95.0 | 78.5/95.0/95.0 |
+| andy2046__failured | syft | 0/1/0 | 0.0 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 0.0/100.0/100.0 |
+| andy2046__failured | trivy | 0/1/0 | 0.0 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 0.0/100.0/100.0 |
+| andy2046__failured | cdxgen | 0/1/0 | 0.0 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 0.0/100.0/100.0 |
+| andy2046__failured | cyclonedx-gomod | 0/1/0 | 0.0 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 0.0/100.0/100.0 |
+| andygrunwald__go-jira | syft | 5/0/0 | 100.0 | 4/1/0 | 88.9 | 5/0/0 | 100.0 | 100.0/88.9/100.0 |
+| andygrunwald__go-jira | trivy | 5/0/0 | 100.0 | 4/1/0 | 88.9 | 5/0/0 | 100.0 | 100.0/88.9/100.0 |
+| andygrunwald__go-jira | cdxgen | 4/0/1 | 88.9 | 4/0/0 | 100.0 | 4/0/1 | 88.9 | 88.9/100.0/88.9 |
+| andygrunwald__go-jira | cyclonedx-gomod | 4/0/1 | 88.9 | 4/0/0 | 100.0 | 4/0/1 | 88.9 | 88.9/100.0/88.9 |
+| anthdm__hollywood | syft | 61/0/56 | 68.5 | 38/23/0 | 76.8 | 42/19/0 | 81.6 | 68.5/76.8/81.6 |
+| anthdm__hollywood | trivy | 44/0/73 | 54.7 | 38/6/0 | 92.7 | 42/2/0 | 97.7 | 54.7/92.7/97.7 |
+| anthdm__hollywood | cdxgen | 38/0/79 | 49.0 | 38/0/0 | 100.0 | 38/0/4 | 95.0 | 49.0/100.0/95.0 |
+| anthdm__hollywood | cyclonedx-gomod | 39/0/78 | 50.0 | 38/1/0 | 98.7 | 38/1/4 | 93.8 | 50.0/98.7/93.8 |
+| blevesearch__bleve | syft | 51/0/13 | 88.7 | 34/17/0 | 80.0 | 34/17/0 | 80.0 | 88.7/80.0/80.0 |
+| blevesearch__bleve | trivy | 37/0/27 | 73.3 | 34/3/0 | 95.8 | 34/3/0 | 95.8 | 73.3/95.8/95.8 |
+| blevesearch__bleve | cdxgen | 34/0/30 | 69.4 | 34/0/0 | 100.0 | 34/0/0 | 100.0 | 69.4/100.0/100.0 |
+| blevesearch__bleve | cyclonedx-gomod | 36/0/28 | 72.0 | 34/2/0 | 97.1 | 34/2/0 | 97.1 | 72.0/97.1/97.1 |
+| bobg__merkle | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| chapar-rest__chapar | syft | 0/74/0 | 0.0 | 62/12/0 | 91.2 | 65/9/0 | 93.5 | 0.0/91.2/93.5 |
+| chapar-rest__chapar | trivy | 0/74/0 | 0.0 | 62/12/0 | 91.2 | 65/9/0 | 93.5 | 0.0/91.2/93.5 |
+| chapar-rest__chapar | cdxgen | 0/74/0 | 0.0 | 62/12/0 | 91.2 | 65/9/0 | 93.5 | 0.0/91.2/93.5 |
+| chapar-rest__chapar | cyclonedx-gomod | 0/64/0 | 0.0 | 62/2/0 | 98.4 | 62/2/3 | 96.1 | 0.0/98.4/96.1 |
+| cjhutto__vaderSentiment | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| claygod__transaction | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| coinpaprika__coinpaprika-api-go-client | syft | 7/0/1 | 93.3 | 1/6/0 | 25.0 | 5/2/0 | 83.3 | 93.3/25.0/83.3 |
+| coinpaprika__coinpaprika-api-go-client | trivy | 5/0/3 | 76.9 | 1/4/0 | 33.3 | 5/0/0 | 100.0 | 76.9/33.3/100.0 |
+| coinpaprika__coinpaprika-api-go-client | cdxgen | 1/0/7 | 22.2 | 1/0/0 | 100.0 | 1/0/4 | 33.3 | 22.2/100.0/33.3 |
+| coinpaprika__coinpaprika-api-go-client | cyclonedx-gomod | 1/0/7 | 22.2 | 1/0/0 | 100.0 | 1/0/4 | 33.3 | 22.2/100.0/33.3 |
+| couchbase__moss | syft | 4/0/0 | 100.0 | 3/1/0 | 85.7 | 3/1/0 | 85.7 | 100.0/85.7/85.7 |
+| couchbase__moss | trivy | 4/0/0 | 100.0 | 3/1/0 | 85.7 | 3/1/0 | 85.7 | 100.0/85.7/85.7 |
+| couchbase__moss | cdxgen | 3/0/1 | 85.7 | 3/0/0 | 100.0 | 3/0/0 | 100.0 | 85.7/100.0/100.0 |
+| couchbase__moss | cyclonedx-gomod | 4/0/0 | 100.0 | 3/1/0 | 85.7 | 3/1/0 | 85.7 | 100.0/85.7/85.7 |
+| dropbox__godropbox | syft | 10/0/7 | 74.1 | 8/2/0 | 88.9 | 10/0/0 | 100.0 | 74.1/88.9/100.0 |
+| dropbox__godropbox | trivy | 17/0/0 | 100.0 | 8/9/0 | 64.0 | 10/7/0 | 74.1 | 100.0/64.0/74.1 |
+| dropbox__godropbox | cdxgen | 8/0/9 | 64.0 | 8/0/0 | 100.0 | 8/0/2 | 88.9 | 64.0/100.0/88.9 |
+| dropbox__godropbox | cyclonedx-gomod | 8/0/9 | 64.0 | 8/0/0 | 100.0 | 8/0/2 | 88.9 | 64.0/100.0/88.9 |
+| faabiosr__echo-middleware | syft | 35/0/32 | 68.6 | 28/7/0 | 88.9 | 28/7/0 | 88.9 | 68.6/88.9/88.9 |
+| faabiosr__echo-middleware | trivy | 29/0/38 | 60.4 | 28/1/0 | 98.2 | 28/1/0 | 98.2 | 60.4/98.2/98.2 |
+| faabiosr__echo-middleware | cdxgen | 28/0/39 | 58.9 | 28/0/0 | 100.0 | 28/0/0 | 100.0 | 58.9/100.0/100.0 |
+| faabiosr__echo-middleware | cyclonedx-gomod | 29/0/38 | 60.4 | 28/1/0 | 98.2 | 28/1/0 | 98.2 | 60.4/98.2/98.2 |
+| fawick__speedtest-resize | syft | 6/0/1 | 92.3 | 6/0/0 | 100.0 | 6/0/0 | 100.0 | 92.3/100.0/100.0 |
+| fawick__speedtest-resize | trivy | 7/0/0 | 100.0 | 6/1/0 | 92.3 | 6/1/0 | 92.3 | 100.0/92.3/92.3 |
+| fawick__speedtest-resize | cdxgen | 6/0/1 | 92.3 | 6/0/0 | 100.0 | 6/0/0 | 100.0 | 92.3/100.0/100.0 |
+| fawick__speedtest-resize | cyclonedx-gomod | 6/0/1 | 92.3 | 6/0/0 | 100.0 | 6/0/0 | 100.0 | 92.3/100.0/100.0 |
+| flowbaker__flowbaker | syft | 230/0/77 | 85.7 | 176/54/0 | 86.7 | 179/51/0 | 87.5 | 85.7/86.7/87.5 |
+| flowbaker__flowbaker | trivy | 196/0/111 | 77.9 | 176/20/0 | 94.6 | 179/17/0 | 95.5 | 77.9/94.6/95.5 |
+| flowbaker__flowbaker | cdxgen | 176/0/131 | 72.9 | 176/0/0 | 100.0 | 176/0/3 | 99.2 | 72.9/100.0/99.2 |
+| flowbaker__flowbaker | cyclonedx-gomod | 193/0/114 | 77.2 | 176/17/0 | 95.4 | 176/17/3 | 94.6 | 77.2/95.4/94.6 |
+| kamilsk__tracer | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| mailgun__mailgun-go | syft | 8/0/69 | 18.8 | 3/5/0 | 54.5 | 7/1/0 | 93.3 | 18.8/54.5/93.3 |
+| mailgun__mailgun-go | trivy | 7/0/70 | 16.7 | 3/4/0 | 60.0 | 7/0/0 | 100.0 | 16.7/60.0/100.0 |
+| mailgun__mailgun-go | cdxgen | 3/0/74 | 7.5 | 3/0/0 | 100.0 | 3/0/4 | 60.0 | 7.5/100.0/60.0 |
+| mailgun__mailgun-go | cyclonedx-gomod | 3/0/74 | 7.5 | 3/0/0 | 100.0 | 3/0/4 | 60.0 | 7.5/100.0/60.0 |
+| maxbolgarin__contem | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| mfridman__tparse | syft | 22/0/2 | 95.7 | 14/8/0 | 77.8 | 18/4/0 | 90.0 | 95.7/77.8/90.0 |
+| mfridman__tparse | trivy | 18/0/6 | 85.7 | 14/4/0 | 87.5 | 18/0/0 | 100.0 | 85.7/87.5/100.0 |
+| mfridman__tparse | cdxgen | 14/0/10 | 73.7 | 14/0/0 | 100.0 | 14/0/4 | 87.5 | 73.7/100.0/87.5 |
+| mfridman__tparse | cyclonedx-gomod | 14/0/10 | 73.7 | 14/0/0 | 100.0 | 14/0/4 | 87.5 | 73.7/100.0/87.5 |
+| posener__complete | syft | 7/0/1 | 93.3 | 2/5/0 | 44.4 | 6/1/0 | 92.3 | 93.3/44.4/92.3 |
+| posener__complete | trivy | 8/0/0 | 100.0 | 2/6/0 | 40.0 | 6/2/0 | 85.7 | 100.0/40.0/85.7 |
+| posener__complete | cdxgen | 2/0/6 | 40.0 | 2/0/0 | 100.0 | 2/0/4 | 50.0 | 40.0/100.0/50.0 |
+| posener__complete | cyclonedx-gomod | 2/0/6 | 40.0 | 2/0/0 | 100.0 | 2/0/4 | 50.0 | 40.0/100.0/50.0 |
+| pravj__geopattern | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| roseduan__rosedb | syft | 14/0/3 | 90.3 | 6/8/0 | 60.0 | 10/4/0 | 83.3 | 90.3/60.0/83.3 |
+| roseduan__rosedb | trivy | 13/0/4 | 86.7 | 6/7/0 | 63.2 | 10/3/0 | 87.0 | 86.7/63.2/87.0 |
+| roseduan__rosedb | cdxgen | 6/0/11 | 52.2 | 6/0/0 | 100.0 | 6/0/4 | 75.0 | 52.2/100.0/75.0 |
+| roseduan__rosedb | cyclonedx-gomod | 7/0/10 | 58.3 | 6/1/0 | 92.3 | 6/1/4 | 70.6 | 58.3/92.3/70.6 |
+| thedevsaddam__govalidator | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| valyala__fasthttp | syft | 8/0/4 | 80.0 | 7/1/0 | 93.3 | 7/1/0 | 93.3 | 80.0/93.3/93.3 |
+| valyala__fasthttp | trivy | 7/0/5 | 73.7 | 7/0/0 | 100.0 | 7/0/0 | 100.0 | 73.7/100.0/100.0 |
+| valyala__fasthttp | cdxgen | 7/0/5 | 73.7 | 7/0/0 | 100.0 | 7/0/0 | 100.0 | 73.7/100.0/100.0 |
+| valyala__fasthttp | cyclonedx-gomod | 7/0/5 | 73.7 | 7/0/0 | 100.0 | 7/0/0 | 100.0 | 73.7/100.0/100.0 |
+| vcaesar__tt | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| IGLOU-EU__go-wildcard | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| MordaTeam__go-config | syft | 101/0/130 | 60.8 | 20/81/0 | 33.1 | 61/40/0 | 75.3 | 60.8/33.1/75.3 |
+| MordaTeam__go-config | trivy | 69/0/162 | 46.0 | 20/49/0 | 44.9 | 61/8/0 | 93.8 | 46.0/44.9/93.8 |
+| MordaTeam__go-config | cdxgen | 20/0/211 | 15.9 | 20/0/0 | 100.0 | 20/0/41 | 49.4 | 15.9/100.0/49.4 |
+| MordaTeam__go-config | cyclonedx-gomod | 21/0/210 | 16.7 | 20/1/0 | 97.6 | 20/1/41 | 48.8 | 16.7/97.6/48.8 |
+| VividCortex__pm | syft | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 100.0/100.0/100.0 |
+| VividCortex__pm | trivy | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 100.0/100.0/100.0 |
+| VividCortex__pm | cdxgen | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 100.0/100.0/100.0 |
+| VividCortex__pm | cyclonedx-gomod | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 100.0/100.0/100.0 |
+| abadojack__whatlanggo | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| alexeyco__pig | syft | 18/0/12 | 75.0 | 9/9/0 | 66.7 | 10/8/0 | 71.4 | 75.0/66.7/71.4 |
+| alexeyco__pig | trivy | 11/0/19 | 53.7 | 9/2/0 | 90.0 | 10/1/0 | 95.2 | 53.7/90.0/95.2 |
+| alexeyco__pig | cdxgen | 9/0/21 | 46.2 | 9/0/0 | 100.0 | 9/0/1 | 94.7 | 46.2/100.0/94.7 |
+| alexeyco__pig | cyclonedx-gomod | 9/0/21 | 46.2 | 9/0/0 | 100.0 | 9/0/1 | 94.7 | 46.2/100.0/94.7 |
+| andreimerlescu__entpassgen | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| arthurkushman__pgo | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| bzick__tokenizer | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| catchplay__scaffold | syft | 2/0/0 | 100.0 | 2/0/0 | 100.0 | 2/0/0 | 100.0 | 100.0/100.0/100.0 |
+| catchplay__scaffold | trivy | 2/0/0 | 100.0 | 2/0/0 | 100.0 | 2/0/0 | 100.0 | 100.0/100.0/100.0 |
+| catchplay__scaffold | cdxgen | 2/0/0 | 100.0 | 2/0/0 | 100.0 | 2/0/0 | 100.0 | 100.0/100.0/100.0 |
+| catchplay__scaffold | cyclonedx-gomod | 2/0/0 | 100.0 | 2/0/0 | 100.0 | 2/0/0 | 100.0 | 100.0/100.0/100.0 |
+| foolin__goview | syft | 85/0/59 | 74.2 | 48/37/0 | 72.2 | 48/37/0 | 72.2 | 74.2/72.2/72.2 |
+| foolin__goview | trivy | 144/0/0 | 100.0 | 48/96/0 | 50.0 | 48/96/0 | 50.0 | 100.0/50.0/50.0 |
+| foolin__goview | cdxgen | 48/0/96 | 50.0 | 48/0/0 | 100.0 | 48/0/0 | 100.0 | 50.0/100.0/100.0 |
+| foolin__goview | cyclonedx-gomod | 48/0/96 | 50.0 | 48/0/0 | 100.0 | 48/0/0 | 100.0 | 50.0/100.0/100.0 |
+| franela__goblin | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| free__concurrent-writer | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| furdarius__rabbitroutine | syft | 10/0/3 | 87.0 | 3/7/0 | 46.2 | 7/3/0 | 82.4 | 87.0/46.2/82.4 |
+| furdarius__rabbitroutine | trivy | 7/0/6 | 70.0 | 3/4/0 | 60.0 | 7/0/0 | 100.0 | 70.0/60.0/100.0 |
+| furdarius__rabbitroutine | cdxgen | 3/0/10 | 37.5 | 3/0/0 | 100.0 | 3/0/4 | 60.0 | 37.5/100.0/60.0 |
+| furdarius__rabbitroutine | cyclonedx-gomod | 3/0/10 | 37.5 | 3/0/0 | 100.0 | 3/0/4 | 60.0 | 37.5/100.0/60.0 |
+| fyne-io__fyne | syft | 56/0/12 | 90.3 | 46/10/0 | 90.2 | 46/10/0 | 90.2 | 90.3/90.2/90.2 |
+| fyne-io__fyne | trivy | 53/2/15 | 86.2 | 46/9/0 | 91.1 | 46/9/0 | 91.1 | 86.2/91.1/91.1 |
+| fyne-io__fyne | cdxgen | 46/0/22 | 80.7 | 46/0/0 | 100.0 | 46/0/0 | 100.0 | 80.7/100.0/100.0 |
+| fyne-io__fyne | cyclonedx-gomod | 51/0/17 | 85.7 | 46/5/0 | 94.8 | 46/5/0 | 94.8 | 85.7/94.8/94.8 |
+| gagliardetto__solana-go | syft | 97/0/36 | 84.3 | 66/31/0 | 81.0 | 77/20/0 | 88.5 | 84.3/81.0/88.5 |
+| gagliardetto__solana-go | trivy | 79/0/54 | 74.5 | 66/13/0 | 91.0 | 77/2/0 | 98.7 | 74.5/91.0/98.7 |
+| gagliardetto__solana-go | cdxgen | 66/0/67 | 66.3 | 66/0/0 | 100.0 | 66/0/11 | 92.3 | 66.3/100.0/92.3 |
+| gagliardetto__solana-go | cyclonedx-gomod | 67/0/66 | 67.0 | 66/1/0 | 99.2 | 66/1/11 | 91.7 | 67.0/99.2/91.7 |
+| gaia-pipeline__gaia | syft | 104/0/284 | 42.3 | 75/29/0 | 83.8 | 79/25/0 | 86.3 | 41.9/82.7/85.2 |
+| gaia-pipeline__gaia | trivy | 87/0/301 | 36.6 | 75/12/0 | 92.6 | 79/8/0 | 95.2 | 36.2/91.4/94.0 |
+| gaia-pipeline__gaia | cdxgen | 75/0/313 | 32.4 | 75/0/0 | 100.0 | 75/0/4 | 97.4 | 32.4/100.0/97.4 |
+| gaia-pipeline__gaia | cyclonedx-gomod | 76/0/312 | 32.8 | 74/2/1 | 98.0 | 74/2/5 | 95.5 | 32.3/96.7/94.2 |
+| galeone__igor | syft | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 100.0/100.0/100.0 |
+| galeone__igor | trivy | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 100.0/100.0/100.0 |
+| galeone__igor | cdxgen | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 100.0/100.0/100.0 |
+| galeone__igor | cyclonedx-gomod | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 100.0/100.0/100.0 |
+| minio__minio | syft | 291/5/308 | 65.0 | 241/55/0 | 89.8 | 243/53/0 | 90.2 | 63.5/86.2/86.6 |
+| minio__minio | trivy | 260/5/339 | 60.2 | 241/24/0 | 95.3 | 243/22/0 | 95.7 | 58.6/91.6/92.0 |
+| minio__minio | cdxgen | 241/0/358 | 57.4 | 241/0/0 | 100.0 | 241/0/2 | 99.6 | 56.1/96.2/95.8 |
+| minio__minio | cyclonedx-gomod | 253/0/346 | 59.4 | 241/12/0 | 97.6 | 241/12/2 | 97.2 | 59.4/97.6/97.2 |
+| mojocn__base64Captcha | syft | 2/0/12 | 25.0 | 2/0/0 | 100.0 | 2/0/0 | 100.0 | 25.0/100.0/100.0 |
+| mojocn__base64Captcha | trivy | 14/0/0 | 100.0 | 2/12/0 | 25.0 | 2/12/0 | 25.0 | 100.0/25.0/25.0 |
+| mojocn__base64Captcha | cdxgen | 2/0/12 | 25.0 | 2/0/0 | 100.0 | 2/0/0 | 100.0 | 25.0/100.0/100.0 |
+| mojocn__base64Captcha | cyclonedx-gomod | 2/0/12 | 25.0 | 2/0/0 | 100.0 | 2/0/0 | 100.0 | 25.0/100.0/100.0 |
+| monoculum__formam | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| mudler__anagent | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| rk__go-cron | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| siddontang__go-log | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| suzuki-shunsuke__flute | syft | 7/0/13 | 51.9 | 5/2/0 | 83.3 | 6/1/0 | 92.3 | 51.9/83.3/92.3 |
+| suzuki-shunsuke__flute | trivy | 6/0/14 | 46.2 | 5/1/0 | 90.9 | 6/0/0 | 100.0 | 46.2/90.9/100.0 |
+| suzuki-shunsuke__flute | cdxgen | 5/0/15 | 40.0 | 5/0/0 | 100.0 | 5/0/1 | 90.9 | 40.0/100.0/90.9 |
+| suzuki-shunsuke__flute | cyclonedx-gomod | 5/0/15 | 40.0 | 5/0/0 | 100.0 | 5/0/1 | 90.9 | 40.0/100.0/90.9 |
+| viant__endly | syft | 275/4/355 | 60.5 | 204/75/0 | 84.5 | 208/71/0 | 85.4 | 59.3/81.3/82.2 |
+| viant__endly | trivy | 238/6/392 | 54.5 | 204/40/0 | 91.1 | 208/36/0 | 92.0 | 52.0/86.1/87.0 |
+| viant__endly | cdxgen | 233/0/397 | 54.0 | 204/29/0 | 93.4 | 208/25/0 | 94.3 | 52.5/89.9/90.8 |
+| viant__endly | cyclonedx-gomod | 217/0/413 | 51.2 | 204/13/0 | 96.9 | 204/13/4 | 96.0 | 51.2/96.9/96.0 |
+| chanced__caps | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| cvilsmeier__sqinn-go | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| dchest__stemmer | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| didip__tollbooth | syft | 1/0/5 | 28.6 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 28.6/100.0/100.0 |
+| didip__tollbooth | trivy | 6/0/0 | 100.0 | 1/5/0 | 28.6 | 1/5/0 | 28.6 | 100.0/28.6/28.6 |
+| didip__tollbooth | cdxgen | 1/0/5 | 28.6 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 28.6/100.0/100.0 |
+| didip__tollbooth | cyclonedx-gomod | 1/0/5 | 28.6 | 1/0/0 | 100.0 | 1/0/0 | 100.0 | 28.6/100.0/100.0 |
+| dnnrly__httpref | syft | 38/0/145 | 34.4 | 20/18/0 | 69.0 | 31/7/0 | 89.9 | 34.4/69.0/89.9 |
+| dnnrly__httpref | trivy | 183/0/0 | 100.0 | 20/163/0 | 19.7 | 31/152/0 | 29.0 | 100.0/19.7/29.0 |
+| dnnrly__httpref | cdxgen | 20/0/163 | 19.7 | 20/0/0 | 100.0 | 20/0/11 | 78.4 | 19.7/100.0/78.4 |
+| dnnrly__httpref | cyclonedx-gomod | 21/0/162 | 20.6 | 20/1/0 | 97.6 | 20/1/11 | 76.9 | 20.6/97.6/76.9 |
+| gchaincl__dotsql | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| gempir__go-twitch-irc | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| get-woke__woke | syft | 41/0/111 | 42.5 | 33/8/0 | 89.2 | 36/5/0 | 93.5 | 42.5/89.2/93.5 |
+| get-woke__woke | trivy | 39/0/113 | 40.8 | 33/6/0 | 91.7 | 36/3/0 | 96.0 | 40.8/91.7/96.0 |
+| get-woke__woke | cdxgen | 33/0/119 | 35.7 | 33/0/0 | 100.0 | 33/0/3 | 95.7 | 35.7/100.0/95.7 |
+| get-woke__woke | cyclonedx-gomod | 36/0/116 | 38.3 | 33/3/0 | 95.7 | 33/3/3 | 91.7 | 38.3/95.7/91.7 |
+| mehdipourfar__webp-server | syft | 9/0/6 | 75.0 | 7/2/0 | 87.5 | 8/1/0 | 94.1 | 75.0/87.5/94.1 |
+| mehdipourfar__webp-server | trivy | 15/0/0 | 100.0 | 7/8/0 | 63.6 | 8/7/0 | 69.6 | 100.0/63.6/69.6 |
+| mehdipourfar__webp-server | cdxgen | 7/0/8 | 63.6 | 7/0/0 | 100.0 | 7/0/1 | 93.3 | 63.6/100.0/93.3 |
+| mehdipourfar__webp-server | cyclonedx-gomod | 7/0/8 | 63.6 | 7/0/0 | 100.0 | 7/0/1 | 93.3 | 63.6/100.0/93.3 |
+| nazar256__parapipe | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| nikolaydubina__htmljson | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| openshift__osin | syft | 0/11/0 | 0.0 | 7/4/0 | 77.8 | 7/4/0 | 77.8 | 0.0/66.7/66.7 |
+| openshift__osin | trivy | 0/13/0 | 0.0 | 7/6/0 | 70.0 | 7/6/0 | 70.0 | 0.0/60.9/60.9 |
+| openshift__osin | cdxgen | 0/10/0 | 0.0 | 7/3/0 | 82.4 | 7/3/0 | 82.4 | 0.0/82.4/82.4 |
+| openshift__osin | cyclonedx-gomod | 0/10/0 | 0.0 | 7/3/0 | 82.4 | 7/3/0 | 82.4 | 0.0/82.4/82.4 |
+| todotxt__todo.txt | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| viant__afs | syft | 20/0/59 | 40.4 | 5/15/0 | 40.0 | 11/9/0 | 71.0 | 40.4/40.0/71.0 |
+| viant__afs | trivy | 15/0/64 | 31.9 | 5/10/0 | 50.0 | 11/4/0 | 84.6 | 31.9/50.0/84.6 |
+| viant__afs | cdxgen | 5/0/74 | 11.9 | 5/0/0 | 100.0 | 5/0/6 | 62.5 | 11.9/100.0/62.5 |
+| viant__afs | cyclonedx-gomod | 6/0/73 | 14.1 | 5/1/0 | 90.9 | 5/1/6 | 58.8 | 14.1/90.9/58.8 |
+| wellington__go-libsass | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
+| wzshiming__httpproxy | TIMEOUT_OR_EMPTY | NA | | NA | | NA | | |
