@@ -17,7 +17,7 @@ mkdir -p "$outdir"; rm -rf "$d"
 
 wman(){ printf '%s\n' "$1" > "$MAN.tmp.$$"; mv "$MAN.tmp.$$" "$MAN"; }
 
-if ! timeout 180 git clone --depth=1 "$url" "$d" >/dev/null 2>&1; then
+if ! timeout 300 git clone --depth=1 "$url" "$d" >/dev/null 2>&1; then
   wman "$name,$url,,,,,CLONE_FAIL,,,"
   echo "$name,CLONE_FAIL"; rm -rf "$outdir" "$d"; exit 0
 fi
