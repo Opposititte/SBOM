@@ -12,6 +12,9 @@ export GOMODCACHE=/tmp/rm_modcache GOCACHE=/tmp/rm_gocache
 # （旧: base go1.24.7 だと go>=1.25 repo が毎回toolchainをDL→timeout→偽EMPTY_GT）
 export PATH=/opt/go1265/go/bin:$PATH
 export GOTOOLCHAIN=local
+# vendor/ があるrepoは既定 -mod=vendor で `go list -m all` が失敗する
+# （"can't compute 'all' using the vendor directory"）→ 偽EMPTY_GT。-mod=mod で回避。
+export GOFLAGS=-mod=mod
 TO=300
 mkdir -p "$outdir"; rm -rf "$d"
 
