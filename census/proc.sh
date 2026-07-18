@@ -8,6 +8,10 @@ BASE="/home/user/SBOM/census"
 SCORE="/home/user/SBOM/census/scorer.js"   # 独立検証済みの判定コードを再利用
 MAN="$BASE/manifest_parts/$name.csv"
 export GOMODCACHE=/tmp/rm_modcache GOCACHE=/tmp/rm_gocache
+# go1.26.5 を base にし GOTOOLCHAIN=local で per-repo toolchain DL を無効化
+# （旧: base go1.24.7 だと go>=1.25 repo が毎回toolchainをDL→timeout→偽EMPTY_GT）
+export PATH=/opt/go1265/go/bin:$PATH
+export GOTOOLCHAIN=local
 TO=300
 mkdir -p "$outdir"; rm -rf "$d"
 

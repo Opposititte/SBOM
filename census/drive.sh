@@ -10,6 +10,12 @@ PARTS="$BASE/parts"; MPARTS="$BASE/manifest_parts"; LIST="$BASE/repolist.csv"
 BRANCH=claude/awesome-go-cleanup-5ix8nl
 P="${1:-8}"; BATCH="${2:-100}"
 export GOMODCACHE=/tmp/rm_modcache GOCACHE=/tmp/rm_gocache
+# go1.26.5 base (GOTOOLCHAIN=local回避用)。fresh restart で消えていたら再取得。
+if [ ! -x /opt/go1265/go/bin/go ]; then
+  curl -sSL -o /tmp/go1265.tar.gz https://go.dev/dl/go1.26.5.linux-amd64.tar.gz 2>/dev/null && \
+  mkdir -p /opt/go1265 && tar -C /opt/go1265 -xzf /tmp/go1265.tar.gz 2>/dev/null
+fi
+export PATH=/opt/go1265/go/bin:$PATH GOTOOLCHAIN=local
 export GIT_AUTHOR_NAME=Opposititte GIT_AUTHOR_EMAIL=201308377+Opposititte@users.noreply.github.com
 export GIT_COMMITTER_NAME=Opposititte GIT_COMMITTER_EMAIL=201308377+Opposititte@users.noreply.github.com
 mkdir -p "$PARTS" "$MPARTS" "$GOMODCACHE" "$GOCACHE"
