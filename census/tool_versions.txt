@@ -1,7 +1,13 @@
-captured: 2026-07-16T10:28:12Z
-go: go version go1.24.7 linux/amd64
-syft: Application:   syft Version:       [not provided] BuildDate:     [not provided] GitCommit:     [not provided] GitDescription: [not provided] Platform:      linux/amd64 GoVersion:     go1.26.5 Compiler:      gc SchemaVersion: 16.1.5 
-trivy: Version: dev 
-cdxgen: [1mCycloneDX Generator 12.7.1[0m
-Runtime: Node.js, Version: 22.22.2
-cyclonedx-gomod: Version:	v1.10.0 ModuleSum:	h1:9Vy3zcC+lJLgcR4xYQvwPGU6L2Rij/Ld47lyucYjVI0= GoVersion:	go1.25.12 OS:		linux Arch:		amd64 
+# census 計測メタ情報
+captured:        2026-07-16T10:28:12Z
+measured_period: 2026-07-16 10:30 UTC 〜 2026-07-18 10:33 UTC (UTC, コンテナ再起動を挟み断続実行)
+
+## GT(go list)計算に使った Go
+go(base):        go1.26.5   （GOTOOLCHAIN=local, GOFLAGS=-mod=mod）
+  ※ 当初 go1.24.7 だったが、go1.25/1.26 要求repoのtoolchain-DLタイムアウト回避のため go1.26.5 をbaseに変更
+
+## 4つのSBOMツール（今回計測に使用）
+syft:            v1.46.0   (go install ソースビルド; `syft --version`は"not provided"表示だが実体v1.46.0)
+trivy:           v0.72.0   (go install ソースビルド; `trivy --version`は"dev"表示だが実体v0.72.0)
+cdxgen:          12.7.1    (npm @cyclonedx/cdxgen, Node.js v22.22.2)
+cyclonedx-gomod: v1.10.0   (go install)

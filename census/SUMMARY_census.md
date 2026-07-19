@@ -1,7 +1,32 @@
 # census — 確定サマリ（再生成）
 
 全 awesome-go リポジトリを1回のクローン上で all/imported/imported+test の3GT（版付き）と
-syft/trivy/cdxgen/cyclonedx-gomod の4ツールを同時生成し照合。ツール版は `census/tool_versions.txt`。
+syft/trivy/cdxgen/cyclonedx-gomod の4ツールを同時生成し照合。
+
+## 0. 計測メタ情報（日時・使用ツール）
+```
+# census 計測メタ情報
+captured:        2026-07-16T10:28:12Z
+measured_period: 2026-07-16 10:30 UTC 〜 2026-07-18 10:33 UTC (UTC, コンテナ再起動を挟み断続実行)
+
+## GT(go list)計算に使った Go
+go(base):        go1.26.5   （GOTOOLCHAIN=local, GOFLAGS=-mod=mod）
+  ※ 当初 go1.24.7 だったが、go1.25/1.26 要求repoのtoolchain-DLタイムアウト回避のため go1.26.5 をbaseに変更
+
+## 4つのSBOMツール（今回計測に使用）
+syft:            v1.46.0   (go install ソースビルド; `syft --version`は"not provided"表示だが実体v1.46.0)
+trivy:           v0.72.0   (go install ソースビルド; `trivy --version`は"dev"表示だが実体v0.72.0)
+cdxgen:          12.7.1    (npm @cyclonedx/cdxgen, Node.js v22.22.2)
+cyclonedx-gomod: v1.10.0   (go install)
+```
+
+## 0b. status の意味（manifest.csv の7列目）
+| status | 意味 |
+|---|---|
+| **OK** | Goモジュールで imported依存が1件以上あり **評価対象になった** repo（4ツールを採点） |
+| **EMPTY_GT** | clone成功したが **正解GTが空** = 外部依存を持たない（stdlibのみ）／go.modが無い旧GOPATH式／全パッケージがビルド対象外。評価不能なので採点から除外 |
+| **CLONE_FAIL** | `git clone` 自体が失敗 = リポジトリが**消滅・非公開化・移転**して取得できない |
+| DISK_SKIP | ディスク退避で処理中断（今回は0件） |
 
 ## 母数（manifest.csv, status別）
 | status | 件数 |
@@ -85,4 +110,30 @@ syft/trivy/cdxgen/cyclonedx-gomod の4ツールを同時生成し照合。ツー
 | trivy | 25,259 | 38.7% | 61.3% |
 | cdxgen | 7,439 | 5.8% | 94.2% |
 | cyclonedx-gomod | 1,702 | 19.6% | 80.4% |
+
+## 3. 各ツールの動作（何を読んで依存一覧を作るか）
+4ツールは「どのファイル/コマンドを源にするか」が違い、それが精度差を生む。正解の imported =
+`go list -deps`（root・GOOS=linux・非test の**実コンパイルグラフ**）。源がそれより広いほど過剰報告(FP)になる。
+
+| ツール | 源 | 動作の要点 | 傾向 |
+|---|---|---|---|
+| **syft** | go.mod ＋ **go.sum** ＋ ツリー内の別go.mod | ファイルを静的に読むだけ（ビルド不要）。go.sum は最も広い集合なので過剰報告が多い。堅牢で失敗しにくい | precision低・recall高 |
+| **trivy** | go.mod ＋ **go.sum** ＋ ツリー内の別go.mod | syftとほぼ同じ静的読み。巨大repoでタイムアウトNAが少数 | precision低・recall高 |
+| **cdxgen** | **`go list -deps`** ＋ `go mod graph`(辺のみ) ＋ ツリー全go.mod走査 | 実コンパイルグラフに最も近い。ただしネストした子モジュール(兄弟go.mod)も拾い、go list失敗時は go mod graph にfallbackして膨らむ | imported精度が非常に高い |
+| **cyclonedx-gomod** | `go list -m all`(build list) を **`go mod why -m -vendor`** で到達可能性フィルタ | Goツールチェーンを直接使う公式ツール。到達可能なモジュールだけ残す。別OS/ビルドタグ分だけ imported より広い | 最高精度(FP最少) |
+- **統一的理解**: syft/trivy は「宣言(go.sum)」を、cdxgen/cyclonedx-gomod は「コンパイルグラフ/到達可能性」を報告する。バグではなく設計選択。
+- **all** で syft/trivy が優位なのは go.sum が build list(=`go list -m all`)に近いため。**imported** で cdxgen/cyclonedx-gomod が優位なのは実importに近いため。
+
+## 4. 前回との有効件数の比較（なぜ増えたか）
+| ツール | 今回 有効 | 前回 有効 | 差 |
+|---|---:|---:|---:|
+| syft | 1525 | 1486 | +39 |
+| trivy | 1516 | 1477 | +39 |
+| cdxgen | 1474 | 1442 | +32 |
+| cyclonedx-gomod | 1493 | 1436 | +57 |
+
+増えた主因は、今回**評価対象(OK)のrepo自体が 1489→1530 に増えた**こと。理由は3つ:
+1. **vendorディレクトリ対応**: `vendor/` を持つrepoは既定 `-mod=vendor` で `go list -m all` が失敗し前回は空GT扱いだった。今回 `GOFLAGS=-mod=mod` で正しく依存を計算 → 多数が評価対象に復活。
+2. **新しいGo(1.26.5)**: go1.25/1.26 を要求する新しめのrepoが前回は toolchain の都合で取りこぼされていた分を回収。
+3. **コミットが新しい**: 前回計測より各repoのHEADが進み、依存を増やした/追加したrepoがある（版台帳 `repo_manifest.md` にコミット日を記録）。
 
