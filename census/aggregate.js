@@ -87,17 +87,31 @@ W('| **EMPTY_GT** | clone成功したが **正解GTが空** = 外部依存を持
 W('| **CLONE_FAIL** | `git clone` 自体が失敗 = リポジトリが**消滅・非公開化・移転**して取得できない |');
 W('| DISK_SKIP | ディスク退避で処理中断（今回は0件） |\n');
 
-// GT定義と正確なコマンド
-W('## 0c. 3つの正解(GT)定義と実行コマンド');
-W('各repoで下記を同一クローン上で実行（共通env: `GOOS=linux`計算時, `GOTOOLCHAIN=local`, **`GOFLAGS=-mod=mod`**）。');
-W('main module と stdlib は除外し `sort -u`。version一致では `モジュール名|バージョン` で照合。\n');
-W('| GT | 意味 | コマンド |');
-W('|---|---|---|');
-W('| **all** | モジュール build list 全体（直接＋間接、未使用含む） | `go list -m all` |');
-W('| **imported** | ルートから GOOS=linux・**非test** で実際にコンパイルされる依存（実import） | `GOOS=linux go list -deps -e -f \'{{with .Module}}{{.Path}} {{.Version}}{{end}}\' ./...` |');
-W('| **impT** | imported ＋ **test依存** | `GOOS=linux go list -deps -test -e -f \'{{with .Module}}{{.Path}} {{.Version}}{{end}}\' ./...` |');
-W('- 補助: 他OS分類用に `GOOS=windows go list -deps ...`、FP分類用に `go.sum` / `go mod edit -json`(direct/indirect) も取得。');
-W('- 包含関係: **imported ⊆ impT ⊆(概ね) all**。all は未使用の間接依存も含むため最大、imported が最小。\n');
+// GT定義と正確なコマンド（実物の proc.sh そのまま）
+W('## 0c. 3つの正解(GT)定義と実行コマンド（実物のまま）');
+W('前回の実ハーネス（`run_batch.sh` / `remeasure/proc.sh`）と同一。`gmain` は `go list -m` で得た自モジュール名。\n');
+W('**all**（build list 全体：直接＋間接・未使用含む）');
+W('```bash');
+W('go list -m all');
+W('```');
+W('**imported**（root・GOOS=linux・**非test** の実コンパイル依存）');
+W('```bash');
+W("GOOS=linux go list -deps -e -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./... \\");
+W('  | grep -v \'^$\' | grep -v "^${gmain} \\?$" | sort -u');
+W('```');
+W('**impT**（imported ＋ **test依存**：`-test` を追加）');
+W('```bash');
+W("GOOS=linux go list -deps -test -e -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./... \\");
+W('  | grep -v \'^$\' | grep -v "^${gmain} \\?$" | sort -u');
+W('```');
+W('各フラグ/パイプの意味:');
+W('- `-deps`=推移的依存も全部 / `-test`=test専用依存も含める / `-e`=**壊れたパッケージがあっても止まらず**列挙を続ける（前回スクリプトにも有り）');
+W('- `-f \'{{with .Module}}{{.Path}} {{.Version}}{{end}}\'`=各パッケージの「モジュール名 バージョン」を出力（stdlibは.Moduleが無く空行になる）');
+W('- `./...`=Goの記法で「このモジュール配下の全パッケージを再帰」');
+W('- `grep -v \'^$\'`=空行(stdlib)除去 / `grep -v "^${gmain}…"`=自モジュール除去 / `sort -u`=重複排除');
+W('- 共通env（前回との差分）: `GOTOOLCHAIN=local`（go1.26.5 base）, **`GOFLAGS=-mod=mod`**（vendor対応）。これらは"式"は変えず、同じ式が**より多くのrepoで成功する**ようにする環境設定。');
+W('- 補助: 他OS分類用 `GOOS=windows go list -deps ...`、FP分類用 `go.sum` / `go mod edit -json`(direct/indirect)。');
+W('- 包含関係: **imported ⊆ impT ⊆(概ね) all**。\n');
 
 // 母数
 const man = fs.existsSync(MAN) ? fs.readFileSync(MAN, 'utf8').trim().split('\n').slice(1) : [];

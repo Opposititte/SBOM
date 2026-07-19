@@ -28,17 +28,31 @@ cyclonedx-gomod: v1.10.0   (go install)
 | **CLONE_FAIL** | `git clone` 自体が失敗 = リポジトリが**消滅・非公開化・移転**して取得できない |
 | DISK_SKIP | ディスク退避で処理中断（今回は0件） |
 
-## 0c. 3つの正解(GT)定義と実行コマンド
-各repoで下記を同一クローン上で実行（共通env: `GOOS=linux`計算時, `GOTOOLCHAIN=local`, **`GOFLAGS=-mod=mod`**）。
-main module と stdlib は除外し `sort -u`。version一致では `モジュール名|バージョン` で照合。
+## 0c. 3つの正解(GT)定義と実行コマンド（実物のまま）
+前回の実ハーネス（`run_batch.sh` / `remeasure/proc.sh`）と同一。`gmain` は `go list -m` で得た自モジュール名。
 
-| GT | 意味 | コマンド |
-|---|---|---|
-| **all** | モジュール build list 全体（直接＋間接、未使用含む） | `go list -m all` |
-| **imported** | ルートから GOOS=linux・**非test** で実際にコンパイルされる依存（実import） | `GOOS=linux go list -deps -e -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./...` |
-| **impT** | imported ＋ **test依存** | `GOOS=linux go list -deps -test -e -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./...` |
-- 補助: 他OS分類用に `GOOS=windows go list -deps ...`、FP分類用に `go.sum` / `go mod edit -json`(direct/indirect) も取得。
-- 包含関係: **imported ⊆ impT ⊆(概ね) all**。all は未使用の間接依存も含むため最大、imported が最小。
+**all**（build list 全体：直接＋間接・未使用含む）
+```bash
+go list -m all
+```
+**imported**（root・GOOS=linux・**非test** の実コンパイル依存）
+```bash
+GOOS=linux go list -deps -e -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./... \
+  | grep -v '^$' | grep -v "^${gmain} \?$" | sort -u
+```
+**impT**（imported ＋ **test依存**：`-test` を追加）
+```bash
+GOOS=linux go list -deps -test -e -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./... \
+  | grep -v '^$' | grep -v "^${gmain} \?$" | sort -u
+```
+各フラグ/パイプの意味:
+- `-deps`=推移的依存も全部 / `-test`=test専用依存も含める / `-e`=**壊れたパッケージがあっても止まらず**列挙を続ける（前回スクリプトにも有り）
+- `-f '{{with .Module}}{{.Path}} {{.Version}}{{end}}'`=各パッケージの「モジュール名 バージョン」を出力（stdlibは.Moduleが無く空行になる）
+- `./...`=Goの記法で「このモジュール配下の全パッケージを再帰」
+- `grep -v '^$'`=空行(stdlib)除去 / `grep -v "^${gmain}…"`=自モジュール除去 / `sort -u`=重複排除
+- 共通env（前回との差分）: `GOTOOLCHAIN=local`（go1.26.5 base）, **`GOFLAGS=-mod=mod`**（vendor対応）。これらは"式"は変えず、同じ式が**より多くのrepoで成功する**ようにする環境設定。
+- 補助: 他OS分類用 `GOOS=windows go list -deps ...`、FP分類用 `go.sum` / `go mod edit -json`(direct/indirect)。
+- 包含関係: **imported ⊆ impT ⊆(概ね) all**。
 
 ## 母数（manifest.csv, status別）
 | status | 件数 |
