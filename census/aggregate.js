@@ -87,6 +87,18 @@ W('| **EMPTY_GT** | clone成功したが **正解GTが空** = 外部依存を持
 W('| **CLONE_FAIL** | `git clone` 自体が失敗 = リポジトリが**消滅・非公開化・移転**して取得できない |');
 W('| DISK_SKIP | ディスク退避で処理中断（今回は0件） |\n');
 
+// GT定義と正確なコマンド
+W('## 0c. 3つの正解(GT)定義と実行コマンド');
+W('各repoで下記を同一クローン上で実行（共通env: `GOOS=linux`計算時, `GOTOOLCHAIN=local`, **`GOFLAGS=-mod=mod`**）。');
+W('main module と stdlib は除外し `sort -u`。version一致では `モジュール名|バージョン` で照合。\n');
+W('| GT | 意味 | コマンド |');
+W('|---|---|---|');
+W('| **all** | モジュール build list 全体（直接＋間接、未使用含む） | `go list -m all` |');
+W('| **imported** | ルートから GOOS=linux・**非test** で実際にコンパイルされる依存（実import） | `GOOS=linux go list -deps -e -f \'{{with .Module}}{{.Path}} {{.Version}}{{end}}\' ./...` |');
+W('| **impT** | imported ＋ **test依存** | `GOOS=linux go list -deps -test -e -f \'{{with .Module}}{{.Path}} {{.Version}}{{end}}\' ./...` |');
+W('- 補助: 他OS分類用に `GOOS=windows go list -deps ...`、FP分類用に `go.sum` / `go mod edit -json`(direct/indirect) も取得。');
+W('- 包含関係: **imported ⊆ impT ⊆(概ね) all**。all は未使用の間接依存も含むため最大、imported が最小。\n');
+
 // 母数
 const man = fs.existsSync(MAN) ? fs.readFileSync(MAN, 'utf8').trim().split('\n').slice(1) : [];
 const statusCount = {};
@@ -191,10 +203,18 @@ for (const t of TOOLS) {
   W(`| ${t} | ${now} | ${pr} | +${now - pr} |`);
 }
 W('');
-W('増えた主因は、今回**評価対象(OK)のrepo自体が 1489→' + (statusCount['OK'] || 0) + ' に増えた**こと。理由は3つ:');
-W('1. **vendorディレクトリ対応**: `vendor/` を持つrepoは既定 `-mod=vendor` で `go list -m all` が失敗し前回は空GT扱いだった。今回 `GOFLAGS=-mod=mod` で正しく依存を計算 → 多数が評価対象に復活。');
-W('2. **新しいGo(1.26.5)**: go1.25/1.26 を要求する新しめのrepoが前回は toolchain の都合で取りこぼされていた分を回収。');
-W('3. **コミットが新しい**: 前回計測より各repoのHEADが進み、依存を増やした/追加したrepoがある（版台帳 `repo_manifest.md` にコミット日を記録）。\n');
+W('今回**評価対象(OK)が 1489→' + (statusCount['OK'] || 0) + '** に増えた。新しくOKになった **40 repo** の原因内訳（詳細リストは `census/newly_measurable.md`）:');
+W('');
+W('| カテゴリ | 件数 | 内容 |');
+W('|---|---:|---|');
+W('| 2. 新しいGo(1.25/1.26)要求を回収 | 14 | base go を 1.26.5 にし toolchain-DLタイムアウトを解消（etcd, coraza, pomerium 等） |');
+W('| 3. 新しいコミット等(go≤1.24) | 24 | 前回計測よりHEADが進み依存追加、または前回の一時失敗の回収（mongo-go-driver, go-rod, samber/* 等） |');
+W('| 1. vendor対応で**新規**復活 | 2 | kubernetes, kubevpn |');
+W('');
+W('**重要な補足（vendor修正の役割）**: 「増加」の主因は 2(新Go)＋3(新コミット) で、vendor修正で"新規"に増えたのは2件のみ。');
+W('vendor修正(`-mod=mod`)の本当の効果は増加ではなく **正しさ/取りこぼし防止**。`vendor/` を持つ repo（blocky=128依存, kubernetes 等）は');
+W('既定 `-mod=vendor` だと `go list -m all` が "can\'t compute all using the vendor directory" で失敗し**空GTに誤判定**される。');
+W('前回の集計コードも同じく `-mod=mod` を付けていなかったため、**前回も vendored repo を取りこぼしていた可能性が高い**（＝今回の方がより正確）。\n');
 
 fs.writeFileSync(BASE + '/SUMMARY_census.md', out.join('\n') + '\n');
 console.log(out.join('\n'));
