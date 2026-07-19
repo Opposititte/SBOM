@@ -111,7 +111,17 @@ W('- `./...`=Goの記法で「このモジュール配下の全パッケージ�
 W('- `grep -v \'^$\'`=空行(stdlib)除去 / `grep -v "^${gmain}…"`=自モジュール除去 / `sort -u`=重複排除');
 W('- 共通env（前回との差分）: `GOTOOLCHAIN=local`（go1.26.5 base）, **`GOFLAGS=-mod=mod`**（vendor対応）。これらは"式"は変えず、同じ式が**より多くのrepoで成功する**ようにする環境設定。');
 W('- 補助: 他OS分類用 `GOOS=windows go list -deps ...`、FP分類用 `go.sum` / `go mod edit -json`(direct/indirect)。');
-W('- 包含関係: **imported ⊆ impT ⊆(概ね) all**。\n');
+W('- 包含関係: **imported ⊆ impT ⊆(概ね) all**。一番狭いのが imported、一番広いのが all。\n');
+W('### 0c-2. `-e` は結果をほぼ変えない（実証）');
+W('`-e` = 「壊れたパッケージがあってもエラーで止めず、解決できる依存は列挙し続ける」フラグ。');
+W('正常なgoodと壊れたbroken(存在しないpkgをimport)を含むモジュールで比較すると:\n');
+W('| | go listの終了コード | stdout（=GTになる依存一覧） |');
+W('|---|---|---|');
+W('| `-e` なし | 1 (失敗) | uuid 等（**同じ**） |');
+W('| `-e` あり | 0 (成功) | uuid 等（**同じ**） |');
+W('- **依存の"水増し"はしない**: 出力(stdout)は -e あり/なしで同じ。違うのは終了コードとエラー表示だけ。');
+W('- 本パイプラインは stdout のみ採用し終了コードは見ないため、**大半のrepoで -e あり/なしは同結果**。');
+W('- `-e` が効くのは「壊れ方がひどく、-eなしだと列挙が全部落ちて空になる」稀ケースのみで、そこでは"一部でも取れる"を選ぶ（＝**取りこぼし低減**方向、偽依存追加ではない）。\n');
 
 // 母数
 const man = fs.existsSync(MAN) ? fs.readFileSync(MAN, 'utf8').trim().split('\n').slice(1) : [];

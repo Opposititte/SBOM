@@ -52,7 +52,19 @@ GOOS=linux go list -deps -test -e -f '{{with .Module}}{{.Path}} {{.Version}}{{en
 - `grep -v '^$'`=空行(stdlib)除去 / `grep -v "^${gmain}…"`=自モジュール除去 / `sort -u`=重複排除
 - 共通env（前回との差分）: `GOTOOLCHAIN=local`（go1.26.5 base）, **`GOFLAGS=-mod=mod`**（vendor対応）。これらは"式"は変えず、同じ式が**より多くのrepoで成功する**ようにする環境設定。
 - 補助: 他OS分類用 `GOOS=windows go list -deps ...`、FP分類用 `go.sum` / `go mod edit -json`(direct/indirect)。
-- 包含関係: **imported ⊆ impT ⊆(概ね) all**。
+- 包含関係: **imported ⊆ impT ⊆(概ね) all**。一番狭いのが imported、一番広いのが all。
+
+### 0c-2. `-e` は結果をほぼ変えない（実証）
+`-e` = 「壊れたパッケージがあってもエラーで止めず、解決できる依存は列挙し続ける」フラグ。
+正常なgoodと壊れたbroken(存在しないpkgをimport)を含むモジュールで比較すると:
+
+| | go listの終了コード | stdout（=GTになる依存一覧） |
+|---|---|---|
+| `-e` なし | 1 (失敗) | uuid 等（**同じ**） |
+| `-e` あり | 0 (成功) | uuid 等（**同じ**） |
+- **依存の"水増し"はしない**: 出力(stdout)は -e あり/なしで同じ。違うのは終了コードとエラー表示だけ。
+- 本パイプラインは stdout のみ採用し終了コードは見ないため、**大半のrepoで -e あり/なしは同結果**。
+- `-e` が効くのは「壊れ方がひどく、-eなしだと列挙が全部落ちて空になる」稀ケースのみで、そこでは"一部でも取れる"を選ぶ（＝**取りこぼし低減**方向、偽依存追加ではない）。
 
 ## 母数（manifest.csv, status別）
 | status | 件数 |
