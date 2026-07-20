@@ -29,6 +29,8 @@
 |---|---|
 | `aggregate.js` | `metrics.csv`→ **`SUMMARY_census.md`**。macro/micro の P/R/F1（name/version × 3GT）、TP/FP/FN合計、有効/NA数、FP原因バケツ。＝`SUMMARY_fresh.md`相当を再生成。 |
 | `render_md.js` | CSV→MD。**`per_repo_metrics.md`**（各repo×tool の tp/fp/fn/F1）と **`repo_manifest.md`**（リポジトリ版台帳）を生成。 |
+| `categorize.js` | `manifest.csv` に **category列**（末尾）を追加/更新（冪等）: OK / non_go(go.mod無し) / go_empty(Goだがimported空) / clone_fail。manifest再生成後に実行する。 |
+| `verify.js` | `metrics.csv` から全集計表を **独立ロジックで再計算**（aggregate.js の検算用）。 |
 
 ### 入力・記録
 | ファイル | 内容 |

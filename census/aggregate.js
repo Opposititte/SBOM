@@ -123,14 +123,31 @@ W('- **依存の"水増し"はしない**: 出力(stdout)は -e あり/なしで
 W('- 本パイプラインは stdout のみ採用し終了コードは見ないため、**大半のrepoで -e あり/なしは同結果**。');
 W('- `-e` が効くのは「壊れ方がひどく、-eなしだと列挙が全部落ちて空になる」稀ケースのみで、そこでは"一部でも取れる"を選ぶ（＝**取りこぼし低減**方向、偽依存追加ではない）。\n');
 
-// 母数
+// 母数 + ファネル
 const man = fs.existsSync(MAN) ? fs.readFileSync(MAN, 'utf8').trim().split('\n').slice(1) : [];
 const statusCount = {};
-for (const l of man) { const s = (l.split(',')[6] || '').trim(); statusCount[s] = (statusCount[s] || 0) + 1; }
-W('## 母数（manifest.csv, status別）');
-W('| status | 件数 |'); W('|---|---:|');
-for (const s of Object.keys(statusCount).sort()) W(`| ${s} | ${statusCount[s]} |`);
-W(`| **合計(記録repo)** | **${man.length}** |\n`);
+const cat = { OK: 0, go_empty: 0, non_go: 0, clone_fail: 0, disk_skip: 0 };
+for (const l of man) {
+  const c = l.split(','); const s = (c[6] || '').trim(); statusCount[s] = (statusCount[s] || 0) + 1;
+  if (s === 'CLONE_FAIL') cat.clone_fail++;
+  else if (s === 'DISK_SKIP') cat.disk_skip++;
+  else if (s === 'OK') cat.OK++;
+  else { const m = (c[4] || '').trim(); (m && m !== 'command-line-arguments') ? cat.go_empty++ : cat.non_go++; }
+}
+W('## 母数・ファネル');
+W('| 段階 | 件数 |');
+W('|---|---:|');
+W(`| 記録した全リポジトリ | ${man.length} |`);
+W(`| ├ CLONE_FAIL（取得不能・消滅） | ${cat.clone_fail} |`);
+W(`| └ clone成功 | ${man.length - cat.clone_fail} |`);
+W(`| 　├ 非Go（go.mod無し／GOPATH式） | ${cat.non_go} |`);
+W(`| 　└ Goモジュール | ${cat.non_go + cat.go_empty + cat.OK - cat.non_go} |`);
+W(`| 　　├ imported-GTが空（stdlibのみ/cgo等で外部import無し） | ${cat.go_empty} |`);
+W(`| 　　└ **imported-GTが非空 ＝ OK（評価対象）** | **${cat.OK}** |`);
+if (cat.disk_skip) W(`| （参考）DISK_SKIP | ${cat.disk_skip} |`);
+W('');
+W('- **EMPTY_GT = 非Go(' + cat.non_go + ') ＋ Goだがimported空(' + cat.go_empty + ') = ' + (cat.non_go + cat.go_empty) + '** を一括りにした status。上表のように分けると前回funnelと整合。');
+W('- 「Goだがimported空」= stdlibのみ/cgoで外部Goモジュールをimportしないライブラリ（GT-allは持つがGT-importedが空）。imported非空でゲートするため評価対象外。\n');
 
 function macroTable(sys, label) {
   W(`### ${label}`);

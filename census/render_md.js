@@ -44,17 +44,18 @@ const mh = man[0].split(',');
 let mm = [];
 mm.push('# census — 計測した全リポジトリの記録（バージョン台帳）\n');
 mm.push('今回の計測で解析した各リポジトリの **名前・URL・コミットSHA・コミット日・モジュール名・go版・GTサイズ・status**。');
-mm.push('status: OK=評価済 / EMPTY_GT=Goだがimported依存ゼロ / CLONE_FAIL=取得不可 / DISK_SKIP=容量退避。\n');
-mm.push('| # | repo | URL | commit(short) | date | go | GT all/imp/impT | status |');
-mm.push('|--:|------|-----|---|---|--:|---|---|');
+mm.push('status: OK=評価済 / EMPTY_GT=正解GT空 / CLONE_FAIL=取得不可 / DISK_SKIP=容量退避。');
+mm.push('区分(category): OK=評価対象 / non_go=go.mod無し（非Go） / go_empty=Goだがimported空（stdlibのみ/cgo等） / clone_fail=取得不能。\n');
+mm.push('| # | repo | URL | commit(short) | date | go | GT all/imp/impT | status | 区分 |');
+mm.push('|--:|------|-----|---|---|--:|---|---|---|');
 let n = 0;
 for (let i = 1; i < man.length; i++) {
   const c = man[i].split(',');
-  const [repo, url, sha, date, , gover, status, nimp, nimpT, nall] = c;
+  const [repo, url, sha, date, , gover, status, nimp, nimpT, nall, category] = c;
   n++;
   const sh = (sha || '').slice(0, 10);
   const d = (date || '').slice(0, 10);
-  mm.push(`| ${n} | ${repo} | ${url} | ${sh} | ${d} | ${gover || ''} | ${nall || 0}/${nimp || 0}/${nimpT || 0} | ${status || ''} |`);
+  mm.push(`| ${n} | ${repo} | ${url} | ${sh} | ${d} | ${gover || ''} | ${nall || 0}/${nimp || 0}/${nimpT || 0} | ${status || ''} | ${category || ''} |`);
 }
 fs.writeFileSync(BASE + '/repo_manifest.md', mm.join('\n') + '\n');
 

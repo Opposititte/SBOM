@@ -66,13 +66,19 @@ GOOS=linux go list -deps -test -e -f '{{with .Module}}{{.Path}} {{.Version}}{{en
 - 本パイプラインは stdout のみ採用し終了コードは見ないため、**大半のrepoで -e あり/なしは同結果**。
 - `-e` が効くのは「壊れ方がひどく、-eなしだと列挙が全部落ちて空になる」稀ケースのみで、そこでは"一部でも取れる"を選ぶ（＝**取りこぼし低減**方向、偽依存追加ではない）。
 
-## 母数（manifest.csv, status別）
-| status | 件数 |
+## 母数・ファネル
+| 段階 | 件数 |
 |---|---:|
-| CLONE_FAIL | 13 |
-| EMPTY_GT | 1180 |
-| OK | 1530 |
-| **合計(記録repo)** | **2723** |
+| 記録した全リポジトリ | 2723 |
+| ├ CLONE_FAIL（取得不能・消滅） | 13 |
+| └ clone成功 | 2710 |
+| 　├ 非Go（go.mod無し／GOPATH式） | 476 |
+| 　└ Goモジュール | 2234 |
+| 　　├ imported-GTが空（stdlibのみ/cgo等で外部import無し） | 704 |
+| 　　└ **imported-GTが非空 ＝ OK（評価対象）** | **1530** |
+
+- **EMPTY_GT = 非Go(476) ＋ Goだがimported空(704) = 1180** を一括りにした status。上表のように分けると前回funnelと整合。
+- 「Goだがimported空」= stdlibのみ/cgoで外部Goモジュールをimportしないライブラリ（GT-allは持つがGT-importedが空）。imported非空でゲートするため評価対象外。
 
 ## 1. macro平均 precision/recall/F1 (%)（空GT除外＝recall定義可能なrepoのみ）
 ### name一致
