@@ -45,6 +45,8 @@
 | `metrics.csv` / `per_repo_metrics.md` | 各repo×tool の TP/FP/FN ＋ FP原因分類。 |
 | `SUMMARY_census.md` | 集計サマリ（P/R/F1 各表）。 |
 
+| `SUMMARY2_concepts_ja.md` | 用語・依存グラフ・GT-imported/impT・刈り込み・go.sum の解説（混乱しやすい所メモ）。 |
+
 ## 最終集計の回し方（データ収集完了後）
 ```bash
 node census/aggregate.js    # -> SUMMARY_census.md
