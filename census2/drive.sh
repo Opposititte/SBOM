@@ -61,7 +61,7 @@ while IFS=, read -r name url; do [ -z "$name" ] && continue
   echo "$name $url" >> "$todo"; done < "$LIST"
 # 決定論的シャッフル（重い repo を分散）
 shuf --random-source=<(yes 42) "$todo" -o "$todo"
-log "START todo=$(wc -l < "$todo") done=${#DONE[@]} P=$P BATCH=$BATCH"
+log "START todo=$(wc -l < "$todo") done=$(tail -n +2 "$MANIFEST"|grep -c .) P=$P BATCH=$BATCH"
 
 rm -f "$BASE"/.batch.* 2>/dev/null
 split -l "$BATCH" "$todo" "$BASE/.batch."
