@@ -34,9 +34,9 @@ trap cleanup EXIT INT TERM
 
 merge(){
   for f in "$PARTS"/*.csv; do [ -e "$f" ] || continue; n=$(basename "$f" .csv)
-    grep -q "^$n," "$CSV" 2>/dev/null || cat "$f" >> "$CSV"; done
+    grep -q "^$n," "$CSV" 2>/dev/null || head -4 "$f" >> "$CSV"; done
   for f in "$MPARTS"/*.csv; do [ -e "$f" ] || continue; n=$(basename "$f" .csv)
-    grep -q "^$n," "$MANIFEST" 2>/dev/null || cat "$f" >> "$MANIFEST"; done
+    grep -q "^$n," "$MANIFEST" 2>/dev/null || head -1 "$f" >> "$MANIFEST"; done
 }
 push(){
   git -C "$ROOT" add "$CSV" "$MANIFEST" census2/tool_versions.txt census2/*.sh census2/*.js census2/*.md census2/repolist.csv .gitignore >/dev/null 2>&1
