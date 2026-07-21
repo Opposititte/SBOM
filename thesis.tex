@@ -209,9 +209,12 @@ GT生成にあたっての環境設定（\|-mod=mod|の自動解除，新しいG
 SyftとTrivyは，go.mod・go.sum・ツリー内の別のgo.modを静的に読む（ビルドを
 要しない）．go.sumは最も広い集合であるため過剰報告が多くなり，precisionが
 低くrecallが高い傾向をもつ．cdxgenは\|go list -deps|と\|go mod graph|を用い，
-実コンパイルグラフに最も近い依存を列挙する．cyclonedx-gomodは\|go list -m all|
-を\|go mod why|によって到達可能性でフィルタし，到達可能なモジュールだけを残す
-公式ツールである．統一的に述べれば，Syft/Trivyは「宣言（go.sum）」を報告し，
+実コンパイルグラフに最も近い依存を列挙する．cyclonedx-gomodは，本研究では
+\|cyclonedx-gomod mod|サブコマンドで実行した公式ツールであり，モジュールの
+build graphを解決し，実際にビルドへ到達するモジュールだけを出力する．すなわち
+build list（\|go list -m all|）全体をそのまま出すのではなく到達可能なものだけに
+刈り込むため，出力はGT-importedに近い（別OSやビルドタグの分だけimportedより
+わずかに広い）．統一的に述べれば，Syft/Trivyは「宣言（go.sum）」を報告し，
 cdxgen/cyclonedx-gomodは「コンパイルグラフ・到達可能性」を報告するという設計上の
 違いであって，バグではない（\tabref{tab:tools}）．
 

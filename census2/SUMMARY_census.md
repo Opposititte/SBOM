@@ -207,7 +207,7 @@ GOOS=linux go list -deps -test -e -f '{{with .Module}}{{.Path}} {{.Version}}{{en
 | **syft** | go.mod ＋ **go.sum** ＋ ツリー内の別go.mod | ファイルを静的に読むだけ（ビルド不要）。go.sum は最も広い集合なので過剰報告が多い。堅牢で失敗しにくい | precision低・recall高 |
 | **trivy** | go.mod ＋ **go.sum** ＋ ツリー内の別go.mod | syftとほぼ同じ静的読み。巨大repoでタイムアウトNAが少数 | precision低・recall高 |
 | **cdxgen** | **`go list -deps`** ＋ `go mod graph`(辺のみ) ＋ ツリー全go.mod走査 | 実コンパイルグラフに最も近い。ただしネストした子モジュール(兄弟go.mod)も拾い、go list失敗時は go mod graph にfallbackして膨らむ | imported精度が非常に高い |
-| **cyclonedx-gomod** | `go list -m all`(build list) を **`go mod why -m -vendor`** で到達可能性フィルタ | Goツールチェーンを直接使う公式ツール。到達可能なモジュールだけ残す。別OS/ビルドタグ分だけ imported より広い | 最高精度(FP最少) |
+| **cyclonedx-gomod** | **`cyclonedx-gomod mod`**（build graphを解決し、実際にbuildへ到達するモジュールだけ出力） | Goツールチェーンを直接使う公式ツール。`go list -m all`(build list全体)をそのまま出すのではなく到達可能なものだけに刈り込むため、importedに近い（別OS/build tag分だけ広い）。実測(easytcp): all=30/imported=11 に対し mod出力=14 | 最高精度(FP最少) |
 - **統一的理解**: syft/trivy は「宣言(go.sum)」を、cdxgen/cyclonedx-gomod は「コンパイルグラフ/到達可能性」を報告する。バグではなく設計選択。
 - **all** で syft/trivy が優位なのは go.sum が build list(=`go list -m all`)に近いため。**imported** で cdxgen/cyclonedx-gomod が優位なのは実importに近いため。
 
