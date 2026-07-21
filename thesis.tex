@@ -67,51 +67,50 @@ SBOM, software supply chain, Go language, accuracy evaluation, ground truth
 %% ============================================================
 \section{はじめに}
 %% ============================================================
-\begin{itemize}
-\item ソフトウェアサプライチェーン攻撃が急増しており，対策として，
-ソフトウェアの部品一覧であるSBOMが注目されている．
-\item SBOMの利点は一覧が正確なときにのみ得られる．不正確だと，危険な
-依存の見落とし，または未使用の依存の誤報を招く．
-\item ツールの正確性は，正解一覧であるGround Truth（GT）と突き合わせて
-評価する．しかしGTの定義次第で正解の範囲は変わり，評価結果も変わりうる．
-\item PythonやJava等ではGTベース評価が行われているが，いずれも単一の
-GT定義に基づく．とくにGo言語ではGTベース評価自体が行われていない．
-\item 本稿の貢献：(1) Goを対象にGTベース精度評価を初めて実施
-（1{,}528プロジェクト，4ツール），(2) GTを3定義で比較し定義により
-ツール優劣が逆転することを定量的に提示，(3) 逆転の要因を各ツールが依存を
-読み取る源（宣言か，コンパイルグラフか）の違いから説明．
-\end{itemize}
+ソフトウェアサプライチェーン攻撃が急増しており，その対策として，
+ソフトウェアが用いる部品の一覧であるSBOMが注目されている．SBOMの利点は，
+その一覧が正確であるときにのみ得られる．一覧が不正確であれば，危険な依存を
+見落としたり，実際には用いていない依存を誤って報告したりするおそれがある．
+
+SBOM生成ツールの正確性は，正解一覧であるGround Truth（GT）と突き合わせて
+評価する．しかし，何を正解とみなすか，すなわちGTの定義しだいで正解の範囲は
+変わり，評価結果も変わりうる．PythonやJavaなどではGTに基づく評価が行われて
+きたが，いずれも単一のGT定義に依拠している．とくにGo言語については，
+GTベースの評価そのものが行われていない．
+
+本稿の貢献は次の3点である．第一に，Goを対象としてGTベースの精度評価を
+初めて実施した（1{,}528プロジェクト，4ツール）．第二に，GTを3つの定義で
+比較し，どの定義を用いるかによってツールの優劣が逆転することを定量的に
+示した．第三に，その逆転の要因を，各ツールが依存を読み取る源（宣言に基づくか，
+コンパイルグラフに基づくか）の違いから説明した．
 
 %% ============================================================
 \section{背景}
 %% ============================================================
 
 \subsection{SBOMとその正確性}
-\begin{itemize}
-\item SBOMは，ソフトが使う部品（依存ライブラリ）の一覧表である．
-\item 脆弱性対応やライセンス調査に用いる．一覧が不正確だと実務判断を誤る．
-\item 正確性の測定には，答え合わせ用の正解一覧（GT）が必要である．
-\end{itemize}
+SBOMは，ソフトウェアが用いる部品（依存ライブラリ）の一覧表であり，脆弱性への
+対応やライセンスの調査などに用いられる．この一覧が不正確であると，実務上の
+判断を誤ることになる．正確性を測定するには，答え合わせのための正解一覧である
+GTが必要である．
 
 \subsection{Goの依存の単位}
-\begin{itemize}
-\item Goの依存は、モジュールがパッケージをまとめた階層構造をなす。SBOMでは、パッケージではなく、そのパッケージが属するモジュールを依存の単位として扱う。
-\item コードは他のパッケージをimportして利用する。あるプロジェクトが必要とする依存は、このimport関係を辿ることで特定できる。
-\item 標準ライブラリは依存に数えず、外部から取得するパッケージが属するモジュールをSBOMの対象とする。
-\item テストコードでのみ使われる依存（テスト依存）は、本番のコードでは使われない。この区別は後の正解データの定義に関わる。
-\end{itemize}
+Goの依存は，モジュールがパッケージをまとめた階層構造をなす．SBOMでは，
+パッケージそのものではなく，そのパッケージが属するモジュールを依存の単位として
+扱う．コードは他のパッケージをimportして利用するため，あるプロジェクトが
+必要とする依存は，このimport関係を辿ることで特定できる．なお，標準ライブラリは
+依存に数えず，外部から取得するパッケージが属するモジュールをSBOMの対象とする．
+また，テストコードでのみ用いられる依存（テスト依存）は本番のコードでは用いられ
+ない．この区別は，後述する正解データの定義に関わる．
 
 \subsection{go.mod と go.sum}
-\begin{itemize}
-\item go.modは，どの依存のどのバージョンを使うかをモジュール単位で
-記述する．直接依存と間接依存（\|// indirect|）を含み，実際には使わない
-依存が含まれることもある．
-\item go.sumは各依存（間接含む）のハッシュを記録する．過去に関わった
-依存・バージョンも残るため，go.modより広く，今使わないものも含む．
-\item go.modは，\|go mod init|で初期化し，\|go mod tidy|を実行すると，
-依存先が要求する間接依存も一括で自動追加される（実コードでの使用有無は
-問わない）．このため「使わない依存」が生じる．
-\end{itemize}
+go.modは，どの依存のどのバージョンを用いるかをモジュール単位で記述する．
+直接依存と間接依存（\|// indirect|）を含み，実際には用いない依存が含まれる
+こともある．一方，go.sumは各依存（間接依存を含む）のハッシュを記録する．
+過去に関わった依存やバージョンも残るため，go.sumはgo.modよりも広く，現在は
+用いていないものも含む．go.modは\|go mod init|で初期化し，\|go mod tidy|を
+実行すると，依存先が要求する間接依存も一括で自動追加される（実コードでの使用の
+有無は問わない）．このため，「用いない依存」が生じることになる．
 
 \begin{figure}[tb]
 % \includegraphics[width=\columnwidth]{fig_gomod_flow.pdf}
@@ -123,16 +122,13 @@ GT定義に基づく．とくにGo言語ではGTベース評価自体が行わ�
 %% ============================================================
 \section{Ground Truthの3つの定義}
 %% ============================================================
-\begin{itemize}
-\item 正解データGTを\tabref{tab:gtdef}の3通りで定義する．いずれも
-\|go list|により，rootから\|GOOS=linux|で生成する．
-\item GT-importedは，非testの実コンパイル依存だけを集めたものである．
-\item GT-imported+test（impT）は，それにtest専用依存を加えたものである．
-\item GT-allは，build list全体（直接・間接・未使用を含む）であり，最も
-広い定義である．
-\item 3定義は\figref{fig:venn}のように，概ね imported $\subseteq$ impT
-$\subseteq$ all の包含関係にある．
-\end{itemize}
+本稿では，正解データGTを\tabref{tab:gtdef}に示す3通りで定義する．いずれも
+\|go list|を用い，rootから\|GOOS=linux|で生成する．GT-importedは，非testの
+実コンパイル依存だけを集めたものである．GT-imported+test（以下impT）は，
+それにtest専用依存を加えたものである．GT-allは，build list全体（直接依存・
+間接依存・未使用を含む）であり，3つのなかで最も広い定義である．これら3つの
+定義は，\figref{fig:venn}に示すように，概ね imported $\subseteq$ impT
+$\subseteq$ all という包含関係にある．
 
 \begin{table}[tb]
 \caption{正解データ（GT）の3つの定義}
@@ -157,14 +153,10 @@ GT-all & \|go list -m all| \\\hline
 %% ============================================================
 \section{関連研究}
 %% ============================================================
-\begin{itemize}
-\item GTベースのSBOM精度評価は，複数の言語で行われてきた
-（\tabref{tab:related}）．
-\item いずれの研究も単一のGT定義に基づいており，GT定義の選択が評価に
-与える影響は検討されていない．
-\item 本研究は，Goを対象にGTベース評価を初めて行い，かつGT定義を3通りに
-変えて結果の変化を比較する点に新規性がある．
-\end{itemize}
+GTに基づくSBOMの精度評価は，\tabref{tab:related}に示すように，複数の言語で
+行われてきた．しかし，いずれの研究も単一のGT定義に基づいており，GT定義の選択が
+評価結果に与える影響は検討されていない．本研究は，Goを対象としてGTベース評価を
+初めて行い，かつGT定義を3通りに変えて結果の変化を比較する点に新規性がある．
 
 \begin{table*}[tb]
 \caption{各言語における既存のGTベース評価と本研究の位置づけ}
@@ -190,51 +182,38 @@ Go & 本研究 & \|go list| でimport依存を集め正解 \\\hline
 %% ============================================================
 
 \subsection{研究目的とリサーチクエスチョン}
-\begin{itemize}
-\item 主目的は，Goプロジェクトを対象にGTベースで4ツールの精度を評価する
-ことである．
-\item RQ1：GT定義（all / imported / imported+test）を変えると，ツールの
-優劣は変わるか．
-\item RQ2：変わるとすれば，その原因は何か．
-\end{itemize}
+本研究の主目的は，Goプロジェクトを対象に，GTに基づいて4つのツールの精度を
+評価することである．具体的には，次の2つのリサーチクエスチョンを設定する．
+RQ1は，GT定義（all / imported / imported+test）を変えると，ツールの優劣は
+変わるか，である．RQ2は，もし変わるとすれば，その原因は何か，である．
 
 \subsection{対象データセット}
-\begin{itemize}
-\item awesome-goから2{,}723件を取得・記録した．
-\item statusの内訳は，CLONE\_FAIL（取得失敗）13件，EMPTY\_GT（外部依存を
-持たず正解GTが空）1{,}182件，OK（imported依存が1件以上あり評価対象）
-1{,}528件である．
-\item 本研究の評価対象は，このOKの1{,}528件である．
-\end{itemize}
+awesome-goから2{,}723件のリポジトリを取得・記録した．そのstatusの内訳は，
+取得に失敗したCLONE\_FAILが13件，外部依存を持たず正解GTが空となるEMPTY\_GTが
+1{,}182件，そしてimported依存が1件以上あり評価対象となるOKが1{,}528件である．
+本研究の評価対象は，このOKの1{,}528件である．
 
 \subsection{評価対象ツールと実行環境}
-\begin{itemize}
-\item Syft v1.46.0，Trivy v0.72.0，cdxgen 12.7.1（Node.js v22.22.2），
-cyclonedx-gomod v1.10.0を用いた．
-\item GTの生成には go1.26.5（\|GOTOOLCHAIN=local|，\|GOFLAGS=-mod=mod|）
-を用い，\|GOOS=linux|で実行した．GTもツールも同一のクローン上で同時に
-生成・照合した（全リポジトリ1回ずつのクローン）．
-\item 依存はモジュールパス単位で照合する（name一致）．本編ではname一致を
-主とし，version一致は付録で補足する．
-\item GT生成の環境設定（\|-mod=mod|の自動解除，新Go要求リポジトリの
-toolchain取得，\|-e|の扱い）は付録\ref{app:gtimpl}に詳述する．これらは
-生成コマンドの式は変えず，同じ式がより多くのリポジトリで成功するように
-する設定である．
-\end{itemize}
+評価対象として，Syft v1.46.0，Trivy v0.72.0，cdxgen 12.7.1（Node.js
+v22.22.2），cyclonedx-gomod v1.10.0を用いた．GTの生成には
+go1.26.5（\|GOTOOLCHAIN=local|，\|GOFLAGS=-mod=mod|）を用い，\|GOOS=linux|で
+実行した．GTとツールの出力は，いずれも同一のクローン上で同時に生成・照合した
+（全リポジトリを1回ずつクローンする）．依存の照合はモジュールパス単位で行い
+（name一致），本編ではname一致を主とし，version一致は付録で補足する．なお，
+GT生成にあたっての環境設定（\|-mod=mod|の自動解除，新しいGoを要求する
+リポジトリに対するtoolchainの取得，\|-e|の扱い）は付録\ref{app:gtimpl}に
+詳述する．これらはいずれも生成コマンドの式（依存の集め方）は変えず，同じ式が
+より多くのリポジトリで成功するようにするための設定である．
 
 \subsection{各ツールが依存を読み取る源}
-\begin{itemize}
-\item SyftとTrivyは，go.mod・go.sum・ツリー内の別go.modを静的に読む
-（ビルド不要）．go.sumは最も広い集合のため過剰報告が多く，precisionが
-低くrecallが高い傾向をもつ．
-\item cdxgenは\|go list -deps|と\|go mod graph|を用い，実コンパイル
-グラフに最も近い依存を列挙する．
-\item cyclonedx-gomodは\|go list -m all|を\|go mod why|で到達可能性
-フィルタし，到達可能なモジュールだけを残す公式ツールである．
-\item 統一的には，Syft/Trivyは「宣言（go.sum）」を，cdxgen/
-cyclonedx-gomodは「コンパイルグラフ・到達可能性」を報告する設計の違い
-であり，バグではない．
-\end{itemize}
+SyftとTrivyは，go.mod・go.sum・ツリー内の別のgo.modを静的に読む（ビルドを
+要しない）．go.sumは最も広い集合であるため過剰報告が多くなり，precisionが
+低くrecallが高い傾向をもつ．cdxgenは\|go list -deps|と\|go mod graph|を用い，
+実コンパイルグラフに最も近い依存を列挙する．cyclonedx-gomodは\|go list -m all|
+を\|go mod why|によって到達可能性でフィルタし，到達可能なモジュールだけを残す
+公式ツールである．統一的に述べれば，Syft/Trivyは「宣言（go.sum）」を報告し，
+cdxgen/cyclonedx-gomodは「コンパイルグラフ・到達可能性」を報告するという設計上の
+違いであって，バグではない（\tabref{tab:tools}）．
 
 \begin{table}[tb]
 \caption{各SBOMツールが読み取る源と近いGT}
@@ -251,14 +230,11 @@ cyclonedx-gomod & \|go list -m all| ＋ 到達性 & GT-imported \\\hline
 \end{table}
 
 \subsection{評価指標}
-\begin{itemize}
-\item ツール出力とGTの対応（TP/FP/FN/TN）から，precision，recall，F1を
-算出する（式(\ref{eq:prec})〜(\ref{eq:f1})）．
-\item 各GT定義に対し，リポジトリごとにP/R/F1を算出し，評価可能な
-リポジトリで平均する（macro平均）．
-\item 空GTのリポジトリはrecallが定義できないため除外し，ツールが出力
-できなかったリポジトリはNAとして扱う．
-\end{itemize}
+ツールの出力とGTの対応（TP/FP/FN/TN）から，precision，recall，F1を算出する
+（式(\ref{eq:prec})〜(\ref{eq:f1})）．各GT定義に対して，リポジトリごとに
+P/R/F1を算出し，評価可能なリポジトリで平均する（macro平均）．なお，空GTの
+リポジトリはrecallを定義できないため除外し，ツールが出力できなかった
+リポジトリはNAとして扱う．
 
 \begin{equation}
 \mathrm{precision} = \frac{\mathrm{TP}}{\mathrm{TP}+\mathrm{FP}}
@@ -280,15 +256,11 @@ cyclonedx-gomod & \|go list -m all| ＋ 到達性 & GT-imported \\\hline
 %% ============================================================
 
 \subsection{GT定義によるツール優劣の逆転}
-\begin{itemize}
-\item 各ツールのmacro平均P/R/F1（name一致）を3つのGT定義ごとに
-\tabref{tab:result}に示す．
-\item GT-allでは，SyftとTrivyのF1が最も高く（73.0，72.5），cdxgenと
-cyclonedx-gomodは低い（52.8，56.5）．
-\item GT-importedでは順位が入れ替わり，cdxgenとcyclonedx-gomodの
-F1が最も高くなる（93.2，94.5）．
-\item すなわち，どのGT定義で測るかによってツールの優劣が逆転する．
-\end{itemize}
+各ツールのmacro平均P/R/F1（name一致）を，3つのGT定義ごとに\tabref{tab:result}に
+示す．GT-allでは，SyftとTrivyのF1が最も高く（それぞれ73.0，72.5），cdxgenと
+cyclonedx-gomodは低い（それぞれ52.8，56.5）．ところがGT-importedでは順位が
+入れ替わり，cdxgenとcyclonedx-gomodのF1が最も高くなる（それぞれ93.2，94.5）．
+すなわち，どのGT定義で測るかによって，ツールの優劣が逆転する．
 
 \begin{table}[tb]
 \caption{各ツールの精度（macro平均・name一致，all / imported /
@@ -314,24 +286,19 @@ cyclonedx & prec. & 99.9 / 92.4 / 92.6 \\
 \end{table}
 
 \subsection{テスト依存の影響}
-\begin{itemize}
-\item GT-imported+testでは，テスト依存を正解に含めることで
-SyftとTrivyのF1が上昇し（67.0→78.3，68.4→79.7），cdxgenと
-cyclonedx-gomodは低下する（93.2→82.3，94.5→82.5）．
-\item テスト依存をGTに含めるか否かも，ツールの評価結果に影響する．
-\end{itemize}
+GT-imported+testでは，テスト依存を正解に含めることで，SyftとTrivyのF1が上昇し
+（それぞれ67.0から78.3へ，68.4から79.7へ），逆にcdxgenとcyclonedx-gomodは
+低下する（それぞれ93.2から82.3へ，94.5から82.5へ）．このように，テスト依存を
+GTに含めるか否かも，ツールの評価結果に影響する．
 
 \subsection{母数差に対するロバストネス}
-\begin{itemize}
-\item ツールごとに出力失敗（NA）の件数が異なり，有効評価repo数は
-Syft 1{,}519，Trivy 1{,}509，cdxgen 1{,}493，cyclonedx-gomod 1{,}501と
-差がある（付録\ref{app:raw}）．
-\item この母数差が順位を歪めていないことを確認するため，4ツールすべてが
-成功した共通repo集合（$n=1{,}467$）に限定して再計算した（\tabref{tab:robust}）．
-\item 値の変化はいずれも1ポイント未満であり，順位（cyclonedx-gomod
-$>$ cdxgen $\gg$ Trivy $\approx$ Syft）は完全に一致した．
-\item よって，ツール間の母数差は本研究の結論に影響しない．
-\end{itemize}
+ツールごとに出力の失敗（NA）の件数が異なるため，有効に評価できたリポジトリ数は，
+Syftが1{,}519，Trivyが1{,}509，cdxgenが1{,}493，cyclonedx-gomodが1{,}501と
+差がある（付録\ref{app:raw}）．この母数の差が順位を歪めていないことを確認する
+ため，4つのツールすべてが成功した共通リポジトリ集合（$n=1{,}467$）に限定して
+再計算した（\tabref{tab:robust}）．その結果，値の変化はいずれも1ポイント未満で
+あり，順位（cyclonedx-gomod $>$ cdxgen $\gg$ Trivy $\approx$ Syft）は完全に
+一致した．したがって，ツール間の母数の差は本研究の結論に影響しない．
 
 \begin{table}[tb]
 \caption{母数差のロバストネス検証（imported，name一致，macro-F1，\%）}
@@ -353,62 +320,47 @@ cyclonedx-gomod & 94.5 & 94.7 \\\hline
 %% ============================================================
 
 \subsection{逆転が生じる理由}
-\begin{itemize}
-\item ツールが読み取る源（依存の範囲）と正解GTの範囲がずれた分だけ，
-スコアは落ちる．
-\item GT-allは build list（\|go list -m all|）に近く，go.sumを広く読む
-Syft / Trivyが近くなりF1が高い．
-\item GT-importedは実importに近く，コンパイルグラフを読むcdxgen /
-cyclonedx-gomodが近くなりF1が高い．
-\item よって，同じツール群でも，どのGTで測るかで優劣が逆転する．これは
-ツールのバグではなく，各ツールが「宣言」を報告するか「到達可能性」を
-報告するかという設計選択の違いに由来する．
-\end{itemize}
+ツールが読み取る源（依存の範囲）と正解GTの範囲がずれた分だけ，スコアは低下する．
+GT-allはbuild list（\|go list -m all|）に近いため，go.sumを広く読むSyftと
+Trivyが近くなりF1が高い．一方，GT-importedは実importに近いため，コンパイル
+グラフを読むcdxgenとcyclonedx-gomodが近くなりF1が高い．したがって，同じツール群
+であっても，どのGTで測るかによって優劣が逆転する．これはツールのバグではなく，
+各ツールが「宣言」を報告するのか「到達可能性」を報告するのかという設計上の選択の
+違いに由来する．
 
 \subsection{評価の枠組みとしての含意}
-\begin{itemize}
-\item GT-importedの生成は\|go list -deps|であり，これはcdxgenが内部で
-用いる機構とほぼ同一である．同様にGT-allはSyft/Trivyが読むgo.sumに近い．
-したがって「各ツールが自分の源に一致するGTで高得点となる」ことは，
-半ば構成上の必然である．
-\item この意味で，本評価が示すのはツールの絶対的な優劣ではなく，
-\textbf{GT定義の選択に対する評価結果の感度}である．どのツールが「正しい」
-かはGTをどう定義するかに依存し，中立なGTは存在しない．
-\end{itemize}
+GT-importedの生成コマンドは\|go list -deps|であり，これはcdxgenが内部で用いる
+機構とほぼ同一である．同様に，GT-allはSyftやTrivyが読むgo.sumに近い．したがって
+「各ツールが自分の源に一致するGTで高得点となる」ことは，半ば構成上の必然である．
+この意味において，本評価が示すのはツールの絶対的な優劣ではなく，GT定義の選択に
+対する評価結果の感度である．どのツールが「正しい」かはGTをどのように定義するかに
+依存し，中立なGTは存在しない．
 
 \subsection{実務への含意}
-\begin{itemize}
-\item 用途に応じてGTを選ぶ必要がある．脆弱性管理では実際に使う依存を
-見たいのでimported，ライセンス調査では関わる依存全部を見たいのでallが
-適する．
-\item 用途に合わないGTで測ると，ツール選定を誤るおそれがある．
-\end{itemize}
+実務では，用途に応じてGTを選ぶ必要がある．脆弱性管理では実際に用いる依存を
+見たいためimportedが適し，ライセンス調査では関わる依存の全体を見たいため
+allが適する．用途に合わないGTで測ると，ツールの選定を誤るおそれがある．
 
 \subsection{限界}
-\begin{itemize}
-\item 対象はawesome-goに収録された公開リポジトリに限られ，企業の非公開
-プロジェクト等への一般化には注意を要する．
-\item 正解GTを\|go list|に基づいて定義しており，このGTの作り方自体が
-一つの立場である．とくにcdxgen/cyclonedx-gomodは内部で\|go list|を用いる
-ため，これらのGTに対する高い一致は独立な精度というより整合性の確認に
-近い側面をもつ．別のGT定義を採用すれば結果が変わる可能性がある．
-\item 照合はname一致（モジュールパス単位）を主としており，バージョンの
-厳密な一致は付録での補足にとどまる．
-\item 各ツールは既定に近い設定で1回実行しており，オプションやモードの
-違いによる感度は検討していない．
-\end{itemize}
+本研究にはいくつかの限界がある．第一に，対象はawesome-goに収録された公開
+リポジトリに限られるため，企業の非公開プロジェクトなどへの一般化には注意を
+要する．第二に，正解GTを\|go list|に基づいて定義しており，このGTの作り方自体が
+一つの立場である．とくにcdxgenとcyclonedx-gomodは内部で\|go list|を用いるため，
+これらのGTに対する高い一致は，独立な精度というよりも整合性の確認に近い側面を
+もつ．別のGT定義を採用すれば結果が変わる可能性がある．第三に，照合はname一致
+（モジュールパス単位）を主としており，バージョンの厳密な一致は付録での補足に
+とどまる．第四に，各ツールは既定に近い設定で1回のみ実行しており，オプションや
+モードの違いによる感度は検討していない．
 
 %% ============================================================
 \section{おわりに}
 %% ============================================================
-\begin{itemize}
-\item Goを対象に，GTベースでSBOMツールの精度を大規模に評価した
-（1{,}528プロジェクト，4ツール）．
-\item GTを3定義で比較し，定義によってツールの優劣が変わることを定量的に
-示すとともに，その要因を各ツールが依存を読み取る源の違いから説明した．
-\item 今後の課題として，偽陽性の要因分析の深掘り，対象言語・データセット
-の拡張，およびツール設定の感度分析が挙げられる．
-\end{itemize}
+本稿では，Goを対象に，GTに基づいてSBOM生成ツールの精度を大規模に評価した
+（1{,}528プロジェクト，4ツール）．GTを3つの定義で比較することで，どの定義を
+用いるかによってツールの優劣が変わることを定量的に示すとともに，その要因を，
+各ツールが依存を読み取る源の違いから説明した．今後の課題としては，偽陽性の要因
+分析のさらなる深掘り，対象言語やデータセットの拡張，およびツール設定に対する
+感度分析が挙げられる．
 
 %\begin{acknowledgment}
 %本研究の遂行にあたりご指導いただいた中村 修 教授に感謝する．
@@ -476,10 +428,10 @@ OWASP CycloneDX: cyclonedx-gomod,
 %% ------------------------------------------------------------
 \section{version一致・micro集計の精度}
 %% ------------------------------------------------------------
-本文\tabref{tab:result}はmacro平均・name一致である．参考として，
-version一致（\tabref{tab:macro-ver}）と，プール合計から算出したmicro
-集計（\tabref{tab:micro-name}）を示す．いずれも優劣逆転の傾向は保存
-される．
+本文の\tabref{tab:result}はmacro平均・name一致である．参考として，version一致
+（\tabref{tab:macro-ver}）と，プール合計から算出したmicro集計
+（\tabref{tab:micro-name}）を示す．いずれの場合も，優劣が逆転するという傾向は
+保存される．
 
 \begin{table}[tb]
 \caption{macro平均・version一致（all / imp / impT，\%）}
@@ -527,6 +479,9 @@ cyclonedx & prec. & 99.8 / 85.6 / 85.7 \\
 \section{TP / FP / FN プール合計（name一致）}
 \label{app:raw}
 %% ------------------------------------------------------------
+各ツールのTP/FP/FNのプール合計（name一致）を\tabref{tab:raw}に，評価に有効で
+あったリポジトリ数とNA数を\tabref{tab:valid}に示す．
+
 \begin{table}[tb]
 \caption{TP / FP / FN プール合計（name一致）}
 \label{tab:raw}
@@ -565,14 +520,10 @@ cyclonedx-gomod & 1{,}501 & 27 \\\hline
 %% ------------------------------------------------------------
 \section{偽陽性の要因分析（imported基準・name）}
 %% ------------------------------------------------------------
-\begin{itemize}
-\item importedを基準としたときの偽陽性（FP）の要因内訳を
-\tabref{tab:fp}に示す．
-\item Syft / Trivyでは残余（go.sum残骸＋兄弟go.mod）が最大の要因であり，
-go.sumを広く読むことに起因する．
-\item cyclonedx-gomodではindirect未使用が最大の要因であり，到達可能性
-フィルタを経てなお残る間接依存に起因する．
-\end{itemize}
+importedを基準としたときの偽陽性（FP）の要因内訳を\tabref{tab:fp}に示す．
+SyftとTrivyでは，残余（go.sumの残骸と兄弟go.mod）が最大の要因であり，これは
+go.sumを広く読むことに起因する．一方，cyclonedx-gomodでは，indirect未使用が
+最大の要因であり，これは到達可能性フィルタを経てもなお残る間接依存に起因する．
 
 \begin{table}[tb]
 \caption{FP要因バケツ（imported基準・name，\%）}
@@ -592,36 +543,39 @@ cyclonedx-gomod & 1.0 & 11.5 & 3.1 & 62.6 & 21.8 \\\hline
 \label{app:gtimpl}
 %% ------------------------------------------------------------
 GTを全リポジトリで確実に生成するため，以下の環境設定を行った．いずれも
-\|go list|の\emph{式}（依存の集め方）は変えず，同じ式がより多くの
-リポジトリで成功するようにするものである．誤って正解GTが空と判定される
-（偽EMPTY\_GT）ことによる取りこぼしを防ぐ．
-\begin{itemize}
-\item \textbf{\texttt{-e}フラグ：} \|go list|に\texttt{-e}を付けると，
-壊れたパッケージがあってもエラーで止まらず，解決できる依存の列挙を続ける．
-正常なモジュールでは\texttt{-e}の有無で出力（依存一覧）は同一であり，
-異なるのは終了コードのみである．\texttt{-e}が結果に影響するのは，
-\texttt{-e}なしだと列挙が全て落ちて空になる稀なケースに限られ，そこでは
-取りこぼしを減らす方向に働く（偽の依存を追加しない）．
-\item \textbf{vendor対応（\texttt{-mod=mod}）：} \texttt{vendor/}
-ディレクトリを持つリポジトリは，既定の\texttt{-mod=vendor}では
-\|go list -m all|が失敗し，正解GTが空と誤判定される．\texttt{-mod=mod}を
-付けることでこれを回避し，vendored repoの取りこぼしを防ぐ．
-\item \textbf{ワークスペース対応（\texttt{go.work}）：}
-\texttt{go.work}を持つリポジトリはworkspace modeとなり，複数モジュールを
-まとめて扱うため，goは複数のgo.modの自動編集を許さない．このため
-workspace modeでは\texttt{-mod}に\texttt{readonly}か\texttt{vendor}しか
-指定できず，前項の\texttt{-mod=mod}はエラーとなって\|go list|が全て失敗し，
-偽EMPTY\_GTを生じる．そこで\texttt{go.work}を検出したリポジトリでは
-\texttt{-mod=mod}を自動的に解除し，workspace既定（readonly）で解析する
-（例：etcd，kubernetes系，pomerium等がこれに該当）．
-\item \textbf{新しいGoを要求するリポジトリ：} 基準は
-go1.26.5＋\texttt{GOTOOLCHAIN=local}（per-repoのtoolchainを取得しない
-設定）である．go.modが基準より新しいGoを要求する場合（例：\texttt{go
-1.27rc2}）はビルド不可で\|go list|が失敗するため，該当リポジトリのみ
+\|go list|の式（依存の集め方）は変えず，同じ式がより多くのリポジトリで成功する
+ようにするものであり，正解GTが誤って空と判定される（偽EMPTY\_GT）ことによる
+取りこぼしを防ぐ目的をもつ．
+
+第一に，\texttt{-e}フラグである．\|go list|に\texttt{-e}を付けると，壊れた
+パッケージがあってもエラーで止まらず，解決できる依存の列挙を続ける．正常な
+モジュールでは，\texttt{-e}の有無で出力（依存一覧）は同一であり，異なるのは
+終了コードのみである．\texttt{-e}が結果に影響するのは，\texttt{-e}なしでは
+列挙がすべて落ちて空になる稀なケースに限られ，そこでは取りこぼしを減らす方向に
+働く（偽の依存を追加することはない）．
+
+第二に，vendor対応（\texttt{-mod=mod}）である．\texttt{vendor/}ディレクトリを
+持つリポジトリは，既定の\texttt{-mod=vendor}では\|go list -m all|が失敗し，
+正解GTが空と誤判定される．\texttt{-mod=mod}を付けることでこれを回避し，
+vendored repoの取りこぼしを防ぐ．
+
+第三に，ワークスペース対応（\texttt{go.work}）である．\texttt{go.work}を持つ
+リポジトリはworkspace modeとなり，複数のモジュールをまとめて扱うため，goは
+複数のgo.modの自動編集を許さない．このためworkspace modeでは\texttt{-mod}に
+\texttt{readonly}か\texttt{vendor}しか指定できず，前述の\texttt{-mod=mod}は
+エラーとなって\|go list|がすべて失敗し，偽EMPTY\_GTを生じる．そこで，
+\texttt{go.work}を検出したリポジトリでは\texttt{-mod=mod}を自動的に解除し，
+workspaceの既定（readonly）で解析する（例として，etcd，kubernetes系，
+pomeriumなどがこれに該当する）．
+
+第四に，基準よりも新しいGoを要求するリポジトリへの対応である．基準は
+go1.26.5と\texttt{GOTOOLCHAIN=local}（リポジトリごとのtoolchainを取得しない
+設定）である．go.modが基準より新しいGoを要求する場合（例：\texttt{go 1.27rc2}）
+は，ビルドできず\|go list|が失敗するため，該当するリポジトリのみ
 \texttt{GOTOOLCHAIN=auto}として必要なtoolchainを取得して計測した．
-\item \textbf{正しく空となる場合：} 外部依存を持たず標準ライブラリのみを
-用いるリポジトリは，GT-importedが正しく空となりEMPTY\_GT（評価対象外）と
-なる．自モジュール自身は依存に数えない．
-\end{itemize}
+
+最後に，正しく空となる場合について述べる．外部依存を持たず標準ライブラリのみを
+用いるリポジトリは，GT-importedが正しく空となり，EMPTY\_GT（評価対象外）となる．
+なお，自モジュール自身は依存に数えない．
 
 \end{document}
