@@ -7,15 +7,15 @@ name="$1"; url="$2"; outdir="$3"; d="$4"
 BASE="/home/user/SBOM/census2"
 SCORE="/home/user/SBOM/census2/scorer.js"   # 独立検証済みの判定コードを再利用
 MAN="$BASE/manifest_parts/$name.csv"
-export GOMODCACHE=/tmp/rm_modcache GOCACHE=/tmp/rm_gocache
+export GOMODCACHE=${GOMODCACHE:-/tmp/rm_modcache} GOCACHE=${GOCACHE:-/tmp/rm_gocache}
 # go1.26.5 を base にし GOTOOLCHAIN=local で per-repo toolchain DL を無効化
 # （旧: base go1.24.7 だと go>=1.25 repo が毎回toolchainをDL→timeout→偽EMPTY_GT）
 export PATH=/opt/go1265/go/bin:$PATH
-export GOTOOLCHAIN=local
+export GOTOOLCHAIN=${GOTOOLCHAIN:-local}
 # vendor/ があるrepoは既定 -mod=vendor で `go list -m all` が失敗する
 # （"can't compute 'all' using the vendor directory"）→ 偽EMPTY_GT。-mod=mod で回避。
 export GOFLAGS=-mod=mod
-TO=300
+TO=${TO:-300}
 mkdir -p "$outdir"; rm -rf "$d"
 
 wman(){ printf '%s\n' "$1" > "$MAN.tmp.$$"; mv "$MAN.tmp.$$" "$MAN"; }
@@ -24,6 +24,10 @@ if ! timeout 300 git clone --depth=1 "$url" "$d" >/dev/null 2>&1; then
   wman "$name,$url,,,,,CLONE_FAIL,,,"
   echo "$name,CLONE_FAIL"; rm -rf "$outdir" "$d"; exit 0
 fi
+# go.work（ワークスペース）のrepoは -mod=mod が違法（"-mod may only be set to
+# readonly or vendor when in workspace mode"）→ go list 全滅→偽EMPTY_GT。
+# workspace repoでは -mod=mod を外し、既定の readonly（workspace対応）で解析する。
+if [ -f "$d/go.work" ]; then export GOFLAGS=; fi
 # --- バージョン(名前+コミット)を記録 ---
 sha=$(cd "$d" && git rev-parse HEAD 2>/dev/null)
 cdate=$(cd "$d" && git log -1 --format=%cI 2>/dev/null)
