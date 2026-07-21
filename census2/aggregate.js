@@ -78,6 +78,36 @@ W('```');
 W(TV.trim());
 W('```\n');
 
+// このセッションで発見・修正した「偽EMPTY_GT」の原因と対処（原因を先頭に）
+W('## 0a. 計測環境で直した2つの落とし穴（偽EMPTY_GTの原因→症状→対処）');
+W('前回(v1)は下記2点でGTが空判定になり一部repoを取りこぼしていた。今回はここを直したので **v1より正確**。\n');
+
+W('### (1) `go.work`（ワークスペース）を持つrepo');
+W('- **原因**: `go.work` があると go は複数モジュールをまとめて扱う **workspace mode** に入る。');
+W('  `-mod` は「main module の go.mod を書き換えてよいか」を決めるフラグだが、workspace mode では');
+W('  main module が1つに定まらず、go は **複数の go.mod を自動編集することを許さない**。');
+W('  そのため workspace mode で許されるのは `-mod=readonly` か `-mod=vendor` だけで、');
+W('  vendor対策で付けていた **`-mod=mod` は "違法" としてエラーになる**');
+W('  （`go: -mod may only be set to readonly or vendor when in workspace mode`）。');
+W('- **症状**: `go list` が最初のコマンドで即エラー→出力ゼロ→GTが空→**偽の EMPTY_GT**。');
+W('- **対処**: repo直下に `go.work` があれば **`-mod=mod` を自動で外す**（workspace既定の readonly で解析）。');
+W('- **復活したrepo例**: etcd / kubernetes系 / pomerium / ekuiper / gofr / mockery など。');
+W('  例: etcd は imported=83, all=757 で v1と一致することを確認。\n');
+
+W('### (2) 手元より新しいGoを要求するrepo');
+W('- **原因**: base は go1.26.5 ＋ `GOTOOLCHAIN=local`（=per-repo toolchainを落とさない設定）。');
+W('  そこへ go.mod が **より新しいGoを要求**（例: happy-sdk = `go 1.27rc2`）すると、');
+W('  手元のgoではビルド不可で `go list` が失敗する。');
+W('- **症状**: (1)同様に出力ゼロ→**偽の EMPTY_GT**。');
+W('- **対処**: 該当repoだけ **`GOTOOLCHAIN=auto`** にして必要なtoolchainを取得して計測。');
+W('  例: happy-sdk は imported=21 で復活。\n');
+
+W('### 参考: これは "偽" ではなく正しいEMPTY_GTだった例');
+W('- `ulikunitz/xz`・`tylertreat/Comcast` は **外部依存ゼロ（stdlibのみ）** なので EMPTY_GT が正解。');
+W('  v1が imported=1 と出していたのは **自分自身を依存として数えていた誤り**（今回は自モジュールを除外）。');
+W('- **既知の限界**: `kubernetes` は workspace で `go list -m all` が空を返し n_all=0。');
+W('  これは **v1も同値**（両run一致）で、macro平均への影響は無視できる。\n');
+
 // status の意味
 W('## 0b. status の意味（manifest.csv の7列目）');
 W('| status | 意味 |');

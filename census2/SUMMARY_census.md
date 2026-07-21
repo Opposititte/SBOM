@@ -5,19 +5,49 @@ syft/trivy/cdxgen/cyclonedx-gomod の4ツールを同時生成し照合。
 
 ## 0. 計測メタ情報（日時・使用ツール）
 ```
-# census2 計測メタ情報 (GT-all にも -e 付与した修正版・全件同一クローン上で再計測)
-captured: 2026-07-20T11:13:12Z 〜 2026-07-21T05:11Z (UTC)
-go(base): go1.26.5 (GOTOOLCHAIN=local ※新Go必須repoのみ auto, GOFLAGS=-mod=mod ※go.work repoでは自動解除)
-syft: v1.46.0 / trivy: v0.72.0 / cdxgen: 12.7.1 / cyclonedx-gomod: v1.10.0
-GT-all: go list -m -e all / imported: GOOS=linux go list -deps -e / impT: +-test
-# 本セッションで発見・修正した2点（偽EMPTY_GT対策・v1より正確）:
-#  (1) go.work(ワークスペース)repoは -mod=mod が違法→go list全滅→偽空GT。go.work検出時は-mod=modを外す。
-#      →etcd/kubernetes系/pomerium/ekuiper/gofr/mockery等が復活。
-#  (2) go.mod が手元(go1.26.5)より新しいgoを要求するrepo(例: happy-sdk=go1.27rc2)は
-#      GOTOOLCHAIN=local だと build不可→偽空GT。該当は GOTOOLCHAIN=auto で当該toolchainを取得して計測。
-# 既知の限界: kubernetes は workspace で `go list -m all` が空を返し n_all=0（v1も同値・両run一致）。
-#            stdlibのみのrepo(xz/Comcast)は外部依存ゼロで正しく EMPTY_GT（v1のimp=1は自分自身の誤カウント）。
+captured : 2026-07-20T11:13:12Z 〜 2026-07-21T05:11Z (UTC)
+go(base) : go1.26.5
+  GOTOOLCHAIN = local  （新しいGoを要求するrepoのみ auto でtoolchain取得）
+  GOFLAGS     = -mod=mod  （go.work を持つrepoでは自動で解除）
+tools    :
+  syft            v1.46.0
+  trivy           v0.72.0
+  cdxgen          12.7.1
+  cyclonedx-gomod v1.10.0
+GT定義   :
+  all      = go list -m -e all
+  imported = GOOS=linux go list -deps -e   （非test）
+  impT     = imported + -test              （test依存を追加）
 ```
+
+## 0a. 計測環境で直した2つの落とし穴（偽EMPTY_GTの原因→症状→対処）
+前回(v1)は下記2点でGTが空判定になり一部repoを取りこぼしていた。今回はここを直したので **v1より正確**。
+
+### (1) `go.work`（ワークスペース）を持つrepo
+- **原因**: `go.work` があると go は複数モジュールをまとめて扱う **workspace mode** に入る。
+  `-mod` は「main module の go.mod を書き換えてよいか」を決めるフラグだが、workspace mode では
+  main module が1つに定まらず、go は **複数の go.mod を自動編集することを許さない**。
+  そのため workspace mode で許されるのは `-mod=readonly` か `-mod=vendor` だけで、
+  vendor対策で付けていた **`-mod=mod` は "違法" としてエラーになる**
+  （`go: -mod may only be set to readonly or vendor when in workspace mode`）。
+- **症状**: `go list` が最初のコマンドで即エラー→出力ゼロ→GTが空→**偽の EMPTY_GT**。
+- **対処**: repo直下に `go.work` があれば **`-mod=mod` を自動で外す**（workspace既定の readonly で解析）。
+- **復活したrepo例**: etcd / kubernetes系 / pomerium / ekuiper / gofr / mockery など。
+  例: etcd は imported=83, all=757 で v1と一致することを確認。
+
+### (2) 手元より新しいGoを要求するrepo
+- **原因**: base は go1.26.5 ＋ `GOTOOLCHAIN=local`（=per-repo toolchainを落とさない設定）。
+  そこへ go.mod が **より新しいGoを要求**（例: happy-sdk = `go 1.27rc2`）すると、
+  手元のgoではビルド不可で `go list` が失敗する。
+- **症状**: (1)同様に出力ゼロ→**偽の EMPTY_GT**。
+- **対処**: 該当repoだけ **`GOTOOLCHAIN=auto`** にして必要なtoolchainを取得して計測。
+  例: happy-sdk は imported=21 で復活。
+
+### 参考: これは "偽" ではなく正しいEMPTY_GTだった例
+- `ulikunitz/xz`・`tylertreat/Comcast` は **外部依存ゼロ（stdlibのみ）** なので EMPTY_GT が正解。
+  v1が imported=1 と出していたのは **自分自身を依存として数えていた誤り**（今回は自モジュールを除外）。
+- **既知の限界**: `kubernetes` は workspace で `go list -m all` が空を返し n_all=0。
+  これは **v1も同値**（両run一致）で、macro平均への影響は無視できる。
 
 ## 0b. status の意味（manifest.csv の7列目）
 | status | 意味 |
