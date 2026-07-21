@@ -232,3 +232,44 @@ vendor修正(`-mod=mod`)の本当の効果は増加ではなく **正しさ/取�
 既定 `-mod=vendor` だと `go list -m all` が "can't compute all using the vendor directory" で失敗し**空GTに誤判定**される。
 前回の集計コードも同じく `-mod=mod` を付けていなかったため、**前回も vendored repo を取りこぼしていた可能性が高い**（＝今回の方がより正確）。
 
+## 9. census2/ ファイル構成（各ファイルの役割）
+この計測一式（`census2/`）に含まれるファイルの説明。**成果物**＝人が読む最終出力、
+**データ**＝CSV台帳、**パイプライン**＝生成スクリプト、**中間**＝再生成で作り直せる作業物。
+
+### 成果物（Markdown）
+| ファイル | 役割 |
+|---|---|
+| `SUMMARY_census.md` | **本ファイル**。計測メタ・偽EMPTY_GTの原因と対処(§0a)・funnel・macro/micro の P/R/F1・TP/FP/FN・FP要因分類・ロバストネス検証を集約した数値サマリ |
+| `SUMMARY2_concepts_ja.md` | 概念・背景の補遺。用語／依存グラフ／test依存の扱い／`go list -m all` の刈り込み／go.sum など「数字を理解するための解説」 |
+| `repo_manifest.md` | 全2723リポジトリの台帳（名前・URL・SHA・コミット日・go版・GTサイズ・status・区分）を人が読める表にしたもの |
+| `per_repo_metrics.md` | リポジトリ×ツールごとの TP/FP/FN/precision/recall/F1（name & version, all/imp/impT）の一覧 |
+
+### データ（CSV・機械可読の原本）
+| ファイル | 役割 |
+|---|---|
+| `manifest.csv` | 全リポジトリ1行の台帳。列: 名前,URL,SHA,日付,自モジュール,go版,status,imp,impT,all,区分。集計・台帳MDの原本 |
+| `metrics.csv` | OKリポジトリ×ツール1行の採点原本。name/version × all/imp/impT の tp/fp/fn(18列)＋FP原因分類(5列)。全集計はここから算出 |
+| `repolist.csv` | 入力リスト。awesome-go から抽出した「名前,URL」2723件（計測対象の母集合） |
+| `tool_versions.txt` | 計測メタ（日時・go版・各ツール版・GT定義コマンド）。§0 に丸ごと埋め込まれる |
+
+### パイプライン（生成スクリプト）
+| ファイル | 役割 |
+|---|---|
+| `proc.sh` | **中核**。1リポジトリを clone→4ツール実行→3定義でGT生成→照合し、metrics行(stdout)と manifest行を書く。`-e`/`-mod=mod`/`go.work`/toolchain の処理もここ |
+| `scorer.js` | proc.sh から呼ばれ、ツール出力とGTを突き合わせて1リポジトリ分の採点CSV行(tp/fp/fn＋FP分類)を算出 |
+| `worker.sh` | 通常リポジトリ用の並列単位ラッパー（timeout付きで proc.sh を呼ぶ） |
+| `heavy_worker.sh` | 重い/workspaceリポジトリ(kubernetes,etcd等)用の単発ワーカー。長timeout＋repo毎に隔離したキャッシュで確実に計測 |
+| `drive.sh` | 全2723件をバッチで回す駆動役（常駐サブシェルを使わず安定運用） |
+| `aggregate.js` | `metrics.csv`＋`manifest.csv` から本 `SUMMARY_census.md` の全表を再生成 |
+| `render_md.js` | CSV を `per_repo_metrics.md` と `repo_manifest.md`（人が読む表）に変換 |
+| `categorize.js` | `manifest.csv` に区分列（OK/non_go/go_empty/clone_fail）を冪等に付与 |
+| `verify.js` | 検証用。aggregate.js とは別ロジックで全表を独立再計算し、数値の裏取りをする |
+
+### 中間・作業物（再生成で作り直せる／集計には不要）
+| ファイル/ディレクトリ | 役割 |
+|---|---|
+| `manifest_parts/` | リポジトリ1件ごとの manifest 断片（2723件）。`manifest.csv` はこれを結合して作る |
+| `parts/` | リポジトリ1件ごとの metrics 断片。`metrics.csv` はこれを結合して作る |
+| `data/` | 計測時の一時出力（処理後に空になる作業ディレクトリ） |
+| `drive.log` | 駆動ログ（実行時の進捗記録） |
+
