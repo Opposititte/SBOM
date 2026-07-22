@@ -259,11 +259,12 @@ const isValid = c => c && c[2] !== 'NA' && c.length >= 20;
 const commonSet = Object.keys(byRepo).filter(r => TOOLS.every(t => isValid(byRepo[r][t])));
 function macroImpF1(repoList) {
   const o = {};
-  for (const t of TOOLS) { let s = 0, n = 0;
+  for (const t of TOOLS) { let sp = 0, sr = 0, sf = 0, n = 0;
     for (const r of repoList) { const c = byRepo[r][t]; if (!isValid(c)) continue;
       const tp = +c[idx.n_imp_tp], fp = +c[idx.n_imp_fp], fn = +c[idx.n_imp_fn];
-      if (tp + fn > 0) { const p = (tp + fp) ? tp / (tp + fp) : 0, rr = (tp + fn) ? tp / (tp + fn) : 0; s += (p + rr) ? 2 * p * rr / (p + rr) : 0; n++; } }
-    o[t] = { f1: n ? (100 * s / n).toFixed(1) : '—', n };
+      if (tp + fn > 0) { const p = (tp + fp) ? tp / (tp + fp) : 0, rr = (tp + fn) ? tp / (tp + fn) : 0; sp += p; sr += rr; sf += (p + rr) ? 2 * p * rr / (p + rr) : 0; n++; } }
+    o[t] = n ? { p: (100*sp/n).toFixed(1), r: (100*sr/n).toFixed(1), f1: (100*sf/n).toFixed(1), n }
+             : { p: '—', r: '—', f1: '—', n: 0 };
   }
   return o;
 }
@@ -271,11 +272,11 @@ const perTool = macroImpF1(Object.keys(byRepo));
 const commonM = macroImpF1(commonSet);
 W('## 2e. 母数差のロバストネス検証（共通集合）');
 W('ツールごとに有効件数(母数)が違う（NAのため）。「cdxgenは母数が小さいから有利に見えるだけでは？」を検証するため、');
-W('**4ツール全部が成功した共通repoだけ**でも imported name-match macro-F1 を計算して比較。');
+W('**4ツール全部が成功した共通repoだけ**でも imported name-match macro P/R/F1 を計算して比較。');
 W(`共通集合 n = **${commonSet.length}**。\n`);
-W('| ツール | 各自の有効集合 F1 (n) | 4ツール共通集合 F1 (n=' + commonSet.length + ') |');
+W('| ツール | 各自の有効集合 P / R / F1 (n) | 4ツール共通集合 P / R / F1 (n=' + commonSet.length + ') |');
 W('|---|---|---|');
-for (const t of TOOLS) W(`| ${t} | ${perTool[t].f1} (${perTool[t].n}) | ${commonM[t].f1} |`);
+for (const t of TOOLS) W(`| ${t} | ${perTool[t].p} / ${perTool[t].r} / ${perTool[t].f1} (${perTool[t].n}) | ${commonM[t].p} / ${commonM[t].r} / ${commonM[t].f1} |`);
 W('- **結論**: 差は各ツール1pt未満、順位も不変（cyclonedx-gomod > cdxgen ≫ trivy ≈ syft）。');
 W('  → 母数のばらつきは優劣結論を歪めていない。「評価対象=' + (statusCount['OK'] || 0) + '、ツール別に数十件のNA」という報告で妥当。\n');
 
