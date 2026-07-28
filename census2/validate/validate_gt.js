@@ -56,7 +56,7 @@ function sh2(cmd, opts = {}) {
 }
 const isStdlib = p => { const first = p.split('/')[0]; return !first.includes('.'); };
 
-const missRows = [], sumRows = [], skips = [], reasonCount = {};
+const missRows = [], sumRows = [], skips = [], reasonCount = {}, errKind = {};
 console.error(`# GT-imported 検証: 有効N=${N}, seed=${SEED} (母集団 OK且つSHA有=${okRepos.length})\n`);
 
 for (let i = 0; i < shuffled.length && sumRows.length < N; i++) {
@@ -94,8 +94,27 @@ for (let i = 0; i < shuffled.length && sumRows.length < N; i++) {
   const gtRaw = gtRes.out;
   // ★ -e はエラーを許容するため、壊れたパッケージがあると依存が列挙されないことがある。
   //    その取りこぼしは unconstrained に落ちるので、突き合わせ用に stderr を記録する。
-  const gtErrLines = gtRes.err.split('\n').filter(l => l.trim()).length;
-  if (gtErrLines) fs.appendFileSync(`${OUT}/golist_stderr_${N}.log`, `\n===== ${name} (${gtErrLines} 行, exit=${gtRes.status}) =====\n` + gtRes.err.split('\n').slice(0, 40).join('\n') + '\n');
+  //    ただし stderr の大半は "go: downloading ..." 等の**進捗**であり無視してよい。
+  //    進捗を先に除去してから全件保存する（先に行数で切り詰めると本物のエラーが隠れる）。
+  const PROGRESS = /^go: (downloading|finding|extracting|upgraded|added|to add module requirements)/;
+  const errLines = gtRes.err.split('\n').map(l => l.trimEnd())
+    .filter(l => l.trim() && !PROGRESS.test(l.trim()));
+  const nProgress = gtRes.err.split('\n').filter(l => PROGRESS.test(l.trim())).length;
+  const gtErrLines = errLines.length;          // ★ 本物のエラー行のみを数える
+  if (gtErrLines) {
+    fs.appendFileSync(`${OUT}/golist_stderr_${N}.log`,
+      `\n===== ${name} (本物のエラー ${gtErrLines} 行 / 進捗 ${nProgress} 行, exit=${gtRes.status}) =====\n`
+      + errLines.join('\n') + '\n');
+    for (const l of errLines) {                // 種別を集計
+      const k = /no required module provides package/.test(l) ? 'no_required_module'
+        : /missing go\.sum entry/.test(l) ? 'missing_gosum'
+        : /build constraints exclude all Go files/.test(l) ? 'build_constraints_exclude_all'
+        : /cannot find module|unknown revision|does not contain package/.test(l) ? 'cannot_find_module'
+        : /requires go >=|go\.mod requires|unsupported|compile: version/.test(l) ? 'go_version'
+        : 'other';
+      errKind[k] = (errKind[k] || 0) + 1;
+    }
+  }
   const GT = new Set(gtRaw.split('\n')
     .filter(s => s !== '')                                  // grep -v '^$'
     .filter(s => !new RegExp(`^${gmain} ?$`).test(s))       // grep -v "^gmain \?$"
@@ -211,7 +230,11 @@ const meta = [
   `  （合計 ${Object.values(reasonCount).reduce((a,b)=>a+b,0)} モジュール / 出現 ${missRows.length} 行）`,
   ``,
   `【go list のロードエラー】unconstrained は go list の不具合ではなく入力側の破損の可能性がある`,
-  `  stderr が出たリポジトリ = ${col().filter(c => +c[9] > 0).length} / ${sumRows.length}（詳細 golist_stderr_${N}.log）`,
+  `  ※ "go: downloading" 等の進捗行は除外し、本物のエラー行のみを数えている`,
+  `  本物のエラーが出たリポジトリ = ${col().filter(c => +c[9] > 0).length} / ${sumRows.length}（詳細 golist_stderr_${N}.log）`,
+  ...Object.entries(errKind).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`    ${k} = ${v} 行`),
+  `  ※ build_constraints_exclude_all はパッケージごと go list から消えるため、`,
+  `     配下の import は A に入るが GT に入らない = 本検証の検出対象そのもの`,
 ].join('\n');
 fs.writeFileSync(`${OUT}/meta_${N}.txt`, meta + '\n');
 console.error(`\n${meta}`);
