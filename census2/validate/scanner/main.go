@@ -88,8 +88,17 @@ func headerConstrained(path string) string {
 	return ""
 }
 
-// linux/amd64 のビルド文脈（ReleaseTags 等は既定から引き継ぐ）
-var lctx = func() build.Context { c := build.Default; c.GOOS = "linux"; c.GOARCH = "amd64"; return c }()
+// linux/amd64 のビルド文脈（ReleaseTags 等は既定から引き継ぐ）。
+// MatchFile は cgo 制約（//go:build cgo / !cgo）も評価するため、CgoEnabled を
+// 計測時（proc.sh は未指定＝ホスト既定の CGO_ENABLED=1）に合わせて明示固定する。
+// 明示しないと実行環境しだいで判定が go list と食い違いうる。
+var lctx = func() build.Context {
+	c := build.Default
+	c.GOOS = "linux"
+	c.GOARCH = "amd64"
+	c.CgoEnabled = true // = 計測時の CGO_ENABLED=1
+	return c
+}()
 
 func main() {
 	if len(os.Args) < 2 {

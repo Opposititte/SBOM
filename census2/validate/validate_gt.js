@@ -51,7 +51,7 @@ function sh(cmd, opts = {}) {
 }
 const isStdlib = p => { const first = p.split('/')[0]; return !first.includes('.'); };
 
-const missRows = [], sumRows = [], skips = [];
+const missRows = [], sumRows = [], skips = [], reasonCount = {};
 console.error(`# GT-imported 検証: 有効N=${N}, seed=${SEED} (母集団 OK且つSHA有=${okRepos.length})\n`);
 
 for (let i = 0; i < shuffled.length && sumRows.length < N; i++) {
@@ -122,8 +122,37 @@ for (let i = 0; i < shuffled.length && sumRows.length < N; i++) {
 
   // --- A ⊆ GT の検査 ---
   const missing = [...A.keys()].filter(m => !GT.has(m)).sort();
-  for (const m of missing) for (const o of A.get(m))
-    missRows.push([name, m, o.path, o.file, o.line, o.build ? 'yes' : 'no', o.inReq ? 'yes' : 'no', o.replaced ? 'yes' : 'no'].join(','));
+
+  // 「Aにあるが GTにない」の大半は go list の不具合ではなく、linux/amd64 という
+  // ビルド文脈での**正しい**除外である。解釈を誤らないよう理由を分類する。
+  //   platform     : OS/ARCH 制約で除外（例 //go:build windows, foo_darwin.go）
+  //   ignore       : //go:build ignore（単体実行のジェネレータ等）
+  //   tools        : tools.go パターン（ツール依存を go.mod に固定する慣用手法）
+  //   other_tag    : 上記以外のカスタムタグで除外
+  //   unconstrained: 除外されていないのに GT に無い ★本当に調べるべき候補
+  // 注: `\b` は使えない。"_" は単語文字なので \bwindows\b が "_windows" に
+  //     マッチせず platform を取りこぼす（検証済み）。英数字以外で挟む形にする。
+  const OSARCH = /(^|[^a-zA-Z0-9])(aix|android|darwin|dragonfly|freebsd|hurd|illumos|ios|js|linux|nacl|netbsd|openbsd|plan9|solaris|wasip1|windows|zos|386|amd64|arm|arm64|loong64|mips|mips64|ppc64|riscv64|s390x|wasm)([^a-zA-Z0-9]|$)/;
+  const classify = occ => {
+    if (occ.some(o => o.linuxOK !== false)) return 'unconstrained';   // 除外されていない
+    // 判定は制約テキストのみで行う（ファイルパスを混ぜると pkg/js/... 等で誤判定するため）。
+    // tools.go だけは慣用パターンなのでファイル名も見る。
+    const cons = occ.map(o => o.cons || '').join(' ');
+    if (/(^|[^a-zA-Z0-9])ignore([^a-zA-Z0-9]|$)/.test(cons)) return 'ignore';
+    if (/(^|[^a-zA-Z0-9])tools([^a-zA-Z0-9]|$)/.test(cons) ||
+        occ.some(o => /(^|\/)tools\.go$/.test(o.file))) return 'tools';
+    if (OSARCH.test(cons)) return 'platform';
+    return 'other_tag';
+  };
+  const reasonOf = {};
+  for (const m of missing) {
+    reasonOf[m] = classify(A.get(m));
+    for (const o of A.get(m))
+      missRows.push([name, m, o.path, o.file, o.line, o.build ? 'yes' : 'no',
+        JSON.stringify(o.cons || ''), o.linuxOK === false ? 'no' : 'yes',
+        reasonOf[m], o.inReq ? 'yes' : 'no', o.replaced ? 'yes' : 'no'].join(','));
+    reasonCount[reasonOf[m]] = (reasonCount[reasonOf[m]] || 0) + 1;
+  }
 
   const nMissBuild = missing.filter(m => A.get(m).every(o => o.build)).length;
 
@@ -136,13 +165,13 @@ for (let i = 0; i < shuffled.length && sumRows.length < N; i++) {
 
   sumRows.push([name, sha.slice(0, 10), A.size, GT.size, missing.length, nMissBuild,
     cFiles.size, nlFiles.size, riskMods.length, riskMods.join(' '), missing.join(' ')].join(','));
-  console.error(`A=${A.size} GT=${GT.size} 取りこぼし=${missing.length} 非linuxファイル=${nlFiles.size} **危険モジュール=${riskMods.length}**${riskMods.length ? '(' + riskMods.slice(0, 2).join(',') + ')' : ''}${missing.length ? ' -> MISS:' + missing.slice(0, 3).join(', ') : ''}`);
+  console.error(`A=${A.size} GT=${GT.size} 取りこぼし=${missing.length} 非linuxファイル=${nlFiles.size} **危険モジュール=${riskMods.length}**${riskMods.length ? '(' + riskMods.slice(0, 2).join(',') + ')' : ''}${missing.length ? ' -> MISS:' + missing.slice(0,3).map(m=>m+'['+reasonOf[m]+']').join(', ') : ''}`);
 
   fs.rmSync(work, { recursive: true, force: true });
 }
 
 fs.writeFileSync(`${OUT}/missing_${N}.csv`,
-  'repo,module_path,import_path,file,line,build_constrained,in_require,replaced\n' + missRows.join('\n') + '\n');
+  'repo,module_path,import_path,file,line,build_constrained,constraint,included_on_linux,reason,in_require,replaced\n' + missRows.join('\n') + '\n');
 fs.writeFileSync(`${OUT}/summary_${N}.csv`,
   'repo,commit,n_setA,n_GT,n_missing,n_missing_all_build_constrained,n_constrained_files,n_nonlinux_files,n_risk_modules,risk_modules,missing_modules\n' + sumRows.join('\n') + '\n');
 fs.writeFileSync(`${OUT}/skipped_${N}.csv`, 'repo,reason\n' + skips.join('\n') + (skips.length ? '\n' : ''));
@@ -165,6 +194,11 @@ const meta = [
   `  linux/amd64で除外されるファイルを持つリポジトリ = ${nRepoNL}`,
   `  ★危険モジュール(除外ファイルからのみimportされる外部モジュール)を持つリポジトリ = ${nRepoRisk}`,
   `  ★危険モジュールの総数 = ${totRisk}   ← 0なら検証力0。層別サンプリングが必要`,
+  ``,
+  `【missing の理由内訳】※ platform/ignore/tools は go list の不具合ではなく`,
+  `  linux/amd64 というビルド文脈での正しい除外。unconstrained/other_tag のみが要調査。`,
+  ...Object.entries(reasonCount).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`  ${k} = ${v} モジュール`),
+  `  （合計 ${Object.values(reasonCount).reduce((a,b)=>a+b,0)} モジュール / 出現 ${missRows.length} 行）`,
 ].join('\n');
 fs.writeFileSync(`${OUT}/meta_${N}.txt`, meta + '\n');
 console.error(`\n${meta}`);
