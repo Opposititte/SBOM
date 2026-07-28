@@ -28,6 +28,9 @@ type imp struct {
 	File  string `json:"file"`
 	Line  int    `json:"line"`
 	Build bool   `json:"build"`
+	// 制約の中身（"//go:build windows" 行、または "_windows" 等のファイル名サフィックス）。
+	// 「linux以外の制約を持つファイルを一度でも踏んだか」を数えるために必要。
+	Cons string `json:"cons"`
 }
 
 var goosList = map[string]bool{"aix": true, "android": true, "darwin": true, "dragonfly": true,
@@ -42,29 +45,27 @@ var goarchList = map[string]bool{"386": true, "amd64": true, "amd64p32": true, "
 	"sparc": true, "sparc64": true, "wasm": true}
 
 // ファイル名サフィックスによる暗黙のビルド制約 (_windows.go, _linux_amd64.go 等)
-func suffixConstrained(name string) bool {
+func suffixConstrained(name string) string {
 	base := strings.TrimSuffix(name, ".go")
 	parts := strings.Split(base, "_")
 	if len(parts) < 2 {
-		return false
+		return ""
 	}
 	last := parts[len(parts)-1]
+	if len(parts) >= 3 && goosList[parts[len(parts)-2]] && goarchList[last] {
+		return "_" + parts[len(parts)-2] + "_" + last
+	}
 	if goosList[last] || goarchList[last] {
-		return true
+		return "_" + last
 	}
-	if len(parts) >= 3 {
-		if goosList[parts[len(parts)-2]] && goarchList[last] {
-			return true
-		}
-	}
-	return false
+	return ""
 }
 
 // ファイル先頭(package 節より前)に //go:build / // +build があるか
-func headerConstrained(path string) bool {
+func headerConstrained(path string) string {
 	f, err := os.Open(path)
 	if err != nil {
-		return false
+		return ""
 	}
 	defer f.Close()
 	sc := bufio.NewScanner(f)
@@ -72,13 +73,13 @@ func headerConstrained(path string) bool {
 	for sc.Scan() {
 		line := strings.TrimSpace(sc.Text())
 		if strings.HasPrefix(line, "package ") {
-			return false
+			return ""
 		}
 		if strings.HasPrefix(line, "//go:build") || strings.HasPrefix(line, "// +build") {
-			return true
+			return line
 		}
 	}
-	return false
+	return ""
 }
 
 func main() {
@@ -120,13 +121,17 @@ func main() {
 		if e != nil {
 			return nil // 壊れたファイルは飛ばす（go list -e と同じ思想）
 		}
-		constrained := suffixConstrained(name) || headerConstrained(p)
+		cons := headerConstrained(p)
+		if cons == "" {
+			cons = suffixConstrained(name)
+		}
 		for _, is := range af.Imports {
 			ip, e2 := strconv.Unquote(is.Path.Value)
 			if e2 != nil || ip == "" || ip == "C" {
 				continue
 			}
-			enc.Encode(imp{Path: ip, File: rel, Line: fset.Position(is.Pos()).Line, Build: constrained})
+			enc.Encode(imp{Path: ip, File: rel, Line: fset.Position(is.Pos()).Line,
+				Build: cons != "", Cons: cons})
 		}
 		return nil
 	})

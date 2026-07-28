@@ -36,8 +36,8 @@ function mulberry32(a) {
   };
 }
 const man = fs.readFileSync(BASE + '/manifest.csv', 'utf8').trim().split('\n').slice(1);
-const okRepos = man.map(l => l.split(',')).filter(c => c[6] === 'OK')
-  .map(c => ({ name: c[0], url: c[1] }))
+const okRepos = man.map(l => l.split(',')).filter(c => c[6] === 'OK' && /^[0-9a-f]{40}$/.test(c[2]))
+  .map(c => ({ name: c[0], url: c[1], sha: c[2] }))  // ★ 計測時のコミットSHAを固定して検証
   .sort((a, b) => a.name < b.name ? -1 : 1);        // 決定的な順序にしてから shuffle
 const rnd = mulberry32(SEED);
 const shuffled = okRepos.slice();
@@ -54,16 +54,25 @@ const missRows = [], sumRows = [];
 console.error(`# GT-imported 検証: N=${N}, seed=${SEED} (母集団 OK=${okRepos.length})\n`);
 
 for (let i = 0; i < sample.length; i++) {
-  const { name, url } = sample[i];
+  const { name, url, sha } = sample[i];
   const work = `/tmp/vgt_${name}`;
   const src = `${work}/src`;
   fs.rmSync(work, { recursive: true, force: true });
   fs.mkdirSync(src, { recursive: true });
-  const env = { ...process.env, PATH: `${GOBIN}:${process.env.PATH}`, GOTOOLCHAIN: 'local', GOFLAGS: '-mod=mod', GOMODCACHE: `${work}/mod`, GOCACHE: `${work}/build` };
+  // GOOS/GOARCH を明示固定（proc.sh は GOOS=linux、GOARCH は host 既定=amd64）
+  const env = { ...process.env, PATH: `${GOBIN}:${process.env.PATH}`, GOTOOLCHAIN: 'local', GOFLAGS: '-mod=mod', GOOS: 'linux', GOARCH: 'amd64', GOMODCACHE: `${work}/mod`, GOCACHE: `${work}/build` };
 
   process.stderr.write(`[${i + 1}/${sample.length}] ${name} ... `);
-  sh(`timeout 300 git clone --depth=1 ${url} ${src}`, { env });
+  // ★ 計測時点のコミットを取得（HEADではなく manifest.csv の SHA）
+  sh(`cd ${src} && git init -q && git remote add origin ${url} && timeout 300 git fetch -q --depth 1 origin ${sha} && git checkout -q FETCH_HEAD`, { env });
+  let pinned = (sh(`cd ${src} && git rev-parse HEAD`, { env }) || '').trim() === sha;
+  if (!pinned) {   // SHA直接fetch不可なら full clone → checkout
+    fs.rmSync(src, { recursive: true, force: true }); fs.mkdirSync(src, { recursive: true });
+    sh(`timeout 600 git clone -q ${url} ${src} && cd ${src} && git checkout -q ${sha}`, { env });
+    pinned = (sh(`cd ${src} && git rev-parse HEAD`, { env }) || '').trim() === sha;
+  }
   if (!fs.existsSync(`${src}/go.mod`)) { console.error('SKIP(no go.mod)'); fs.rmSync(work, { recursive: true, force: true }); continue; }
+  if (!pinned) { console.error('SKIP(SHA固定できず)'); fs.rmSync(work, { recursive: true, force: true }); continue; }
 
   // proc.sh と同じ: go.work があれば -mod=mod を外す
   if (fs.existsSync(`${src}/go.work`)) env.GOFLAGS = '';
@@ -71,9 +80,15 @@ for (let i = 0; i < sample.length; i++) {
 
   const gmain = (sh('timeout 120 go list -m', O).split('\n')[0] || '').trim().split(/\s+/)[0];
 
-  // --- GT-imported を proc.sh と同一コマンドで再生成 ---
-  const gtRaw = sh(`timeout 600 env GOOS=linux go list -deps -e -f '{{with .Module}}{{.Path}}{{end}}' ./...`, O);
-  const GT = new Set(gtRaw.split('\n').map(s => s.trim()).filter(s => s && s !== gmain));
+  // --- GT-imported を proc.sh と同一コマンド・同一フィルタで再生成 ---
+  //   proc.sh: GOOS=linux go list -deps -e -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./...
+  //            | grep -v '^$' | grep -v "^${gmain} \?$" | sort -u
+  //   ここでは path 集合として比較するため、同じ出力から path 部分を取り出す。
+  const gtRaw = sh(`timeout 600 go list -deps -e -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./...`, O);
+  const GT = new Set(gtRaw.split('\n')
+    .filter(s => s !== '')                                  // grep -v '^$'
+    .filter(s => !new RegExp(`^${gmain} ?$`).test(s))       // grep -v "^gmain \?$"
+    .map(s => s.trim().split(/\s+/)[0]).filter(Boolean));
 
   // --- go.mod の require / replace ---
   let req = [], rep = new Map();
@@ -110,8 +125,18 @@ for (let i = 0; i < sample.length; i++) {
     missRows.push([name, m, o.path, o.file, o.line, o.build ? 'yes' : 'no', o.inReq ? 'yes' : 'no', o.replaced ? 'yes' : 'no'].join(','));
 
   const nMissBuild = missing.filter(m => A.get(m).every(o => o.build)).length;
-  sumRows.push([name, A.size, GT.size, missing.length, nMissBuild, missing.join(' ')].join(','));
-  console.error(`A=${A.size} GT=${GT.size} 取りこぼし候補=${missing.length}${missing.length ? ' -> ' + missing.slice(0, 3).join(', ') : ''}`);
+
+  // ★ 「危ない条件を踏んだか」の記録: linux以外のビルド制約を持つファイルの有無。
+  //    これが0なら「危険条件を一度も踏まずに取りこぼし0」であり、結論を弱める必要がある。
+  const nonLinux = o => o.build && !/linux/.test(o.cons || '') &&
+    (/_(windows|darwin|freebsd|netbsd|openbsd|plan9|solaris|js|wasip1|android|ios|aix|illumos|dragonfly|hurd|zos)\b/.test(o.cons || '') ||
+     /\b(windows|darwin|freebsd|netbsd|openbsd|plan9|solaris|js|wasip1|android|ios|aix|illumos|dragonfly|hurd|zos)\b/.test(o.cons || ''));
+  const nlFiles = new Set(), cFiles = new Set();
+  for (const im of imps) { if (im.build) { cFiles.add(im.file); if (nonLinux(im)) nlFiles.add(im.file); } }
+
+  sumRows.push([name, sha.slice(0, 10), A.size, GT.size, missing.length, nMissBuild,
+    cFiles.size, nlFiles.size, missing.join(' ')].join(','));
+  console.error(`A=${A.size} GT=${GT.size} 取りこぼし=${missing.length} 制約ファイル=${cFiles.size}(うち非linux=${nlFiles.size})${missing.length ? ' -> ' + missing.slice(0, 3).join(', ') : ''}`);
 
   fs.rmSync(work, { recursive: true, force: true });
 }
@@ -119,5 +144,21 @@ for (let i = 0; i < sample.length; i++) {
 fs.writeFileSync(`${OUT}/missing_${N}.csv`,
   'repo,module_path,import_path,file,line,build_constrained,in_require,replaced\n' + missRows.join('\n') + '\n');
 fs.writeFileSync(`${OUT}/summary_${N}.csv`,
-  'repo,n_setA,n_GT,n_missing,n_missing_all_build_constrained,missing_modules\n' + sumRows.join('\n') + '\n');
-console.error(`\n[written] ${OUT}/missing_${N}.csv (${missRows.length} 行), ${OUT}/summary_${N}.csv`);
+  'repo,commit,n_setA,n_GT,n_missing,n_missing_all_build_constrained,n_constrained_files,n_nonlinux_constrained_files,missing_modules\n' + sumRows.join('\n') + '\n');
+
+// 実行環境と「危険条件を踏んだ件数」を記録（結論の強さを左右するため必須）
+const gov = sh(`${GOBIN}/go version`, { env: { ...process.env, GOTOOLCHAIN: 'local' } }).trim();
+const nRepoNL = sumRows.filter(r => +r.split(',')[7] > 0).length;
+const nRepoC = sumRows.filter(r => +r.split(',')[6] > 0).length;
+const meta = [
+  `N=${N} seed=${SEED} 母集団=OK且つSHA記録あり(${okRepos.length})`,
+  `go=${gov} / GOTOOLCHAIN=local / GOOS=linux GOARCH=amd64`,
+  `コミット固定=manifest.csv の計測時SHA（HEADではない）`,
+  `検証できたリポジトリ=${sumRows.length}`,
+  `取りこぼし候補の総数=${missRows.length}`,
+  `ビルド制約付きファイルを持つリポジトリ=${nRepoC}`,
+  `**linux以外**のビルド制約ファイルを持つリポジトリ=${nRepoNL}  ← 0なら危険条件を踏んでいない`,
+].join('\n');
+fs.writeFileSync(`${OUT}/meta_${N}.txt`, meta + '\n');
+console.error(`\n${meta}`);
+console.error(`\n[written] ${OUT}/missing_${N}.csv (${missRows.length} 行), ${OUT}/summary_${N}.csv, ${OUT}/meta_${N}.txt`);
