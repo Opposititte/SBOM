@@ -15,6 +15,7 @@ import (
 	"bufio"
 	"encoding/json"
 	"fmt"
+	"go/build"
 	"go/parser"
 	"go/token"
 	"os"
@@ -29,8 +30,13 @@ type imp struct {
 	Line  int    `json:"line"`
 	Build bool   `json:"build"`
 	// 制約の中身（"//go:build windows" 行、または "_windows" 等のファイル名サフィックス）。
-	// 「linux以外の制約を持つファイルを一度でも踏んだか」を数えるために必要。
 	Cons string `json:"cons"`
+	// ★ このファイルが linux/amd64 のビルドに含まれるか を go/build に判定させた結果。
+	//   正規表現で "windows" 等を探すのではなく Go 本体の制約評価を用いるので、
+	//   "//go:build !windows" や "linux || darwin" のような式も正しく扱える。
+	//   LinuxOK=false のファイルからのみ import される外部モジュールこそが
+	//   「GT-imported が取りこぼしうる」真の危険対象。
+	LinuxOK bool `json:"linuxOK"`
 }
 
 var goosList = map[string]bool{"aix": true, "android": true, "darwin": true, "dragonfly": true,
@@ -82,6 +88,9 @@ func headerConstrained(path string) string {
 	return ""
 }
 
+// linux/amd64 のビルド文脈（ReleaseTags 等は既定から引き継ぐ）
+var lctx = func() build.Context { c := build.Default; c.GOOS = "linux"; c.GOARCH = "amd64"; return c }()
+
 func main() {
 	if len(os.Args) < 2 {
 		fmt.Fprintln(os.Stderr, "usage: importscan <repoDir>")
@@ -125,13 +134,18 @@ func main() {
 		if cons == "" {
 			cons = suffixConstrained(name)
 		}
+		// linux/amd64 ビルドに含まれるかを go/build に評価させる
+		linuxOK := true
+		if m, e := lctx.MatchFile(filepath.Dir(p), name); e == nil {
+			linuxOK = m
+		}
 		for _, is := range af.Imports {
 			ip, e2 := strconv.Unquote(is.Path.Value)
 			if e2 != nil || ip == "" || ip == "C" {
 				continue
 			}
 			enc.Encode(imp{Path: ip, File: rel, Line: fset.Position(is.Pos()).Line,
-				Build: cons != "", Cons: cons})
+				Build: cons != "", Cons: cons, LinuxOK: linuxOK})
 		}
 		return nil
 	})

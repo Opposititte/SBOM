@@ -42,7 +42,8 @@ const okRepos = man.map(l => l.split(',')).filter(c => c[6] === 'OK' && /^[0-9a-
 const rnd = mulberry32(SEED);
 const shuffled = okRepos.slice();
 for (let i = shuffled.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]; }
-const sample = shuffled.slice(0, N);
+// SKIP（SHA固定不可・go.mod無し等）が出ても有効Nを確保するため、seed順で繰り上げ補充する。
+// 走査対象は shuffled 全体、有効が N 件に達したら打ち切り。SKIPは理由別に記録。
 
 function sh(cmd, opts = {}) {
   try { return cp.execSync(cmd, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 256 * 1024 * 1024, ...opts }); }
@@ -50,11 +51,11 @@ function sh(cmd, opts = {}) {
 }
 const isStdlib = p => { const first = p.split('/')[0]; return !first.includes('.'); };
 
-const missRows = [], sumRows = [];
-console.error(`# GT-imported 検証: N=${N}, seed=${SEED} (母集団 OK=${okRepos.length})\n`);
+const missRows = [], sumRows = [], skips = [];
+console.error(`# GT-imported 検証: 有効N=${N}, seed=${SEED} (母集団 OK且つSHA有=${okRepos.length})\n`);
 
-for (let i = 0; i < sample.length; i++) {
-  const { name, url, sha } = sample[i];
+for (let i = 0; i < shuffled.length && sumRows.length < N; i++) {
+  const { name, url, sha } = shuffled[i];
   const work = `/tmp/vgt_${name}`;
   const src = `${work}/src`;
   fs.rmSync(work, { recursive: true, force: true });
@@ -62,7 +63,7 @@ for (let i = 0; i < sample.length; i++) {
   // GOOS/GOARCH を明示固定（proc.sh は GOOS=linux、GOARCH は host 既定=amd64）
   const env = { ...process.env, PATH: `${GOBIN}:${process.env.PATH}`, GOTOOLCHAIN: 'local', GOFLAGS: '-mod=mod', GOOS: 'linux', GOARCH: 'amd64', GOMODCACHE: `${work}/mod`, GOCACHE: `${work}/build` };
 
-  process.stderr.write(`[${i + 1}/${sample.length}] ${name} ... `);
+  process.stderr.write(`[有効${sumRows.length + 1}/${N} 走査${i + 1}] ${name} ... `);
   // ★ 計測時点のコミットを取得（HEADではなく manifest.csv の SHA）
   sh(`cd ${src} && git init -q && git remote add origin ${url} && timeout 300 git fetch -q --depth 1 origin ${sha} && git checkout -q FETCH_HEAD`, { env });
   let pinned = (sh(`cd ${src} && git rev-parse HEAD`, { env }) || '').trim() === sha;
@@ -71,8 +72,8 @@ for (let i = 0; i < sample.length; i++) {
     sh(`timeout 600 git clone -q ${url} ${src} && cd ${src} && git checkout -q ${sha}`, { env });
     pinned = (sh(`cd ${src} && git rev-parse HEAD`, { env }) || '').trim() === sha;
   }
-  if (!fs.existsSync(`${src}/go.mod`)) { console.error('SKIP(no go.mod)'); fs.rmSync(work, { recursive: true, force: true }); continue; }
-  if (!pinned) { console.error('SKIP(SHA固定できず)'); fs.rmSync(work, { recursive: true, force: true }); continue; }
+  if (!pinned) { console.error('SKIP(SHA固定不可)'); skips.push(`${name},SHA固定不可`); fs.rmSync(work, { recursive: true, force: true }); continue; }
+  if (!fs.existsSync(`${src}/go.mod`)) { console.error('SKIP(go.mod無し)'); skips.push(`${name},go.mod無し`); fs.rmSync(work, { recursive: true, force: true }); continue; }
 
   // proc.sh と同じ: go.work があれば -mod=mod を外す
   if (fs.existsSync(`${src}/go.work`)) env.GOFLAGS = '';
@@ -126,17 +127,16 @@ for (let i = 0; i < sample.length; i++) {
 
   const nMissBuild = missing.filter(m => A.get(m).every(o => o.build)).length;
 
-  // ★ 「危ない条件を踏んだか」の記録: linux以外のビルド制約を持つファイルの有無。
-  //    これが0なら「危険条件を一度も踏まずに取りこぼし0」であり、結論を弱める必要がある。
-  const nonLinux = o => o.build && !/linux/.test(o.cons || '') &&
-    (/_(windows|darwin|freebsd|netbsd|openbsd|plan9|solaris|js|wasip1|android|ios|aix|illumos|dragonfly|hurd|zos)\b/.test(o.cons || '') ||
-     /\b(windows|darwin|freebsd|netbsd|openbsd|plan9|solaris|js|wasip1|android|ios|aix|illumos|dragonfly|hurd|zos)\b/.test(o.cons || ''));
-  const nlFiles = new Set(), cFiles = new Set();
-  for (const im of imps) { if (im.build) { cFiles.add(im.file); if (nonLinux(im)) nlFiles.add(im.file); } }
+  // ★ 検証力の指標（修正版）: 「linux/amd64 で除外されるファイルからのみ import される外部モジュール」の数。
+  //    ファイルが存在するだけでは不十分（そのファイルの import が標準ライブラリだけなら取りこぼしは起こり得ない）。
+  //    この数が0なら、どれだけ制約付きファイルがあっても取りこぼしを検出する機会は0＝検証力0。
+  const riskMods = [...A.keys()].filter(m => A.get(m).every(o => o.linuxOK === false));
+  const cFiles = new Set(), nlFiles = new Set();
+  for (const im of imps) { if (im.build) cFiles.add(im.file); if (im.linuxOK === false) nlFiles.add(im.file); }
 
   sumRows.push([name, sha.slice(0, 10), A.size, GT.size, missing.length, nMissBuild,
-    cFiles.size, nlFiles.size, missing.join(' ')].join(','));
-  console.error(`A=${A.size} GT=${GT.size} 取りこぼし=${missing.length} 制約ファイル=${cFiles.size}(うち非linux=${nlFiles.size})${missing.length ? ' -> ' + missing.slice(0, 3).join(', ') : ''}`);
+    cFiles.size, nlFiles.size, riskMods.length, riskMods.join(' '), missing.join(' ')].join(','));
+  console.error(`A=${A.size} GT=${GT.size} 取りこぼし=${missing.length} 非linuxファイル=${nlFiles.size} **危険モジュール=${riskMods.length}**${riskMods.length ? '(' + riskMods.slice(0, 2).join(',') + ')' : ''}${missing.length ? ' -> MISS:' + missing.slice(0, 3).join(', ') : ''}`);
 
   fs.rmSync(work, { recursive: true, force: true });
 }
@@ -144,21 +144,28 @@ for (let i = 0; i < sample.length; i++) {
 fs.writeFileSync(`${OUT}/missing_${N}.csv`,
   'repo,module_path,import_path,file,line,build_constrained,in_require,replaced\n' + missRows.join('\n') + '\n');
 fs.writeFileSync(`${OUT}/summary_${N}.csv`,
-  'repo,commit,n_setA,n_GT,n_missing,n_missing_all_build_constrained,n_constrained_files,n_nonlinux_constrained_files,missing_modules\n' + sumRows.join('\n') + '\n');
+  'repo,commit,n_setA,n_GT,n_missing,n_missing_all_build_constrained,n_constrained_files,n_nonlinux_files,n_risk_modules,risk_modules,missing_modules\n' + sumRows.join('\n') + '\n');
+fs.writeFileSync(`${OUT}/skipped_${N}.csv`, 'repo,reason\n' + skips.join('\n') + (skips.length ? '\n' : ''));
 
-// 実行環境と「危険条件を踏んだ件数」を記録（結論の強さを左右するため必須）
+// 実行環境と検証力の記録（結論の強さを左右するため必須）
 const gov = sh(`${GOBIN}/go version`, { env: { ...process.env, GOTOOLCHAIN: 'local' } }).trim();
-const nRepoNL = sumRows.filter(r => +r.split(',')[7] > 0).length;
-const nRepoC = sumRows.filter(r => +r.split(',')[6] > 0).length;
+const col = i => sumRows.map(r => r.split(','));
+const nRepoNL = col().filter(c => +c[7] > 0).length;
+const nRepoRisk = col().filter(c => +c[8] > 0).length;
+const totRisk = col().reduce((s, c) => s + (+c[8] || 0), 0);
 const meta = [
-  `N=${N} seed=${SEED} 母集団=OK且つSHA記録あり(${okRepos.length})`,
+  `有効N=${sumRows.length} (目標${N}) seed=${SEED} 母集団=OK且つSHA記録あり(${okRepos.length})`,
+  `SKIP=${skips.length}件（seed順で繰り上げ補充済み。内訳は skipped_${N}.csv）`,
   `go=${gov} / GOTOOLCHAIN=local / GOOS=linux GOARCH=amd64`,
   `コミット固定=manifest.csv の計測時SHA（HEADではない）`,
-  `検証できたリポジトリ=${sumRows.length}`,
-  `取りこぼし候補の総数=${missRows.length}`,
-  `ビルド制約付きファイルを持つリポジトリ=${nRepoC}`,
-  `**linux以外**のビルド制約ファイルを持つリポジトリ=${nRepoNL}  ← 0なら危険条件を踏んでいない`,
+  ``,
+  `【結果】取りこぼし候補の総数 = ${missRows.length}`,
+  ``,
+  `【検証力】この指標が小さいほど「たまたま踏まなかっただけ」の疑いが残る`,
+  `  linux/amd64で除外されるファイルを持つリポジトリ = ${nRepoNL}`,
+  `  ★危険モジュール(除外ファイルからのみimportされる外部モジュール)を持つリポジトリ = ${nRepoRisk}`,
+  `  ★危険モジュールの総数 = ${totRisk}   ← 0なら検証力0。層別サンプリングが必要`,
 ].join('\n');
 fs.writeFileSync(`${OUT}/meta_${N}.txt`, meta + '\n');
 console.error(`\n${meta}`);
-console.error(`\n[written] ${OUT}/missing_${N}.csv (${missRows.length} 行), ${OUT}/summary_${N}.csv, ${OUT}/meta_${N}.txt`);
+console.error(`\n[written] ${OUT}/{missing,summary,skipped}_${N}.csv (取りこぼし${missRows.length}行), meta_${N}.txt`);
