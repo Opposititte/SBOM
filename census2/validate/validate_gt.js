@@ -49,6 +49,11 @@ function sh(cmd, opts = {}) {
   try { return cp.execSync(cmd, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 256 * 1024 * 1024, ...opts }); }
   catch (e) { return (e.stdout || ''); }
 }
+// stdout と stderr の両方を取る（go list のロードエラーを記録するため）
+function sh2(cmd, opts = {}) {
+  const r = cp.spawnSync('bash', ['-c', cmd], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024, ...opts });
+  return { out: r.stdout || '', err: r.stderr || '', status: r.status };
+}
 const isStdlib = p => { const first = p.split('/')[0]; return !first.includes('.'); };
 
 const missRows = [], sumRows = [], skips = [], reasonCount = {};
@@ -85,7 +90,12 @@ for (let i = 0; i < shuffled.length && sumRows.length < N; i++) {
   //   proc.sh: GOOS=linux go list -deps -e -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./...
   //            | grep -v '^$' | grep -v "^${gmain} \?$" | sort -u
   //   ここでは path 集合として比較するため、同じ出力から path 部分を取り出す。
-  const gtRaw = sh(`timeout 600 go list -deps -e -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./...`, O);
+  const gtRes = sh2(`timeout 600 go list -deps -e -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./...`, O);
+  const gtRaw = gtRes.out;
+  // ★ -e はエラーを許容するため、壊れたパッケージがあると依存が列挙されないことがある。
+  //    その取りこぼしは unconstrained に落ちるので、突き合わせ用に stderr を記録する。
+  const gtErrLines = gtRes.err.split('\n').filter(l => l.trim()).length;
+  if (gtErrLines) fs.appendFileSync(`${OUT}/golist_stderr_${N}.log`, `\n===== ${name} (${gtErrLines} 行, exit=${gtRes.status}) =====\n` + gtRes.err.split('\n').slice(0, 40).join('\n') + '\n');
   const GT = new Set(gtRaw.split('\n')
     .filter(s => s !== '')                                  // grep -v '^$'
     .filter(s => !new RegExp(`^${gmain} ?$`).test(s))       // grep -v "^gmain \?$"
@@ -130,18 +140,18 @@ for (let i = 0; i < shuffled.length && sumRows.length < N; i++) {
   //   tools        : tools.go パターン（ツール依存を go.mod に固定する慣用手法）
   //   other_tag    : 上記以外のカスタムタグで除外
   //   unconstrained: 除外されていないのに GT に無い ★本当に調べるべき候補
-  // 注: `\b` は使えない。"_" は単語文字なので \bwindows\b が "_windows" に
-  //     マッチせず platform を取りこぼす（検証済み）。英数字以外で挟む形にする。
-  const OSARCH = /(^|[^a-zA-Z0-9])(aix|android|darwin|dragonfly|freebsd|hurd|illumos|ios|js|linux|nacl|netbsd|openbsd|plan9|solaris|wasip1|windows|zos|386|amd64|arm|arm64|loong64|mips|mips64|ppc64|riscv64|s390x|wasm)([^a-zA-Z0-9]|$)/;
+  // platform / cgo の判定は **go/build の MatchFile 再評価**（scanner の otherPlat/cgoOff）で行う。
+  // 文字列マッチではないので "!linux" "darwin || freebsd" "unix" "arm64" 等も正しく拾え、
+  // タグ名の綴りに起因する誤分類が原理的に起きない。
+  // ignore / tools だけは「どの GOOS/GOARCH でも false」だった残りに対して制約テキストで見る。
   const classify = occ => {
     if (occ.some(o => o.linuxOK !== false)) return 'unconstrained';   // 除外されていない
-    // 判定は制約テキストのみで行う（ファイルパスを混ぜると pkg/js/... 等で誤判定するため）。
-    // tools.go だけは慣用パターンなのでファイル名も見る。
+    if (occ.some(o => o.otherPlat)) return 'platform';               // 他OS/ARCHでなら含まれる
+    if (occ.some(o => o.cgoOff)) return 'cgo';                       // cgo無効なら含まれる
     const cons = occ.map(o => o.cons || '').join(' ');
     if (/(^|[^a-zA-Z0-9])ignore([^a-zA-Z0-9]|$)/.test(cons)) return 'ignore';
     if (/(^|[^a-zA-Z0-9])tools([^a-zA-Z0-9]|$)/.test(cons) ||
         occ.some(o => /(^|\/)tools\.go$/.test(o.file))) return 'tools';
-    if (OSARCH.test(cons)) return 'platform';
     return 'other_tag';
   };
   const reasonOf = {};
@@ -164,8 +174,8 @@ for (let i = 0; i < shuffled.length && sumRows.length < N; i++) {
   for (const im of imps) { if (im.build) cFiles.add(im.file); if (im.linuxOK === false) nlFiles.add(im.file); }
 
   sumRows.push([name, sha.slice(0, 10), A.size, GT.size, missing.length, nMissBuild,
-    cFiles.size, nlFiles.size, riskMods.length, riskMods.join(' '), missing.join(' ')].join(','));
-  console.error(`A=${A.size} GT=${GT.size} 取りこぼし=${missing.length} 非linuxファイル=${nlFiles.size} **危険モジュール=${riskMods.length}**${riskMods.length ? '(' + riskMods.slice(0, 2).join(',') + ')' : ''}${missing.length ? ' -> MISS:' + missing.slice(0,3).map(m=>m+'['+reasonOf[m]+']').join(', ') : ''}`);
+    cFiles.size, nlFiles.size, riskMods.length, gtErrLines, riskMods.join(' '), missing.join(' ')].join(','));
+  console.error(`A=${A.size} GT=${GT.size} 取りこぼし=${missing.length}${gtErrLines?' [golist-err:'+gtErrLines+']':''} 非linuxファイル=${nlFiles.size} **危険モジュール=${riskMods.length}**${riskMods.length ? '(' + riskMods.slice(0, 2).join(',') + ')' : ''}${missing.length ? ' -> MISS:' + missing.slice(0,3).map(m=>m+'['+reasonOf[m]+']').join(', ') : ''}`);
 
   fs.rmSync(work, { recursive: true, force: true });
 }
@@ -173,7 +183,7 @@ for (let i = 0; i < shuffled.length && sumRows.length < N; i++) {
 fs.writeFileSync(`${OUT}/missing_${N}.csv`,
   'repo,module_path,import_path,file,line,build_constrained,constraint,included_on_linux,reason,in_require,replaced\n' + missRows.join('\n') + '\n');
 fs.writeFileSync(`${OUT}/summary_${N}.csv`,
-  'repo,commit,n_setA,n_GT,n_missing,n_missing_all_build_constrained,n_constrained_files,n_nonlinux_files,n_risk_modules,risk_modules,missing_modules\n' + sumRows.join('\n') + '\n');
+  'repo,commit,n_setA,n_GT,n_missing,n_missing_all_build_constrained,n_constrained_files,n_nonlinux_files,n_risk_modules,n_golist_stderr_lines,risk_modules,missing_modules\n' + sumRows.join('\n') + '\n');
 fs.writeFileSync(`${OUT}/skipped_${N}.csv`, 'repo,reason\n' + skips.join('\n') + (skips.length ? '\n' : ''));
 
 // 実行環境と検証力の記録（結論の強さを左右するため必須）
@@ -199,6 +209,9 @@ const meta = [
   `  linux/amd64 というビルド文脈での正しい除外。unconstrained/other_tag のみが要調査。`,
   ...Object.entries(reasonCount).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`  ${k} = ${v} モジュール`),
   `  （合計 ${Object.values(reasonCount).reduce((a,b)=>a+b,0)} モジュール / 出現 ${missRows.length} 行）`,
+  ``,
+  `【go list のロードエラー】unconstrained は go list の不具合ではなく入力側の破損の可能性がある`,
+  `  stderr が出たリポジトリ = ${col().filter(c => +c[9] > 0).length} / ${sumRows.length}（詳細 golist_stderr_${N}.log）`,
 ].join('\n');
 fs.writeFileSync(`${OUT}/meta_${N}.txt`, meta + '\n');
 console.error(`\n${meta}`);

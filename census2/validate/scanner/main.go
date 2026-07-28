@@ -37,6 +37,9 @@ type imp struct {
 	//   LinuxOK=false のファイルからのみ import される外部モジュールこそが
 	//   「GT-imported が取りこぼしうる」真の危険対象。
 	LinuxOK bool `json:"linuxOK"`
+	// linux/amd64 で除外された場合の理由（MatchFile の再評価で判定。文字列マッチではない）
+	OtherPlat bool `json:"otherPlat"` // 他の GOOS/GOARCH でなら含まれる → platform
+	CgoOff    bool `json:"cgoOff"`    // cgo 無効なら含まれる → cgo 制約
 }
 
 var goosList = map[string]bool{"aix": true, "android": true, "darwin": true, "dragonfly": true,
@@ -100,6 +103,33 @@ var lctx = func() build.Context {
 	return c
 }()
 
+// linux/amd64 以外のビルド文脈。OS制約だけでなく ARCH 制約 (_arm64.go 等) も拾えるよう
+// linux の別アーキテクチャも含める。
+var platCtxs = func() []build.Context {
+	pairs := [][2]string{
+		{"windows", "amd64"}, {"darwin", "arm64"}, {"darwin", "amd64"}, {"freebsd", "amd64"},
+		{"netbsd", "amd64"}, {"openbsd", "amd64"}, {"dragonfly", "amd64"}, {"solaris", "amd64"},
+		{"illumos", "amd64"}, {"aix", "ppc64"}, {"plan9", "amd64"}, {"android", "arm64"},
+		{"ios", "arm64"}, {"js", "wasm"}, {"wasip1", "wasm"}, {"zos", "s390x"},
+		{"linux", "arm64"}, {"linux", "386"}, {"linux", "arm"}, {"linux", "riscv64"},
+		{"linux", "s390x"}, {"linux", "ppc64le"}, {"linux", "mips64"}, {"linux", "loong64"},
+	}
+	out := make([]build.Context, 0, len(pairs))
+	for _, pr := range pairs {
+		c := build.Default
+		c.GOOS, c.GOARCH, c.CgoEnabled = pr[0], pr[1], true
+		out = append(out, c)
+	}
+	return out
+}()
+
+// cgo 無効の linux/amd64（//go:build !cgo 由来の除外を切り分ける）
+var nocgoCtx = func() build.Context {
+	c := build.Default
+	c.GOOS, c.GOARCH, c.CgoEnabled = "linux", "amd64", false
+	return c
+}()
+
 func main() {
 	if len(os.Args) < 2 {
 		fmt.Fprintln(os.Stderr, "usage: importscan <repoDir>")
@@ -139,14 +169,33 @@ func main() {
 		if e != nil {
 			return nil // 壊れたファイルは飛ばす（go list -e と同じ思想）
 		}
-		cons := headerConstrained(p)
-		if cons == "" {
-			cons = suffixConstrained(name)
-		}
+		// header と ファイル名サフィックスの**両方**を記録する。
+		// 片方だけだと、//go:build 行を持つ foo_windows.go で "_windows" が失われ、
+		// platform に分類すべきものが other_tag に流れる。
+		cons := strings.TrimSpace(headerConstrained(p) + " " + suffixConstrained(name))
 		// linux/amd64 ビルドに含まれるかを go/build に評価させる
 		linuxOK := true
 		if m, e := lctx.MatchFile(filepath.Dir(p), name); e == nil {
 			linuxOK = m
+		}
+		// linux/amd64 で除外された理由を、文字列マッチではなく MatchFile の再評価で判定する。
+		//   otherPlat = 他の GOOS/GOARCH のいずれかでは含まれる → プラットフォーム制約
+		//   cgoOff    = cgo を無効にすると含まれる            → cgo 制約
+		// この方式なら "!linux" "darwin || freebsd" "unix" "arm64" 等も正しく拾え、
+		// タグ名の文字列マッチに起因するバグが原理的に起きない。
+		otherPlat, cgoOff := false, false
+		if !linuxOK {
+			for _, c := range platCtxs {
+				if m, e := c.MatchFile(filepath.Dir(p), name); e == nil && m {
+					otherPlat = true
+					break
+				}
+			}
+			if !otherPlat {
+				if m, e := nocgoCtx.MatchFile(filepath.Dir(p), name); e == nil && m {
+					cgoOff = true
+				}
+			}
 		}
 		for _, is := range af.Imports {
 			ip, e2 := strconv.Unquote(is.Path.Value)
@@ -154,7 +203,8 @@ func main() {
 				continue
 			}
 			enc.Encode(imp{Path: ip, File: rel, Line: fset.Position(is.Pos()).Line,
-				Build: cons != "", Cons: cons, LinuxOK: linuxOK})
+				Build: cons != "", Cons: cons, LinuxOK: linuxOK,
+				OtherPlat: otherPlat, CgoOff: cgoOff})
 		}
 		return nil
 	})

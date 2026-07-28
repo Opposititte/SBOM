@@ -1,0 +1,18 @@
+有効N=5 (目標5) seed=42 母集団=OK且つSHA記録あり(1527)
+SKIP=0件（seed順で繰り上げ補充済み。内訳は skipped_5.csv）
+go=go version go1.26.5 linux/amd64 / GOTOOLCHAIN=local / GOOS=linux GOARCH=amd64
+コミット固定=manifest.csv の計測時SHA（HEADではない）
+
+【結果】取りこぼし候補の総数 = 0
+
+【検証力】この指標が小さいほど「たまたま踏まなかっただけ」の疑いが残る
+  linux/amd64で除外されるファイルを持つリポジトリ = 1
+  ★危険モジュール(除外ファイルからのみimportされる外部モジュール)を持つリポジトリ = 0
+  ★危険モジュールの総数 = 0   ← 0なら検証力0。層別サンプリングが必要
+
+【missing の理由内訳】※ platform/ignore/tools は go list の不具合ではなく
+  linux/amd64 というビルド文脈での正しい除外。unconstrained/other_tag のみが要調査。
+  （合計 0 モジュール / 出現 0 行）
+
+【go list のロードエラー】unconstrained は go list の不具合ではなく入力側の破損の可能性がある
+  stderr が出たリポジトリ = 5 / 5（詳細 golist_stderr_5.log）
