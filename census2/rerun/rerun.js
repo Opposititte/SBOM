@@ -124,9 +124,11 @@ if (!fs.existsSync(VER)) fs.writeFileSync(VER, 'repo,tool,' +
 const logln = s => { fs.appendFileSync(LOG, s + '\n'); process.stderr.write(s + '\n'); };
 
 // ---------- 対象 ----------
-const targets = Object.keys(julyMan).sort().filter(r => /^[0-9a-f]{40}$/.test(julyMan[r].sha));
-const noSha = Object.keys(julyMan).filter(r => !/^[0-9a-f]{40}$/.test(julyMan[r].sha));
-logln(`# rerun 開始 ${new Date().toISOString()} 対象=${targets.length} (SHA無し=${noSha.length}) 上限=${LIMIT}`);
+// SHA未記録のrepoも対象に含める（7月に git rev-parse が値を返さなかった1件）。
+// その場合は HEAD をcloneし、meta.json に sha_pinned:false と実際のHEADを記録する。
+const targets = Object.keys(julyMan).sort();
+const noSha = targets.filter(r => !/^[0-9a-f]{40}$/.test(julyMan[r].sha));
+logln(`# rerun 開始 ${new Date().toISOString()} 対象=${targets.length} (SHA未記録=${noSha.length}→HEADで取得) 上限=${LIMIT}`);
 
 let done = 0, skipped = 0, mismatch = 0, processed = 0;
 for (const repo of targets) {
@@ -150,16 +152,25 @@ for (const repo of targets) {
   const t0 = Date.now();
   process.stderr.write(`[${processed}] ${repo} ... `);
 
-  // 1) SHA固定でclone
-  let r = run(`cd ${src} && git init -q && git remote add origin ${url} && timeout 300 git fetch -q --depth 1 origin ${sha} && git checkout -q FETCH_HEAD`, { env });
-  let pinned = run(`cd ${src} && git rev-parse HEAD`, { env }).out.trim() === sha;
-  if (!pinned) {
-    fs.rmSync(src, { recursive: true, force: true }); fs.mkdirSync(src, { recursive: true });
-    run(`timeout 600 git clone -q ${url} ${src} && cd ${src} && git checkout -q ${sha}`, { env });
+  // 1) clone（SHAが記録されていればそれに固定、無ければ HEAD）
+  const hasSha = /^[0-9a-f]{40}$/.test(sha);
+  let pinned = false, headSha = '';
+  if (hasSha) {
+    run(`cd ${src} && git init -q && git remote add origin ${url} && timeout 300 git fetch -q --depth 1 origin ${sha} && git checkout -q FETCH_HEAD`, { env });
     pinned = run(`cd ${src} && git rev-parse HEAD`, { env }).out.trim() === sha;
+    if (!pinned) {
+      fs.rmSync(src, { recursive: true, force: true }); fs.mkdirSync(src, { recursive: true });
+      run(`timeout 600 git clone -q ${url} ${src} && cd ${src} && git checkout -q ${sha}`, { env });
+      pinned = run(`cd ${src} && git rev-parse HEAD`, { env }).out.trim() === sha;
+    }
+    headSha = sha;
+  } else {
+    run(`timeout 300 git clone -q --depth=1 ${url} ${src}`, { env });
+    headSha = run(`cd ${src} && git rev-parse HEAD`, { env }).out.trim();
+    pinned = !!headSha;   // SHA固定ではないが取得はできた
   }
   if (!pinned || !fs.existsSync(`${src}/go.mod`)) {
-    const reason = !pinned ? 'SHA固定不可' : 'go.mod無し';
+    const reason = !pinned ? (hasSha ? 'SHA固定不可' : 'clone失敗') : 'go.mod無し';
     fs.writeFileSync(`${od}/meta.json`, JSON.stringify({ repo, sha, status: 'SKIP', reason, at: new Date().toISOString() }, null, 2));
     fs.appendFileSync(SUM, `${repo},${sha},SKIP_${reason},,,,,,,,,,\n`);
     logln(`SKIP(${reason})`); fs.rmSync(work, { recursive: true, force: true }); skipped++; continue;
@@ -255,7 +266,8 @@ for (const repo of targets) {
 
   // 6) meta.json / raw gzip / summary
   fs.writeFileSync(`${od}/meta.json`, JSON.stringify({
-    repo, sha, url, gmain, status: 'OK', at: new Date().toISOString(),
+    repo, sha: headSha, sha_recorded_in_july: sha || null, sha_pinned: hasSha,
+    url, gmain, status: 'OK', at: new Date().toISOString(),
     elapsed_sec: Math.round((Date.now() - t0) / 1000),
     exit_codes: codes,
     counts: { gt_imported: nowN.imp, gt_impT: nowN.impT, gt_all: nowN.all,
@@ -268,7 +280,7 @@ for (const repo of targets) {
     const f = `${od}/raw/${t}.json`;
     if (fs.existsSync(f)) { fs.writeFileSync(f + '.gz', zlib.gzipSync(fs.readFileSync(f))); fs.unlinkSync(f); }
   }
-  fs.appendFileSync(SUM, [repo, sha, 'OK', nowN.imp, nowN.impT, nowN.all,
+  fs.appendFileSync(SUM, [repo, headSha, hasSha ? 'OK' : 'OK_HEAD', nowN.imp, nowN.impT, nowN.all,
     ...Object.keys(tools).map(t => toolRows[t] ? nameSet(toolRows[t]).size : 'NA'),
     errAgg.nReal, errAgg.nProgress, JSON.stringify(Object.entries(errAgg.kinds).map(([k, v]) => `${k}:${v}`).join(' '))].join(',') + '\n');
 
