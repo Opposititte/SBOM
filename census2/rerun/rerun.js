@@ -188,7 +188,13 @@ for (const repo of targets) {
   }
   if (!pinned || !fs.existsSync(`${src}/go.mod`)) {
     const reason = !pinned ? (hasSha ? 'SHA固定不可' : 'clone失敗') : 'go.mod無し';
-    fs.writeFileSync(`${od}/meta.json`, JSON.stringify({ repo, sha, status: 'SKIP', reason, at: new Date().toISOString() }, null, 2));
+    // clone/fetch の失敗は一時的（レート制限等）のことが多い。meta.json を書くと
+    // 再開時に恒久スキップになってしまうため、go.mod無し以外は記録だけして次回再試行させる。
+    if (reason === 'go.mod無し') {
+      fs.writeFileSync(`${od}/meta.json`, JSON.stringify({ repo, sha, status: 'SKIP', reason, at: new Date().toISOString() }, null, 2));
+    } else {
+      fs.rmSync(od, { recursive: true, force: true });   // 次回再試行できるよう残さない
+    }
     fs.appendFileSync(SUM, `${repo},${sha},SKIP_${reason},,,,,,,,,,\n`);
     logln(`SKIP(${reason})`); fs.rmSync(work, { recursive: true, force: true }); skipped++; continue;
   }
