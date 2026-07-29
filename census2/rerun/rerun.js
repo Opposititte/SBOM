@@ -137,7 +137,16 @@ const logln = s => { fs.appendFileSync(LOG, s + '\n'); process.stderr.write(s + 
 // ---------- 対象 ----------
 // SHA未記録のrepoも対象に含める（7月に git rev-parse が値を返さなかった1件）。
 // その場合は HEAD をcloneし、meta.json に sha_pinned:false と実際のHEADを記録する。
-const targets = Object.keys(julyMan).sort();
+// 順序は seed 固定のランダム。実行環境のコンテナが不定期に回収されるため
+// 全件完走が保証できない。アルファベット順だと途中結果が偏った標本になるので、
+// どの時点で止まっても**偏りのない無作為標本**になるようにシャッフルする。
+const targets = (() => {
+  const a = Object.keys(julyMan).sort();
+  let x = 20260729;                       // 固定seed（再現可能）
+  const rnd = () => { x |= 0; x = (x + 0x6D2B79F5) | 0; let t = Math.imul(x ^ (x >>> 15), 1 | x); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+  for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1));[a[i], a[j]] = [a[j], a[i]]; }
+  return a;
+})();
 const noSha = targets.filter(r => !/^[0-9a-f]{40}$/.test(julyMan[r].sha));
 logln(`# rerun 開始 ${new Date().toISOString()} 対象=${targets.length} (SHA未記録=${noSha.length}→HEADで取得) 上限=${LIMIT}`);
 
