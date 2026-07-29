@@ -19,17 +19,22 @@ const zlib = require('zlib');
 
 const LIMIT = process.argv[2] ? +process.argv[2] : Infinity;
 const BASE = path.resolve(__dirname, '..');            // census2/
-const OUT = path.join(__dirname, 'out');
+const OUT = path.join(__dirname, (process.env.MODE === 'empty') ? 'out_empty' : 'out');
 const GOBIN = '/opt/go1265/go/bin';
 const TO = 300;                                        // 7月と同じ per-command timeout
 
 fs.mkdirSync(OUT, { recursive: true });
 
 // ---------- 7月の記録を読む（検証ゲート用） ----------
+// MODE=empty で、7月に EMPTY_GT として除外された「Goモジュールだが imported が空」の
+// リポジトリを対象にする（母集団の条件付けによる非対称を検証するため。出力先も別）。
+const MODE = process.env.MODE || 'ok';
 const julyMan = {};   // repo -> {imp, impT, all}
 for (const l of fs.readFileSync(BASE + '/manifest.csv', 'utf8').trim().split('\n').slice(1)) {
   const c = l.split(',');
-  if (c[6] === 'OK') julyMan[c[0]] = { sha: c[2], imp: +c[7], impT: +c[8], all: +c[9], url: c[1] };
+  const isOK = c[6] === 'OK';
+  const isEmptyGo = c[6] === 'EMPTY_GT' && (+c[9]) > 1;   // go.modに外部依存はあるがimportedが空
+  if (MODE === 'empty' ? isEmptyGo : isOK) julyMan[c[0]] = { sha: c[2], imp: +c[7], impT: +c[8], all: +c[9], url: c[1] };
 }
 const julyMet = {};   // repo -> tool -> {tp,fp,fn} (imported, name一致)
 {
