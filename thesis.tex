@@ -75,7 +75,7 @@ SBOM, software supply chain, Go language, accuracy evaluation, ground truth
 SBOM生成ツールの正確性は，正解一覧であるGround Truth（GT）と突き合わせて
 評価する．しかし，何を正解とみなすか，すなわちGTの定義しだいで正解の範囲は
 変わり，評価結果も変わりうる．PythonやJavaなどではGTに基づく評価が行われて
-きたが，いずれも単一のGT定義に依拠している．とくにGo言語については，
+きたが\cite{yu2024,balliu2023,rabbi2024,zhou2026}，いずれも単一のGT定義に依拠している．とくにGo言語については，
 GTベースの評価そのものが行われていない．
 
 本稿の貢献は次の3点である．第一に，Goを対象としてGTベースの精度評価を
@@ -104,7 +104,7 @@ Goの依存は，モジュールがパッケージをまとめた階層構造を
 ない．この区別は，後述する正解データの定義に関わる．
 
 \subsection{go.mod と go.sum}
-go.modは，どの依存のどのバージョンを用いるかをモジュール単位で記述する．
+go.modは，どの依存のどのバージョンを用いるかをモジュール単位で記述する\cite{gomod}．
 直接依存と間接依存（\|// indirect|）を含み，実際には用いない依存が含まれる
 こともある．一方，go.sumは各依存（間接依存を含む）のハッシュを記録する．
 過去に関わった依存やバージョンも残るため，go.sumはgo.modよりも広く，現在は
@@ -123,7 +123,7 @@ go.modは，どの依存のどのバージョンを用いるかをモジュー�
 \section{Ground Truthの3つの定義}
 %% ============================================================
 本稿では，正解データGTを\tabref{tab:gtdef}に示す3通りで定義する．いずれも
-\|go list|を用い，rootから\|GOOS=linux|で生成する．GT-importedは，非testの
+\|go list|\cite{golist}を用い，rootから\|GOOS=linux|で生成する．GT-importedは，非testの
 実コンパイル依存だけを集めたものである．GT-imported+test（以下impT）は，
 それにtest専用依存を加えたものである．GT-allは，build list全体（直接依存・
 間接依存・未使用を含む）であり，3つのなかで最も広い定義である．これら3つの
@@ -154,7 +154,7 @@ GT-all & \|go list -m all| \\\hline
 \section{関連研究}
 %% ============================================================
 GTに基づくSBOMの精度評価は，\tabref{tab:related}に示すように，複数の言語で
-行われてきた．しかし，いずれの研究も単一のGT定義に基づいており，GT定義の選択が
+行われてきた\cite{yu2024,balliu2023,rabbi2024,zhou2026,tang2022}．しかし，いずれの研究も単一のGT定義に基づいており，GT定義の選択が
 評価結果に与える影響は検討されていない．本研究は，Goを対象としてGTベース評価を
 初めて行い，かつGT定義を3通りに変えて結果の変化を比較する点に新規性がある．
 
@@ -165,14 +165,14 @@ GTに基づくSBOMの精度評価は，\tabref{tab:related}に示すように，
 \hbox to\hsize{\hfil
 \begin{tabular}{lll}\hline\hline
 言語 & 研究 & 正解（GT）の作り方 \\\hline
-Python & Yu et al. (2024) & 実際にインストールして入ったものを正解 \\
-Python & Reality Check (2025) & ロックファイルを正解 \\
-Java & Balliu et al. (2023) & Maven依存ツリー出力で一覧 \\
-JavaScript & Rabbi et al. (2024) & \|npm list| で一覧 \\
-Rust & Reality Check (2025) & ロックファイルを正解 \\
-Ruby & Reality Check (2025) & ロックファイルを正解 \\
-PHP & Reality Check (2025) & ロックファイルを正解 \\
-C / C++ & TPL Dependency研究 & 人手でコードを読み正解作成 \\
+Python & Yu et al.\cite{yu2024} & 実際にインストールして入ったものを正解 \\
+Python & Reality Check\cite{zhou2026} & ロックファイルを正解 \\
+Java & Balliu et al.\cite{balliu2023} & Maven依存ツリー出力で一覧 \\
+JavaScript & Rabbi et al.\cite{rabbi2024} & \|npm list| で一覧 \\
+Rust & Reality Check\cite{zhou2026} & ロックファイルを正解 \\
+Ruby & Reality Check\cite{zhou2026} & ロックファイルを正解 \\
+PHP & Reality Check\cite{zhou2026} & ロックファイルを正解 \\
+C / C++ & TPL Dependency研究\cite{tang2022} & 人手でコードを読み正解作成 \\
 Go & 本研究 & \|go list| でimport依存を集め正解 \\\hline
 \end{tabular}\hfil}
 \end{table*}
@@ -194,12 +194,17 @@ awesome-goから2{,}723件のリポジトリを取得・記録した．そのsta
 本研究の評価対象は，このOKの1{,}528件である．
 
 \subsection{評価対象ツールと実行環境}
-評価対象として，Syft v1.46.0，Trivy v0.72.0，cdxgen 12.7.1（Node.js
-v22.22.2），cyclonedx-gomod v1.10.0を用いた．GTの生成には
+評価対象として，Syft v1.46.0\cite{syft}，Trivy v0.72.0\cite{trivy}，
+cdxgen 12.7.1（Node.js v22.22.2）\cite{cdxgen}，
+cyclonedx-gomod v1.10.0\cite{gomodtool}を用いた．GTの生成には
 go1.26.5（\|GOTOOLCHAIN=local|，\|GOFLAGS=-mod=mod|）を用い，\|GOOS=linux|で
 実行した．GTとツールの出力は，いずれも同一のクローン上で同時に生成・照合した
 （全リポジトリを1回ずつクローンする）．依存の照合はモジュールパス単位で行い
 （name一致），本編ではname一致を主とし，version一致は付録で補足する．なお，
+SBOMのモジュール識別子はPURLで表現されるが，PURL仕様のgolang型はnamespaceと
+nameの小文字化を求めている．実際に小文字化していたのはTrivyのみで，他の3ツールは
+原文の大文字を保持していた．そこで本研究では照合の公平性のため，モジュールパスを
+小文字化して比較した．なお，
 GT生成にあたっての環境設定（\|-mod=mod|の自動解除，新しいGoを要求する
 リポジトリに対するtoolchainの取得，\|-e|の扱い）は付録\ref{app:gtimpl}に
 詳述する．これらはいずれも生成コマンドの式（依存の集め方）は変えず，同じ式が
