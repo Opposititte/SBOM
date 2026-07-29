@@ -1,0 +1,14 @@
+captured: 2026-07-29T02:44:19Z
+go: go version go1.26.5 linux/amd64
+GOOS/GOARCH/CGO: linux/amd64/CGO_ENABLED=1
+syft: Version:       [not provided]
+trivy: Version: dev
+cdxgen: [1mCycloneDX Generator 12.7.1[0m
+node: v22.22.2
+cyclonedx-gomod: Version:	v1.10.0
+
+# syft/trivy はビルドメタが埋まっていないため、バイナリの埋め込みモジュール情報で確認:
+syft            = github.com/anchore/syft v1.46.0
+trivy           = github.com/aquasecurity/trivy v0.72.0
+cyclonedx-gomod = github.com/CycloneDX/cyclonedx-gomod v1.10.0
+cdxgen          = 12.7.1 (Node.js v22.22.2)
