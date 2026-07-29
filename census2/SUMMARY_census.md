@@ -232,6 +232,59 @@ vendor修正(`-mod=mod`)の本当の効果は増加ではなく **正しさ/取�
 既定 `-mod=vendor` だと `go list -m all` が "can't compute all using the vendor directory" で失敗し**空GTに誤判定**される。
 前回の集計コードも同じく `-mod=mod` を付けていなかったため、**前回も vendored repo を取りこぼしていた可能性が高い**（＝今回の方がより正確）。
 
+## 5. GT-imported の妥当性検証（go/parser との突き合わせ）
+GT-imported（`go list -deps -e`）が依存を取りこぼしていないかを、独立な方法で検証した。
+手順・スクリプトは `census2/validate/`（`validate_gt.js` + `scanner/`）、詳細は `census2/validate/out/NOTES.md`。
+
+### 5a. 方法
+- `go/parser` で**ビルド制約を一切適用せず**、非テストの `.go` 全ファイルから import を抽出（集合A）。
+  制約を適用すると `go list` と同じフィルタになり検証にならないため、ここが要点。
+- 走査から除くのは go ツールが構造的に無視するもののみ（`vendor/`・`testdata/`・`.`/`_` 始まり・ネストした別モジュール）。
+- import パス → モジュールパスは go.mod の require への最長一致（replace 考慮）。標準ライブラリと自モジュールは除外。
+- **A ⊆ GT-imported** が成り立つかを検査し、破れ（＝取りこぼし候補）を列挙。
+- 無作為100件（seed=42 固定）。**HEAD ではなく `manifest.csv` に記録した計測時のコミットSHAを checkout** するので、
+  「GT生成手法」ではなく**計測に用いたGTそのもの**の検証になる。
+- 環境は計測時と一致: go1.26.5 / `GOTOOLCHAIN=local` / `GOOS=linux GOARCH=amd64` / `CGO_ENABLED=1`、
+  `go list` のコマンドと grep/sort フィルタも `proc.sh` と同一。
+
+### 5b. 結果（有効99件・SKIP11件でジョブ停止、99件で結論は確定）
+| 分類 | 件数 | 意味 |
+|---|---:|---|
+| platform | 7 | OS/ARCH制約で除外（fyne の wasm/windows, upterm の conpty 等）。**正しい除外** |
+| tools | 5 | `//go:build tools`（tinygo の tools.go 等）。**正しい除外** |
+| other_tag | 6 | 意図的なカスタムタグ（`AZURE` / `example` / `utils` / `man` / `generate`）。**正しい除外** |
+| **unconstrained** | **0** | **linuxビルドに含まれるのに GT に無い＝go list の不具合の signature。1件も無し** |
+- 合計18件はすべて **linux/amd64 というビルド文脈での正しい除外**であり、
+  **`go list` の不具合に起因する取りこぼしは検出されなかった**。
+- other_tag 6件は実ソースのビルドタグまで確認済み（`tools` と同種の「通常ビルドから外すタグ」）。
+
+### 5c. 検証力（「危険条件を踏まずに0件」ではないことの確認）
+取りこぼしが起こり得るのは「linux/amd64 で除外されるファイルからのみ import される外部モジュール」（危険モジュール）がある場合だけ。
+制約付きファイルが存在するだけでは不十分（その import が標準ライブラリのみなら取りこぼしは原理的に起こらない）。
+- **危険モジュール 23個 / 11リポジトリ** で 0 ではない → 危険条件を実際に踏んだうえでの「取りこぼし0」であり、層別サンプリングは不要。
+- 除外判定は正規表現ではなく `go/build.MatchFile` に評価させる（`!windows` / `darwin || freebsd` / `unix && !linux` / `_arm64` / `!cgo` も正しく扱える）。
+
+### 5d. 計測時GTの再現性
+`manifest.csv` の `n_imp` と、同一SHAで再生成したGT件数を1件ずつ比較: **98/99 一致**
+（packer 376, go-feature-flag 256, dgraph 157 等の大規模repoを含む）。
+- 唯一の不一致は `nikolaydubina__fpmoney`（計測時 0 → 再生成 1）。`status=OK かつ n_imp=0` は**全1,528件中この1件のみ**で、
+  集計は `tp+fn>0` でゲートしているため macro 平均から自動除外されており、**P/R/F1 への影響はゼロ**。
+- `proc.sh` は `go list` の stderr を `2>/dev/null` で破棄していたため当時のエラー状況は直接遡れないが、
+  **この件数一致の方が強い証拠**であり、推定に頼る必要はない。
+- 今回の再生成で `go list` の本物のエラー（進捗行 `go: downloading` 等を除く）が出たのは **1/99** のみ。
+
+### 5e. この検証の及ばない範囲（限界）
+- 集合Aは**対象プロジェクト自身のソースの直接 import のみ**。推移的依存の先で `go list` が取りこぼしても検出できない。
+  （例: blocky の go-winio は依存の先にあるため A に入らない。）
+- 合成テストで検出力を確認したのは**ビルドタグ由来の取りこぼし**のみ。`replace`・`-e` のパッケージ解決失敗・`go.work` 構成は未検証。
+
+### 5f. 論文への含意
+GT-imported は**ビルド文脈に依存する定義**であり、linux/amd64 で生成したGTからは
+プラットフォーム固有の依存・開発ツール依存が**構造的に**除かれる。go.mod/go.sum を広く読む
+Syft・Trivy はこれらを報告するため、GT-imported に対して FP として数えられる。
+※ §2d のFP要因分類（**ツール出力**を分母とする割合）と本検証（**ソースの import** を基準としたGT側の欠落）は
+基準が異なるため、同じ量として並べず「独立に測った2つが同一の機序を指している」と記述すること。
+
 ## 9. census2/ ファイル構成（各ファイルの役割）
 この計測一式（`census2/`）に含まれるファイルの説明。**成果物**＝人が読む最終出力、
 **データ**＝CSV台帳、**パイプライン**＝生成スクリプト、**中間**＝再生成で作り直せる作業物。
@@ -264,6 +317,10 @@ vendor修正(`-mod=mod`)の本当の効果は増加ではなく **正しさ/取�
 | `render_md.js` | CSV を `per_repo_metrics.md` と `repo_manifest.md`（人が読む表）に変換 |
 | `categorize.js` | `manifest.csv` に区分列（OK/non_go/go_empty/clone_fail）を冪等に付与 |
 | `verify.js` | 検証用。aggregate.js とは別ロジックで全表を独立再計算し、数値の裏取りをする |
+| `validate/validate_gt.js` | §5 の GT-imported 妥当性検証。SHA固定でcloneし、go/parser の抽出結果と GT を突き合わせる |
+| `validate/scanner/` | 上記が使う Go 製スキャナ。ビルド制約を適用せず import を抽出し、`go/build.MatchFile` で除外理由を判定 |
+| `validate/analyze.js` | 検証結果の事後分析（GT件数の一致・理由内訳・go listエラーの種別） |
+| `validate/out/` | 検証の出力（`NOTES.md` に結論、`summary_from_log_99.csv` に99件の結果） |
 
 ### 中間・作業物（再生成で作り直せる／集計には不要）
 | ファイル/ディレクトリ | 役割 |

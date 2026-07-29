@@ -316,6 +316,60 @@ W('vendor修正(`-mod=mod`)の本当の効果は増加ではなく **正しさ/�
 W('既定 `-mod=vendor` だと `go list -m all` が "can\'t compute all using the vendor directory" で失敗し**空GTに誤判定**される。');
 W('前回の集計コードも同じく `-mod=mod` を付けていなかったため、**前回も vendored repo を取りこぼしていた可能性が高い**（＝今回の方がより正確）。\n');
 
+// ---- GT-imported の妥当性検証 ----
+W('## 5. GT-imported の妥当性検証（go/parser との突き合わせ）');
+W('GT-imported（`go list -deps -e`）が依存を取りこぼしていないかを、独立な方法で検証した。');
+W('手順・スクリプトは `census2/validate/`（`validate_gt.js` + `scanner/`）、詳細は `census2/validate/out/NOTES.md`。\n');
+
+W('### 5a. 方法');
+W('- `go/parser` で**ビルド制約を一切適用せず**、非テストの `.go` 全ファイルから import を抽出（集合A）。');
+W('  制約を適用すると `go list` と同じフィルタになり検証にならないため、ここが要点。');
+W('- 走査から除くのは go ツールが構造的に無視するもののみ（`vendor/`・`testdata/`・`.`/`_` 始まり・ネストした別モジュール）。');
+W('- import パス → モジュールパスは go.mod の require への最長一致（replace 考慮）。標準ライブラリと自モジュールは除外。');
+W('- **A ⊆ GT-imported** が成り立つかを検査し、破れ（＝取りこぼし候補）を列挙。');
+W('- 無作為100件（seed=42 固定）。**HEAD ではなく `manifest.csv` に記録した計測時のコミットSHAを checkout** するので、');
+W('  「GT生成手法」ではなく**計測に用いたGTそのもの**の検証になる。');
+W('- 環境は計測時と一致: go1.26.5 / `GOTOOLCHAIN=local` / `GOOS=linux GOARCH=amd64` / `CGO_ENABLED=1`、');
+W('  `go list` のコマンドと grep/sort フィルタも `proc.sh` と同一。\n');
+
+W('### 5b. 結果（有効99件・SKIP11件でジョブ停止、99件で結論は確定）');
+W('| 分類 | 件数 | 意味 |');
+W('|---|---:|---|');
+W('| platform | 7 | OS/ARCH制約で除外（fyne の wasm/windows, upterm の conpty 等）。**正しい除外** |');
+W('| tools | 5 | `//go:build tools`（tinygo の tools.go 等）。**正しい除外** |');
+W('| other_tag | 6 | 意図的なカスタムタグ（`AZURE` / `example` / `utils` / `man` / `generate`）。**正しい除外** |');
+W('| **unconstrained** | **0** | **linuxビルドに含まれるのに GT に無い＝go list の不具合の signature。1件も無し** |');
+W('- 合計18件はすべて **linux/amd64 というビルド文脈での正しい除外**であり、');
+W('  **`go list` の不具合に起因する取りこぼしは検出されなかった**。');
+W('- other_tag 6件は実ソースのビルドタグまで確認済み（`tools` と同種の「通常ビルドから外すタグ」）。\n');
+
+W('### 5c. 検証力（「危険条件を踏まずに0件」ではないことの確認）');
+W('取りこぼしが起こり得るのは「linux/amd64 で除外されるファイルからのみ import される外部モジュール」（危険モジュール）がある場合だけ。');
+W('制約付きファイルが存在するだけでは不十分（その import が標準ライブラリのみなら取りこぼしは原理的に起こらない）。');
+W('- **危険モジュール 23個 / 11リポジトリ** で 0 ではない → 危険条件を実際に踏んだうえでの「取りこぼし0」であり、層別サンプリングは不要。');
+W('- 除外判定は正規表現ではなく `go/build.MatchFile` に評価させる（`!windows` / `darwin || freebsd` / `unix && !linux` / `_arm64` / `!cgo` も正しく扱える）。\n');
+
+W('### 5d. 計測時GTの再現性');
+W('`manifest.csv` の `n_imp` と、同一SHAで再生成したGT件数を1件ずつ比較: **98/99 一致**');
+W('（packer 376, go-feature-flag 256, dgraph 157 等の大規模repoを含む）。');
+W('- 唯一の不一致は `nikolaydubina__fpmoney`（計測時 0 → 再生成 1）。`status=OK かつ n_imp=0` は**全1,528件中この1件のみ**で、');
+W('  集計は `tp+fn>0` でゲートしているため macro 平均から自動除外されており、**P/R/F1 への影響はゼロ**。');
+W('- `proc.sh` は `go list` の stderr を `2>/dev/null` で破棄していたため当時のエラー状況は直接遡れないが、');
+W('  **この件数一致の方が強い証拠**であり、推定に頼る必要はない。');
+W('- 今回の再生成で `go list` の本物のエラー（進捗行 `go: downloading` 等を除く）が出たのは **1/99** のみ。\n');
+
+W('### 5e. この検証の及ばない範囲（限界）');
+W('- 集合Aは**対象プロジェクト自身のソースの直接 import のみ**。推移的依存の先で `go list` が取りこぼしても検出できない。');
+W('  （例: blocky の go-winio は依存の先にあるため A に入らない。）');
+W('- 合成テストで検出力を確認したのは**ビルドタグ由来の取りこぼし**のみ。`replace`・`-e` のパッケージ解決失敗・`go.work` 構成は未検証。\n');
+
+W('### 5f. 論文への含意');
+W('GT-imported は**ビルド文脈に依存する定義**であり、linux/amd64 で生成したGTからは');
+W('プラットフォーム固有の依存・開発ツール依存が**構造的に**除かれる。go.mod/go.sum を広く読む');
+W('Syft・Trivy はこれらを報告するため、GT-imported に対して FP として数えられる。');
+W('※ §2d のFP要因分類（**ツール出力**を分母とする割合）と本検証（**ソースの import** を基準としたGT側の欠落）は');
+W('基準が異なるため、同じ量として並べず「独立に測った2つが同一の機序を指している」と記述すること。\n');
+
 // ---- census2/ ファイル構成の説明 ----
 W('## 9. census2/ ファイル構成（各ファイルの役割）');
 W('この計測一式（`census2/`）に含まれるファイルの説明。**成果物**＝人が読む最終出力、');
@@ -349,6 +403,10 @@ W('| `aggregate.js` | `metrics.csv`＋`manifest.csv` から本 `SUMMARY_census.m
 W('| `render_md.js` | CSV を `per_repo_metrics.md` と `repo_manifest.md`（人が読む表）に変換 |');
 W('| `categorize.js` | `manifest.csv` に区分列（OK/non_go/go_empty/clone_fail）を冪等に付与 |');
 W('| `verify.js` | 検証用。aggregate.js とは別ロジックで全表を独立再計算し、数値の裏取りをする |');
+W('| `validate/validate_gt.js` | §5 の GT-imported 妥当性検証。SHA固定でcloneし、go/parser の抽出結果と GT を突き合わせる |');
+W('| `validate/scanner/` | 上記が使う Go 製スキャナ。ビルド制約を適用せず import を抽出し、`go/build.MatchFile` で除外理由を判定 |');
+W('| `validate/analyze.js` | 検証結果の事後分析（GT件数の一致・理由内訳・go listエラーの種別） |');
+W('| `validate/out/` | 検証の出力（`NOTES.md` に結論、`summary_from_log_99.csv` に99件の結果） |');
 
 W('\n### 中間・作業物（再生成で作り直せる／集計には不要）');
 W('| ファイル/ディレクトリ | 役割 |');
