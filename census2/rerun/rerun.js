@@ -108,9 +108,20 @@ function splitErr(err) {
 }
 
 function run(cmd, opts = {}) {
-  const r = cp.spawnSync('bash', ['-c', cmd], { encoding: 'utf8', maxBuffer: 512 * 1024 * 1024, ...opts });
+  const r = cp.spawnSync('bash', ['-c', cmd], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, ...opts });
   return { out: r.stdout || '', err: r.stderr || '', code: r.status === null ? -1 : r.status };
 }
+// 巨大モノレポ（例: gcloud-golang）では go list の出力が非常に大きく、
+// spawnSync でバッファするとメモリを食い潰してプロセスごと落ちる。
+// 7月の proc.sh と同じくシェルのリダイレクトでファイルに書き、後から読む。
+const MAXREAD = 256 * 1024 * 1024;
+function runToFile(cmd, outF, errF, opts = {}) {
+  const r = cp.spawnSync('bash', ['-c', `${cmd} > ${outF} 2> ${errF}`], { encoding: 'utf8', maxBuffer: 1024 * 1024, ...opts });
+  const rd = f => { try { return fs.statSync(f).size > MAXREAD ? '' : fs.readFileSync(f, 'utf8'); } catch (e) { return ''; } };
+  return { out: rd(outF), err: rd(errF), code: r.status === null ? -1 : r.status };
+}
+// ディスクの空き(KB)
+const freeKB = () => { try { return +cp.execSync("df --output=avail / | tail -1", { encoding: 'utf8' }).trim(); } catch (e) { return 1e9; } };
 
 // ---------- 出力ファイル（逐次追記） ----------
 const SUM = `${OUT}/summary.csv`, VER = `${OUT}/verify.csv`, LOG = `${OUT}/progress.log`;
@@ -130,6 +141,7 @@ const targets = Object.keys(julyMan).sort();
 const noSha = targets.filter(r => !/^[0-9a-f]{40}$/.test(julyMan[r].sha));
 logln(`# rerun 開始 ${new Date().toISOString()} 対象=${targets.length} (SHA未記録=${noSha.length}→HEADで取得) 上限=${LIMIT}`);
 
+try { cp.execSync('rm -rf /tmp/rr_* 2>/dev/null'); } catch (e) { }   // 前回の残骸を掃除
 let done = 0, skipped = 0, mismatch = 0, processed = 0;
 for (const repo of targets) {
   if (processed >= LIMIT) break;
@@ -151,6 +163,11 @@ for (const repo of targets) {
   };
   const t0 = Date.now();
   process.stderr.write(`[${processed}] ${repo} ... `);
+  if (freeKB() < 3 * 1024 * 1024) {   // 空き3GB未満なら処理せず記録して次へ
+    fs.writeFileSync(`${od}/meta.json`, JSON.stringify({ repo, sha, status: 'SKIP', reason: 'disk_low', at: new Date().toISOString() }, null, 2));
+    fs.appendFileSync(SUM, `${repo},${sha},SKIP_disk_low,,,,,,,,,,\n`);
+    logln('SKIP(disk_low)'); fs.rmSync(work, { recursive: true, force: true }); skipped++; continue;
+  }
 
   // 1) clone（SHAが記録されていればそれに固定、無ければ HEAD）
   const hasSha = /^[0-9a-f]{40}$/.test(sha);
@@ -196,10 +213,11 @@ for (const repo of targets) {
   // 3) GT 3定義（+ FP分類用の補助）
   const gmainRes = run('timeout 120 go list -m', O);
   const gmain = norm((gmainRes.out.split('\n')[0] || '').trim().split(/\s+/)[0] || '');
-  run(`timeout ${TO} go mod download`, O);
-  const gAll = run(`timeout ${TO} go list -m -e all`, O); codes.gt_all = gAll.code;
-  const gImp = run(`timeout ${TO} go list -deps -e -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./...`, O); codes.gt_imported = gImp.code;
-  const gImpT = run(`timeout ${TO} go list -deps -test -e -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./...`, O); codes.gt_impT = gImpT.code;
+  run(`timeout ${TO} go mod download >/dev/null 2>&1`, O);   // 出力は使わないので捨てる
+  const T = `${work}/tmp`; fs.mkdirSync(T, { recursive: true });
+  const gAll = runToFile(`timeout ${TO} go list -m -e all`, `${T}/all.out`, `${T}/all.err`, O); codes.gt_all = gAll.code;
+  const gImp = runToFile(`timeout ${TO} go list -deps -e -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./...`, `${T}/imp.out`, `${T}/imp.err`, O); codes.gt_imported = gImp.code;
+  const gImpT = runToFile(`timeout ${TO} go list -deps -test -e -f '{{with .Module}}{{.Path}} {{.Version}}{{end}}' ./...`, `${T}/impT.out`, `${T}/impT.err`, O); codes.gt_impT = gImpT.code;
 
   // stderr は全件保存（切り詰めない）＋進捗/本物を分けて集計
   const errAgg = { nProgress: 0, nReal: 0, kinds: {} };
