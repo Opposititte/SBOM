@@ -156,6 +156,17 @@ for (const repo of targets) {
   if (processed >= LIMIT) break;
   const od = `${OUT}/${repo}`;
   if (fs.existsSync(`${od}/meta.json`)) { done++; continue; }   // 再開: 処理済みはスキップ
+  // 複数ワーカーで並列に回せるよう、処理前に .claim で排他する。
+  // コンテナ再起動で claim が残ることがあるので、30分より古い claim は奪い取る。
+  const claim = `${od}/.claim`;
+  try {
+    if (fs.existsSync(claim)) {
+      const age = Date.now() - fs.statSync(claim).mtimeMs;
+      if (age < 30 * 60 * 1000) { continue; }                   // 他ワーカーが処理中
+    }
+    fs.mkdirSync(od, { recursive: true });
+    fs.writeFileSync(claim, `${process.pid} ${new Date().toISOString()}\n`);
+  } catch (e) { continue; }
   processed++;
   const { url, sha } = julyMan[repo];
   const work = `/tmp/rr_${repo}`, src = `${work}/src`;
@@ -317,6 +328,7 @@ for (const repo of targets) {
     ...Object.keys(tools).map(t => toolRows[t] ? nameSet(toolRows[t]).size : 'NA'),
     errAgg.nReal, errAgg.nProgress, JSON.stringify(Object.entries(errAgg.kinds).map(([k, v]) => `${k}:${v}`).join(' '))].join(',') + '\n');
 
+  try { fs.unlinkSync(`${od}/.claim`); } catch (e) { }
   logln(`OK gt(imp/impT/all)=${nowN.imp}/${nowN.impT}/${nowN.all} err=${errAgg.nReal} ${Math.round((Date.now() - t0) / 1000)}s`);
   fs.rmSync(work, { recursive: true, force: true });
   done++;
