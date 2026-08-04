@@ -140,7 +140,8 @@ if (process.env.ONLY) {
   targets.length = 0; for (const r of Object.keys(julyMan)) if (want.has(r)) targets.push(r);
 }
 const noSha = targets.filter(r => !/^[0-9a-f]{40}$/.test(julyMan[r].sha));
-logln(`# rerun2 開始 ${new Date().toISOString()} 対象=${targets.length} (SHA未記録=${noSha.length}→HEADで取得) 上限=${LIMIT}`);
+logln(`# rerun2 開始 ${new Date().toISOString()} 対象=${targets.length} (SHA未記録=${noSha.length}→SKIP) 上限=${LIMIT}`);
+logln(`# 7月に main を除外できていなかった repo（予測集合。この集合の repo のみ july_main_bug を許す）= ${july.emptyMain.size} 件: ${[...july.emptyMain].sort().join(' ')}`);
 
 try { cp.execSync('rm -rf /tmp/rr2_* 2>/dev/null'); } catch (e) { }
 let done = 0, skipped = 0, processed = 0;
@@ -182,26 +183,25 @@ for (const repo of targets) {
   }
 
   // 1) clone（GT妥当性検証(validate_gt.js)と同じ SHA固定ロジック）
+  // SHA が取れない repo は SKIP する。HEAD は7月時点と別物なので、7月の数値と
+  // 照合しても意味がなく、verify.csv に説明のつかない differ を混入させるだけ。
   const hasSha = /^[0-9a-f]{40}$/.test(sha);
-  let pinned = false, headSha = '';
-  if (hasSha) {
-    run(`cd ${src} && git init -q && git remote add origin ${url} && timeout 300 git fetch -q --depth 1 origin ${sha} && git checkout -q FETCH_HEAD`, { env });
+  if (!hasSha) {
+    recordSkip(od, repo, sha, 'permanent', 'no_sha_recorded');
+    logln('SKIP(permanent/no_sha_recorded)'); fs.rmSync(work, { recursive: true, force: true }); skipped++; continue;
+  }
+  let pinned = false, headSha = sha;
+  run(`cd ${src} && git init -q && git remote add origin ${url} && timeout 300 git fetch -q --depth 1 origin ${sha} && git checkout -q FETCH_HEAD`, { env });
+  pinned = run(`cd ${src} && git rev-parse HEAD`, { env }).out.trim() === sha;
+  if (!pinned) {   // SHA直接fetch不可なら full clone → checkout
+    fs.rmSync(src, { recursive: true, force: true }); fs.mkdirSync(src, { recursive: true });
+    run(`timeout 600 git clone -q ${url} ${src} && cd ${src} && git checkout -q ${sha}`, { env });
     pinned = run(`cd ${src} && git rev-parse HEAD`, { env }).out.trim() === sha;
-    if (!pinned) {   // SHA直接fetch不可なら full clone → checkout
-      fs.rmSync(src, { recursive: true, force: true }); fs.mkdirSync(src, { recursive: true });
-      run(`timeout 600 git clone -q ${url} ${src} && cd ${src} && git checkout -q ${sha}`, { env });
-      pinned = run(`cd ${src} && git rev-parse HEAD`, { env }).out.trim() === sha;
-    }
-    headSha = sha;
-  } else {
-    run(`timeout 300 git clone -q --depth=1 ${url} ${src}`, { env });
-    headSha = run(`cd ${src} && git rev-parse HEAD`, { env }).out.trim();
-    pinned = !!headSha;   // SHA固定ではないが取得はできた
   }
   if (!pinned) {
     // clone/fetch の失敗はレート制限・ネットワーク等の一時的事象が多い → retryable
-    recordSkip(od, repo, sha, 'retryable', hasSha ? 'sha_fetch_failed' : 'clone_failed');
-    logln(`SKIP(retryable/${hasSha ? 'sha_fetch_failed' : 'clone_failed'})`);
+    recordSkip(od, repo, sha, 'retryable', 'sha_fetch_failed');
+    logln('SKIP(retryable/sha_fetch_failed)');
     fs.rmSync(work, { recursive: true, force: true }); skipped++; continue;
   }
   if (!fs.existsSync(`${src}/go.mod`)) {
@@ -268,7 +268,7 @@ for (const repo of targets) {
 
   // 5) meta.json（成功時のみ）/ raw gzip / summary
   fs.writeFileSync(`${od}/meta.json`, JSON.stringify({
-    repo, sha: headSha, sha_recorded_in_july: sha || null, sha_pinned: hasSha,
+    repo, sha: headSha, sha_recorded_in_july: sha, sha_pinned: true,
     url, gmain, status: 'OK', at: new Date().toISOString(),
     elapsed_sec: Math.round((Date.now() - t0) / 1000),
     exit_codes: codes,
@@ -282,7 +282,7 @@ for (const repo of targets) {
     note: 'TSVは原文の大文字小文字を保持。照合は小文字化したモジュールパス単位（scorer.js と同一）。',
   }, null, 2));
 
-  fs.appendFileSync(SUM, [repo, headSha, hasSha ? 'OK' : 'OK_HEAD', nowN.imp, nowN.impT, nowN.all,
+  fs.appendFileSync(SUM, [repo, headSha, 'OK', nowN.imp, nowN.impT, nowN.all,
     ...Object.keys(tools).map(t => toolRows[t] ? nameSet(toolRows[t]).size : 'NA'),
     errAgg.nReal, errAgg.nProgress,
     JSON.stringify(Object.entries(errAgg.kinds).map(([k, v]) => `${k}:${v}`).join(' '))].join(',') + '\n');

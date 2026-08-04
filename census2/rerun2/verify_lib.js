@@ -3,21 +3,27 @@
 //   （census2/rerun/verify_with_scorer.js と同じ方式）。
 //
 //   比較対象:
-//     - GT 3定義の件数（gt-imported / gt-imported-test / gt-all）
+//     - GT 3定義の件数（scorer が見た集合サイズ = tp+fn。7月・今回とも同じ求め方）
 //     - 各ツールの tp/fp/fn（all / imported / imported+test の9値。モジュールパス単位）
 //   判定: match / july_main_bug / differ の3分類。
 //
-// 【7月側の既知の誤り＝「一致しないのが正しい」もの。differ に入れない】
+// 【july_main_bug は「予測してから照合」する】
+//   不一致の形を見て後付けで既知バグ扱いにすると、gmain が空だった repo が他にもあった場合に
+//   すべて july_main_bug へ吸い込まれ、differ が上がってこない＝ゲートが意味を失う。
+//   そこで **7月の記録だけから「main を除外できていなかった repo 一覧」を先に確定**し
+//   （emptyMainRepos()）、その集合に入っている repo に限り july_main_bug を許す。
+//   集合外の repo は、たとえ main 空で再現できても differ として報告する。
+//
+// 【7月側の既知の誤り】
 //  (a) manifest.csv の n_all は `go list -m -e all` の生出力の行数で main module 行を
 //      含み +1 されている（proc.sh:65 が grep -v main をしていない）。
-//      → GT-all の件数比較は 7月値から 1 を引いてから行う。
-//  (b) 一部リポジトリ（例: Lifailon__lazyjournal）は7月に `go list -m` が空を返し
-//      main.txt が空になったため、scorer.js が自モジュールを除外できていない。
-//      → syft/trivy は自モジュールを components に含めるので imported の fp が +1、
-//        cdxgen/cyclonedx-gomod は含めないので all の fn が +1。
-//      → さらに gt_imported/gt_impT も main 行を除去できていないので件数も +1。
-//      判定方法: 「main あり」で採点して合わなければ「main 空」でも採点し、
-//      後者が7月と一致すれば july_main_bug（ツール出力自体は同一）。
+//      → 本ゲートは件数比較に manifest の n_all を使わず、7月・今回とも
+//        「scorer が見た集合サイズ = tp+fn」で突き合わせるので補正自体が不要。
+//        （n_all の -1 補正は n_all=0 の repo や、norm() で大小文字が衝突して縮む repo で
+//         壊れる。実際 go-furnace__go-furnace と jeffail__leaps は n_all-GT が 2 ある。）
+//        manifest 由来の生の件数は参考列としてのみ出力する。
+//  (b) 一部リポジトリは7月に自モジュールを除外できておらず、syft/trivy の imported fp が +1、
+//      cdxgen/cyclonedx-gomod の all fn が +1 になる。→ 上記の予測集合で扱う。
 'use strict';
 const fs = require('fs');
 const cp = require('child_process');
@@ -29,8 +35,9 @@ const SCORER = path.join(BASE, 'scorer.js');
 const TOOLS = ['syft', 'trivy', 'cdxgen', 'cyclonedx-gomod'];
 
 const VERIFY_HEADER = 'repo,tool,' +
-  'gt_imp_july_adj,gt_imp_now,gt_impT_july_adj,gt_impT_now,gt_all_july_adj,gt_all_now,gt_counts_ok,' +
-  'july_all_tp/fp/fn|imp_tp/fp/fn|impT_tp/fp/fn,now_main,now_main_empty,verdict\n';
+  'gt_imp_july,gt_imp_now,gt_impT_july,gt_impT_now,gt_all_july,gt_all_now,gt_counts_ok,' +
+  'july_n_all_raw,now_gt_all_tsv_lines,' +
+  'july_scores,now_main,now_main_empty,emptymain_predicted,verdict\n';
 
 // ---------- 7月の記録 ----------
 function loadJuly() {
@@ -38,24 +45,54 @@ function loadJuly() {
   for (const l of fs.readFileSync(BASE + '/manifest.csv', 'utf8').trim().split('\n').slice(1)) {
     const c = l.split(',');
     if (c[6] !== 'OK') continue;
-    man[c[0]] = { url: c[1], sha: c[2], imp: +c[7], impT: +c[8], all: +c[9] };
+    man[c[0]] = { url: c[1], sha: c[2], gmain: c[4], imp: +c[7], impT: +c[8], all: +c[9] };
   }
-  const met = {};
+  const met = {};      // repo -> tool -> "9値" | 'NA'
+  const gt = {};       // repo -> {all, imp, impT}  scorer が見た GT 集合サイズ
   const L = fs.readFileSync(BASE + '/metrics.csv', 'utf8').trim().split('\n');
   const H = L[0].split(','); const ix = Object.fromEntries(H.map((h, i) => [h, i]));
   for (const l of L.slice(1)) {
     const c = l.split(',');
     if (c[2] === 'NA' || c.length < 20) { (met[c[0]] = met[c[0]] || {})[c[1]] = 'NA'; continue; }
+    const g = k => +c[ix[k]];
     // scorer.js の出力順（all 3 → imported 3 → impT 3）に揃える
     (met[c[0]] = met[c[0]] || {})[c[1]] = ['n_all_tp', 'n_all_fp', 'n_all_fn',
       'n_imp_tp', 'n_imp_fp', 'n_imp_fn', 'n_impT_tp', 'n_impT_fp', 'n_impT_fn']
       .map(k => +c[ix[k]]).join('/');
+    // GT 集合サイズ = tp + fn（どのツールの行から求めても同じはず）
+    const size = { all: g('n_all_tp') + g('n_all_fn'), imp: g('n_imp_tp') + g('n_imp_fn'), impT: g('n_impT_tp') + g('n_impT_fn') };
+    if (!gt[c[0]]) gt[c[0]] = size;
+    else for (const k of ['all', 'imp', 'impT']) if (gt[c[0]][k] !== size[k]) gt[c[0]].inconsistent = true;
   }
-  return { man, met };
+  return { man, met, gt, emptyMain: emptyMainRepos(man, gt) };
+}
+
+// 7月に scorer が main module を除外できていなかった repo を、**7月の記録だけから**確定する。
+//   7月の gt_all.txt は `go list -m -e all` の生出力そのもの（＝manifest の n_all 行）で
+//   main module 行を必ず1行含む（proc.sh:65 は grep -v していない）。
+//   一方 scorer が見た GT-all の集合サイズは all_tp + all_fn。
+//     n_all - (all_tp + all_fn) == 0  → main が集合に残っている ＝ main.txt が空だった
+//                                 >= 1 → main を除外できていた
+//   n_all == 0（`go list -m all` 自体が失敗）の repo は判定不能なので集合に入れない
+//   （例: kubernetes__kubernetes。入れてしまうと差分が既知バグ扱いで吸収され differ に出ない）。
+//   なお norm() の大小文字衝突で集合が余分に縮む repo では差が 2 以上になるが、
+//   その場合も「main は除外できていた」側に落ちるので安全側（differ になる）。
+function emptyMainRepos(man, gt) {
+  const s = new Set();
+  for (const [repo, m] of Object.entries(man)) {
+    const g = gt[repo];
+    if (!g || g.inconsistent) continue;
+    if (!(m.all > 0)) continue;                 // n_all=0 は判定不能
+    if (m.all - g.all === 0) s.add(repo);
+  }
+  return s;
 }
 
 // ---------- 保存物から scorer.js の入力を復元して実行 ----------
-// emptyMain=true で「7月の main 空バグ」を再現する。
+// emptyMain=true で「7月の main 空」状態を再現する。
+// ※ この関数は census2/rerun/verify_with_scorer.js の score() と論理的に同一。
+//    （main.txt を空にする / gt_all.txt にだけ main 行を復元する / gt_imported・gt_impT は
+//      7月も main を含まないので復元しない / 補助集合は空 / raw を展開して scorer を実行）
 function score(outDir, repo, emptyMain) {
   const R = `${outDir}/${repo}`, D = `/tmp/vs2_${repo}_${process.pid}`;
   fs.rmSync(D, { recursive: true, force: true }); fs.mkdirSync(D, { recursive: true });
@@ -64,13 +101,8 @@ function score(outDir, repo, emptyMain) {
   fs.writeFileSync(`${D}/main.txt`, emptyMain ? '' : (meta.gmain || '') + '\n');
   fs.writeFileSync(`${D}/gt_imported.txt`, tsv2txt(`${R}/gt-imported.tsv`));
   fs.writeFileSync(`${D}/gt_impT.txt`, tsv2txt(`${R}/gt-imported-test.tsv`));
-  // 7月の gt_all.txt は `go list -m -e all` の生出力で main 行を含む（bug (a)）。
-  // main 空で採点する場合は main 行を復元しないと再現しない。
-  // 一方 gt_imported / gt_impT は7月も main を含んでいなかった（実測で確認済み。
-  // Lifailon__lazyjournal では main は GT になく、ツール側の自モジュール検出が FP になっている）
-  // ので、ここでは復元しない。verify_with_scorer.js と同じ扱い。
-  const mainLine = (emptyMain && meta.gmain) ? meta.gmain + '\n' : '';
-  fs.writeFileSync(`${D}/gt_all.txt`, mainLine + tsv2txt(`${R}/gt-all.tsv`));
+  // 7月の gt_all.txt は生出力で main 行を含む。main 空で採点する場合は復元しないと再現しない。
+  fs.writeFileSync(`${D}/gt_all.txt`, ((emptyMain && meta.gmain) ? meta.gmain + '\n' : '') + tsv2txt(`${R}/gt-all.tsv`));
   // FP原因分類にしか使わない補助集合。tp/fp/fn には影響しないので空で良い。
   for (const f of ['win.txt', 'mod_direct.txt', 'mod_indirect.txt', 'gosum.txt']) fs.writeFileSync(`${D}/${f}`, '');
   for (const t of TOOLS) {
@@ -91,6 +123,12 @@ function score(outDir, repo, emptyMain) {
   return res;
 }
 
+// scorer の9値から GT 集合サイズ（tp+fn）を取り出す
+function gtSizeOf(nine) {
+  if (!nine || nine === 'NA') return null;
+  const v = nine.split('/').map(Number);
+  return { all: v[0] + v[2], imp: v[3] + v[5], impT: v[6] + v[8] };
+}
 const nLines = f => { try { const s = fs.readFileSync(f, 'utf8'); return s ? s.trim().split('\n').filter(Boolean).length : 0; } catch (e) { return 0; } };
 
 // 1リポジトリ分を検証して verify.csv の行と判定を返す。
@@ -98,48 +136,49 @@ function verifyRepo(outDir, repo, july) {
   const J = july.man[repo];
   if (!J) return { rows: [], tally: {} };
   const R = `${outDir}/${repo}`;
-  const now = {
-    imp: nLines(`${R}/gt-imported.tsv`),
-    impT: nLines(`${R}/gt-imported-test.tsv`),
-    all: nLines(`${R}/gt-all.tsv`),
-  };
-  const A = score(outDir, repo, false);      // 正しく main を除外
-  let B = null;                              // 7月の main 空バグ再現（必要時のみ）
-  const needB = () => { if (!B) B = score(outDir, repo, true); return B; };
+  const jGT = july.gt[repo] || null;
+  const predicted = july.emptyMain.has(repo);
+  const nowAllLines = nLines(`${R}/gt-all.tsv`);
 
-  const rows = [], tally = { match: 0, july_main_bug: 0, differ: 0, na: 0 };
+  const A = score(outDir, repo, false);      // 正しく main を除外
+  let B = null;
+  const needB = () => { if (!B) B = score(outDir, repo, true); return B; };
+  // GT 集合サイズは repo 単位（全ツール共通）。NA のツール行からは求まらないので、
+  // 非 NA のツール行から1つ求めて全行で使う（NA行だけ偽の件数不一致になるのを防ぐ）。
+  const repoGT = S => { for (const t of TOOLS) { const g = gtSizeOf(S[t]); if (g) return g; } return null; };
+
+  const rows = [], tally = { match: 0, july_main_bug: 0, differ: 0 };
   for (const t of TOOLS) {
     const j = (july.met[repo] || {})[t];
     if (j === undefined) continue;
+    const a = A[t];
 
-    let verdict, countsOk;
-    if (j === 'NA' || A[t] === 'NA' || A[t] === undefined) {
+    let verdict, useB = false;
+    if (j === 'NA' || a === 'NA' || a === undefined) {
       // 7月に NA（ツール出力なし）なら今回も NA であることを確認する
-      verdict = (j === 'NA' && (A[t] === 'NA' || A[t] === undefined)) ? 'match' : 'differ';
-      countsOk = J.imp === now.imp && J.impT === now.impT && (J.all - 1) === now.all;
-      if (!countsOk) verdict = 'differ';
-      tally[verdict === 'match' ? 'match' : 'differ']++;
-      rows.push([repo, t, J.imp, now.imp, J.impT, now.impT, J.all - 1, now.all, countsOk ? 'yes' : 'NO',
-        j === undefined ? '' : j, A[t] === undefined ? '' : A[t], '', verdict].join(','));
-      continue;
-    }
-
-    // 件数比較。(a) n_all だけが main module 行の分だけ常に +1 されているので 1 を引く。
-    // gt_imported / gt_impT は7月も main を含まないため補正不要。
-    countsOk = J.imp === now.imp && J.impT === now.impT && (J.all - 1) === now.all;
-
-    if (A[t] === j && countsOk) {
-      verdict = 'match'; tally.match++;
-    } else if (needB()[t] === j && countsOk) {
-      // ツール出力自体は7月と同一。7月が自モジュールを除外できていなかった分だけ差が出る (b)。
-      verdict = 'july_main_bug'; tally.july_main_bug++;
+      verdict = (j === 'NA' && (a === 'NA' || a === undefined)) ? 'match' : 'differ';
+    } else if (a === j) {
+      verdict = 'match';
+    } else if (predicted && needB()[t] === j) {
+      // 予測集合に入っている repo のみ。ツール出力自体は7月と同一。
+      verdict = 'july_main_bug'; useB = true;
     } else {
-      verdict = 'differ'; tally.differ++;
+      verdict = 'differ';
+      if (predicted) needB();      // 参考のため main 空の値も出す
     }
-    rows.push([repo, t, J.imp, now.imp, J.impT, now.impT, J.all - 1, now.all, countsOk ? 'yes' : 'NO',
-      j, A[t], B ? B[t] : '', verdict].join(','));
+    tally[verdict]++;
+
+    // GT 件数は 7月・今回とも「scorer が見た集合サイズ = tp+fn」で比較する（補正不要）
+    const nGT = repoGT(useB ? B : A);
+    const countsOk = (jGT && nGT) ? (jGT.all === nGT.all && jGT.imp === nGT.imp && jGT.impT === nGT.impT)
+      : (!jGT && !nGT) ? true : null;   // 双方から求まらない場合は判定不能
+    rows.push([repo, t,
+      jGT ? jGT.imp : '', nGT ? nGT.imp : '', jGT ? jGT.impT : '', nGT ? nGT.impT : '',
+      jGT ? jGT.all : '', nGT ? nGT.all : '', countsOk === null ? 'NA' : countsOk ? 'yes' : 'NO',
+      J.all, nowAllLines,
+      j, a === undefined ? '' : a, B ? B[t] : '', predicted ? 'yes' : 'no', verdict].join(','));
   }
   return { rows, tally };
 }
 
-module.exports = { loadJuly, score, verifyRepo, VERIFY_HEADER, TOOLS };
+module.exports = { loadJuly, score, verifyRepo, emptyMainRepos, VERIFY_HEADER, TOOLS };
