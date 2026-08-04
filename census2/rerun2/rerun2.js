@@ -35,7 +35,7 @@ const julyMan = july.man;
 
 // ---------- 出力ファイル（1件ごとに逐次追記） ----------
 const SUM = `${OUT}/summary.csv`, VER = `${OUT}/verify.csv`;
-const SKIPS = `${OUT}/skips.csv`, LOG = `${OUT}/progress.log`;
+const SKIPS = `${OUT}/skips.csv`, LOG = `${OUT}/progress.log`, STOP = `${OUT}/STOP`;
 if (!fs.existsSync(SUM)) fs.writeFileSync(SUM, 'repo,sha,status,n_gt_imported,n_gt_impT,n_gt_all,' +
   'n_syft,n_trivy,n_cdxgen,n_cyclonedx-gomod,golist_real_errors,golist_progress_lines,error_kinds\n');
 if (!fs.existsSync(VER)) fs.writeFileSync(VER, V.VERIFY_HEADER);
@@ -142,13 +142,16 @@ if (process.env.ONLY) {
 const noSha = targets.filter(r => !/^[0-9a-f]{40}$/.test(julyMan[r].sha));
 logln(`# rerun2 開始 ${new Date().toISOString()} 対象=${targets.length} (SHA未記録=${noSha.length}→SKIP) 上限=${LIMIT}`);
 logln(`# 7月に main を除外できていなかった repo（予測集合。この集合の repo のみ july_main_bug を許す）= ${july.emptyMain.size} 件: ${[...july.emptyMain].sort().join(' ')}`);
+logln(`# 7月側の記録が使えず比較できない repo（july_unavailable。ゲートは通すが verify.csv に残す）= ${july.unavailable.size} 件: ${[...july.unavailable].sort().join(' ')}`);
 
 try { cp.execSync('rm -rf /tmp/rr2_* 2>/dev/null'); } catch (e) { }
 let done = 0, skipped = 0, processed = 0;
-const tally = { match: 0, july_main_bug: 0, differ: 0, na: 0 };
+const tally = { match: 0, july_main_bug: 0, july_unavailable: 0, differ: 0 };
 
 for (const repo of targets) {
   if (processed >= LIMIT) break;
+  // 他ワーカーが differ を検出した／stop2.sh が叩かれた場合、全ワーカーがここで止まる。
+  if (fs.existsSync(STOP)) { logln(`# STOP を検出したので停止する: ${fs.readFileSync(STOP, 'utf8').trim()}`); break; }
   const od = `${OUT}/${repo}`;
   if (fs.existsSync(`${od}/meta.json`)) { done++; continue; }   // 再開: 処理済みはスキップ
   // 複数ワーカーで並列に回せるよう .claim で排他。30分より古い claim は奪い取る。
@@ -301,11 +304,16 @@ for (const repo of targets) {
 
   try { fs.unlinkSync(`${od}/.claim`); } catch (e) { }
   const d = (vres.tally || {}).differ || 0;
+  if (d > 0 && !fs.existsSync(STOP)) {
+    // 報告のトリガー。全件を回し切る前に全ワーカーを止める。
+    fs.writeFileSync(STOP, `differ=${d} at ${repo} (${new Date().toISOString()}) pid=${process.pid}\n`);
+    logln(`# ★ differ=${d} を ${repo} で検出 → STOP を作成し全ワーカーを停止する`);
+  }
   logln(`OK gt(imp/impT/all)=${nowN.imp}/${nowN.impT}/${nowN.all} err=${errAgg.nReal} ` +
-    `verify(match/bug/differ)=${vres.tally.match || 0}/${vres.tally.july_main_bug || 0}/${d} ${Math.round((Date.now() - t0) / 1000)}s`);
+    `verify(match/bug/unavail/differ)=${vres.tally.match || 0}/${vres.tally.july_main_bug || 0}/${vres.tally.july_unavailable || 0}/${d} ${Math.round((Date.now() - t0) / 1000)}s`);
   fs.rmSync(work, { recursive: true, force: true });
   done++;
 }
 logln(`\n# 完了 処理=${processed} 成功=${done} SKIP=${skipped}`);
-logln(`# 検証 match=${tally.match} july_main_bug=${tally.july_main_bug} differ=${tally.differ}`);
+logln(`# 検証 match=${tally.match} july_main_bug=${tally.july_main_bug} july_unavailable=${tally.july_unavailable} differ=${tally.differ}`);
 if (tally.differ > 0) logln(`# ★ differ=${tally.differ} — 報告のトリガー`);

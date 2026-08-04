@@ -18,7 +18,7 @@ const repos = fs.readdirSync(OUT).filter(d => {
 }).sort();
 
 const rows = [];
-const tally = { match: 0, july_main_bug: 0, differ: 0 };
+const tally = { match: 0, july_main_bug: 0, july_unavailable: 0, differ: 0 };
 for (const repo of repos) {
   const r = V.verifyRepo(OUT, repo, july);
   rows.push(...r.rows);
@@ -29,6 +29,7 @@ fs.writeFileSync(`${OUT}/verify.csv`, V.VERIFY_HEADER + rows.join('\n') + (rows.
 console.log(`対象 ${repos.length} リポジトリ / ${rows.length} 行（7月の scorer.js を実行して照合）`);
 console.log(`  match         = ${tally.match}   7月と完全一致`);
 console.log(`  july_main_bug = ${tally.july_main_bug}   ツール出力は同一。7月が自モジュールを除外できていなかった分の差（一致しないのが正しい）`);
+console.log(`  july_unavailable = ${tally.july_unavailable}   7月側の記録が使えず比較できない（再現失敗ではない）`);
 console.log(`  differ        = ${tally.differ}   ★ツール出力が実際に変わっている（要調査）`);
 console.log(`[written] ${OUT}/verify.csv`);
 if (tally.differ > 0) {

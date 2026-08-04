@@ -5,7 +5,10 @@
 //   比較対象:
 //     - GT 3定義の件数（scorer が見た集合サイズ = tp+fn。7月・今回とも同じ求め方）
 //     - 各ツールの tp/fp/fn（all / imported / imported+test の9値。モジュールパス単位）
-//   判定: match / july_main_bug / differ の3分類。
+//   判定: match / july_main_bug / july_unavailable / differ の4分類。
+//   july_unavailable は「7月側の記録が使えず比較できない」repo。
+//   「7月と比較できない」ことと「再現できていない」ことは別物なので differ に混ぜない。
+//   ゲートは通す（ジョブを止めない）が verify.csv には必ず行を残す。
 //
 // 【july_main_bug は「予測してから照合」する】
 //   不一致の形を見て後付けで既知バグ扱いにすると、gmain が空だった repo が他にもあった場合に
@@ -64,7 +67,7 @@ function loadJuly() {
     if (!gt[c[0]]) gt[c[0]] = size;
     else for (const k of ['all', 'imp', 'impT']) if (gt[c[0]][k] !== size[k]) gt[c[0]].inconsistent = true;
   }
-  return { man, met, gt, emptyMain: emptyMainRepos(man, gt) };
+  return { man, met, gt, emptyMain: emptyMainRepos(man, gt), unavailable: unavailableRepos(man, gt) };
 }
 
 // 7月に scorer が main module を除外できていなかった repo を、**7月の記録だけから**確定する。
@@ -86,6 +89,32 @@ function emptyMainRepos(man, gt) {
     if (m.all - g.all === 0) s.add(repo);
   }
   return s;
+}
+
+// 7月側の記録が使えず比較できない repo を、7月の記録だけから確定する。
+//   - n_all == 0            : 7月の `go list -m all` 自体が失敗（例: kubernetes__kubernetes）。
+//                             予測式 n_all-(tp+fn) が退化するので main 除外の有無も判定できない。
+//   - GT サイズが取れない    : 4ツール全部 NA（＝7月のスコアが1つも無い）／metrics.csv に行が無い。
+//   - GT サイズがツール間で不整合: 7月の記録自体が壊れている。
+function unavailableRepos(man, gt) {
+  const s = new Set();
+  for (const [repo, m] of Object.entries(man)) {
+    const g = gt[repo];
+    if (!g || g.inconsistent || !(m.all > 0)) s.add(repo);
+  }
+  return s;
+}
+
+// 予測集合への追加（main空 かつ norm() の大小文字衝突が同時に起きる repo は
+// n_all-(tp+fn) が 1 になり予測集合から漏れる＝differ として上がる）。
+// その差分が「imported fp +1 / all fn +1」の既知シグネチャなら、コードを直さず
+// census2/rerun2/emptymain_extra.txt に repo 名を1行1件で足して再判定できる。
+function extraEmptyMain() {
+  const f = path.join(__dirname, 'emptymain_extra.txt');
+  try {
+    return new Set(fs.readFileSync(f, 'utf8').split('\n')
+      .map(s => s.replace(/#.*/, '').trim()).filter(Boolean));
+  } catch (e) { return new Set(); }
 }
 
 // ---------- 保存物から scorer.js の入力を復元して実行 ----------
@@ -137,7 +166,8 @@ function verifyRepo(outDir, repo, july) {
   if (!J) return { rows: [], tally: {} };
   const R = `${outDir}/${repo}`;
   const jGT = july.gt[repo] || null;
-  const predicted = july.emptyMain.has(repo);
+  const predicted = july.emptyMain.has(repo) || extraEmptyMain().has(repo);
+  const unavailable = july.unavailable.has(repo);
   const nowAllLines = nLines(`${R}/gt-all.tsv`);
 
   const A = score(outDir, repo, false);      // 正しく main を除外
@@ -147,14 +177,17 @@ function verifyRepo(outDir, repo, july) {
   // 非 NA のツール行から1つ求めて全行で使う（NA行だけ偽の件数不一致になるのを防ぐ）。
   const repoGT = S => { for (const t of TOOLS) { const g = gtSizeOf(S[t]); if (g) return g; } return null; };
 
-  const rows = [], tally = { match: 0, july_main_bug: 0, differ: 0 };
+  const rows = [], tally = { match: 0, july_main_bug: 0, july_unavailable: 0, differ: 0 };
   for (const t of TOOLS) {
     const j = (july.met[repo] || {})[t];
     if (j === undefined) continue;
     const a = A[t];
 
     let verdict, useB = false;
-    if (j === 'NA' || a === 'NA' || a === undefined) {
+    if (unavailable) {
+      // 7月側が使えないので照合しない。今回の値は記録として残す。
+      verdict = 'july_unavailable';
+    } else if (j === 'NA' || a === 'NA' || a === undefined) {
       // 7月に NA（ツール出力なし）なら今回も NA であることを確認する
       verdict = (j === 'NA' && (a === 'NA' || a === undefined)) ? 'match' : 'differ';
     } else if (a === j) {
