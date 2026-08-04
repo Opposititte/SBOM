@@ -316,6 +316,30 @@ W('vendor修正(`-mod=mod`)の本当の効果は増加ではなく **正しさ/�
 W('既定 `-mod=vendor` だと `go list -m all` が "can\'t compute all using the vendor directory" で失敗し**空GTに誤判定**される。');
 W('前回の集計コードも同じく `-mod=mod` を付けていなかったため、**前回も vendored repo を取りこぼしていた可能性が高い**（＝今回の方がより正確）。\n');
 
+// ---- 各ツールの実行コマンド（実物） ----
+W('## 4b. 各SBOMツールの実行コマンド（実物）');
+W('7月の計測（`proc.sh`）と再実行（`rerun/rerun.js`）で**コマンドは同一**。');
+W('差は出力先のパスと stderr の扱いのみ（再実行では stderr を捨てずに保存する）。');
+W('`$d` / `${src}` はクローンしたリポジトリのルート、`$TO` は per-command timeout（300秒）。\n');
+W('```bash');
+W('# 7月計測 census2/proc.sh:45-48');
+W('timeout $TO syft "$d" -o cyclonedx-json="$outdir/syft_output.json"');
+W('timeout $TO trivy fs "$d" --format cyclonedx --output "$outdir/trivy_output.json"');
+W('timeout $TO cdxgen -t go "$d" -o "$outdir/cdxgen_output.json"');
+W('timeout $TO cyclonedx-gomod mod -json -output "$outdir/cyclonedx-gomod_output.json" "$d"');
+W('```\n');
+W('論文の表に載せる形（出力先を除いた本体部分）:\n');
+W('| ツール | 実行コマンド |');
+W('|---|---|');
+W('| Syft | `syft <dir> -o cyclonedx-json=<out>` |');
+W('| Trivy | `trivy fs <dir> --format cyclonedx --output <out>` |');
+W('| cdxgen | `cdxgen -t go <dir> -o <out>` |');
+W('| cyclonedx-gomod | `cyclonedx-gomod mod -json -output <out> <dir>` |');
+W('- 4ツールとも **CycloneDX JSON** で出力させ、`components[].purl` のうち `pkg:golang/` を持つものを依存として抽出する。');
+W('- cyclonedx-gomod は **`mod` サブコマンド**（`app` や `bin` ではない）。');
+W('- cdxgen は `-t go` で Go に限定（他言語のカタログを走らせない）。');
+W('- いずれも既定に近い設定で1回のみ実行し、オプションによる感度は評価していない。\n');
+
 // ---- GT-imported の妥当性検証 ----
 W('## 5. GT-imported の妥当性検証（go/parser との突き合わせ）');
 W('GT-imported（`go list -deps -e`）が依存を取りこぼしていないかを、独立な方法で検証した。');
