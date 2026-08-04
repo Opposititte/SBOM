@@ -5,10 +5,13 @@
 //   比較対象:
 //     - GT 3定義の件数（scorer が見た集合サイズ = tp+fn。7月・今回とも同じ求め方）
 //     - 各ツールの tp/fp/fn（all / imported / imported+test の9値。モジュールパス単位）
-//   判定: match / july_main_bug / july_unavailable / differ の4分類。
+//   判定: match / july_main_bug / july_main_bug_late / july_unavailable / july_tool_na / differ。
 //   july_unavailable は「7月側の記録が使えず比較できない」repo。
 //   「7月と比較できない」ことと「再現できていない」ことは別物なので differ に混ぜない。
 //   ゲートは通す（ジョブを止めない）が verify.csv には必ず行を残す。
+//   july_tool_na は「7月にそのツールが NA（出力なし）で、今回は成功した」ケース。
+//   7月の NA の多くはツール側の一時的失敗なので、今回成功するのは再現失敗ではない。
+//   ゲートは通す。逆（7月=成功・今回=NA）は本物の退行なので differ にして止める。
 //
 // 【july_main_bug は「予測してから照合」する】
 //   不一致の形を見て後付けで既知バグ扱いにすると、gmain が空だった repo が他にもあった場合に
@@ -40,7 +43,7 @@ const TOOLS = ['syft', 'trivy', 'cdxgen', 'cyclonedx-gomod'];
 const VERIFY_HEADER = 'repo,tool,' +
   'gt_imp_july,gt_imp_now,gt_impT_july,gt_impT_now,gt_all_july,gt_all_now,gt_counts_ok,' +
   'july_n_all_raw,now_gt_all_tsv_lines,' +
-  'july_scores,now_main,now_main_empty,emptymain_predicted,verdict\n';
+  'july_scores,now_main,now_main_empty,emptymain_source,verdict\n';
 
 // ---------- 7月の記録 ----------
 function loadJuly() {
@@ -105,16 +108,34 @@ function unavailableRepos(man, gt) {
   return s;
 }
 
-// 予測集合への追加（main空 かつ norm() の大小文字衝突が同時に起きる repo は
+// 予測集合への**事後**追加（main空 かつ norm() の大小文字衝突が同時に起きる repo は
 // n_all-(tp+fn) が 1 になり予測集合から漏れる＝differ として上がる）。
 // その差分が「imported fp +1 / all fn +1」の既知シグネチャなら、コードを直さず
-// census2/rerun2/emptymain_extra.txt に repo 名を1行1件で足して再判定できる。
+// census2/rerun2/emptymain_extra.txt に足して再判定できる。
+//
+// ただしこれは **走行中にオラクルを書き換える行為** なので、事前予測（emptyMainRepos）とは
+// 必ず区別する。判定ラベルは july_main_bug ではなく july_main_bug_late とし、
+// 「いつ・どの差分シグネチャを見て足したか」をファイルに残すことを必須とする。
+// 書式（TAB か複数スペース区切り。# 以降はコメントだが理由欄は必須）:
+//   <repo>  <追加日時ISO8601>  <観測した差分シグネチャ>
+// 例:
+//   foo__bar  2026-08-04T15:00:00Z  imported fp+1 / all fn+1 (norm衝突で予測式が1になり漏れた)
+// 論文には「予測式で N 件を事前特定、事後追加 M 件」と分けて書けるようにするため。
 function extraEmptyMain() {
   const f = path.join(__dirname, 'emptymain_extra.txt');
-  try {
-    return new Set(fs.readFileSync(f, 'utf8').split('\n')
-      .map(s => s.replace(/#.*/, '').trim()).filter(Boolean));
-  } catch (e) { return new Set(); }
+  const m = new Map();
+  let txt; try { txt = fs.readFileSync(f, 'utf8'); } catch (e) { return m; }
+  for (const line of txt.split('\n')) {
+    if (!line.trim() || /^\s*#/.test(line)) continue;
+    const a = line.split(/\t|\s{2,}/).map(s => s.trim()).filter(Boolean);
+    const repo = a[0]; if (!repo) continue;
+    if (a.length < 3) {
+      throw new Error(`emptymain_extra.txt: "${repo}" に追加日時と差分シグネチャがありません。` +
+        `書式: <repo>  <ISO8601>  <シグネチャ>  — 事後追加は監査可能でなければ受け付けません。`);
+    }
+    m.set(repo, { added_at: a[1], signature: a.slice(2).join(' ') });
+  }
+  return m;
 }
 
 // ---------- 保存物から scorer.js の入力を復元して実行 ----------
@@ -166,7 +187,10 @@ function verifyRepo(outDir, repo, july) {
   if (!J) return { rows: [], tally: {} };
   const R = `${outDir}/${repo}`;
   const jGT = july.gt[repo] || null;
-  const predicted = july.emptyMain.has(repo) || extraEmptyMain().has(repo);
+  const extra = extraEmptyMain();
+  const predictedAhead = july.emptyMain.has(repo);          // 7月の記録から事前に予測した集合
+  const predictedLate = !predictedAhead && extra.has(repo); // 走行中に事後追加した分
+  const predicted = predictedAhead || predictedLate;
   const unavailable = july.unavailable.has(repo);
   const nowAllLines = nLines(`${R}/gt-all.tsv`);
 
@@ -177,7 +201,7 @@ function verifyRepo(outDir, repo, july) {
   // 非 NA のツール行から1つ求めて全行で使う（NA行だけ偽の件数不一致になるのを防ぐ）。
   const repoGT = S => { for (const t of TOOLS) { const g = gtSizeOf(S[t]); if (g) return g; } return null; };
 
-  const rows = [], tally = { match: 0, july_main_bug: 0, july_unavailable: 0, differ: 0 };
+  const rows = [], tally = { match: 0, july_main_bug: 0, july_main_bug_late: 0, july_unavailable: 0, july_tool_na: 0, differ: 0 };
   for (const t of TOOLS) {
     const j = (july.met[repo] || {})[t];
     if (j === undefined) continue;
@@ -187,14 +211,17 @@ function verifyRepo(outDir, repo, july) {
     if (unavailable) {
       // 7月側が使えないので照合しない。今回の値は記録として残す。
       verdict = 'july_unavailable';
-    } else if (j === 'NA' || a === 'NA' || a === undefined) {
-      // 7月に NA（ツール出力なし）なら今回も NA であることを確認する
-      verdict = (j === 'NA' && (a === 'NA' || a === undefined)) ? 'match' : 'differ';
+    } else if (j === 'NA' && (a === 'NA' || a === undefined)) {
+      verdict = 'match';                 // 双方 NA。7月と同じ
+    } else if (j === 'NA') {
+      verdict = 'july_tool_na';          // 7月 NA → 今回は取れた。再現失敗ではないので止めない
+    } else if (a === 'NA' || a === undefined) {
+      verdict = 'differ';                // 7月は取れていたのに今回 NA。本物の退行なので止める
     } else if (a === j) {
       verdict = 'match';
     } else if (predicted && needB()[t] === j) {
       // 予測集合に入っている repo のみ。ツール出力自体は7月と同一。
-      verdict = 'july_main_bug'; useB = true;
+      verdict = predictedLate ? 'july_main_bug_late' : 'july_main_bug'; useB = true;
     } else {
       verdict = 'differ';
       if (predicted) needB();      // 参考のため main 空の値も出す
@@ -209,9 +236,11 @@ function verifyRepo(outDir, repo, july) {
       jGT ? jGT.imp : '', nGT ? nGT.imp : '', jGT ? jGT.impT : '', nGT ? nGT.impT : '',
       jGT ? jGT.all : '', nGT ? nGT.all : '', countsOk === null ? 'NA' : countsOk ? 'yes' : 'NO',
       J.all, nowAllLines,
-      j, a === undefined ? '' : a, B ? B[t] : '', predicted ? 'yes' : 'no', verdict].join(','));
+      j, a === undefined ? '' : a, B ? B[t] : '',
+      predictedAhead ? 'predicted' : predictedLate ? `late:${(extra.get(repo) || {}).added_at || ''}` : 'no',
+      verdict].join(','));
   }
   return { rows, tally };
 }
 
-module.exports = { loadJuly, score, verifyRepo, emptyMainRepos, VERIFY_HEADER, TOOLS };
+module.exports = { loadJuly, score, verifyRepo, emptyMainRepos, extraEmptyMain, VERIFY_HEADER, TOOLS };

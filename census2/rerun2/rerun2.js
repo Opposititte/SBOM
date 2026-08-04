@@ -109,9 +109,35 @@ function runToFile(cmd, outF, errF, opts = {}) {
 }
 const freeKB = () => { try { return +cp.execSync("df --output=avail / | tail -1", { encoding: 'utf8' }).trim(); } catch (e) { return 1e9; } };
 
+// これまでに skips.csv に記録された、この repo の retryable 失敗回数を数える。
+// 改名・削除された repo（例: buger/gor → buger/goreplay）は毎ラウンド失敗し続けるため、
+// 上限を超えたら permanent に降格させないと数時間ぶん回し続け、完走判定もできない。
+const MAX_RETRIES = 3;
+function retryableCount(repo) {
+  try {
+    let n = 0;
+    for (const l of fs.readFileSync(SKIPS, 'utf8').split('\n')) {
+      const c = l.split(',');
+      if (c[0] === repo && c[2] === 'retryable') n++;
+    }
+    return n;
+  } catch (e) { return 0; }
+}
+
 // SKIP 記録。permanent のみ meta.json を書き（=次回以降スキップ）、
 // retryable は out/<repo>/ を消して次回再試行させる。
+// ただし retryable が MAX_RETRIES 回に達したら permanent に降格する。
 function recordSkip(od, repo, sha, kind, reason) {
+  if (kind === 'retryable') {
+    const prior = retryableCount(repo);
+    if (prior + 1 >= MAX_RETRIES) {
+      kind = 'permanent';
+      reason = `retry_exhausted_after_${prior + 1}_attempts(${reason})`;
+    }
+  }
+  return recordSkip_(od, repo, sha, kind, reason);
+}
+function recordSkip_(od, repo, sha, kind, reason) {
   const at = new Date().toISOString();
   if (kind === 'permanent') {
     fs.mkdirSync(od, { recursive: true });
@@ -146,7 +172,7 @@ logln(`# 7月側の記録が使えず比較できない repo（july_unavailable�
 
 try { cp.execSync('rm -rf /tmp/rr2_* 2>/dev/null'); } catch (e) { }
 let done = 0, skipped = 0, processed = 0;
-const tally = { match: 0, july_main_bug: 0, july_unavailable: 0, differ: 0 };
+const tally = { match: 0, july_main_bug: 0, july_main_bug_late: 0, july_unavailable: 0, july_tool_na: 0, differ: 0 };
 
 for (const repo of targets) {
   if (processed >= LIMIT) break;
@@ -310,10 +336,10 @@ for (const repo of targets) {
     logln(`# ★ differ=${d} を ${repo} で検出 → STOP を作成し全ワーカーを停止する`);
   }
   logln(`OK gt(imp/impT/all)=${nowN.imp}/${nowN.impT}/${nowN.all} err=${errAgg.nReal} ` +
-    `verify(match/bug/unavail/differ)=${vres.tally.match || 0}/${vres.tally.july_main_bug || 0}/${vres.tally.july_unavailable || 0}/${d} ${Math.round((Date.now() - t0) / 1000)}s`);
+    `verify(match/bug/late/unavail/toolna/differ)=${vres.tally.match || 0}/${vres.tally.july_main_bug || 0}/${vres.tally.july_main_bug_late || 0}/${vres.tally.july_unavailable || 0}/${vres.tally.july_tool_na || 0}/${d} ${Math.round((Date.now() - t0) / 1000)}s`);
   fs.rmSync(work, { recursive: true, force: true });
   done++;
 }
 logln(`\n# 完了 処理=${processed} 成功=${done} SKIP=${skipped}`);
-logln(`# 検証 match=${tally.match} july_main_bug=${tally.july_main_bug} july_unavailable=${tally.july_unavailable} differ=${tally.differ}`);
+logln(`# 検証 match=${tally.match} july_main_bug=${tally.july_main_bug} july_main_bug_late=${tally.july_main_bug_late} july_unavailable=${tally.july_unavailable} july_tool_na=${tally.july_tool_na} differ=${tally.differ}`);
 if (tally.differ > 0) logln(`# ★ differ=${tally.differ} — 報告のトリガー`);
