@@ -36,6 +36,7 @@ const julyMan = july.man;
 // ---------- 出力ファイル（1件ごとに逐次追記） ----------
 const SUM = `${OUT}/summary.csv`, VER = `${OUT}/verify.csv`;
 const SKIPS = `${OUT}/skips.csv`, LOG = `${OUT}/progress.log`, STOP = `${OUT}/STOP`;
+const UNEXP = `${OUT}/unexplained_differ.csv`;   // 温め直しても7月を再現しなかった差分
 if (!fs.existsSync(SUM)) fs.writeFileSync(SUM, 'repo,sha,status,n_gt_imported,n_gt_impT,n_gt_all,' +
   'n_syft,n_trivy,n_cdxgen,n_cyclonedx-gomod,golist_real_errors,golist_progress_lines,error_kinds\n');
 if (!fs.existsSync(VER)) fs.writeFileSync(VER, V.VERIFY_HEADER);
@@ -358,10 +359,20 @@ for (const repo of targets) {
 
   try { fs.unlinkSync(`${od}/.claim`); } catch (e) { }
   const d = (vres.tally || {}).differ || 0;
-  // 【方針変更】differ でジョブを止めない。7月の条件は原理的に再現不能（順序依存）なので、
-  // ゲートは pass/fail ではなく差分の特性を記述する道具として使う。記録して回し切り、
-  // 最後にまとめて報告する。STOP は stop2.sh からの手動停止のためだけに残す。
-  if (d > 0) logln(`# ★ 未説明の differ=${d} at ${repo}（記録して続行）`);
+  // キャッシュ状態で説明できる差分（cache_sensitive）では止めない。
+  // ただし **温め直しても7月を再現しなかった differ は本物の再現失敗**なので、
+  // ログに埋もれさせず専用ファイルに記録したうえで、そこで止める。
+  if (d > 0) {
+    const rows = (vres.rows || []).filter(r => r.split(',').pop() === 'differ');
+    if (!fs.existsSync(UNEXP)) fs.writeFileSync(UNEXP, V.VERIFY_HEADER);
+    if (rows.length) fs.appendFileSync(UNEXP, rows.join('\n') + '\n');
+    const tools_ = rows.map(r => r.split(',')[1]).join(' ');
+    logln(`# ★ 未説明の differ=${d} at ${repo} [${tools_}] — 温め直しても7月を再現しなかった`);
+    if (!fs.existsSync(STOP)) {
+      fs.writeFileSync(STOP, `unexplained differ=${d} at ${repo} [${tools_}] (${new Date().toISOString()}) pid=${process.pid}\n`);
+      logln('# → STOP を作成し全ワーカーを停止する（本物の再現失敗のため）');
+    }
+  }
   logln(`OK gt(imp/impT/all)=${nowN.imp}/${nowN.impT}/${nowN.all} err=${errAgg.nReal} ` +
     `verify(match/bug/late/unavail/toolna/cache/differ)=${vres.tally.match || 0}/${vres.tally.july_main_bug || 0}/${vres.tally.july_main_bug_late || 0}/${vres.tally.july_unavailable || 0}/${vres.tally.july_tool_na || 0}/${vres.tally.cache_sensitive || 0}/${d} ${Math.round((Date.now() - t0) / 1000)}s`);
   fs.rmSync(work, { recursive: true, force: true });
