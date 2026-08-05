@@ -254,8 +254,25 @@ for (const repo of targets) {
     logln('SKIP(permanent/no_go_mod)'); fs.rmSync(work, { recursive: true, force: true }); skipped++; continue;
   }
   if (fs.existsSync(`${src}/go.work`)) env.GOFLAGS = '';     // 7月と同じ workspace 対応
-  const O = { env, cwd: src };
+  const O0 = { env, cwd: src };
   const codes = {};
+
+  // 7月の tool_versions.txt に「GOTOOLCHAIN=local（新しいGoを要求するrepoのみ auto で
+  // toolchain取得）」とある。base の go1.26.5 より新しい Go を要求する repo は
+  // GOTOOLCHAIN=local だと go list が丸ごと失敗して GT が空になり、
+  // 4ツールの結果も全部 FP として採点されてしまう（happy-sdk__happy は go.work が
+  // go >= 1.27rc2 を要求していて実際にこれを踏んだ）。
+  // 先に安いプローブを打って、必要な repo だけ auto に落とす。
+  let toolchainFallback = false;
+  {
+    const probe = run('timeout 120 go list -m', O0);
+    if (/requires go >=|go\.mod requires|go\.work requires/.test(probe.err || '')) {
+      env.GOTOOLCHAIN = 'auto';       // 必要な toolchain を取得させる
+      toolchainFallback = true;
+      logln(`  GOTOOLCHAIN=local では不足 → auto に切替 (${(probe.err || '').split('\n')[0].trim()})`);
+    }
+  }
+  const O = { env, cwd: src };
 
   // 2) 4ツール（7月と同一コマンド。stderr は捨てず全件保存）
   const tools = {
@@ -321,7 +338,8 @@ for (const repo of targets) {
       ...Object.fromEntries(Object.keys(tools).map(t => [t, toolRows[t] ? nameSet(toolRows[t]).size : null])),
     },
     golist_stderr: { real_errors: errAgg.nReal, progress_lines: errAgg.nProgress, kinds: errAgg.kinds },
-    env: { go: 'go1.26.5', GOOS: 'linux', GOARCH: 'amd64', CGO_ENABLED: '1', GOTOOLCHAIN: 'local', GOFLAGS: env.GOFLAGS },
+    env: { go: 'go1.26.5', GOOS: 'linux', GOARCH: 'amd64', CGO_ENABLED: '1', GOTOOLCHAIN: env.GOTOOLCHAIN, GOFLAGS: env.GOFLAGS },
+    toolchain_fallback: toolchainFallback,
     tool_versions: { syft: 'v1.46.0', trivy: 'v0.72.0', cdxgen: '12.7.1', 'cyclonedx-gomod': 'v1.10.0' },
     note: 'TSVは原文の大文字小文字を保持。照合は小文字化したモジュールパス単位（scorer.js と同一）。',
   }, null, 2));
