@@ -51,6 +51,25 @@ function acknowledgedDiffer() {
   }
   return m;
 }
+// 調査済みの差分署名: 「あるツールだけが GT-all の TP をちょうど1件少なく報告し、
+// その1件は GT-imported/impT には無い（＝go.sum 由来の推移的依存）」。
+// 7月との差分（july − now）が下の delta と完全一致し、かつ GT 件数が7月と一致していて、
+// 温めた結果が冷えた結果と同じ（＝キャッシュ起因でない）ものだけを対象にする。
+//   実測3件: abice__go-enum, shenwei356__taxonkit, hedhyw__otelinji（いずれも trivy）
+//   go.sum の全モジュールを module cache に入れても変化せず、5回実行しても出力は同一。
+//   欠落モジュールの特定は7月が生SBOMを保存しておらず不能。cache_effect/README.md 参照。
+// この署名に一致しても verdict は differ のまま（件数は正直に集計する）。停止だけしない。
+const KNOWN_DELTA = [1, 0, -1, 0, 1, 0, 0, 1, 0];   // all(tp,fp,fn) imp(tp,fp,fn) impT(tp,fp,fn)
+function isKnownSignature(row) {
+  const c = row.split(',');
+  const july = c[11], cold = c[12], warm = c[14];
+  if (c[8] !== 'yes') return false;                  // GT 件数が7月と一致していることが前提
+  if (!july || !cold || july === 'NA' || cold === 'NA') return false;
+  if (warm !== cold) return false;                   // 温めても変わらない＝キャッシュ起因でない
+  const a = july.split('/').map(Number), b = cold.split('/').map(Number);
+  if (a.length !== 9 || b.length !== 9) return false;
+  return KNOWN_DELTA.every((d, i) => a[i] - b[i] === d);
+}
 if (!fs.existsSync(SUM)) fs.writeFileSync(SUM, 'repo,sha,status,n_gt_imported,n_gt_impT,n_gt_all,' +
   'n_syft,n_trivy,n_cdxgen,n_cyclonedx-gomod,golist_real_errors,golist_progress_lines,error_kinds\n');
 if (!fs.existsSync(VER)) fs.writeFileSync(VER, V.VERIFY_HEADER);
@@ -402,6 +421,11 @@ for (const repo of targets) {
     logln(`# ★ 未説明の differ=${d} at ${repo} [${tools_}] — 温め直しても7月を再現しなかった`);
     if (acknowledgedDiffer().has(repo)) {
       logln('# → acknowledged_differ.txt に調査済みとして登録済みのため停止しない');
+    } else if (rows.every(isKnownSignature)) {
+      // 調査済みの署名（下記）と完全一致するものは、1件ごとに全ワーカーを止めても
+      // 新しい情報が得られないので停止しない。verdict は differ のまま残し、
+      // unexplained_differ.csv にも記録するので件数は正直に集計される。
+      logln('# → 調査済みの署名（trivy -1 パターン）と一致するため停止しない');
     } else if (!fs.existsSync(STOP)) {
       fs.writeFileSync(STOP, `unexplained differ=${d} at ${repo} [${tools_}] (${new Date().toISOString()}) pid=${process.pid}\n`);
       logln('# → STOP を作成し全ワーカーを停止する（未調査の再現失敗のため）');
