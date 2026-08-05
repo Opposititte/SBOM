@@ -232,6 +232,33 @@ vendor修正(`-mod=mod`)の本当の効果は増加ではなく **正しさ/取�
 既定 `-mod=vendor` だと `go list -m all` が "can't compute all using the vendor directory" で失敗し**空GTに誤判定**される。
 前回の集計コードも同じく `-mod=mod` を付けていなかったため、**前回も vendored repo を取りこぼしていた可能性が高い**（＝今回の方がより正確）。
 
+## 4a. 計測環境の環境変数（明示設定か、既定値か）
+再現時に「どれを意図して設定したか」を誤らせないため、`proc.sh` の記述に基づいて切り分ける。
+**`proc.sh` に export があるのは4つだけ**（10,13,14,17行目）。
+
+### 明示的に設定したもの（proc.sh に export がある）
+| 変数 | 値 | 設定した理由 |
+|---|---|---|
+| `GOTOOLCHAIN` | `local` | go.mod がより新しいGoを要求するrepoで toolchain が自動DLされ、timeoutで偽EMPTY_GTになるのを防ぐ。計測環境を go1.26.5 に固定する |
+| `GOFLAGS` | `-mod=mod` | `vendor/` を持つrepoで既定の `-mod=vendor` だと `go list -m all` が失敗し偽EMPTY_GTになるのを回避（`go.work` があるrepoでは実行時に解除） |
+| `GOMODCACHE` / `GOCACHE` | `/tmp` 配下 | ディスク管理のため。依存の解決結果には影響しない |
+| `PATH` | go1.26.5 を先頭 | 使用する go を固定するため |
+
+### コマンドごとに指定したもの
+| 変数 | 値 | 用途 |
+|---|---|---|
+| `GOOS` | `linux`（他OS分類用に `windows` も） | 依存の解決対象OSを固定。export ではなく `go list` の直前に付与している |
+
+### ★ 明示していない（実行環境の既定値がそうだっただけ）
+| 変数 | 実際の値 | 注記 |
+|---|---|---|
+| `GOARCH` | `amd64` | **`proc.sh` に記述なし**。linux/amd64 マシンの既定値 |
+| `CGO_ENABLED` | `1` | **`proc.sh` に記述なし**。gcc が存在する環境の既定値 |
+- したがって論文でこの2つに「設定した理由」を書くと、**実際にはしていない判断をしたことになる**。
+  表の見出しは「設定した理由」ではなく「計測環境の値」等にし、既定値である旨を明記すること。
+- なお §5 の妥当性検証スクリプトは、計測環境の値に**合わせるために**この2つを明示指定している
+  （検証側で環境が変わると `go/build` の判定が計測時とずれるため）。値は同じだが、意図が異なる。
+
 ## 4b. 各SBOMツールの実行コマンド（実物）
 7月の計測（`proc.sh`）と再実行（`rerun/rerun.js`）で**コマンドは同一**。
 差は出力先のパスと stderr の扱いのみ（再実行では stderr を捨てずに保存する）。
@@ -270,7 +297,8 @@ GT-imported（`go list -deps -e`）が依存を取りこぼしていないかを
 - **A ⊆ GT-imported** が成り立つかを検査し、破れ（＝取りこぼし候補）を列挙。
 - 無作為100件（seed=42 固定）。**HEAD ではなく `manifest.csv` に記録した計測時のコミットSHAを checkout** するので、
   「GT生成手法」ではなく**計測に用いたGTそのもの**の検証になる。
-- 環境は計測時と一致: go1.26.5 / `GOTOOLCHAIN=local` / `GOOS=linux GOARCH=amd64` / `CGO_ENABLED=1`、
+- 環境は計測時の値に合わせた: go1.26.5 / `GOTOOLCHAIN=local` / `GOOS=linux` / `GOARCH=amd64` / `CGO_ENABLED=1`。
+  このうち `GOARCH`・`CGO_ENABLED` は **`proc.sh` では明示していない**（実行環境の既定値）。検証側では判定を計測時と揃えるため明示指定した（§4a）。
   `go list` のコマンドと grep/sort フィルタも `proc.sh` と同一。
 
 ### 5b. 結果（有効99件・SKIP11件でジョブ停止、99件で結論は確定）
