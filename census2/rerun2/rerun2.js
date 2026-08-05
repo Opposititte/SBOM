@@ -37,6 +37,20 @@ const julyMan = july.man;
 const SUM = `${OUT}/summary.csv`, VER = `${OUT}/verify.csv`;
 const SKIPS = `${OUT}/skips.csv`, LOG = `${OUT}/progress.log`, STOP = `${OUT}/STOP`;
 const UNEXP = `${OUT}/unexplained_differ.csv`;   // 温め直しても7月を再現しなかった差分
+// 調査済みの未説明 differ。ここに載っている repo では止まらない（新規のものでは止まる）。
+// 書式: <repo>  <ISO8601>  <調査結果>   3列必須。# 行はコメント。
+function acknowledgedDiffer() {
+  const f = path.join(__dirname, 'acknowledged_differ.txt');
+  const m = new Set();
+  let txt; try { txt = fs.readFileSync(f, 'utf8'); } catch (e) { return m; }
+  for (const line of txt.split('\n')) {
+    if (!line.trim() || /^\s*#/.test(line)) continue;
+    const a = line.split(/\t|\s{2,}/).map(x => x.trim()).filter(Boolean);
+    if (a.length < 3) throw new Error(`acknowledged_differ.txt: "${a[0]}" に日時と調査結果がありません（3列必須）`);
+    m.add(a[0]);
+  }
+  return m;
+}
 if (!fs.existsSync(SUM)) fs.writeFileSync(SUM, 'repo,sha,status,n_gt_imported,n_gt_impT,n_gt_all,' +
   'n_syft,n_trivy,n_cdxgen,n_cyclonedx-gomod,golist_real_errors,golist_progress_lines,error_kinds\n');
 if (!fs.existsSync(VER)) fs.writeFileSync(VER, V.VERIFY_HEADER);
@@ -368,9 +382,11 @@ for (const repo of targets) {
     if (rows.length) fs.appendFileSync(UNEXP, rows.join('\n') + '\n');
     const tools_ = rows.map(r => r.split(',')[1]).join(' ');
     logln(`# ★ 未説明の differ=${d} at ${repo} [${tools_}] — 温め直しても7月を再現しなかった`);
-    if (!fs.existsSync(STOP)) {
+    if (acknowledgedDiffer().has(repo)) {
+      logln('# → acknowledged_differ.txt に調査済みとして登録済みのため停止しない');
+    } else if (!fs.existsSync(STOP)) {
       fs.writeFileSync(STOP, `unexplained differ=${d} at ${repo} [${tools_}] (${new Date().toISOString()}) pid=${process.pid}\n`);
-      logln('# → STOP を作成し全ワーカーを停止する（本物の再現失敗のため）');
+      logln('# → STOP を作成し全ワーカーを停止する（未調査の再現失敗のため）');
     }
   }
   logln(`OK gt(imp/impT/all)=${nowN.imp}/${nowN.impT}/${nowN.all} err=${errAgg.nReal} ` +
