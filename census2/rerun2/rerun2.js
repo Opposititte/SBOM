@@ -148,6 +148,10 @@ const freeKB = () => { try { return +cp.execSync("df --output=avail / | tail -1"
 // 上限を超えたら permanent に降格させないと数時間ぶん回し続け、完走判定もできない。
 const MAX_RETRIES = 3;
 function retryableCount(repo) {
+  // IGNORE_RETRY_HISTORY=1 で過去の失敗回数を無視して再挑戦させる。
+  // 並列負荷が高い時間帯のレート制限で恒久SKIPに落ちた repo を、負荷が下がってから
+  // 救済するための口。恒久SKIP のまま放置すると母集団に穴が空いたまま完走してしまう。
+  if (process.env.IGNORE_RETRY_HISTORY === '1') return 0;
   try {
     let n = 0;
     for (const l of fs.readFileSync(SKIPS, 'utf8').split('\n')) {

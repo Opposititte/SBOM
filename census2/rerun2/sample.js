@@ -62,6 +62,6 @@ const fmt = (label, { t, n }) => {
 
 console.log(`シャッフル順の先頭から連続で処理済み: ${prefix} 件（= 偏りのない無作為標本）`);
 console.log(`prefix の外にある処理済み repo      : ${outside.length} 件（ONLY= で手動指定して先に回した分）`);
-if (outside.length) console.log('  ' + outside.join(' '));
+if (outside.length) console.log('  ' + outside.slice(0, 20).join(' ') + (outside.length > 20 ? ` … 他 ${outside.length - 20} 件` : ''));
 fmt('★ 無作為標本のみ（原稿にはこちらを使う）', A);
 fmt('  参考: 処理済み全件（手動指定分を含む＝偏りあり）', B);
