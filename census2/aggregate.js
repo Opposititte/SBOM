@@ -122,7 +122,7 @@ W('## 0c. 3つの正解(GT)定義と実行コマンド（実物のまま）');
 W('前回の実ハーネス（`run_batch.sh` / `remeasure/proc.sh`）と同一。`gmain` は `go list -m` で得た自モジュール名。\n');
 W('**all**（build list 全体：直接＋間接・未使用含む）');
 W('```bash');
-W('go list -m all');
+W('go list -m -e all      # ← 自モジュール除去の grep は付いていない。§0c-3 を必ず参照');
 W('```');
 W('**imported**（root・GOOS=linux・**非test** の実コンパイル依存）');
 W('```bash');
@@ -152,6 +152,44 @@ W('| `-e` あり | 0 (成功) | uuid 等（**同じ**） |');
 W('- **依存の"水増し"はしない**: 出力(stdout)は -e あり/なしで同じ。違うのは終了コードとエラー表示だけ。');
 W('- 本パイプラインは stdout のみ採用し終了コードは見ないため、**大半のrepoで -e あり/なしは同結果**。');
 W('- `-e` が効くのは「壊れ方がひどく、-eなしだと列挙が全部落ちて空になる」稀ケースのみで、そこでは"一部でも取れる"を選ぶ（＝**取りこぼし低減**方向、偽依存追加ではない）。\n');
+
+// 0c-3: GT-all だけ自モジュール除去のタイミングが違う
+W('### 0c-3. GT-all だけ「自モジュール除去」の段階が違う（付録に必ず書くこと）');
+W('`go list -m all` は外部依存だけでなく**対象プロジェクト自身のモジュールも出力する**。');
+W('GT-imported / GT-impT は生成コマンドのパイプ内で `grep -v "^${gmain} \\?$"` により自モジュールを落としているが、');
+W('**GT-all の生成行にはこの grep が無い**（`proc.sh:65`）。したがって:\n');
+W('| | 自モジュール除去の場所 | `gt_*.txt` に自モジュールが残るか |');
+W('|---|---|---|');
+W('| GT-imported | 生成時の `grep -v`（`proc.sh:66`） | 残らない |');
+W('| GT-impT | 生成時の `grep -v`（`proc.sh:67`） | 残らない |');
+W('| **GT-all** | **採点時の `scorer.js`**（`proc.sh:65` は素通し） | **残る（1件）** |\n');
+W('採点側の実物（`scorer.js:11-14`、3定義すべてに適用される）:');
+W('```js');
+W("const main = norm(rd(dir + '/main.txt'));            // go list -m の出力");
+W('function gtSets(f) { ... const p = norm(a[0]);');
+W("  if (p === main || p === 'stdlib') continue;  ...  }  // ← ここで自モジュールを除外");
+W('```');
+W("ツール側 `toolSets` (`scorer.js:24`) も `if (p === 'stdlib' || p === main) continue;` で同じ除外をしているため、");
+W('**GT側・ツール側の対称性は保たれており、3定義とも「外部から取得するモジュールのみ」で採点されている**。');
+W('本文の「外部から取得するモジュールをSBOMの対象とする」という記述は採点実態と整合する。\n');
+W('**実測による裏付け**: `census2/rerun` は GT を成果物化する際に自モジュールを落とす（`parseGt(out, gmain)`）ため、');
+W('7月のマニフェスト列 `n_all`（＝生ファイルの行数）と直接は一致せず、検証では `julyAllAdj = n_all - 1` を使っている。');
+(() => {
+  const vf = BASE + '/rerun/out/verify.csv';
+  if (!fs.existsSync(vf)) { W('（`rerun/out/verify.csv` が未生成のため一致件数は省略）\n'); return; }
+  const L = fs.readFileSync(vf, 'utf8').trim().split('\n');
+  const h = L[0].split(','); const iR = h.indexOf('repo'), iA = h.indexOf('gt_all_july_adj'), iB = h.indexOf('gt_all_now');
+  const seen = new Map();
+  for (const l of L.slice(1)) { const c = l.split(','); if (!seen.has(c[iR])) seen.set(c[iR], [+c[iA], +c[iB]]); }
+  let eq = 0; for (const [, [a, b]] of seen) if (a === b) eq++;
+  W(`この "ちょうど −1" は **${seen.size}件中 ${eq}件（不一致 ${seen.size - eq}件）** で成立する（\`rerun/out/verify.csv\`）。`);
+  W('全件でぴったり1件多い、という事実がその1件＝自モジュールであることを示す。\n');
+})();
+W('**原稿への含意（2点）**');
+W('1. 付録A.4 の GT-all 欄は、コマンドだけでなく除外段階も書く必要がある。例:');
+W('   > GT-all: `go list -m -e all`。出力には対象プロジェクト自身のモジュールが含まれるため、比較時に `go list -m` の値と一致する行を除外する（GT-imported/+test はこの除外を生成時の `grep -v` で行っている）。');
+W('2. `manifest.csv` の `n_all` 列は**生ファイルの行数**であり、採点に使われた集合より常にちょうど1大きい。');
+W('   `n_all` を「GT-allの規模」として引用する箇所では −1 が要る（§4z の `all > 1` 判定も同じ理由）。\n');
 
 // 母数 + ファネル
 const man = fs.existsSync(MAN) ? fs.readFileSync(MAN, 'utf8').trim().split('\n').slice(1) : [];

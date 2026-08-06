@@ -139,7 +139,8 @@ $\subseteq$ all という包含関係にある．
 GT定義 & 生成コマンド（要点） \\\hline
 GT-imported & \|go list -deps| \\
 GT-imported+test & \|go list -deps -test| \\
-GT-all & \|go list -m all| \\\hline
+GT-all & \|go list -m all|$^{\dagger}$ \\\hline
+\multicolumn{2}{l}{\footnotesize $\dagger$ 出力に含まれる自モジュールは採点時に除外（付録\ref{app:gtimpl}）．} \\\hline
 \end{tabular}\hfil}
 \end{table}
 
@@ -582,8 +583,19 @@ go1.26.5と\texttt{GOTOOLCHAIN=local}（リポジトリごとのtoolchainを取�
 は，ビルドできず\|go list|が失敗するため，該当するリポジトリのみ
 \texttt{GOTOOLCHAIN=auto}として必要なtoolchainを取得して計測した．
 
+第五に，自モジュールの除外についてである．3定義はいずれも対象プロジェクト自身の
+モジュールをGTに含めないが，除外を行う段階が定義によって異なる．GT-imported
+およびGT-imported+testは，生成コマンドのパイプ内で\|go list -m|の出力と一致する
+行を落としている．一方GT-allの生成コマンドは\|go list -m -e all|のみであり，
+\|go list -m all|は外部依存に加えて対象プロジェクト自身のモジュールも出力する
+ため，生成された一覧には自モジュールが1件残る．この1件は，GTとツール出力を
+突き合わせる採点段階で，GT側・ツール側の双方から同一の規則（\|go list -m|の値と
+一致するモジュールパスを除く）により除外される．したがって3定義とも，実際に
+比較されるのは外部から取得するモジュールのみである．なお，リポジトリ一覧
+（\texttt{manifest.csv}）に記録したGT-allの件数は除外前の生の行数であり，
+採点に用いた集合よりつねにちょうど1件多い．
+
 最後に，正しく空となる場合について述べる．外部依存を持たず標準ライブラリのみを
 用いるリポジトリは，GT-importedが正しく空となり，EMPTY\_GT（評価対象外）となる．
-なお，自モジュール自身は依存に数えない．
 
 \end{document}
