@@ -1,34 +1,0 @@
-Cloning into '/home/user/SBOM/work/ziutek__emgo'...
-Updating files:  68% (2102/3054)Updating files:  69% (2108/3054)Updating files:  70% (2138/3054)Updating files:  71% (2169/3054)Updating files:  72% (2199/3054)Updating files:  73% (2230/3054)Updating files:  74% (2260/3054)Updating files:  75% (2291/3054)Updating files:  76% (2322/3054)Updating files:  77% (2352/3054)Updating files:  78% (2383/3054)Updating files:  79% (2413/3054)Updating files:  80% (2444/3054)Updating files:  81% (2474/3054)Updating files:  82% (2505/3054)Updating files:  83% (2535/3054)Updating files:  84% (2566/3054)Updating files:  85% (2596/3054)Updating files:  86% (2627/3054)Updating files:  87% (2657/3054)Updating files:  88% (2688/3054)Updating files:  89% (2719/3054)Updating files:  90% (2749/3054)Updating files:  91% (2780/3054)Updating files:  92% (2810/3054)Updating files:  93% (2841/3054)Updating files:  94% (2871/3054)Updating files:  95% (2902/3054)Updating files:  96% (2932/3054)Updating files:  97% (2963/3054)Updating files:  98% (2993/3054)Updating files:  99% (3024/3054)Updating files: 100% (3054/3054)Updating files: 100% (3054/3054), done.
-go: finding module for package github.com/ziutek/dvb/ts
-go: downloading github.com/ziutek/dvb v0.1.5
-go: found github.com/ziutek/dvb/ts in github.com/ziutek/dvb v0.1.5
-[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
-[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
-2026-06-09T12:21:48Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
-2026-06-09T12:21:48Z	INFO	Number of language-specific files	num=1
-+------------------------+------------+--------------------------+----------------------------------------------------+
-|                                           SECURE MODE: Environment audit                                            |
-|                                                   1 high   2 low                                                    |
-+------------------------+------------+--------------------------+----------------------------------------------------+
-| Category               | Severity   | Variable(s)              | Details                                            |
-+------------------------+------------+--------------------------+----------------------------------------------------+
-| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
-|                        |            |                          | ed during SBOM generation—including package manage |
-|                        |            |                          | r install hooks—will run with full system privileg |
-|                        |            |                          | es.                                                |
-|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
-|                        |            |                          | se a container or VM with a dedicated low-privileg |
-|                        |            |                          | e account.                                         |
-+------------------------+------------+--------------------------+----------------------------------------------------+
-| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
-|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
-|                        |            |                          | neration may read inherited environment variables. |
-|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
-|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
-|                        |            |                          |  credentials injected only for the step that needs |
-|                        |            |                          |  them.                                             |
-+------------------------+------------+--------------------------+----------------------------------------------------+
-[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
-go list -deps command has failed for /home/user/SBOM/work/ziutek__emgo
-Manually parsing go.mod files. The resultant BOM would be incomplete.

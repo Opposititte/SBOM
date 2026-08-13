@@ -1,36 +1,0 @@
-Cloning into '/home/user/SBOM/work/gnolang__gno'...
-Updating files:  32% (2579/7880)Updating files:  33% (2601/7880)Updating files:  34% (2680/7880)Updating files:  35% (2758/7880)Updating files:  36% (2837/7880)Updating files:  37% (2916/7880)Updating files:  38% (2995/7880)Updating files:  39% (3074/7880)Updating files:  40% (3152/7880)Updating files:  41% (3231/7880)Updating files:  42% (3310/7880)Updating files:  43% (3389/7880)Updating files:  44% (3468/7880)Updating files:  45% (3546/7880)Updating files:  46% (3625/7880)Updating files:  47% (3704/7880)Updating files:  48% (3783/7880)Updating files:  49% (3862/7880)Updating files:  50% (3940/7880)Updating files:  51% (4019/7880)Updating files:  52% (4098/7880)Updating files:  53% (4177/7880)Updating files:  54% (4256/7880)Updating files:  55% (4334/7880)Updating files:  56% (4413/7880)Updating files:  57% (4492/7880)Updating files:  58% (4571/7880)Updating files:  59% (4650/7880)Updating files:  60% (4728/7880)Updating files:  61% (4807/7880)Updating files:  62% (4886/7880)Updating files:  63% (4965/7880)Updating files:  64% (5044/7880)Updating files:  65% (5122/7880)Updating files:  65% (5135/7880)Updating files:  66% (5201/7880)Updating files:  67% (5280/7880)Updating files:  68% (5359/7880)Updating files:  69% (5438/7880)Updating files:  70% (5516/7880)Updating files:  71% (5595/7880)Updating files:  72% (5674/7880)Updating files:  73% (5753/7880)Updating files:  74% (5832/7880)Updating files:  75% (5910/7880)Updating files:  76% (5989/7880)Updating files:  77% (6068/7880)Updating files:  78% (6147/7880)Updating files:  79% (6226/7880)Updating files:  80% (6304/7880)Updating files:  81% (6383/7880)Updating files:  82% (6462/7880)Updating files:  83% (6541/7880)Updating files:  84% (6620/7880)Updating files:  85% (6698/7880)Updating files:  86% (6777/7880)Updating files:  87% (6856/7880)Updating files:  88% (6935/7880)Updating files:  89% (7014/7880)Updating files:  90% (7092/7880)Updating files:  91% (7171/7880)Updating files:  92% (7250/7880)Updating files:  93% (7329/7880)Updating files:  94% (7408/7880)Updating files:  95% (7486/7880)Updating files:  96% (7565/7880)Updating files:  97% (7644/7880)Updating files:  98% (7723/7880)Updating files:  99% (7802/7880)Updating files: 100% (7880/7880)Updating files: 100% (7880/7880), done.
-go: downloading go1.25.9 (linux/amd64)
-[0000] ERROR HTTP 403 on fetching latest version: 403 Forbidden
-[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
-2026-06-05T07:20:07Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
-2026-06-05T07:20:09Z	INFO	[npm] Run "npm install" to collect the license information of packages	dir="gno.land/pkg/gnoweb/frontend/node_modules"
-2026-06-05T07:20:09Z	INFO	Suppressing dependencies for development and testing. To display them, try the '--include-dev-deps' flag.
-2026-06-05T07:20:09Z	INFO	Number of language-specific files	num=22
-+------------------------+------------+--------------------------+----------------------------------------------------+
-|                                           SECURE MODE: Environment audit                                            |
-|                                                   1 high   2 low                                                    |
-+------------------------+------------+--------------------------+----------------------------------------------------+
-| Category               | Severity   | Variable(s)              | Details                                            |
-+------------------------+------------+--------------------------+----------------------------------------------------+
-| Privilege              | HIGH       | UID                      | cdxgen is running as root (UID 0). Any code execut |
-|                        |            |                          | ed during SBOM generation—including package manage |
-|                        |            |                          | r install hooks—will run with full system privileg |
-|                        |            |                          | es.                                                |
-|                        |            |                          | Mitigation: Run cdxgen as a non-privileged user. U |
-|                        |            |                          | se a container or VM with a dedicated low-privileg |
-|                        |            |                          | e account.                                         |
-+------------------------+------------+--------------------------+----------------------------------------------------+
-| Credential Exposure    | LOW        | CLAUDE_CODE_USER_EMAIL   | Credential-like environment variables are set. Bui |
-|                        |            | CODESIGN_MCP_TOKEN       | ld tools or install scripts invoked during SBOM ge |
-|                        |            |                          | neration may read inherited environment variables. |
-|                        |            |                          | Mitigation: Unset unneeded secrets when scanning u |
-|                        |            |                          | ntrusted repositories. Prefer ephemeral, scoped CI |
-|                        |            |                          |  credentials injected only for the step that needs |
-|                        |            |                          |  them.                                             |
-+------------------------+------------+--------------------------+----------------------------------------------------+
-[1;35mSECURE MODE: DO NOT run cdxgen with root privileges.[0m
-go list -deps command has failed for /home/user/SBOM/work/gnolang__gno/gno.land/pkg/gnoweb/tools
-Manually parsing go.mod files. The resultant BOM would be incomplete.
-[ 'Invalid purl pkg:golang/../../../' ]
-ERROR: cdxgen failed
