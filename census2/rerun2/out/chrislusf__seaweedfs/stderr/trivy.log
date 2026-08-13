@@ -1,0 +1,4 @@
+2026-08-05T05:40:27Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-08-05T05:40:31Z	FATAL	Error	remote Maven repository returned 429 Too Many Requests for https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcomponents-core/4.4.13/httpcomponents-core-4.4.13.pom. Retry-After: 1800.
+The repository blocks all subsequent requests from this IP until the block clears.
+To avoid this, populate the local Maven cache before scanning (e.g. run `mvn dependency:resolve` and cache ~/.m2 in CI).

@@ -1,0 +1,26 @@
+[0000]  WARN no explicit name and version provided for directory source, deriving artifact ID from the given path (which is not ideal)
+[0001] ERROR unable to parse yarn v2 package key key=__metadata
+[0001] ERROR unable to parse yarn v2 package key key=__metadata
+[0001] ERROR unable to parse yarn v2 package key key=__metadata
+[0031] ERROR [31mfailed to run tasks: panic: runtime error: index out of range [1] with length 1 at:
+goroutine 67 [running]:
+runtime/debug.Stack()
+	/workspace/gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.26.5.linux-amd64/src/runtime/debug/stack.go:26 +0x5e
+github.com/anchore/go-sync.Collect[...].func1.1()
+	/workspace/gopath/pkg/mod/github.com/anchore/go-sync@v0.1.1/collector.go:38 +0xac
+panic({0x2f03100?, 0x3c1ab1f3dc80?})
+	/workspace/gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.26.5.linux-amd64/src/runtime/panic.go:860 +0x13a
+github.com/anchore/syft/syft/pkg/cataloger/haskell.parseCabalFreeze({0x2000002caca00?, 0x7fc86d6204e8?}, {0x7fc8b54982f8?, 0x10?}, 0x56521c0?, {{{{{...}, {...}}, {0x3c1ab10ffa5a, 0x39}, {0xdd1, ...}}, ...}, ...})
+	/workspace/gopath/pkg/mod/github.com/anchore/syft@v1.46.0/syft/pkg/cataloger/haskell/parse_cabal_freeze.go:49 +0x612
+github.com/anchore/syft/syft/pkg/cataloger/generic.invokeParser({0x35cb700, 0x3c1ab19cdd40}, {0x35e68b8, 0x3c1ab094f0e0}, {{{{0x3c1ab10ffa5a, 0x39}, {0x0, 0x0}}, {0x3c1ab10ffa5a, 0x39}, ...}, ...}, ...)
+	/workspace/gopath/pkg/mod/github.com/anchore/syft@v1.46.0/syft/pkg/cataloger/generic/cataloger.go:237 +0x464
+github.com/anchore/syft/syft/pkg/cataloger/generic.(*Cataloger).Catalog.func1({{{{{...}, {...}}, {0x3c1ab10ffa5a, 0x39}, {0xdd1, {...}}}, {0x3c1ab19cdce0}}, 0x356a180})
+	/workspace/gopath/pkg/mod/github.com/anchore/syft@v1.46.0/syft/pkg/cataloger/generic/cataloger.go:206 +0x226
+github.com/anchore/go-sync.Collect[...].func1()
+	/workspace/gopath/pkg/mod/github.com/anchore/go-sync@v0.1.1/collector.go:45 +0x133
+github.com/anchore/go-sync.(*errGroupExecutor).Go.func1()
+	/workspace/gopath/pkg/mod/github.com/anchore/go-sync@v0.1.1/executor_errgroup.go:37 +0x83
+golang.org/x/sync/errgroup.(*Group).Go.func1()
+	/workspace/gopath/pkg/mod/golang.org/x/sync@v0.21.0/errgroup/errgroup.go:93 +0x50
+created by golang.org/x/sync/errgroup.(*Group).Go in goroutine 57
+	/workspace/gopath/pkg/mod/golang.org/x/sync@v0.21.0/errgroup/errgroup.go:78 +0x95[0m

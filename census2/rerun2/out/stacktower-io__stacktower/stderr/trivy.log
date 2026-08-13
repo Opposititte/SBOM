@@ -1,0 +1,4 @@
+2026-08-06T07:45:43Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-08-06T07:45:51Z	FATAL	Error	remote Maven repository returned 429 Too Many Requests for https://repo.maven.apache.org/maven2/com/fasterxml/jackson/module/jackson-modules-java8/2.15.3/jackson-modules-java8-2.15.3.pom. Retry-After: 1800.
+The repository blocks all subsequent requests from this IP until the block clears.
+To avoid this, populate the local Maven cache before scanning (e.g. run `mvn dependency:resolve` and cache ~/.m2 in CI).
