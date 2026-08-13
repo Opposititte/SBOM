@@ -1,6 +1,6 @@
 # census2: Go向けSBOM生成ツール評価の研究成果物
 
-このディレクトリには，Goプロジェクト向けSBOM生成ツール4種を，3種類の正解データ（Ground Truth: GT）と比較した実験のスクリプト，データ，検証結果を収録しています。
+このブランチには，Goプロジェクト向けSBOM生成ツール4種を，3種類の正解データ（Ground Truth: GT）と比較した実験のスクリプト，データ，検証結果を収録しています。
 
 ## 研究の概要
 
@@ -33,8 +33,8 @@ awesome-goから収集した2,723リポジトリのうち，GT-importedが空で
 この確認にはNode.jsのみを使用します。リポジトリのルートで次を実行してください。
 
 ```bash
-node census2/aggregate.js
-node census2/verify.js
+node aggregate.js
+node verify.js
 ```
 
 - `aggregate.js`は`metrics.csv`と`manifest.csv`から`SUMMARY_census.md`を再生成します。
