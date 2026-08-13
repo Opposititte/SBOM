@@ -1,0 +1,16 @@
+/opt/node22/lib/node_modules/@cyclonedx/cdxgen/node_modules/packageurl-js/src/package-url.js:43
+        throw new Error('Invalid purl: "' + key + '" is a required field.');
+              ^
+
+Error: Invalid purl: "name" is a required field.
+    at /opt/node22/lib/node_modules/@cyclonedx/cdxgen/node_modules/packageurl-js/src/package-url.js:43:15
+    at Array.forEach (<anonymous>)
+    at new PackageURL (/opt/node22/lib/node_modules/@cyclonedx/cdxgen/node_modules/packageurl-js/src/package-url.js:41:27)
+    at getGoPkgComponent (file:///opt/node22/lib/node_modules/@cyclonedx/cdxgen/lib/helpers/utils.js:10573:22)
+    at parseGoModData (file:///opt/node22/lib/node_modules/@cyclonedx/cdxgen/lib/helpers/utils.js:10723:31)
+    at async parseGoModGraph (file:///opt/node22/lib/node_modules/@cyclonedx/cdxgen/lib/helpers/utils.js:10940:19)
+    at async createGoBom (file:///opt/node22/lib/node_modules/@cyclonedx/cdxgen/lib/cli/index.js:5638:28)
+    at async createBom (file:///opt/node22/lib/node_modules/@cyclonedx/cdxgen/lib/cli/index.js:10768:12)
+    at async file:///opt/node22/lib/node_modules/@cyclonedx/cdxgen/bin/cdxgen.js:1449:18
+
+Node.js v22.22.2

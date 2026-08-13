@@ -36,6 +36,40 @@ const julyMan = july.man;
 // ---------- 出力ファイル（1件ごとに逐次追記） ----------
 const SUM = `${OUT}/summary.csv`, VER = `${OUT}/verify.csv`;
 const SKIPS = `${OUT}/skips.csv`, LOG = `${OUT}/progress.log`, STOP = `${OUT}/STOP`;
+const UNEXP = `${OUT}/unexplained_differ.csv`;   // 温め直しても7月を再現しなかった差分
+// 調査済みの未説明 differ。ここに載っている repo では止まらない（新規のものでは止まる）。
+// 書式: <repo>  <ISO8601>  <調査結果>   3列必須。# 行はコメント。
+function acknowledgedDiffer() {
+  const f = path.join(__dirname, 'acknowledged_differ.txt');
+  const m = new Set();
+  let txt; try { txt = fs.readFileSync(f, 'utf8'); } catch (e) { return m; }
+  for (const line of txt.split('\n')) {
+    if (!line.trim() || /^\s*#/.test(line)) continue;
+    const a = line.split(/\t|\s{2,}/).map(x => x.trim()).filter(Boolean);
+    if (a.length < 3) throw new Error(`acknowledged_differ.txt: "${a[0]}" に日時と調査結果がありません（3列必須）`);
+    m.add(a[0]);
+  }
+  return m;
+}
+// 調査済みの差分署名: 「あるツールだけが GT-all の TP をちょうど1件少なく報告し、
+// その1件は GT-imported/impT には無い（＝go.sum 由来の推移的依存）」。
+// 7月との差分（july − now）が下の delta と完全一致し、かつ GT 件数が7月と一致していて、
+// 温めた結果が冷えた結果と同じ（＝キャッシュ起因でない）ものだけを対象にする。
+//   実測3件: abice__go-enum, shenwei356__taxonkit, hedhyw__otelinji（いずれも trivy）
+//   go.sum の全モジュールを module cache に入れても変化せず、5回実行しても出力は同一。
+//   欠落モジュールの特定は7月が生SBOMを保存しておらず不能。cache_effect/README.md 参照。
+// この署名に一致しても verdict は differ のまま（件数は正直に集計する）。停止だけしない。
+const KNOWN_DELTA = [1, 0, -1, 0, 1, 0, 0, 1, 0];   // all(tp,fp,fn) imp(tp,fp,fn) impT(tp,fp,fn)
+function isKnownSignature(row) {
+  const c = row.split(',');
+  const july = c[11], cold = c[12], warm = c[14];
+  if (c[8] !== 'yes') return false;                  // GT 件数が7月と一致していることが前提
+  if (!july || !cold || july === 'NA' || cold === 'NA') return false;
+  if (warm !== cold) return false;                   // 温めても変わらない＝キャッシュ起因でない
+  const a = july.split('/').map(Number), b = cold.split('/').map(Number);
+  if (a.length !== 9 || b.length !== 9) return false;
+  return KNOWN_DELTA.every((d, i) => a[i] - b[i] === d);
+}
 if (!fs.existsSync(SUM)) fs.writeFileSync(SUM, 'repo,sha,status,n_gt_imported,n_gt_impT,n_gt_all,' +
   'n_syft,n_trivy,n_cdxgen,n_cyclonedx-gomod,golist_real_errors,golist_progress_lines,error_kinds\n');
 if (!fs.existsSync(VER)) fs.writeFileSync(VER, V.VERIFY_HEADER);
@@ -114,6 +148,10 @@ const freeKB = () => { try { return +cp.execSync("df --output=avail / | tail -1"
 // 上限を超えたら permanent に降格させないと数時間ぶん回し続け、完走判定もできない。
 const MAX_RETRIES = 3;
 function retryableCount(repo) {
+  // IGNORE_RETRY_HISTORY=1 で過去の失敗回数を無視して再挑戦させる。
+  // 並列負荷が高い時間帯のレート制限で恒久SKIPに落ちた repo を、負荷が下がってから
+  // 救済するための口。恒久SKIP のまま放置すると母集団に穴が空いたまま完走してしまう。
+  if (process.env.IGNORE_RETRY_HISTORY === '1') return 0;
   try {
     let n = 0;
     for (const l of fs.readFileSync(SKIPS, 'utf8').split('\n')) {
@@ -172,7 +210,7 @@ logln(`# 7月側の記録が使えず比較できない repo（july_unavailable�
 
 try { cp.execSync('rm -rf /tmp/rr2_* 2>/dev/null'); } catch (e) { }
 let done = 0, skipped = 0, processed = 0;
-const tally = { match: 0, july_main_bug: 0, july_main_bug_late: 0, july_unavailable: 0, july_tool_na: 0, differ: 0 };
+const tally = { match: 0, july_main_bug: 0, july_main_bug_late: 0, july_unavailable: 0, july_tool_na: 0, cache_sensitive: 0, differ: 0 };
 
 for (const repo of targets) {
   if (processed >= LIMIT) break;
@@ -239,8 +277,25 @@ for (const repo of targets) {
     logln('SKIP(permanent/no_go_mod)'); fs.rmSync(work, { recursive: true, force: true }); skipped++; continue;
   }
   if (fs.existsSync(`${src}/go.work`)) env.GOFLAGS = '';     // 7月と同じ workspace 対応
-  const O = { env, cwd: src };
+  const O0 = { env, cwd: src };
   const codes = {};
+
+  // 7月の tool_versions.txt に「GOTOOLCHAIN=local（新しいGoを要求するrepoのみ auto で
+  // toolchain取得）」とある。base の go1.26.5 より新しい Go を要求する repo は
+  // GOTOOLCHAIN=local だと go list が丸ごと失敗して GT が空になり、
+  // 4ツールの結果も全部 FP として採点されてしまう（happy-sdk__happy は go.work が
+  // go >= 1.27rc2 を要求していて実際にこれを踏んだ）。
+  // 先に安いプローブを打って、必要な repo だけ auto に落とす。
+  let toolchainFallback = false;
+  {
+    const probe = run('timeout 120 go list -m', O0);
+    if (/requires go >=|go\.mod requires|go\.work requires/.test(probe.err || '')) {
+      env.GOTOOLCHAIN = 'auto';       // 必要な toolchain を取得させる
+      toolchainFallback = true;
+      logln(`  GOTOOLCHAIN=local では不足 → auto に切替 (${(probe.err || '').split('\n')[0].trim()})`);
+    }
+  }
+  const O = { env, cwd: src };
 
   // 2) 4ツール（7月と同一コマンド。stderr は捨てず全件保存）
   const tools = {
@@ -306,7 +361,8 @@ for (const repo of targets) {
       ...Object.fromEntries(Object.keys(tools).map(t => [t, toolRows[t] ? nameSet(toolRows[t]).size : null])),
     },
     golist_stderr: { real_errors: errAgg.nReal, progress_lines: errAgg.nProgress, kinds: errAgg.kinds },
-    env: { go: 'go1.26.5', GOOS: 'linux', GOARCH: 'amd64', CGO_ENABLED: '1', GOTOOLCHAIN: 'local', GOFLAGS: env.GOFLAGS },
+    env: { go: 'go1.26.5', GOOS: 'linux', GOARCH: 'amd64', CGO_ENABLED: '1', GOTOOLCHAIN: env.GOTOOLCHAIN, GOFLAGS: env.GOFLAGS },
+    toolchain_fallback: toolchainFallback,
     tool_versions: { syft: 'v1.46.0', trivy: 'v0.72.0', cdxgen: '12.7.1', 'cyclonedx-gomod': 'v1.10.0' },
     note: 'TSVは原文の大文字小文字を保持。照合は小文字化したモジュールパス単位（scorer.js と同一）。',
   }, null, 2));
@@ -319,6 +375,34 @@ for (const repo of targets) {
   // 6) 検証ゲート（7月の scorer.js を実行）— raw は gzip 前に検証してそのまま使える
   let vres = { rows: [], tally: {} };
   try { vres = V.verifyRepo(OUT, repo, july); } catch (e) { logln(`  verify error: ${e.message}`); }
+
+  // differ が出たら、その場で module cache を温めて4ツールを取り直し、再判定する。
+  // 7月は GOMODCACHE を全repoで共有していたため結果が処理順に依存しており、
+  // 「7月と一致しない」ことがそのままツールの退行を意味しない（cache_effect.js 参照）。
+  // 温めれば7月を再現する差分は cache_sensitive として記録し、ジョブは止めない。
+  if ((vres.tally.differ || 0) > 0) {
+    logln(`  differ=${vres.tally.differ} → module cache を温めて取り直す`);
+    fs.mkdirSync(`${od}/raw_warm`, { recursive: true });
+    const warm = run(`cd ${src} && timeout ${TO} go mod download all`, { env });
+    if (warm.err) fs.writeFileSync(`${od}/stderr/go_mod_download_all.log`, warm.err);
+    for (const [t, cmd] of Object.entries(tools)) {
+      const rr = run(cmd.replace(`${od}/raw/`, `${od}/raw_warm/`), { env });
+      codes[`${t}_warm`] = rr.code;
+      if (rr.err) fs.writeFileSync(`${od}/stderr/${t}.warm.log`, rr.err);
+    }
+    try { vres = V.verifyRepo(OUT, repo, july); } catch (e) { logln(`  warm verify error: ${e.message}`); }
+    logln(`  再判定: cache_sensitive=${vres.tally.cache_sensitive || 0} differ=${vres.tally.differ || 0}`);
+    for (const t of Object.keys(tools)) {
+      const f = `${od}/raw_warm/${t}.json`;
+      if (fs.existsSync(f)) { fs.writeFileSync(f + '.gz', zlib.gzipSync(fs.readFileSync(f))); fs.unlinkSync(f); }
+    }
+    // meta.json に温め条件の情報を足す
+    try {
+      const m = JSON.parse(fs.readFileSync(`${od}/meta.json`, 'utf8'));
+      m.warm_cache_rerun = { at: new Date().toISOString(), reason: 'differ detected with cold module cache', exit_codes: codes };
+      fs.writeFileSync(`${od}/meta.json`, JSON.stringify(m, null, 2));
+    } catch (e) { }
+  }
   if (vres.rows.length) fs.appendFileSync(VER, vres.rows.join('\n') + '\n');
   for (const k of Object.keys(tally)) tally[k] += (vres.tally[k] || 0);
 
@@ -330,16 +414,32 @@ for (const repo of targets) {
 
   try { fs.unlinkSync(`${od}/.claim`); } catch (e) { }
   const d = (vres.tally || {}).differ || 0;
-  if (d > 0 && !fs.existsSync(STOP)) {
-    // 報告のトリガー。全件を回し切る前に全ワーカーを止める。
-    fs.writeFileSync(STOP, `differ=${d} at ${repo} (${new Date().toISOString()}) pid=${process.pid}\n`);
-    logln(`# ★ differ=${d} を ${repo} で検出 → STOP を作成し全ワーカーを停止する`);
+  // キャッシュ状態で説明できる差分（cache_sensitive）では止めない。
+  // ただし **温め直しても7月を再現しなかった differ は本物の再現失敗**なので、
+  // ログに埋もれさせず専用ファイルに記録したうえで、そこで止める。
+  if (d > 0) {
+    const rows = (vres.rows || []).filter(r => r.split(',').pop() === 'differ');
+    if (!fs.existsSync(UNEXP)) fs.writeFileSync(UNEXP, V.VERIFY_HEADER);
+    if (rows.length) fs.appendFileSync(UNEXP, rows.join('\n') + '\n');
+    const tools_ = rows.map(r => r.split(',')[1]).join(' ');
+    logln(`# ★ 未説明の differ=${d} at ${repo} [${tools_}] — 温め直しても7月を再現しなかった`);
+    if (acknowledgedDiffer().has(repo)) {
+      logln('# → acknowledged_differ.txt に調査済みとして登録済みのため停止しない');
+    } else if (rows.every(isKnownSignature)) {
+      // 調査済みの署名（下記）と完全一致するものは、1件ごとに全ワーカーを止めても
+      // 新しい情報が得られないので停止しない。verdict は differ のまま残し、
+      // unexplained_differ.csv にも記録するので件数は正直に集計される。
+      logln('# → 調査済みの署名（trivy -1 パターン）と一致するため停止しない');
+    } else if (!fs.existsSync(STOP)) {
+      fs.writeFileSync(STOP, `unexplained differ=${d} at ${repo} [${tools_}] (${new Date().toISOString()}) pid=${process.pid}\n`);
+      logln('# → STOP を作成し全ワーカーを停止する（未調査の再現失敗のため）');
+    }
   }
   logln(`OK gt(imp/impT/all)=${nowN.imp}/${nowN.impT}/${nowN.all} err=${errAgg.nReal} ` +
-    `verify(match/bug/late/unavail/toolna/differ)=${vres.tally.match || 0}/${vres.tally.july_main_bug || 0}/${vres.tally.july_main_bug_late || 0}/${vres.tally.july_unavailable || 0}/${vres.tally.july_tool_na || 0}/${d} ${Math.round((Date.now() - t0) / 1000)}s`);
+    `verify(match/bug/late/unavail/toolna/cache/differ)=${vres.tally.match || 0}/${vres.tally.july_main_bug || 0}/${vres.tally.july_main_bug_late || 0}/${vres.tally.july_unavailable || 0}/${vres.tally.july_tool_na || 0}/${vres.tally.cache_sensitive || 0}/${d} ${Math.round((Date.now() - t0) / 1000)}s`);
   fs.rmSync(work, { recursive: true, force: true });
   done++;
 }
 logln(`\n# 完了 処理=${processed} 成功=${done} SKIP=${skipped}`);
-logln(`# 検証 match=${tally.match} july_main_bug=${tally.july_main_bug} july_main_bug_late=${tally.july_main_bug_late} july_unavailable=${tally.july_unavailable} july_tool_na=${tally.july_tool_na} differ=${tally.differ}`);
+logln(`# 検証 match=${tally.match} july_main_bug=${tally.july_main_bug} july_main_bug_late=${tally.july_main_bug_late} july_unavailable=${tally.july_unavailable} july_tool_na=${tally.july_tool_na} cache_sensitive=${tally.cache_sensitive} differ=${tally.differ}`);
 if (tally.differ > 0) logln(`# ★ differ=${tally.differ} — 報告のトリガー`);

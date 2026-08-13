@@ -1,7 +1,8 @@
-out/*/raw/
-out/*/stderr/
+# 実行時のみの制御ファイル（成果物ではない）
 out/*/.claim
-out/progress.log
-out/run_full.log
 out/STOP
 out/supervisor.pgid
+
+# raw/（各ツールの生SBOM）と stderr/ は **意図的にコミットする**。
+# 7月は生SBOMを保存しなかったため、trivy の欠落モジュールを特定できなくなった。
+# 同じ失敗を繰り返さないよう、リポジトリを膨らませてでも保存する（計112MB）。

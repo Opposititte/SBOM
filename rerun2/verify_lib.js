@@ -5,7 +5,15 @@
 //   比較対象:
 //     - GT 3定義の件数（scorer が見た集合サイズ = tp+fn。7月・今回とも同じ求め方）
 //     - 各ツールの tp/fp/fn（all / imported / imported+test の9値。モジュールパス単位）
-//   判定: match / july_main_bug / july_main_bug_late / july_unavailable / july_tool_na / differ。
+//   判定: match / july_main_bug / july_main_bug_late / july_unavailable / july_tool_na /
+//         cache_sensitive / differ。
+//
+// 【ゲートの位置づけ】pass/fail ではなく「差分の特性を記述する」道具として使う。
+//   7月の条件は原理的に再現不能であることが分かったため（GOMODCACHE を全repoで共有して
+//   いたので結果が処理順に依存する。cache_effect.js の対照実験を参照）、
+//   「7月と一致すること」を合格条件に据えない。差分が出ても止めず、原因で分類して記録する。
+//   cache_sensitive = module cache を温めると7月の値を再現する差分。
+//     ツールの能力ではなくキャッシュ状態に起因するので再現失敗ではない。
 //   july_unavailable は「7月側の記録が使えず比較できない」repo。
 //   「7月と比較できない」ことと「再現できていない」ことは別物なので differ に混ぜない。
 //   ゲートは通す（ジョブを止めない）が verify.csv には必ず行を残す。
@@ -43,7 +51,7 @@ const TOOLS = ['syft', 'trivy', 'cdxgen', 'cyclonedx-gomod'];
 const VERIFY_HEADER = 'repo,tool,' +
   'gt_imp_july,gt_imp_now,gt_impT_july,gt_impT_now,gt_all_july,gt_all_now,gt_counts_ok,' +
   'july_n_all_raw,now_gt_all_tsv_lines,' +
-  'july_scores,now_main,now_main_empty,emptymain_source,verdict\n';
+  'july_scores,now_main,now_main_empty,now_warm_cache,emptymain_source,verdict\n';
 
 // ---------- 7月の記録 ----------
 function loadJuly() {
@@ -143,7 +151,8 @@ function extraEmptyMain() {
 // ※ この関数は census2/rerun/verify_with_scorer.js の score() と論理的に同一。
 //    （main.txt を空にする / gt_all.txt にだけ main 行を復元する / gt_imported・gt_impT は
 //      7月も main を含まないので復元しない / 補助集合は空 / raw を展開して scorer を実行）
-function score(outDir, repo, emptyMain) {
+function score(outDir, repo, emptyMain, rawSub) {
+  rawSub = rawSub || 'raw';
   const R = `${outDir}/${repo}`, D = `/tmp/vs2_${repo}_${process.pid}`;
   fs.rmSync(D, { recursive: true, force: true }); fs.mkdirSync(D, { recursive: true });
   const meta = JSON.parse(fs.readFileSync(`${R}/meta.json`, 'utf8'));
@@ -156,7 +165,7 @@ function score(outDir, repo, emptyMain) {
   // FP原因分類にしか使わない補助集合。tp/fp/fn には影響しないので空で良い。
   for (const f of ['win.txt', 'mod_direct.txt', 'mod_indirect.txt', 'gosum.txt']) fs.writeFileSync(`${D}/${f}`, '');
   for (const t of TOOLS) {
-    const g = `${R}/raw/${t}.json.gz`, p = `${R}/raw/${t}.json`;
+    const g = `${R}/${rawSub}/${t}.json.gz`, p = `${R}/${rawSub}/${t}.json`;
     if (fs.existsSync(g)) fs.writeFileSync(`${D}/${t}_output.json`, zlib.gunzipSync(fs.readFileSync(g)));
     else if (fs.existsSync(p)) fs.copyFileSync(p, `${D}/${t}_output.json`);
   }
@@ -201,7 +210,11 @@ function verifyRepo(outDir, repo, july) {
   // 非 NA のツール行から1つ求めて全行で使う（NA行だけ偽の件数不一致になるのを防ぐ）。
   const repoGT = S => { for (const t of TOOLS) { const g = gtSizeOf(S[t]); if (g) return g; } return null; };
 
-  const rows = [], tally = { match: 0, july_main_bug: 0, july_main_bug_late: 0, july_unavailable: 0, july_tool_na: 0, differ: 0 };
+  // module cache を温めて取り直した出力があれば読む（differ の原因切り分け用）
+  const hasWarm = fs.existsSync(`${R}/raw_warm`);
+  let W = null;
+  const needW = () => { if (!W) W = score(outDir, repo, false, 'raw_warm'); return W; };
+  const rows = [], tally = { match: 0, july_main_bug: 0, july_main_bug_late: 0, july_unavailable: 0, july_tool_na: 0, cache_sensitive: 0, differ: 0 };
   for (const t of TOOLS) {
     const j = (july.met[repo] || {})[t];
     if (j === undefined) continue;
@@ -222,6 +235,9 @@ function verifyRepo(outDir, repo, july) {
     } else if (predicted && needB()[t] === j) {
       // 予測集合に入っている repo のみ。ツール出力自体は7月と同一。
       verdict = predictedLate ? 'july_main_bug_late' : 'july_main_bug'; useB = true;
+    } else if (hasWarm && needW()[t] === j) {
+      // 温めた module cache では7月の値を再現する＝キャッシュ状態に起因する差分。
+      verdict = 'cache_sensitive';
     } else {
       verdict = 'differ';
       if (predicted) needB();      // 参考のため main 空の値も出す
@@ -236,7 +252,7 @@ function verifyRepo(outDir, repo, july) {
       jGT ? jGT.imp : '', nGT ? nGT.imp : '', jGT ? jGT.impT : '', nGT ? nGT.impT : '',
       jGT ? jGT.all : '', nGT ? nGT.all : '', countsOk === null ? 'NA' : countsOk ? 'yes' : 'NO',
       J.all, nowAllLines,
-      j, a === undefined ? '' : a, B ? B[t] : '',
+      j, a === undefined ? '' : a, B ? B[t] : '', W ? W[t] : '',
       predictedAhead ? 'predicted' : predictedLate ? `late:${(extra.get(repo) || {}).added_at || ''}` : 'no',
       verdict].join(','));
   }

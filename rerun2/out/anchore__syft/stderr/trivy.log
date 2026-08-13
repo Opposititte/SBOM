@@ -1,0 +1,8 @@
+2026-08-05T05:48:48Z	INFO	"--format cyclonedx" disables security scanning. Specify "--scanners vuln" explicitly if you want to include vulnerabilities in the "cyclonedx" report.
+2026-08-05T05:48:49Z	WARN	[dotnet] Multiple root projects found in .deps.json	existing_root="TestLibrary/1.0.0" new_root="TestCommon/1.0.0"
+2026-08-05T05:48:49Z	WARN	[dotnet] Multiple root projects found in .deps.json	existing_root="TestCommon/1.0.0" new_root="TestLibrary/1.0.0"
+2026-08-05T05:48:49Z	WARN	[mix] Cannot parse dependency	line="\"local_dep\": {:path, \"../local_dep\", []},"
+2026-08-05T05:48:49Z	WARN	[pom] Dependency version cannot be determined. Child dependencies will not be found.	details="https://trivy.dev/docs/dev/guide/coverage/language/java#empty-dependency-version"
+2026-08-05T05:48:49Z	FATAL	Error	remote Maven repository returned 429 Too Many Requests for https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.pom. Retry-After: 1800.
+The repository blocks all subsequent requests from this IP until the block clears.
+To avoid this, populate the local Maven cache before scanning (e.g. run `mvn dependency:resolve` and cache ~/.m2 in CI).
