@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-// verify2.js — census2/rerun2/out/ に保存済みの成果物すべてを検証し直し、verify.csv を作り直す。
+// verify2.js — remeasurement-full/out/ に保存済みの成果物すべてを検証し直し、verify.csv を作り直す。
 //   採点は再実装せず 7月の census2/scorer.js を実行する（verify_lib.js）。
 //   rerun2.js は1件ごとに verify.csv へ追記するので通常は不要。判定ロジックを直した後や、
 //   途中で止まった run の verify.csv を作り直したいときに使う。
 //
-//   使い方: node census2/rerun2/verify2.js
+//   使い方: node remeasurement-full/verify2.js
 'use strict';
 const fs = require('fs');
 const path = require('path');

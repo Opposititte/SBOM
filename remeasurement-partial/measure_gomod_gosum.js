@@ -2,8 +2,8 @@
 // measure_gomod_gosum.js — 「go.sum は go.mod より多くのモジュールを記録するのか」を実測する。
 //   記憶や2〜3例の印象ではなく、無作為標本で分布を取るためのスクリプト。
 //
-//   使い方: node census2/rerun/measure_gomod_gosum.js [件数] [seed]
-//   出力  : census2/rerun/out/gomod_vs_gosum.csv と標準出力の要約
+//   使い方: node remeasurement-partial/measure_gomod_gosum.js [件数] [seed]
+//   出力  : remeasurement-partial/out/gomod_vs_gosum.csv と標準出力の要約
 //
 //   数えるもの（すべて**モジュール単位**。行数ではない）:
 //     req_total     : go.mod の require 総数

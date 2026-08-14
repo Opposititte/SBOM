@@ -7,7 +7,7 @@
 //   prefix の外に飛び地として存在し、これを混ぜると july_main_bug が過剰に見える。
 //   原稿に中間値を載せる場合は必ずこちらの prefix 集計を使うこと。
 //
-//   使い方: node census2/rerun2/sample.js
+//   使い方: node remeasurement-full/sample.js
 'use strict';
 const fs = require('fs');
 const path = require('path');

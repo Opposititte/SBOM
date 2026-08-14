@@ -187,17 +187,17 @@ W('```');
 W("ツール側 `toolSets` (`scorer.js:24`) も `if (p === 'stdlib' || p === main) continue;` で同じ除外をしているため、");
 W('**GT側・ツール側の対称性は保たれており、3定義とも「外部から取得するモジュールのみ」で採点されている**。');
 W('本文の「外部から取得するモジュールをSBOMの対象とする」という記述は採点実態と整合する。\n');
-W('**実測による裏付け**: `census2/rerun` は GT を成果物化する際に自モジュールを落とす（`parseGt(out, gmain)`）ため、');
+W('**実測による裏付け**: `remeasurement-partial/` は GT を成果物化する際に自モジュールを落とす（`parseGt(out, gmain)`）ため、');
 W('7月のマニフェスト列 `n_all`（＝生ファイルの行数）と直接は一致せず、検証では `julyAllAdj = n_all - 1` を使っている。');
 (() => {
-  const vf = BASE + '/rerun/out/verify.csv';
-  if (!fs.existsSync(vf)) { W('（`rerun/out/verify.csv` が未生成のため一致件数は省略）\n'); return; }
+  const vf = BASE + '/remeasurement-partial/out/verify.csv';
+  if (!fs.existsSync(vf)) { W('（`remeasurement-partial/out/verify.csv` が未生成のため一致件数は省略）\n'); return; }
   const L = fs.readFileSync(vf, 'utf8').trim().split('\n');
   const h = L[0].split(','); const iR = h.indexOf('repo'), iA = h.indexOf('gt_all_july_adj'), iB = h.indexOf('gt_all_now');
   const seen = new Map();
   for (const l of L.slice(1)) { const c = l.split(','); if (!seen.has(c[iR])) seen.set(c[iR], [+c[iA], +c[iB]]); }
   let eq = 0; for (const [, [a, b]] of seen) if (a === b) eq++;
-  W(`この "ちょうど −1" は **${seen.size}件中 ${eq}件（不一致 ${seen.size - eq}件）** で成立する（\`rerun/out/verify.csv\`）。`);
+  W(`この "ちょうど −1" は **${seen.size}件中 ${eq}件（不一致 ${seen.size - eq}件）** で成立する（\`remeasurement-partial/out/verify.csv\`）。`);
   W('全件でぴったり1件多い、という事実がその1件＝自モジュールであることを示す。\n');
 })();
 W('**原稿への含意（2点）**');
@@ -418,7 +418,7 @@ W('  （検証側で環境が変わると `go/build` の判定が計測時とず
 
 // ---- 各ツールの実行コマンド（実物） ----
 W('## 4b. 各SBOMツールの実行コマンド（実物）');
-W('7月の計測（`proc.sh`）と再実行（`rerun/rerun.js`）で**コマンドは同一**。');
+W('7月の計測（`proc.sh`）と再実行（`remeasurement-partial/rerun.js`）で**コマンドは同一**。');
 W('差は出力先のパスと stderr の扱いのみ（再実行では stderr を捨てずに保存する）。');
 W('`$d` / `${src}` はクローンしたリポジトリのルート、`$TO` は per-command timeout（300秒）。\n');
 W('```bash');

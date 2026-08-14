@@ -133,9 +133,9 @@ function gtSets(f) { ... const p = norm(a[0]);
 **GT側・ツール側の対称性は保たれており、3定義とも「外部から取得するモジュールのみ」で採点されている**。
 本文の「外部から取得するモジュールをSBOMの対象とする」という記述は採点実態と整合する。
 
-**実測による裏付け**: `census2/rerun` は GT を成果物化する際に自モジュールを落とす（`parseGt(out, gmain)`）ため、
+**実測による裏付け**: `remeasurement-partial/` は GT を成果物化する際に自モジュールを落とす（`parseGt(out, gmain)`）ため、
 7月のマニフェスト列 `n_all`（＝生ファイルの行数）と直接は一致せず、検証では `julyAllAdj = n_all - 1` を使っている。
-この "ちょうど −1" は **380件中 380件（不一致 0件）** で成立する（`rerun/out/verify.csv`）。
+この "ちょうど −1" は **380件中 380件（不一致 0件）** で成立する（`remeasurement-partial/out/verify.csv`）。
 全件でぴったり1件多い、という事実がその1件＝自モジュールであることを示す。
 
 **原稿への含意（2点）**
@@ -333,7 +333,7 @@ precision が 0 になるため、**この除外は Syft・Trivy に有利に働
   （検証側で環境が変わると `go/build` の判定が計測時とずれるため）。値は同じだが、意図が異なる。
 
 ## 4b. 各SBOMツールの実行コマンド（実物）
-7月の計測（`proc.sh`）と再実行（`rerun/rerun.js`）で**コマンドは同一**。
+7月の計測（`proc.sh`）と再実行（`remeasurement-partial/rerun.js`）で**コマンドは同一**。
 差は出力先のパスと stderr の扱いのみ（再実行では stderr を捨てずに保存する）。
 `$d` / `${src}` はクローンしたリポジトリのルート、`$TO` は per-command timeout（300秒）。
 

@@ -6,8 +6,8 @@
 //         同時に測ってしまい、不一致時に切り分けられない。ここでは採点コードを
 //         再実装せず本物を呼ぶので、**純粋にツール出力の再現性だけ**を見る。
 //
-//   使い方: node census2/rerun/verify_with_scorer.js
-//   出力  : census2/rerun/out/verify_scorer.csv
+//   使い方: node remeasurement-partial/verify_with_scorer.js
+//   出力  : remeasurement-partial/out/verify_scorer.csv
 //
 //   既知の7月側バグ: 一部リポジトリで `go list -m` が空を返し main.txt が空になったため、
 //   scorer.js が自モジュールを除外できていない。syft/trivy は自モジュールを components に

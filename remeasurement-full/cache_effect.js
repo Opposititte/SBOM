@@ -15,8 +15,8 @@
 //     その repo 固有の依存は入っていない）。warm は7月より温かい上限側の条件である。
 //     ここで測りたいのは「キャッシュ状態でどれだけ動くか」の効果量であって7月の再現ではない。
 //
-//   使い方: node census2/rerun2/cache_effect.js [件数=40]
-//   出力  : census2/rerun2/cache_effect/summary.csv, per_module.csv, README.md
+//   使い方: node remeasurement-full/cache_effect.js [件数=40]
+//   出力  : remeasurement-full/cache_effect/summary.csv, per_module.csv, README.md
 'use strict';
 const fs = require('fs');
 const cp = require('child_process');

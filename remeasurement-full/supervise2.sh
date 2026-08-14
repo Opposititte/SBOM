@@ -4,9 +4,9 @@
 # rerun2.js は .claim で排他するので同時実行しても同じ repo を二重処理しない。
 #
 # 必ず setsid で起動すること（前回、親プロセスの終了に巻き込まれてジョブが繰り返し停止した）:
-#   setsid nohup ./census2/rerun2/supervise2.sh 3 > /dev/null 2>&1 < /dev/null &
+#   setsid nohup ./remeasurement-full/supervise2.sh 3 > /dev/null 2>&1 < /dev/null &
 #
-# 停止は ./census2/rerun2/stop2.sh（3ワーカーまとめて止まる。--now で即時）。
+# 停止は ./remeasurement-full/stop2.sh（3ワーカーまとめて止まる。--now で即時）。
 # differ を検出したワーカーは自分で out/STOP を立てるので、全ワーカーが次の repo の
 # 切れ目で抜け、この supervisor も再投入せずに終了する。
 set -u
@@ -15,7 +15,7 @@ P=${1:-3}
 LIMIT=${2:-}
 export PATH=/opt/go1265/go/bin:${TOOL_BIN:-/workspace/gopath/bin}:$PATH
 export GOPATH=${GOPATH:-/workspace/gopath}
-OUT=census2/rerun2/out
+OUT=remeasurement-full/out
 mkdir -p "$OUT"
 
 # 前回の supervisor が生きていないか確認する（二重起動すると .claim の掃除が危険）
@@ -45,7 +45,7 @@ for i in $(seq 1 500); do
   n=$(ls -d "$OUT"/*/ 2>/dev/null | wc -l)
   if [ "$n" -ge "$TOTAL" ]; then echo "[supervise2] 全 $TOTAL 件完了 $(date -u +%FT%TZ)" >> "$OUT/run_full.log"; break; fi
   echo "[supervise2] round $i: 済み $n / $TOTAL  $(date -u +%FT%TZ)" >> "$OUT/run_full.log"
-  for w in $(seq 1 "$P"); do node census2/rerun2/rerun2.js $LIMIT >> "$OUT/run_full.log" 2>&1 & done
+  for w in $(seq 1 "$P"); do node remeasurement-full/rerun2.js $LIMIT >> "$OUT/run_full.log" 2>&1 & done
   wait
   sleep 2
 done

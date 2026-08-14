@@ -6,8 +6,8 @@
 //   7月に NA だったツールだけを、その repo で cold と warm の両方で実行して成否を記録する。
 //   ツールの失敗率という指標がキャッシュ状態に依存するなら、それ自体が報告に値する。
 //
-//   使い方: node census2/rerun2/na_probe.js [件数=20]
-//   出力  : census2/rerun2/cache_effect/na_probe.csv
+//   使い方: node remeasurement-full/na_probe.js [件数=20]
+//   出力  : remeasurement-full/cache_effect/na_probe.csv
 'use strict';
 const fs = require('fs');
 const cp = require('child_process');

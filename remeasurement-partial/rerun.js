@@ -3,10 +3,10 @@
 //   7月の計測は件数と tp/fp/fn しか残しておらず、「Syft の誤検出モジュールの上位は？」
 //   のような問いに答えられない。ここでは実体（モジュール一覧）を TSV で保存する。
 //
-//   使い方: node census2/rerun/rerun.js [件数]      (省略時=全件)
-//           node census2/rerun/rerun.js 10          (まず10件で試す)
+//   使い方: node remeasurement-partial/rerun.js [件数]      (省略時=全件)
+//           node remeasurement-partial/rerun.js 10          (まず10件で試す)
 //
-//   既存の census2 の結果には一切書き込まない（出力は census2/rerun/out/ のみ）。
+//   既存の census2 の結果には一切書き込まない（出力は remeasurement-partial/out/ のみ）。
 //
 // 【照合基準】tp/fp/fn は**モジュールパス単位**（scorer.js と同一の norm()）。
 //   バージョンは TSV に保存するだけで、照合には使わない。ここを変えると7月と比較できない。

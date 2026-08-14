@@ -1,4 +1,4 @@
-# census2/rerun2 — census2 の全件再計測と検証
+# remeasurement-full — census2 の全件再計測と検証
 
 7月に実施した census2 の計測を、**同じ 1,528 リポジトリ・同じ commit SHA・同じツールバージョン**で
 やり直したもの。7月の結果（`census2/metrics.csv` 等）には一切書き込まず、出力は `out/` にのみ書く。
@@ -58,7 +58,7 @@
 
 ## 実行環境
 
-`versions.txt` に実測値を記録している。7月（`census2/tool_versions.txt`）と同一バージョン。
+`versions.txt` に実測値を記録している。7月（`tool_versions.txt`）と同一バージョン。
 
 ```
 go1.26.5 linux/amd64   GOTOOLCHAIN=local  GOFLAGS=-mod=mod
@@ -84,18 +84,18 @@ syft v1.46.0 / trivy v0.72.0 / cdxgen 12.7.1 / cyclonedx-gomod v1.10.0
 
 ```bash
 export PATH=/opt/go1265/go/bin:/path/to/tool/bin:$PATH   # GO_BIN / TOOL_BIN でも指定可
-node census2/rerun2/rerun2.js 10        # まず10件で試す
-./census2/rerun2/supervise2.sh 3        # 3ワーカーで全件（setsid 推奨）
-./census2/rerun2/stop2.sh --now         # 全ワーカーをまとめて停止
-node census2/rerun2/verify2.js          # 保存物から verify.csv を作り直す（こちらが正本）
-node census2/rerun2/sample.js           # 無作為標本だけに限定した集計
+node remeasurement-full/rerun2.js 10        # まず10件で試す
+./remeasurement-full/supervise2.sh 3        # 3ワーカーで全件（setsid 推奨）
+./remeasurement-full/stop2.sh --now         # 全ワーカーをまとめて停止
+node remeasurement-full/verify2.js          # 保存物から verify.csv を作り直す（こちらが正本）
+node remeasurement-full/sample.js           # 無作為標本だけに限定した集計
 ```
 
 `supervise2.sh` は **必ず `setsid` で起動する**こと。親プロセスの終了に巻き込まれて
 ジョブが繰り返し停止する事故があったため。
 
 ```bash
-setsid nohup ./census2/rerun2/supervise2.sh 3 > /dev/null 2>&1 < /dev/null &
+setsid nohup ./remeasurement-full/supervise2.sh 3 > /dev/null 2>&1 < /dev/null &
 ```
 
 デバッグ用の環境変数:

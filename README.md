@@ -80,12 +80,18 @@ node verify.js
 
 ### 追加検証
 
-- `validate/`: GT-importedの妥当性と再現性の検証
-- `rerun/`: 一部リポジトリの再実行と差分調査
-- `rerun2/`: 全1,528リポジトリの再計測（1,526件を計測，恒久SKIP 2件）。各リポジトリの
-  GT 3定義と4ツールの検出結果をモジュール一覧（TSV）で保存し，生SBOM（`raw/`）と
-  stderr も残している。7月の `scorer.js` をそのまま実行して照合した結果は `match` 98.9%，
-  再現できなかった差分は4行。詳細は `rerun2/README.md`
+| ディレクトリ | 内容 |
+|---|---|
+| `validate/` | GT-importedの妥当性と再現性の検証（99件。GT再現性は98/99一致） |
+| `remeasurement-partial/` | 381リポジトリの部分再計測と，そこで得た知見（`FINDINGS.md`） |
+| `remeasurement-full/` | 全1,528リポジトリの完全再計測（1,526件を計測，恒久SKIP 2件） |
+
+`remeasurement-partial/FINDINGS.md`には，本文に書ききれていない次の根拠を記録しています。
+
+- 照合時にモジュールパスを小文字化した理由（PURL仕様は`golang`型に小文字化を求めており，準拠していたのはTrivyのみ。小文字化しなければTrivyを不当に低く評価することになる）
+- 評価対象を「GT-importedが空でない」ことで絞った条件付けの非対称性（限界節に対応）
+
+`remeasurement-full/`は，各リポジトリのGT 3定義と4ツールの検出結果をモジュール一覧（TSV）で保存し，生SBOM（`raw/`）とstderrも残しています。初回計測の`scorer.js`をそのまま実行して照合した結果は`match` 98.9%，再現できなかった差分は4行です。詳細は`remeasurement-full/README.md`を参照してください。
 
 これらは論文中の実装上の注意点や限界を確認するための記録です。
 

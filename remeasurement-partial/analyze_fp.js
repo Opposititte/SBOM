@@ -2,10 +2,10 @@
 // analyze_fp.js — 保存した TSV を使って「7月の計測では答えられなかった問い」に答える。
 //   例: 「Syft の誤検出（FP）モジュールの上位は何か」
 //
-//   使い方: node census2/rerun/analyze_fp.js [GT定義]    既定 imported
-//   出力  : census2/rerun/out/fp_ranking_<GT>.csv と標準出力のサマリ
+//   使い方: node remeasurement-partial/analyze_fp.js [GT定義]    既定 imported
+//   出力  : remeasurement-partial/out/fp_ranking_<GT>.csv と標準出力のサマリ
 //
-//   標本: census2/rerun/out/ に成果物がある repo（seed固定ランダム順で処理されるため
+//   標本: remeasurement-partial/out/ に成果物がある repo（seed固定ランダム順で処理されるため
 //         途中で止まっても偏りのない無作為標本になる）。
 //   照合: scorer.js と同じく小文字化したモジュールパス単位。
 'use strict';

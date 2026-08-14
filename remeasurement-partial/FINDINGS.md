@@ -1,4 +1,4 @@
-# 再実行で得られた知見（census2/rerun）
+# 再実行で得られた知見（remeasurement-partial）
 
 ## 1. PURL 仕様の小文字化要求と、ツール間の非準拠（相互運用性の問題）
 

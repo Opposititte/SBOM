@@ -7,11 +7,11 @@
 # の2段構えにする。supervise2.sh は setsid で起動され自分の PGID を out/supervisor.pgid に
 # 書くので、そのグループを丸ごと落とせば supervisor・全ワーカー・その子(git/syft/go…)まで届く。
 #
-#   使い方: ./census2/rerun2/stop2.sh                 # 安全に停止（進行中の1件は書き切る）
-#           ./census2/rerun2/stop2.sh --now           # 即時停止（プロセスグループを kill）
+#   使い方: ./remeasurement-full/stop2.sh                 # 安全に停止（進行中の1件は書き切る）
+#           ./remeasurement-full/stop2.sh --now           # 即時停止（プロセスグループを kill）
 set -u
 cd "$(dirname "$0")/../.."
-OUT=census2/rerun2/out
+OUT=remeasurement-full/out
 PGF="$OUT/supervisor.pgid"
 NOW=0; REASON="manual stop"
 for a in "$@"; do case "$a" in --now) NOW=1;; *) REASON="$a";; esac; done
@@ -33,9 +33,9 @@ if [ "$NOW" = "1" ]; then
     fi
   else
     echo "[stop2] $PGF が無い。pkill でフォールバックする"
-    pkill -f 'census2/rerun2/rerun2.js'; pkill -f 'census2/rerun2/supervise2.sh'
+    pkill -f 'remeasurement-full/rerun2.js'; pkill -f 'remeasurement-full/supervise2.sh'
   fi
 fi
 
-echo "[stop2] 残プロセス: $(pgrep -fc 'census2/rerun2/(rerun2.js|supervise2.sh)' 2>/dev/null || echo 0)"
+echo "[stop2] 残プロセス: $(pgrep -fc 'remeasurement-full/(rerun2.js|supervise2.sh)' 2>/dev/null || echo 0)"
 echo "[stop2] 再開するには out/STOP を消してから supervise2.sh を起動する"

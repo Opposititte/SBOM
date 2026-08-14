@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-// rerun2.js — census2 の計測を**全件やり直す**。成果物は census2/rerun2/out/ にのみ書く。
-//   既存の census2/ の結果（metrics.csv, manifest.csv, rerun/out/ 等）には一切書き込まない。
+// rerun2.js — census2 の計測を**全件やり直す**。成果物は remeasurement-full/out/ にのみ書く。
+//   既存の census2/ の結果（metrics.csv, manifest.csv, remeasurement-partial/out/ 等）には一切書き込まない。
 //
-//   使い方: node census2/rerun2/rerun2.js [件数]     (省略時=全件)
-//           node census2/rerun2/rerun2.js 10         (まず10件で試す)
+//   使い方: node remeasurement-full/rerun2.js [件数]     (省略時=全件)
+//           node remeasurement-full/rerun2.js 10         (まず10件で試す)
 //
 // 【対象】manifest.csv の status=OK の 1,528 件。7月に記録した commit SHA に固定して clone。
 // 【GT】3定義: go list -m -e all / go list -deps -e / go list -deps -test -e

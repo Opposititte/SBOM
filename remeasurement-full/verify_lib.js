@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // verify_lib.js — 検証ゲート。**採点コードは再実装せず 7月の census2/scorer.js を実行する**
-//   （census2/rerun/verify_with_scorer.js と同じ方式）。
+//   （remeasurement-partial/verify_with_scorer.js と同じ方式）。
 //
 //   比較対象:
 //     - GT 3定義の件数（scorer が見た集合サイズ = tp+fn。7月・今回とも同じ求め方）
@@ -119,7 +119,7 @@ function unavailableRepos(man, gt) {
 // 予測集合への**事後**追加（main空 かつ norm() の大小文字衝突が同時に起きる repo は
 // n_all-(tp+fn) が 1 になり予測集合から漏れる＝differ として上がる）。
 // その差分が「imported fp +1 / all fn +1」の既知シグネチャなら、コードを直さず
-// census2/rerun2/emptymain_extra.txt に足して再判定できる。
+// remeasurement-full/emptymain_extra.txt に足して再判定できる。
 //
 // ただしこれは **走行中にオラクルを書き換える行為** なので、事前予測（emptyMainRepos）とは
 // 必ず区別する。判定ラベルは july_main_bug ではなく july_main_bug_late とし、
@@ -148,7 +148,7 @@ function extraEmptyMain() {
 
 // ---------- 保存物から scorer.js の入力を復元して実行 ----------
 // emptyMain=true で「7月の main 空」状態を再現する。
-// ※ この関数は census2/rerun/verify_with_scorer.js の score() と論理的に同一。
+// ※ この関数は remeasurement-partial/verify_with_scorer.js の score() と論理的に同一。
 //    （main.txt を空にする / gt_all.txt にだけ main 行を復元する / gt_imported・gt_impT は
 //      7月も main を含まないので復元しない / 補助集合は空 / raw を展開して scorer を実行）
 function score(outDir, repo, emptyMain, rawSub) {
