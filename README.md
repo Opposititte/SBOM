@@ -100,6 +100,20 @@ node verify.js
 
 そのため，別の環境で完全再実行する場合は，これらのパスを環境に合わせる必要があります。科学的な処理内容を変えないため，この公開用ブランチでは実験コード自体は変更していません。
 
+### コンテナによる環境の固定
+
+上記の絶対パスとツールのバージョンをまとめて満たすため，`Dockerfile`を用意しています。実験コードを書き換える代わりに，コンテナ側で`/home/user/SBOM/census2`と`/opt/go1265/go/bin`を用意する方針です。
+
+```
+docker build -t census2 .
+docker run --rm census2 node verify.js     # 保存済みCSVから論文の表を再計算
+docker run --rm -it census2 bash           # 個別リポジトリの再計測
+```
+
+ツールの導入について，計測時の記録に含まれていない注意点が1つあります。**Trivy v0.72.0 をソースからビルドするには`GOEXPERIMENT=jsonv2`が必要です**。Go 1.26 の`encoding/json/v2`を使うためで，指定しない場合は`build constraints exclude all Go files`で失敗します。`Dockerfile`にはこの指定を含めています。
+
+なお`Dockerfile`自体のビルドは未検証です（作成環境にdockerデーモンが無いため）。各ステップは同等の環境で個別に実行して確認しており，確認内容は`Dockerfile`冒頭に記載しています。
+
 ## 収録範囲と制限
 
 - 集計済みの`manifest.csv`と`metrics.csv`，集計・検証スクリプトは収録しています。
