@@ -1,0 +1,13 @@
+# Wilcoxon 符号付き順位検定 (共通集合 n=1466, per-repo F1, name一致)
+
+【逆転＝論文の主張】
+cdxgen>syft  (imported) | 勝敗 1278/6 | 中央値差 23.1pt | 効果量 0.99 | z=30.8 | p <1e-15
+syft>cdxgen  (all)      | 勝敗 1228/57 | 中央値差 18.7pt | 効果量 0.95 | z=29.6 | p <1e-15
+
+【細かい序列（効果量で読む）】
+cyclonedx vs cdxgen(imp) | 勝敗 233/501 | 中央値差 -2.7pt | 効果量 -0.17 | z=-4.0 | p 6.2e-5
+trivy>syft   (imported) | 勝敗 896/266 | 中央値差 5.9pt | 効果量 0.41 | z=12.1 | p <1e-15
+syft>trivy   (all)      | 勝敗 881/285 | 中央値差 6.4pt | 効果量 0.38 | z=11.1 | p <1e-15
+
+【同一ツールでGTを変える】
+cdxgen imp vs all       | 勝敗 1273/65 | 中央値差 45.5pt | 効果量 0.98 | z=30.9 | p <1e-15

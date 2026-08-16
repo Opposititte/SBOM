@@ -1,0 +1,20 @@
+captured: 2026-08-04T06:28:25Z   (remeasurement-full の計測環境)
+go: go version go1.26.5 linux/amd64
+GOOS/GOARCH/CGO: linux/amd64/CGO_ENABLED=1
+GOTOOLCHAIN=local  GOFLAGS=
+node: v22.22.2
+syft: Application:   syft
+trivy: Version: dev
+cdxgen: [1mCycloneDX Generator 12.7.1[0m
+cyclonedx-gomod: Version:	v1.10.0
+
+# syft/trivy はビルドメタが埋まっていないため、バイナリの埋め込みモジュール情報で確認:
+syft            = github.com/anchore/syft v1.46.0
+trivy           = github.com/aquasecurity/trivy v0.72.0
+cyclonedx-gomod = github.com/CycloneDX/cyclonedx-gomod v1.10.0
+cdxgen          = 12.7.1 (Node.js v22.22.2)
+
+# 7月(tool_versions.txt, remeasurement-partial/versions.txt)と同一のバージョンであることを確認済み。
+# 入手方法: GitHub releases は本環境のプロキシで 403 のため、7月と同じく go install でソースから
+#   ビルドした（そのため syft/trivy の -version はビルドメタ未埋め込み＝7月の記録と同じ状態）。
+#   trivy v0.72.0 は go1.26 の encoding/json/v2 を使うため GOEXPERIMENT=jsonv2 が必要。

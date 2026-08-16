@@ -1,0 +1,42 @@
+
+### tab:result  macro name (all/imp/impT のP/R/F1)
+syft             P/R/F1  all[93.1/67.3/73.4] imp[56.0/100.0/67.4] impT[69.3/99.9/78.8]
+trivy            P/R/F1  all[92.8/67.0/72.8] imp[59.6/100.0/68.9] impT[73.6/99.9/80.4]
+cdxgen           P/R/F1  all[94.6/42.4/52.7] imp[91.5/99.8/93.3] impT[92.4/82.3/82.3]
+cyclonedx-gomod  P/R/F1  all[99.9/43.5/56.4] imp[92.7/99.2/94.7] impT[92.9/80.8/82.5]
+
+### tab:macro-ver  macro version
+syft             P/R/F1  all[91.8/66.8/72.5] imp[55.3/99.9/66.7] impT[68.5/99.9/78.1]
+trivy            P/R/F1  all[91.5/66.4/71.9] imp[59.0/99.9/68.3] impT[72.9/99.9/79.8]
+cdxgen           P/R/F1  all[93.6/41.9/52.2] imp[90.9/99.7/92.8] impT[91.7/82.2/81.9]
+cyclonedx-gomod  P/R/F1  all[99.9/43.5/56.4] imp[92.6/99.1/94.7] impT[92.8/80.8/82.5]
+
+### tab:micro-name  micro name
+syft             P/R/F1  all[86.7/49.8/63.3] imp[53.5/99.8/69.7] impT[58.5/99.8/73.8]
+trivy            P/R/F1  all[86.1/47.9/61.5] imp[55.4/99.8/71.2] impT[60.5/99.8/75.3]
+cdxgen           P/R/F1  all[88.5/33.0/48.0] imp[82.7/99.8/90.5] impT[83.5/92.2/87.6]
+cyclonedx-gomod  P/R/F1  all[99.8/35.6/52.5] imp[85.6/98.9/91.7] impT[85.7/90.6/88.1]
+
+### tab:raw  TP/FP/FN pool (name)
+syft             all[69069/10634/69537] imp[42673/37030/104] impT[46638/33065/106]
+trivy            all[66369/10696/72237] imp[42673/34392/104] impT[46638/30427/106]
+cdxgen           all[45677/5945/92929] imp[42701/8921/76] impT[43107/8515/3637]
+cyclonedx-gomod  all[49317/110/89289] imp[42292/7135/485] impT[42364/7063/4380]
+
+### tab:valid 有効/NA
+syft             valid=1466 NA=0
+trivy            valid=1466 NA=0
+cdxgen           valid=1466 NA=0
+cyclonedx-gomod  valid=1466 NA=0
+
+### tab:fp  FP要因 (imported基準・name, %)
+syft             FP=37030 test=10.7 os=2.2 indirect=16.6 残余=70.5 (直=0.8 gosum=34.6 兄弟=35.1)
+trivy            FP=34392 test=11.5 os=2.4 indirect=17.9 残余=68.2 (直=0.8 gosum=27.9 兄弟=39.4)
+cdxgen           FP=8921 test=4.6 os=1.3 indirect=9.0 残余=85.1 (直=0.9 gosum=4.4 兄弟=79.9)
+cyclonedx-gomod  FP=7135 test=1.0 os=11.6 indirect=63.3 残余=24.1 (直=3.0 gosum=4.4 兄弟=16.6)
+
+### tab:robust  imported name macro-F1  共通集合 n=1466
+syft             共通F1=67.4 (n=1466)
+trivy            共通F1=68.9 (n=1466)
+cdxgen           共通F1=93.3 (n=1466)
+cyclonedx-gomod  共通F1=94.7 (n=1466)
