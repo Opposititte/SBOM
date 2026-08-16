@@ -1,0 +1,13 @@
+captured : 2026-07-20T11:13:12Z 〜 2026-07-21T05:11Z (UTC)
+go(base) : go1.26.5
+  GOTOOLCHAIN = local  （新しいGoを要求するrepoのみ auto でtoolchain取得）
+  GOFLAGS     = -mod=mod  （go.work を持つrepoでは自動で解除）
+tools    :
+  syft            v1.46.0
+  trivy           v0.72.0
+  cdxgen          12.7.1
+  cyclonedx-gomod v1.10.0
+GT定義   :
+  all      = go list -m -e all
+  imported = GOOS=linux go list -deps -e   （非test）
+  impT     = imported + -test              （test依存を追加）
